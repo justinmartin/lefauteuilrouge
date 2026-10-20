@@ -311,7 +311,7 @@ function renderCines() {
   html += `<div class="days">${[...Array(7)].map((_, i) => { const d = addDays(t, i), dt = parseDay(d);
     return `<button type="button" class="${d === seanceDate ? 'on' : ''}" data-sday="${d}"><span>${i === 0 ? 'Auj.' : i === 1 ? 'Dem.' : SHORT_DAYS[dt.getDay()].toLowerCase()}</span><b>${dt.getDate()}</b></button>`; }).join('')}</div>`;
   html += `<div class="chips">${[['all', 'Toutes'], ['vo', 'VO'], ['vf', 'VF'], ['soir', 'Après 19 h']].map(([v, l]) => `<button class="chip${seanceFilter === v ? ' on' : ''}" type="button" data-sfilter="${v}">${l}</button>`).join('')}</div>`;
-  html += '<div id="seances"><p class="loading">Recherche des séances…</p></div>';
+  html += '<div id="seances"><p class="loading">Recherche des séances…<br><small>jusqu'à 30 secondes la première fois, puis instantané</small></p></div>';
   return html + '<p class="source">Séances : <a href="https://paris-cine.info" target="_blank" rel="noopener">paris-cine.info</a> (données Allociné) · réservation sur le site du cinéma</p>';
 }
 
