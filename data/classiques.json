@@ -1,0 +1,1494 @@
+{
+ "sources": {
+  "imdb": "IMDb Top 250",
+  "nyt": "Les 100 films du XXIe siècle · New York Times",
+  "rt": "Classique certifié frais · Rotten Tomatoes"
+ },
+ "films": [
+  {
+   "title": "Les Évadés",
+   "original": "The Shawshank Redemption",
+   "year": 1994,
+   "director": "Frank Darabont",
+   "wiki": "The_Shawshank_Redemption",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Parrain",
+   "original": "The Godfather",
+   "year": 1972,
+   "director": "Francis Ford Coppola",
+   "wiki": "The_Godfather",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Le Parrain, 2e partie",
+   "original": "The Godfather Part II",
+   "year": 1974,
+   "director": "Francis Ford Coppola",
+   "wiki": "The_Godfather_Part_II",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "The Dark Knight : Le Chevalier noir",
+   "original": "The Dark Knight",
+   "year": 2008,
+   "director": "Christopher Nolan",
+   "wiki": "The_Dark_Knight",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "12 Hommes en colère",
+   "original": "12 Angry Men",
+   "year": 1957,
+   "director": "Sidney Lumet",
+   "wiki": "12_Angry_Men_(1957_film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "La Liste de Schindler",
+   "original": "Schindler's List",
+   "year": 1993,
+   "director": "Steven Spielberg",
+   "wiki": "Schindler's_List",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Seigneur des anneaux : Le Retour du roi",
+   "original": "The Lord of the Rings: The Return of the King",
+   "year": 2003,
+   "director": "Peter Jackson",
+   "wiki": "The_Lord_of_the_Rings:_The_Return_of_the_King",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Seigneur des anneaux : La Communauté de l'anneau",
+   "original": "The Lord of the Rings: The Fellowship of the Ring",
+   "year": 2001,
+   "director": "Peter Jackson",
+   "wiki": "The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring",
+   "sources": [
+    "imdb",
+    "nyt"
+   ]
+  },
+  {
+   "title": "Pulp Fiction",
+   "original": "Pulp Fiction",
+   "year": 1994,
+   "director": "Quentin Tarantino",
+   "wiki": "Pulp_Fiction",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Bon, la Brute et le Truand",
+   "original": "Il buono, il brutto, il cattivo",
+   "year": 1966,
+   "director": "Sergio Leone",
+   "wiki": "The_Good,_the_Bad_and_the_Ugly",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Fight Club",
+   "original": "Fight Club",
+   "year": 1999,
+   "director": "David Fincher",
+   "wiki": "Fight_Club",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Forrest Gump",
+   "original": "Forrest Gump",
+   "year": 1994,
+   "director": "Robert Zemeckis",
+   "wiki": "Forrest_Gump",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Inception",
+   "original": "Inception",
+   "year": 2010,
+   "director": "Christopher Nolan",
+   "wiki": "Inception",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "L'Empire contre-attaque",
+   "original": "The Empire Strikes Back",
+   "year": 1980,
+   "director": "Irvin Kershner",
+   "wiki": "The_Empire_Strikes_Back",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Matrix",
+   "original": "The Matrix",
+   "year": 1999,
+   "director": "Lana et Lilly Wachowski",
+   "wiki": "The_Matrix",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Les Affranchis",
+   "original": "Goodfellas",
+   "year": 1990,
+   "director": "Martin Scorsese",
+   "wiki": "Goodfellas",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Vol au-dessus d'un nid de coucou",
+   "original": "One Flew Over the Cuckoo's Nest",
+   "year": 1975,
+   "director": "Miloš Forman",
+   "wiki": "One_Flew_Over_the_Cuckoo's_Nest_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Seven",
+   "original": "Se7en",
+   "year": 1995,
+   "director": "David Fincher",
+   "wiki": "Seven_(1995_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Les Sept Samouraïs",
+   "original": "Shichinin no samurai",
+   "year": 1954,
+   "director": "Akira Kurosawa",
+   "wiki": "Seven_Samurai",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "La vie est belle",
+   "original": "It's a Wonderful Life",
+   "year": 1946,
+   "director": "Frank Capra",
+   "wiki": "It's_a_Wonderful_Life",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Le Silence des agneaux",
+   "original": "The Silence of the Lambs",
+   "year": 1991,
+   "director": "Jonathan Demme",
+   "wiki": "The_Silence_of_the_Lambs_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "La Cité de Dieu",
+   "original": "Cidade de Deus",
+   "year": 2002,
+   "director": "Fernando Meirelles",
+   "wiki": "City_of_God_(2002_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Il faut sauver le soldat Ryan",
+   "original": "Saving Private Ryan",
+   "year": 1998,
+   "director": "Steven Spielberg",
+   "wiki": "Saving_Private_Ryan",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Interstellar",
+   "original": "Interstellar",
+   "year": 2014,
+   "director": "Christopher Nolan",
+   "wiki": "Interstellar_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "La vie est belle",
+   "original": "La vita è bella",
+   "year": 1997,
+   "director": "Roberto Benigni",
+   "wiki": "Life_Is_Beautiful",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "La Ligne verte",
+   "original": "The Green Mile",
+   "year": 1999,
+   "director": "Frank Darabont",
+   "wiki": "The_Green_Mile_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Léon",
+   "original": "Léon",
+   "year": 1994,
+   "director": "Luc Besson",
+   "wiki": "Léon:_The_Professional",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Usual Suspects",
+   "original": "The Usual Suspects",
+   "year": 1995,
+   "director": "Bryan Singer",
+   "wiki": "The_Usual_Suspects",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Pianiste",
+   "original": "The Pianist",
+   "year": 2002,
+   "director": "Roman Polanski",
+   "wiki": "The_Pianist_(2002_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Terminator 2 : Le Jugement dernier",
+   "original": "Terminator 2: Judgment Day",
+   "year": 1991,
+   "director": "James Cameron",
+   "wiki": "Terminator_2:_Judgment_Day",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Retour vers le futur",
+   "original": "Back to the Future",
+   "year": 1985,
+   "director": "Robert Zemeckis",
+   "wiki": "Back_to_the_Future",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Psychose",
+   "original": "Psycho",
+   "year": 1960,
+   "director": "Alfred Hitchcock",
+   "wiki": "Psycho_(1960_film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Gladiator",
+   "original": "Gladiator",
+   "year": 2000,
+   "director": "Ridley Scott",
+   "wiki": "Gladiator_(2000_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Roi lion",
+   "original": "The Lion King",
+   "year": 1994,
+   "director": "Roger Allers et Rob Minkoff",
+   "wiki": "The_Lion_King",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Les Infiltrés",
+   "original": "The Departed",
+   "year": 2006,
+   "director": "Martin Scorsese",
+   "wiki": "The_Departed",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Whiplash",
+   "original": "Whiplash",
+   "year": 2014,
+   "director": "Damien Chazelle",
+   "wiki": "Whiplash_(2014_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Prestige",
+   "original": "The Prestige",
+   "year": 2006,
+   "director": "Christopher Nolan",
+   "wiki": "The_Prestige_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Intouchables",
+   "original": "Intouchables",
+   "year": 2011,
+   "director": "Éric Toledano et Olivier Nakache",
+   "wiki": "The_Intouchables",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Casablanca",
+   "original": "Casablanca",
+   "year": 1942,
+   "director": "Michael Curtiz",
+   "wiki": "Casablanca_(film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Il était une fois dans l'Ouest",
+   "original": "C'era una volta il West",
+   "year": 1968,
+   "director": "Sergio Leone",
+   "wiki": "Once_Upon_a_Time_in_the_West",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Tombeau des lucioles",
+   "original": "Hotaru no haka",
+   "year": 1988,
+   "director": "Isao Takahata",
+   "wiki": "Grave_of_the_Fireflies",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Les Temps modernes",
+   "original": "Modern Times",
+   "year": 1936,
+   "director": "Charlie Chaplin",
+   "wiki": "Modern_Times_(film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Fenêtre sur cour",
+   "original": "Rear Window",
+   "year": 1954,
+   "director": "Alfred Hitchcock",
+   "wiki": "Rear_Window",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Alien, le huitième passager",
+   "original": "Alien",
+   "year": 1979,
+   "director": "Ridley Scott",
+   "wiki": "Alien_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Apocalypse Now",
+   "original": "Apocalypse Now",
+   "year": 1979,
+   "director": "Francis Ford Coppola",
+   "wiki": "Apocalypse_Now",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Memento",
+   "original": "Memento",
+   "year": 2000,
+   "director": "Christopher Nolan",
+   "wiki": "Memento_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Les Aventuriers de l'arche perdue",
+   "original": "Raiders of the Lost Ark",
+   "year": 1981,
+   "director": "Steven Spielberg",
+   "wiki": "Raiders_of_the_Lost_Ark",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Django Unchained",
+   "original": "Django Unchained",
+   "year": 2012,
+   "director": "Quentin Tarantino",
+   "wiki": "Django_Unchained",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "WALL-E",
+   "original": "WALL-E",
+   "year": 2008,
+   "director": "Andrew Stanton",
+   "wiki": "WALL-E",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "La Vie des autres",
+   "original": "Das Leben der Anderen",
+   "year": 2006,
+   "director": "Florian Henckel von Donnersmarck",
+   "wiki": "The_Lives_of_Others",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Boulevard du crépuscule",
+   "original": "Sunset Boulevard",
+   "year": 1950,
+   "director": "Billy Wilder",
+   "wiki": "Sunset_Boulevard_(film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Les Sentiers de la gloire",
+   "original": "Paths of Glory",
+   "year": 1957,
+   "director": "Stanley Kubrick",
+   "wiki": "Paths_of_Glory",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Shining",
+   "original": "The Shining",
+   "year": 1980,
+   "director": "Stanley Kubrick",
+   "wiki": "The_Shining_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Dictateur",
+   "original": "The Great Dictator",
+   "year": 1940,
+   "director": "Charlie Chaplin",
+   "wiki": "The_Great_Dictator",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Princesse Mononoké",
+   "original": "Mononoke-hime",
+   "year": 1997,
+   "director": "Hayao Miyazaki",
+   "wiki": "Princess_Mononoke",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Old Boy",
+   "original": "Oldeuboi",
+   "year": 2003,
+   "director": "Park Chan-wook",
+   "wiki": "Oldboy_(2003_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Amadeus",
+   "original": "Amadeus",
+   "year": 1984,
+   "director": "Miloš Forman",
+   "wiki": "Amadeus_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Toy Story",
+   "original": "Toy Story",
+   "year": 1995,
+   "director": "John Lasseter",
+   "wiki": "Toy_Story",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Docteur Folamour",
+   "original": "Dr. Strangelove",
+   "year": 1964,
+   "director": "Stanley Kubrick",
+   "wiki": "Dr._Strangelove",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Reservoir Dogs",
+   "original": "Reservoir Dogs",
+   "year": 1992,
+   "director": "Quentin Tarantino",
+   "wiki": "Reservoir_Dogs",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Coco",
+   "original": "Coco",
+   "year": 2017,
+   "director": "Lee Unkrich",
+   "wiki": "Coco_(2017_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Will Hunting",
+   "original": "Good Will Hunting",
+   "year": 1997,
+   "director": "Gus Van Sant",
+   "wiki": "Good_Will_Hunting",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Requiem for a Dream",
+   "original": "Requiem for a Dream",
+   "year": 2000,
+   "director": "Darren Aronofsky",
+   "wiki": "Requiem_for_a_Dream",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "2001 : l'Odyssée de l'espace",
+   "original": "2001: A Space Odyssey",
+   "year": 1968,
+   "director": "Stanley Kubrick",
+   "wiki": "2001:_A_Space_Odyssey",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Fabuleux Destin d'Amélie Poulain",
+   "original": "Le Fabuleux Destin d'Amélie Poulain",
+   "year": 2001,
+   "director": "Jean-Pierre Jeunet",
+   "wiki": "Amélie",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Orange mécanique",
+   "original": "A Clockwork Orange",
+   "year": 1971,
+   "director": "Stanley Kubrick",
+   "wiki": "A_Clockwork_Orange_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Lawrence d'Arabie",
+   "original": "Lawrence of Arabia",
+   "year": 1962,
+   "director": "David Lean",
+   "wiki": "Lawrence_of_Arabia_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Taxi Driver",
+   "original": "Taxi Driver",
+   "year": 1976,
+   "director": "Martin Scorsese",
+   "wiki": "Taxi_Driver",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Scarface",
+   "original": "Scarface",
+   "year": 1983,
+   "director": "Brian De Palma",
+   "wiki": "Scarface_(1983_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Sueurs froides",
+   "original": "Vertigo",
+   "year": 1958,
+   "director": "Alfred Hitchcock",
+   "wiki": "Vertigo_(film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "La Mort aux trousses",
+   "original": "North by Northwest",
+   "year": 1959,
+   "director": "Alfred Hitchcock",
+   "wiki": "North_by_Northwest",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Citizen Kane",
+   "original": "Citizen Kane",
+   "year": 1941,
+   "director": "Orson Welles",
+   "wiki": "Citizen_Kane",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Chantons sous la pluie",
+   "original": "Singin' in the Rain",
+   "year": 1952,
+   "director": "Stanley Donen et Gene Kelly",
+   "wiki": "Singin'_in_the_Rain",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Rashōmon",
+   "original": "Rashōmon",
+   "year": 1950,
+   "director": "Akira Kurosawa",
+   "wiki": "Rashomon",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Mon voisin Totoro",
+   "original": "Tonari no Totoro",
+   "year": 1988,
+   "director": "Hayao Miyazaki",
+   "wiki": "My_Neighbor_Totoro",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Heat",
+   "original": "Heat",
+   "year": 1995,
+   "director": "Michael Mann",
+   "wiki": "Heat_(1995_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Labyrinthe de Pan",
+   "original": "El laberinto del fauno",
+   "year": 2006,
+   "director": "Guillermo del Toro",
+   "wiki": "Pan's_Labyrinth",
+   "sources": [
+    "imdb",
+    "nyt"
+   ]
+  },
+  {
+   "title": "Le Voyage de Chihiro",
+   "original": "Sen to Chihiro no kamikakushi",
+   "year": 2001,
+   "director": "Hayao Miyazaki",
+   "wiki": "Spirited_Away",
+   "sources": [
+    "imdb",
+    "nyt",
+    "rt"
+   ]
+  },
+  {
+   "title": "Parasite",
+   "original": "Gisaengchung",
+   "year": 2019,
+   "director": "Bong Joon-ho",
+   "wiki": "Parasite_(2019_film)",
+   "sources": [
+    "imdb",
+    "nyt",
+    "rt"
+   ]
+  },
+  {
+   "title": "Eternal Sunshine of the Spotless Mind",
+   "original": "Eternal Sunshine of the Spotless Mind",
+   "year": 2004,
+   "director": "Michel Gondry",
+   "wiki": "Eternal_Sunshine_of_the_Spotless_Mind",
+   "sources": [
+    "imdb",
+    "nyt"
+   ]
+  },
+  {
+   "title": "No Country for Old Men",
+   "original": "No Country for Old Men",
+   "year": 2007,
+   "director": "Joel et Ethan Coen",
+   "wiki": "No_Country_for_Old_Men_(film)",
+   "sources": [
+    "imdb",
+    "nyt"
+   ]
+  },
+  {
+   "title": "There Will Be Blood",
+   "original": "There Will Be Blood",
+   "year": 2007,
+   "director": "Paul Thomas Anderson",
+   "wiki": "There_Will_Be_Blood",
+   "sources": [
+    "imdb",
+    "nyt"
+   ]
+  },
+  {
+   "title": "Mad Max: Fury Road",
+   "original": "Mad Max: Fury Road",
+   "year": 2015,
+   "director": "George Miller",
+   "wiki": "Mad_Max:_Fury_Road",
+   "sources": [
+    "imdb",
+    "nyt"
+   ]
+  },
+  {
+   "title": "Inglourious Basterds",
+   "original": "Inglourious Basterds",
+   "year": 2009,
+   "director": "Quentin Tarantino",
+   "wiki": "Inglourious_Basterds",
+   "sources": [
+    "imdb",
+    "nyt"
+   ]
+  },
+  {
+   "title": "Mulholland Drive",
+   "original": "Mulholland Drive",
+   "year": 2001,
+   "director": "David Lynch",
+   "wiki": "Mulholland_Drive_(film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "In the Mood for Love",
+   "original": "Fa yeung nin wa",
+   "year": 2000,
+   "director": "Wong Kar-wai",
+   "wiki": "In_the_Mood_for_Love",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Moonlight",
+   "original": "Moonlight",
+   "year": 2016,
+   "director": "Barry Jenkins",
+   "wiki": "Moonlight_(2016_film)",
+   "sources": [
+    "nyt",
+    "rt"
+   ]
+  },
+  {
+   "title": "Get Out",
+   "original": "Get Out",
+   "year": 2017,
+   "director": "Jordan Peele",
+   "wiki": "Get_Out",
+   "sources": [
+    "nyt",
+    "rt"
+   ]
+  },
+  {
+   "title": "The Social Network",
+   "original": "The Social Network",
+   "year": 2010,
+   "director": "David Fincher",
+   "wiki": "The_Social_Network",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Zodiac",
+   "original": "Zodiac",
+   "year": 2007,
+   "director": "David Fincher",
+   "wiki": "Zodiac_(film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Les Fils de l'homme",
+   "original": "Children of Men",
+   "year": 2006,
+   "director": "Alfonso Cuarón",
+   "wiki": "Children_of_Men",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Lost in Translation",
+   "original": "Lost in Translation",
+   "year": 2003,
+   "director": "Sofia Coppola",
+   "wiki": "Lost_in_Translation_(film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Her",
+   "original": "Her",
+   "year": 2013,
+   "director": "Spike Jonze",
+   "wiki": "Her_(2013_film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Phantom Thread",
+   "original": "Phantom Thread",
+   "year": 2017,
+   "director": "Paul Thomas Anderson",
+   "wiki": "Phantom_Thread",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Portrait de la jeune fille en feu",
+   "original": "Portrait de la jeune fille en feu",
+   "year": 2019,
+   "director": "Céline Sciamma",
+   "wiki": "Portrait_of_a_Lady_on_Fire",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Uncut Gems",
+   "original": "Uncut Gems",
+   "year": 2019,
+   "director": "Josh et Benny Safdie",
+   "wiki": "Uncut_Gems",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Lady Bird",
+   "original": "Lady Bird",
+   "year": 2017,
+   "director": "Greta Gerwig",
+   "wiki": "Lady_Bird_(film)",
+   "sources": [
+    "nyt",
+    "rt"
+   ]
+  },
+  {
+   "title": "Call Me by Your Name",
+   "original": "Call Me by Your Name",
+   "year": 2017,
+   "director": "Luca Guadagnino",
+   "wiki": "Call_Me_by_Your_Name_(film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Boyhood",
+   "original": "Boyhood",
+   "year": 2014,
+   "director": "Richard Linklater",
+   "wiki": "Boyhood_(2014_film)",
+   "sources": [
+    "nyt",
+    "rt"
+   ]
+  },
+  {
+   "title": "Inside Llewyn Davis",
+   "original": "Inside Llewyn Davis",
+   "year": 2013,
+   "director": "Joel et Ethan Coen",
+   "wiki": "Inside_Llewyn_Davis",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Le Secret de Brokeback Mountain",
+   "original": "Brokeback Mountain",
+   "year": 2005,
+   "director": "Ang Lee",
+   "wiki": "Brokeback_Mountain",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "The Master",
+   "original": "The Master",
+   "year": 2012,
+   "director": "Paul Thomas Anderson",
+   "wiki": "The_Master_(2012_film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Anatomie d'une chute",
+   "original": "Anatomie d'une chute",
+   "year": 2023,
+   "director": "Justine Triet",
+   "wiki": "Anatomy_of_a_Fall",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Everything Everywhere All at Once",
+   "original": "Everything Everywhere All at Once",
+   "year": 2022,
+   "director": "Daniel Kwan et Daniel Scheinert",
+   "wiki": "Everything_Everywhere_All_at_Once",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Une séparation",
+   "original": "Jodaeiye Nader az Simin",
+   "year": 2011,
+   "director": "Asghar Farhadi",
+   "wiki": "A_Separation",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Roma",
+   "original": "Roma",
+   "year": 2018,
+   "director": "Alfonso Cuarón",
+   "wiki": "Roma_(2018_film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Tár",
+   "original": "Tár",
+   "year": 2022,
+   "director": "Todd Field",
+   "wiki": "Tár",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Ratatouille",
+   "original": "Ratatouille",
+   "year": 2007,
+   "director": "Brad Bird",
+   "wiki": "Ratatouille_(film)",
+   "sources": [
+    "nyt",
+    "rt"
+   ]
+  },
+  {
+   "title": "The Grand Budapest Hotel",
+   "original": "The Grand Budapest Hotel",
+   "year": 2014,
+   "director": "Wes Anderson",
+   "wiki": "The_Grand_Budapest_Hotel",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Le Loup de Wall Street",
+   "original": "The Wolf of Wall Street",
+   "year": 2013,
+   "director": "Martin Scorsese",
+   "wiki": "The_Wolf_of_Wall_Street_(2013_film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Burning",
+   "original": "Beoning",
+   "year": 2018,
+   "director": "Lee Chang-dong",
+   "wiki": "Burning_(2018_film)",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Memories of Murder",
+   "original": "Salinui chueok",
+   "year": 2003,
+   "director": "Bong Joon-ho",
+   "wiki": "Memories_of_Murder",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Toni Erdmann",
+   "original": "Toni Erdmann",
+   "year": 2016,
+   "director": "Maren Ade",
+   "wiki": "Toni_Erdmann",
+   "sources": [
+    "nyt"
+   ]
+  },
+  {
+   "title": "Paddington 2",
+   "original": "Paddington 2",
+   "year": 2017,
+   "director": "Paul King",
+   "wiki": "Paddington_2",
+   "sources": [
+    "nyt",
+    "rt"
+   ]
+  },
+  {
+   "title": "Le Magicien d'Oz",
+   "original": "The Wizard of Oz",
+   "year": 1939,
+   "director": "Victor Fleming",
+   "wiki": "The_Wizard_of_Oz_(1939_film)",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "Toy Story 2",
+   "original": "Toy Story 2",
+   "year": 1999,
+   "director": "John Lasseter",
+   "wiki": "Toy_Story_2",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "Le Troisième Homme",
+   "original": "The Third Man",
+   "year": 1949,
+   "director": "Carol Reed",
+   "wiki": "The_Third_Man",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "L'Aurore",
+   "original": "Sunrise: A Song of Two Humans",
+   "year": 1927,
+   "director": "F. W. Murnau",
+   "wiki": "Sunrise:_A_Song_of_Two_Humans",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "Le Voleur de bicyclette",
+   "original": "Ladri di biciclette",
+   "year": 1948,
+   "director": "Vittorio De Sica",
+   "wiki": "Bicycle_Thieves",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "Les Quatre Cents Coups",
+   "original": "Les Quatre Cents Coups",
+   "year": 1959,
+   "director": "François Truffaut",
+   "wiki": "The_400_Blows",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "À bout de souffle",
+   "original": "À bout de souffle",
+   "year": 1960,
+   "director": "Jean-Luc Godard",
+   "wiki": "Breathless_(1960_film)",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "La Règle du jeu",
+   "original": "La Règle du jeu",
+   "year": 1939,
+   "director": "Jean Renoir",
+   "wiki": "The_Rules_of_the_Game",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "King Kong",
+   "original": "King Kong",
+   "year": 1933,
+   "director": "Merian C. Cooper et Ernest B. Schoedsack",
+   "wiki": "King_Kong_(1933_film)",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "Les Aventures de Robin des Bois",
+   "original": "The Adventures of Robin Hood",
+   "year": 1938,
+   "director": "Michael Curtiz et William Keighley",
+   "wiki": "The_Adventures_of_Robin_Hood",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "Certains l'aiment chaud",
+   "original": "Some Like It Hot",
+   "year": 1959,
+   "director": "Billy Wilder",
+   "wiki": "Some_Like_It_Hot",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "La Garçonnière",
+   "original": "The Apartment",
+   "year": 1960,
+   "director": "Billy Wilder",
+   "wiki": "The_Apartment",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Assurance sur la mort",
+   "original": "Double Indemnity",
+   "year": 1944,
+   "director": "Billy Wilder",
+   "wiki": "Double_Indemnity",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Chinatown",
+   "original": "Chinatown",
+   "year": 1974,
+   "director": "Roman Polanski",
+   "wiki": "Chinatown_(1974_film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Les Dents de la mer",
+   "original": "Jaws",
+   "year": 1975,
+   "director": "Steven Spielberg",
+   "wiki": "Jaws_(film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "E.T. l'extra-terrestre",
+   "original": "E.T. the Extra-Terrestrial",
+   "year": 1982,
+   "director": "Steven Spielberg",
+   "wiki": "E.T._the_Extra-Terrestrial",
+   "sources": [
+    "rt"
+   ]
+  },
+  {
+   "title": "Blade Runner",
+   "original": "Blade Runner",
+   "year": 1982,
+   "director": "Ridley Scott",
+   "wiki": "Blade_Runner",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Ran",
+   "original": "Ran",
+   "year": 1985,
+   "director": "Akira Kurosawa",
+   "wiki": "Ran_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Le Septième Sceau",
+   "original": "Det sjunde inseglet",
+   "year": 1957,
+   "director": "Ingmar Bergman",
+   "wiki": "The_Seventh_Seal",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Les Lumières de la ville",
+   "original": "City Lights",
+   "year": 1931,
+   "director": "Charlie Chaplin",
+   "wiki": "City_Lights",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "M le maudit",
+   "original": "M",
+   "year": 1931,
+   "director": "Fritz Lang",
+   "wiki": "M_(1931_film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Le Salaire de la peur",
+   "original": "Le Salaire de la peur",
+   "year": 1953,
+   "director": "Henri-Georges Clouzot",
+   "wiki": "The_Wages_of_Fear",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Vice-Versa",
+   "original": "Inside Out",
+   "year": 2015,
+   "director": "Pete Docter",
+   "wiki": "Inside_Out_(2015_film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Spider-Man : New Generation",
+   "original": "Spider-Man: Into the Spider-Verse",
+   "year": 2018,
+   "director": "Bob Persichetti, Peter Ramsey et Rodney Rothman",
+   "wiki": "Spider-Man:_Into_the_Spider-Verse",
+   "sources": [
+    "imdb",
+    "nyt"
+   ]
+  },
+  {
+   "title": "Prisoners",
+   "original": "Prisoners",
+   "year": 2013,
+   "director": "Denis Villeneuve",
+   "wiki": "Prisoners_(2013_film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Incendies",
+   "original": "Incendies",
+   "year": 2010,
+   "director": "Denis Villeneuve",
+   "wiki": "Incendies",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Dune : Deuxième Partie",
+   "original": "Dune: Part Two",
+   "year": 2024,
+   "director": "Denis Villeneuve",
+   "wiki": "Dune:_Part_Two",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Oppenheimer",
+   "original": "Oppenheimer",
+   "year": 2023,
+   "director": "Christopher Nolan",
+   "wiki": "Oppenheimer_(film)",
+   "sources": [
+    "imdb"
+   ]
+  },
+  {
+   "title": "Là-haut",
+   "original": "Up",
+   "year": 2009,
+   "director": "Pete Docter",
+   "wiki": "Up_(2009_film)",
+   "sources": [
+    "imdb",
+    "rt"
+   ]
+  },
+  {
+   "title": "Le Château ambulant",
+   "original": "Hauru no ugoku shiro",
+   "year": 2004,
+   "director": "Hayao Miyazaki",
+   "wiki": "Howl's_Moving_Castle_(film)",
+   "sources": [
+    "imdb"
+   ]
+  }
+ ]
+}

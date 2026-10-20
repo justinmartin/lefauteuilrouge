@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const { catalog } = require('../lib/jpbox');
+const { weeklyPicks } = require('../lib/reco');
 
 const APP_URL = process.env.APP_URL || 'https://lefauteuilrouge.vercel.app';
 const DRY = process.argv.includes('--dry-run');
@@ -74,7 +75,21 @@ function boTable(bo) {
         <div style="font-size:11.5px;color:${r.change && r.change.startsWith('-') ? '#ff9a92' : '#8f7a6c'}">${r.change || 'entrées'} · total ${fmt(r.total)}</div></td></tr>`).join('')}</table>`;
 }
 
-function render(cat, wed) {
+// « La séance de rattrapage » : 3 classiques à (re)voir
+function recoSection(picks) {
+  if (!picks?.length) return '';
+  return title('La séance de rattrapage', '3 films à voir, piochés dans les grands classements') + `<tr><td style="padding:0 22px">${picks.map(f => `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#2a0f13;border:1px solid rgba(232,181,77,.22);border-radius:12px;margin:10px 0"><tr>
+      <td width="86" style="padding:12px;vertical-align:top">${f.poster ? `<a href="${esc(f.link)}"><img src="${esc(f.poster)}" width="80" style="display:block;width:80px;border-radius:6px" alt=""></a>` : ''}</td>
+      <td style="padding:12px 14px 12px 4px;vertical-align:top;font-family:${FONT}">
+        <a href="${esc(f.link)}" style="text-decoration:none"><span style="font-family:${SERIF};font-size:19px;line-height:1.15;color:${CREAM}">${esc(f.title)}</span></a>
+        <div style="font-size:12.5px;color:#cdb9a5;margin-top:4px">${f.year} · ${esc(f.director)}${f.original && f.original !== f.title ? ` · <i>${esc(f.original)}</i>` : ''}</div>
+        <div style="margin-top:6px">${f.sourceLabels.map(l => `<span style="display:inline-block;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#f3d58f;background:rgba(232,181,77,.14);border-radius:4px;padding:2px 6px;margin:0 4px 4px 0">${esc(l)}</span>`).join('')}</div>
+        ${f.synopsis ? `<div style="font-size:13px;line-height:1.45;color:#cdb9a5;margin-top:4px">${esc(f.synopsis)}</div>` : ''}
+      </td></tr></table>`).join('')}</td></tr>`;
+}
+
+function render(cat, wed, picks = []) {
   const on = d => cat.films.filter(f => f.date === d).sort((a, b) => (b.screens || 0) - (a.screens || 0));
   const big = l => { const b = l.filter(f => (f.screens || 0) >= BIG_SCREENS); return b.length ? b : l.slice(0, 3); };
   const thisWeek = on(wed);
@@ -92,6 +107,7 @@ function render(cat, wed) {
     const label = (bo.label || '').replace(/^Semaine \d+ - DU /i, 'du ').replace(/\s*\(\d Jours?\)/i, '').toLowerCase();
     body += title('Box-office France', `${esc(label)}${bo.days && bo.days < 7 ? ` · ${bo.days} premiers jours` : ''}`) + `<tr><td style="padding:0 22px">${boTable(bo)}</td></tr>`;
   }
+  body += recoSection(picks);
   const subject = `🍿 Le Fauteuil Rouge — les sorties du ${day(wed)}`;
   const html = `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Le Fauteuil Rouge</title></head>
 <body style="margin:0;background:#140608">
@@ -110,7 +126,8 @@ ${body}
 
 async function main() {
   const cat = await loadCatalog();
-  const { subject, html } = render(cat, nextWednesday());
+  const picks = await weeklyPicks().catch(() => []);
+  const { subject, html } = render(cat, nextWednesday(), picks);
   const out = path.join(__dirname, '..', 'out');
   fs.mkdirSync(out, { recursive: true });
   fs.writeFileSync(path.join(out, 'newsletter.html'), html);
