@@ -1,0 +1,15 @@
+{
+  "note": "Dates prévisionnelles (calées sur le calendrier habituel de chaque événement) sauf « confirmed: true ». À corriger dès l'annonce officielle.",
+  "events": [
+    { "name": "Golden Globes", "kind": "cérémonie", "start": "2027-01-10", "end": "2027-01-10", "place": "Los Angeles", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/Golden_Globes" },
+    { "name": "Berlinale", "kind": "festival", "start": "2027-02-11", "end": "2027-02-21", "place": "Berlin", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/Berlinale" },
+    { "name": "BAFTA", "kind": "cérémonie", "start": "2027-02-14", "end": "2027-02-14", "place": "Londres", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/British_Academy_Film_Awards" },
+    { "name": "César", "kind": "cérémonie", "start": "2027-02-26", "end": "2027-02-26", "place": "Paris", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/C%C3%A9sar_du_cin%C3%A9ma" },
+    { "name": "Oscars", "kind": "cérémonie", "start": "2027-03-14", "end": "2027-03-14", "place": "Los Angeles", "confirmed": true, "url": "https://fr.wikipedia.org/wiki/Oscars_du_cin%C3%A9ma" },
+    { "name": "Festival de Cannes", "kind": "festival", "start": "2027-05-11", "end": "2027-05-22", "place": "Cannes", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/Festival_de_Cannes" },
+    { "name": "Festival d'Annecy", "kind": "festival", "start": "2027-06-13", "end": "2027-06-19", "place": "Annecy", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/Festival_international_du_film_d%27animation_d%27Annecy" },
+    { "name": "Mostra de Venise", "kind": "festival", "start": "2027-09-01", "end": "2027-09-11", "place": "Venise", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/Mostra_de_Venise" },
+    { "name": "Festival de Deauville", "kind": "festival", "start": "2027-09-03", "end": "2027-09-12", "place": "Deauville", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/Festival_du_cin%C3%A9ma_am%C3%A9ricain_de_Deauville" },
+    { "name": "Festival Lumière", "kind": "festival", "start": "2027-10-09", "end": "2027-10-17", "place": "Lyon", "confirmed": false, "url": "https://fr.wikipedia.org/wiki/Festival_Lumi%C3%A8re" }
+  ]
+}

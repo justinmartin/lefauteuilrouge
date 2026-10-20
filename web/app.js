@@ -86,7 +86,23 @@ function notesLine(r) {
   return parts.join(' · ') || '<span class="na">Pas encore de notes</span>';
 }
 function fillNotes(f, el) {
-  getRatings(f).then(r => { if (el.isConnected) el.innerHTML = notesLine(r); });
+  getRatings(f).then(r => {
+    if (el.isConnected) el.innerHTML = notesLine(r);
+    const b = document.querySelector(`[data-brief="${CSS.escape(f.id)}"]`);
+    if (b && r?.about?.text) b.textContent = r.about.text;
+  });
+}
+
+// Sorties streaming et festivals (blocs partagés par Semaine et Calendrier)
+function streamingRows(list) {
+  return `<div class="bo-list">${list.map(s => `<a class="bo" href="${esc(s.url)}" target="_blank" rel="noopener">
+    <span class="plat" style="background:${PLATFORM_COLORS[s.platform] || '#3a3836'}">${esc(s.platform)}</span>
+    <span class="name"><b>${esc(s.title)}</b><small>${esc(s.genre || 'Film original')}</small></span>
+    <span class="num"><b>${shortDate(s.date)}</b></span></a>`).join('')}</div>`;
+}
+function eventCards(list) {
+  return `<div class="events">${list.map(e => `<a class="event" href="${esc(e.url)}" target="_blank" rel="noopener">
+    <span class="ev-kind">${esc(e.kind)}</span><b>${esc(e.name)}</b><span>${esc(eventDates(e))} · ${esc(e.place)}</span>${e.confirmed ? '' : '<small>date prévisionnelle</small>'}</a>`).join('')}</div>`;
 }
 
 // ---------------------------------------------------------------- composants
@@ -95,6 +111,11 @@ const CAL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" str
 const TICKET_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2.5a2.5 2.5 0 0 0 0 5V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4.5a2.5 2.5 0 0 0 0-5z"/></svg>';
 const meta = f => [f.genre, f.duration, f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean).join(' · ');
 const showtimesUrl = f => `https://www.google.com/search?q=${encodeURIComponent(`séances ${cleanTitle(f.title)}`)}`;
+const trailerUrl = f => `https://www.youtube.com/results?search_query=${encodeURIComponent(`${cleanTitle(f.title)} bande annonce VF ${(f.date || '').slice(0, 4)}`)}`;
+const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
+const PLATFORM_COLORS = { Netflix: '#e50914', 'Prime Video': '#1f8fff', 'Apple TV': '#6b6b70', 'Disney+': '#1b3fa3' };
+const shortDate = d => { const x = parseDay(d); return `${x.getDate()} ${MONTHS_SHORT[x.getMonth()]}`; };
+const eventDates = e => e.start === e.end ? shortDate(e.start) : `${parseDay(e.start).getDate()}–${shortDate(e.end)}`;
 
 function hero(f, label) {
   return `<article class="hero">
@@ -104,6 +125,7 @@ function hero(f, label) {
       <h2>${esc(cleanTitle(f.title))}</h2>
       <span class="meta">${esc(meta(f))}</span>
       <span class="notes" data-notes="${esc(f.id)}"><span class="na">Notes…</span></span>
+      <span class="brief" data-brief="${esc(f.id)}"></span>
       <div class="hero-actions">
         <a class="pill-btn red" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Séances</a>
         <button class="pill-btn" type="button" data-cal="${esc(f.id)}">${CAL_ICON}Agenda</button>
@@ -146,6 +168,11 @@ function renderWeek() {
     const top = l.filter(f => isBig(f, l));
     html += `<div class="section-title">${esc(dayLabel(d))} · ${l.length} sortie${l.length > 1 ? 's' : ''}</div><div class="posters">${(top.length ? top : l.slice(0, 4)).map(mini).join('')}</div>`;
   }
+  const t = today(), in3w = addDays(t, 21);
+  const stream = (cat.streaming || []).filter(s => s.date >= addDays(t, -7) && s.date <= in3w);
+  if (stream.length) html += `<div class="section-title">En streaming</div>${streamingRows(stream)}`;
+  const ev = (cat.events || []).filter(e => e.start <= addDays(t, 45));
+  if (ev.length) html += `<div class="section-title">Festivals et cérémonies</div>${eventCards(ev)}`;
   const bo = cat.boxoffice;
   if (bo?.rows?.length) {
     html += `<div class="section-title">Box-office France</div><div class="podium">${bo.rows.slice(0, 3).map(r => `
@@ -226,6 +253,8 @@ function renderCalendar() {
   const chips = [['big', 'Grosses sorties'], ['all', 'Toutes'], ['mine', `Ma liste${listCount ? ` · ${listCount}` : ''}`], ...genres().map(g => [`genre:${g}`, g])];
   html += `<div class="chips" role="group" aria-label="Filtrer">${chips.map(([v, l]) => `<button class="chip${filter === v ? ' on' : ''}" type="button" data-filter="${esc(v)}">${esc(l)}</button>`).join('')}</div>`;
   html += calView === 'weeks' ? weeksView() : calView === 'list' ? listView() : monthView();
+  if (cat.events?.length) html += `<div class="section-title">Festivals et cérémonies</div>${eventCards(cat.events)}`;
+  if (cat.streaming?.length) html += `<div class="section-title">À venir en streaming</div>${streamingRows(cat.streaming.filter(s => s.date >= addDays(today(), -7)))}`;
   return html + source();
 }
 
@@ -288,7 +317,7 @@ async function loadDay(date) {
     .sort((a, b) => b.showtimes.length - a.showtimes.length);
 }
 
-const keepShowtime = st => seanceFilter === 'vo' ? /VO|VOST/i.test(st.version) : seanceFilter === 'vf' ? /VF/i.test(st.version) : seanceFilter === 'soir' ? hm(st.start) >= '19:00' : true;
+const keepShowtime = st => seanceFilter === 'soon' ? true : seanceFilter === 'vo' ? /VO|VOST/i.test(st.version) : seanceFilter === 'vf' ? /VF/i.test(st.version) : seanceFilter === 'soir' ? hm(st.start) >= '19:00' : true;
 
 function showtimeButtons(film, list) {
   const now = new Date().toISOString().slice(0, 16);
@@ -310,8 +339,9 @@ function renderCines() {
     '<button class="sub-pill" type="button" data-open-pick>Choisir</button>');
   html += `<div class="days">${[...Array(7)].map((_, i) => { const d = addDays(t, i), dt = parseDay(d);
     return `<button type="button" class="${d === seanceDate ? 'on' : ''}" data-sday="${d}"><span>${i === 0 ? 'Auj.' : i === 1 ? 'Dem.' : SHORT_DAYS[dt.getDay()].toLowerCase()}</span><b>${dt.getDate()}</b></button>`; }).join('')}</div>`;
-  html += `<div class="chips">${[['all', 'Toutes'], ['vo', 'VO'], ['vf', 'VF'], ['soir', 'Après 19 h']].map(([v, l]) => `<button class="chip${seanceFilter === v ? ' on' : ''}" type="button" data-sfilter="${v}">${l}</button>`).join('')}</div>`;
-  html += '<div id="seances"><p class="loading">Recherche des séances…<br><small>jusqu'à 30 secondes la première fois, puis instantané</small></p></div>';
+  if (seanceFilter === 'soon' && seanceDate !== t) seanceFilter = 'all';
+  html += `<div class="chips">${[...(seanceDate === t ? [['soon', 'Dans les 3 h']] : []), ['all', 'Toutes'], ['vo', 'VO'], ['vf', 'VF'], ['soir', 'Après 19 h']].map(([v, l]) => `<button class="chip${seanceFilter === v ? ' on' : ''}" type="button" data-sfilter="${v}">${l}</button>`).join('')}</div>`;
+  html += '<div id="seances"><p class="loading">Recherche des séances…<br><small>jusqu’à 30 secondes la première fois, puis instantané</small></p></div>';
   return html + '<p class="source">Séances : <a href="https://paris-cine.info" target="_blank" rel="noopener">paris-cine.info</a> (données Allociné) · réservation sur le site du cinéma</p>';
 }
 
@@ -324,6 +354,19 @@ async function fillCines() {
   if (!$('#seances') || date !== seanceDate) return;
   if (!films) { $('#seances').innerHTML = '<p class="empty">Séances indisponibles pour le moment.</p>'; return; }
   shownSeances = [];
+  if (seanceFilter === 'soon') {
+    // Les séances qui commencent dans les 3 prochaines heures, toutes salles confondues, par horaire
+    const now = new Date(), limit = new Date(now.getTime() + 3 * 3600e3);
+    const loc = d => `${isoDay(d)}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    const soon = films.flatMap(f => f.showtimes.filter(st => st.start.slice(0, 16) >= loc(now) && st.start.slice(0, 16) <= loc(limit)).map(st => ({ f, st })))
+      .sort((a, b) => a.st.start.localeCompare(b.st.start));
+    $('#seances').innerHTML = soon.length ? `<div class="bo-list">${soon.map(({ f, st }) => {
+      const i = shownSeances.push({ film: f, st }) - 1;
+      return `<button class="bo" type="button" data-seance="${i}"><span class="rk" style="font-family:var(--sans);font-size:15px;font-weight:600;color:var(--text)">${hm(st.start)}</span>
+        <span class="name"><b>${esc(f.title)}</b><small>${esc(st.cinema)} · ${esc(st.version)}${st.format ? ' ' + esc(st.format) : ''}</small></span><span class="num"><small>Réserver ›</small></span></button>`;
+    }).join('')}</div>` : '<p class="empty">Plus de séance dans les 3 prochaines heures dans tes cinés.</p>';
+    return;
+  }
   const html = films.map(f => {
     const list = f.showtimes.filter(keepShowtime);
     if (!list.length) return '';
@@ -396,12 +439,14 @@ function openFilm(id) {
     </div>
     <div class="film-main">
       <div class="scores" id="scores"><div class="na"><b>…</b><span>IMDb</span></div><div class="na"><b>…</b><span>Rotten T.</span></div><div class="na"><b>…</b><span>Letterboxd</span></div></div>
+      <div id="brief"></div>
       ${f.synopsis ? `<p class="syn">${esc(f.synopsis)}</p>` : ''}
       ${f.director || f.cast?.length ? `<p class="people">${f.director ? `De ${esc(f.director)}` : ''}${f.director && f.cast?.length ? '<br>' : ''}${f.cast?.length ? `Avec ${esc(f.cast.join(', '))}` : ''}</p>` : ''}
       ${myCines?.length ? '<div class="section-title" style="margin:6px 0 0">Séances dans mes cinés</div><div class="film-seances" id="film-seances"><p class="loading" style="padding:10px 0">Recherche…</p></div>' : ''}
       <div class="actions">
         <a class="btn red" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Toutes les séances</a>
         ${f.date ? `<button class="btn" type="button" data-cal="${esc(f.id)}">${CAL_ICON}Agenda</button>` : `<a class="btn" href="https://www.pathe.fr/films" target="_blank" rel="noopener">Pathé</a>`}
+        <a class="btn" href="${trailerUrl(f)}" target="_blank" rel="noopener">${PLAY_ICON}Bande-annonce</a>
         <a class="btn" href="https://www.allocine.fr/rechercher/?q=${encodeURIComponent(cleanTitle(f.title))}" target="_blank" rel="noopener">Allociné</a>
         <a class="btn" href="https://www.jpbox-office.com/fichfilm.php?id=${esc(f.id)}&view=2" target="_blank" rel="noopener">Chiffres JP</a>
       </div>
@@ -425,6 +470,8 @@ function openFilm(id) {
     const box = $('#scores');
     if (!box || $('#film').hidden) return;
     const cell = (label, val, url) => val != null ? `<a href="${esc(url)}" target="_blank" rel="noopener"><b>${val}</b><span>${label}</span></a>` : `<div class="na"><b>—</b><span>${label}</span></div>`;
+    const brief = $('#brief');
+    if (brief && r?.about?.text) brief.innerHTML = `<div class="brief-box"><span class="ev-kind">En bref</span><p>${esc(r.about.text)}</p><a href="${esc(r.about.url)}" target="_blank" rel="noopener">Wikipédia ›</a></div>`;
     box.innerHTML = cell('IMDb', r?.imdb?.rating?.toLocaleString('fr-FR'), r?.imdb?.url)
       + cell('Rotten T.', r?.rt?.critics != null ? `${r.rt.critics} %` : null, r?.rt?.url)
       + cell('Letterboxd', r?.letterboxd?.rating?.toLocaleString('fr-FR', { maximumFractionDigits: 1 }), r?.letterboxd?.url);

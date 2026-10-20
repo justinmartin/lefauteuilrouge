@@ -232,3 +232,20 @@ main { max-width: 640px; margin: 0 auto; padding: 16px 16px 0; }
 .film-seances { display: grid; gap: 10px; }
 .film-seances .day-h { font-size: 12px; font-weight: 600; color: var(--text-2); margin-top: 4px; }
 .sc-film { align-items: start; }
+
+/* ----- En bref, streaming, festivals ----- */
+.brief { font-size: 12px; line-height: 1.4; color: var(--text-3); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.brief:empty { display: none; }
+.brief-box { background: var(--raised); border-radius: 14px; padding: 12px 14px; display: grid; gap: 6px; }
+.brief-box p { font-size: 14px; line-height: 1.5; color: var(--text); }
+.brief-box a { font-size: 12px; color: var(--text-3); text-decoration: none; }
+.ev-kind { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red-2); }
+.plat { font-size: 9.5px; font-weight: 700; color: #fff; border-radius: 5px; padding: 3px 5px; text-align: center; line-height: 1.1; }
+a.bo { text-decoration: none; color: inherit; }
+.bo:has(.plat) { grid-template-columns: 62px minmax(0, 1fr) auto; }
+.events { display: flex; gap: 8px; overflow-x: auto; margin: 0 -16px; padding: 0 16px 2px; scrollbar-width: none; }
+.events::-webkit-scrollbar { display: none; }
+.event { flex: none; width: 168px; background: var(--raised); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 3px; text-decoration: none; }
+.event b { font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1.05; }
+.event span:not(.ev-kind) { font-size: 12px; color: var(--text-2); }
+.event small { font-size: 10.5px; color: var(--text-3); font-style: italic; }
