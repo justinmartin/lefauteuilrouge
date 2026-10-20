@@ -67,7 +67,9 @@ function featured(f, r) {
       ${meta ? `<div style="font-size:13px;color:${GREY};margin-top:6px">${esc(meta)}</div>` : ''}
       ${notes ? `<div style="font-size:13px;color:${INK};margin-top:4px">${notes}</div>` : ''}
       ${people ? `<div style="font-size:12.5px;color:${GREY};margin-top:4px">${esc(people)}</div>` : ''}
+      ${r?.about?.text ? `<div style="font-size:13px;line-height:1.5;color:${INK};margin-top:8px;padding:8px 10px;background:#fffdf8;border-radius:8px"><b style="font-size:10px;letter-spacing:1.5px;color:${RED}">EN BREF</b><br>${esc(r.about.text)}</div>` : ''}
       ${f.synopsis ? `<div style="font-size:13.5px;line-height:1.5;color:#2a2826;margin-top:8px">${esc(f.synopsis.length > 260 ? f.synopsis.slice(0, 257).replace(/\s\S*$/, '') + '…' : f.synopsis)}</div>` : ''}
+      <div style="margin-top:10px"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(clean(f.title) + ' bande annonce VF')}" style="font-size:12.5px;font-weight:700;color:${RED}">▶ Bande-annonce</a></div>
     </td></tr></table>`;
 }
 
@@ -141,6 +143,20 @@ function render(cat, wed, picks = [], notes = {}) {
       <td width="50%" style="vertical-align:top;padding-right:10px">${us?.rows?.length ? `<div style="font-family:${SANS};font-size:11px;font-weight:700;color:${GREY};margin-bottom:2px">ÉTATS-UNIS</div>${boRows(us.rows.slice(0, 5), r => `${short(r.entries)} $`)}` : ''}</td>
       <td width="50%" style="vertical-align:top;padding-left:10px">${world?.rows?.length ? `<div style="font-family:${SANS};font-size:11px;font-weight:700;color:${GREY};margin-bottom:2px">MONDE ${world.year}</div>${boRows(world.rows.slice(0, 5), r => `${short(r.world)} $`)}` : ''}</td>
     </tr></table></td></tr>`;
+  }
+  // Streaming : sorties des 10 prochains jours ; festivals et cérémonies des 30 prochains jours
+  const today = new Date().toISOString().slice(0, 10);
+  const stream = (cat.streaming || []).filter(x => x.date >= today && x.date <= addDays(today, 10));
+  if (stream.length) {
+    body += sectionTitle('En streaming', 'Films originaux des plateformes') + `<tr><td style="padding:6px 24px">${stream.map(x => `
+      <div style="padding:7px 0;border-bottom:1px solid ${LINE};font-family:${SANS};font-size:13.5px;color:${INK}">
+        <span style="display:inline-block;min-width:76px;font-size:10px;font-weight:700;color:#fff;background:${({ Netflix: '#e50914', 'Prime Video': '#1f8fff', 'Apple TV': '#6b6b70', 'Disney+': '#1b3fa3' })[x.platform] || GREY};border-radius:4px;padding:2px 5px;text-align:center;margin-right:8px">${esc(x.platform)}</span>
+        <b style="font-weight:600">${esc(x.title)}</b> <span style="color:${GREY};font-size:12px">· ${esc(cap(day(x.date)))}${x.genre ? ' · ' + esc(x.genre) : ''}</span></div>`).join('')}</td></tr>`;
+  }
+  const events = (cat.events || []).filter(e => e.start <= addDays(today, 30));
+  if (events.length) {
+    body += sectionTitle('Festivals et cérémonies') + `<tr><td style="padding:6px 24px;font-family:${SANS};font-size:13.5px;color:${INK}">${events.map(e =>
+      `<div style="padding:6px 0;border-bottom:1px solid ${LINE}"><b style="font-family:${SERIF};font-size:19px;font-weight:400">${esc(e.name)}</b> <span style="color:${GREY};font-size:12px">· ${esc(cap(day(e.start)))}${e.end !== e.start ? ' → ' + esc(day(e.end)) : ''} · ${esc(e.place)}${e.confirmed ? '' : ' · date prévisionnelle'}</span></div>`).join('')}</td></tr>`;
   }
   body += recoSection(picks);
 
