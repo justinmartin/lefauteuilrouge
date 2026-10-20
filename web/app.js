@@ -1,7 +1,7 @@
 // Le Fauteuil Rouge — app.
 // Données : /api/catalog (sorties France sur l'année, box-office France / US / monde, d'après JP's Box-Office)
 // et /api/ratings (IMDb, Rotten Tomatoes, Letterboxd), gardées sur le téléphone pour l'ouverture instantanée.
-const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter' };
+const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas' };
 const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
 const SHORT_DAYS = ['DIM.', 'LUN.', 'MAR.', 'MER.', 'JEU.', 'VEN.', 'SAM.'];
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
@@ -18,6 +18,13 @@ let monthOffset = 0;
 let boView = 'fr';       // fr | fr-prev | us | world
 let myList = {};         // { id: { title, date, poster } }
 let ratingsCache = {};
+let myCines = null;      // identifiants paris-cine.info des cinémas choisis
+let cinemas = [];        // tous les cinémas de Paris et petite couronne
+let seanceDate = null;
+let seanceFilter = 'all'; // all | vo | vf | soir
+let pickCard = 'pass';    // filtre du choix des cinémas : pass | ugc | all
+const seancesCache = {};
+let shownSeances = [];   // séances affichées (pour la feuille Réserver / Agenda)
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -120,7 +127,7 @@ const mini = f => `<button class="mini${myList[f.id] ? ' mine' : ''}" type="butt
 function head(kicker, title, sub = '', right = '') {
   return `<header class="page-head${right ? ' row' : ''}"><div><div class="kicker">${esc(kicker)}</div><h1 class="page-title">${esc(title)}</h1>${sub ? `<p class="page-sub">${sub}</p>` : ''}</div>${right}</header>`;
 }
-const source = () => `<p class="source">Sorties et box-office : JP's Box-Office · notes : IMDb, Rotten Tomatoes, Letterboxd</p>`;
+const source = () => `<p class="source">Sorties et box-office : JP's Box-Office · notes : IMDb, Rotten Tomatoes, Letterboxd · séances : paris-cine.info</p>`;
 
 // ---------------------------------------------------------------- Semaine
 function renderWeek() {
@@ -250,13 +257,126 @@ function renderBoxOffice() {
   return html + source();
 }
 
+// ---------------------------------------------------------------- Mes cinés (séances via paris-cine.info)
+const normT = t => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\(\d{4}\)/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+const catalogFilm = (title, original) => { const w = [normT(title), normT(original)].filter(Boolean); return cat?.films.find(f => w.includes(normT(f.title)) || (f.original && w.includes(normT(f.original)))); };
+const hm = iso => iso.slice(11, 16);
+
+async function loadCinemas() {
+  if (cinemas.length) return;
+  cinemas = read(KEYS.cinemas) || [];
+  try {
+    const r = await fetch('/api/seances?list=cinemas');
+    if (r.ok) { const d = await r.json(); if (d.cinemas?.length) { cinemas = d.cinemas; write(KEYS.cinemas, cinemas); } }
+  } catch (e) { /* hors-ligne */ }
+  if (!myCines) {
+    // Par défaut : les Pathé de Paris (réseau de la carte Pathé)
+    myCines = cinemas.filter(c => c.pathe && c.zip.startsWith('75') && !/Fondation/.test(c.name)).map(c => c.id);
+    write(KEYS.cines, myCines);
+  }
+}
+
+// La semaine de séances des cinémas choisis (une requête, gardée en mémoire), filtrée ensuite par jour
+async function loadDay(date) {
+  const key = [...myCines].sort((a, b) => a - b).join('.');
+  if (!seancesCache[key]) {
+    seancesCache[key] = fetch(`/api/seances?c=${key}`).then(r => r.ok ? r.json() : { films: [] }).then(d => d.films || [])
+      .catch(e => { delete seancesCache[key]; throw e; });
+  }
+  const films = await seancesCache[key];
+  return films.map(f => ({ ...f, showtimes: f.showtimes.filter(st => st.start.startsWith(date)) })).filter(f => f.showtimes.length)
+    .sort((a, b) => b.showtimes.length - a.showtimes.length);
+}
+
+const keepShowtime = st => seanceFilter === 'vo' ? /VO|VOST/i.test(st.version) : seanceFilter === 'vf' ? /VF/i.test(st.version) : seanceFilter === 'soir' ? hm(st.start) >= '19:00' : true;
+
+function showtimeButtons(film, list) {
+  const now = new Date().toISOString().slice(0, 16);
+  const byCine = new Map();
+  list.forEach(st => { if (!byCine.has(st.cinema)) byCine.set(st.cinema, []); byCine.get(st.cinema).push(st); });
+  return [...byCine].map(([cine, sts]) => `<div class="sc-cine"><span>${esc(cine.replace(/^Pathé /, 'Pathé · '))}</span><div class="times">${sts.map(st => {
+    const i = shownSeances.push({ film, st }) - 1;
+    const past = st.start.slice(0, 16) < now;
+    return `<button class="time${past ? ' past' : ''}" type="button" data-seance="${i}">${hm(st.start)}<small>${esc(st.version)}${st.format ? ' ' + esc(st.format) : ''}</small></button>`;
+  }).join('')}</div></div>`).join('');
+}
+
+function renderCines() {
+  if (!myCines) return head('Paris', 'Mes cinés') + '<p class="loading">Chargement des cinémas…</p>';
+  const t = today();
+  if (!seanceDate) seanceDate = t;
+  const names = cinemas.filter(c => myCines.includes(c.id)).map(c => c.name.replace(/^Pathé /, ''));
+  let html = head('Séances à Paris', 'Mes cinés', names.length ? esc(names.slice(0, 4).join(', ') + (names.length > 4 ? ` +${names.length - 4}` : '')) : 'Aucun cinéma choisi',
+    '<button class="sub-pill" type="button" data-open-pick>Choisir</button>');
+  html += `<div class="days">${[...Array(7)].map((_, i) => { const d = addDays(t, i), dt = parseDay(d);
+    return `<button type="button" class="${d === seanceDate ? 'on' : ''}" data-sday="${d}"><span>${i === 0 ? 'Auj.' : i === 1 ? 'Dem.' : SHORT_DAYS[dt.getDay()].toLowerCase()}</span><b>${dt.getDate()}</b></button>`; }).join('')}</div>`;
+  html += `<div class="chips">${[['all', 'Toutes'], ['vo', 'VO'], ['vf', 'VF'], ['soir', 'Après 19 h']].map(([v, l]) => `<button class="chip${seanceFilter === v ? ' on' : ''}" type="button" data-sfilter="${v}">${l}</button>`).join('')}</div>`;
+  html += '<div id="seances"><p class="loading">Recherche des séances…</p></div>';
+  return html + '<p class="source">Séances : <a href="https://paris-cine.info" target="_blank" rel="noopener">paris-cine.info</a> (données Allociné) · réservation sur le site du cinéma</p>';
+}
+
+async function fillCines() {
+  const box = $('#seances');
+  if (!box || !myCines?.length) { if (box) box.innerHTML = '<p class="empty">Choisis tes cinémas pour voir leurs séances.</p>'; return; }
+  const date = seanceDate;
+  let films;
+  try { films = await loadDay(date); } catch (e) { films = null; }
+  if (!$('#seances') || date !== seanceDate) return;
+  if (!films) { $('#seances').innerHTML = '<p class="empty">Séances indisponibles pour le moment.</p>'; return; }
+  shownSeances = [];
+  const html = films.map(f => {
+    const list = f.showtimes.filter(keepShowtime);
+    if (!list.length) return '';
+    const c = catalogFilm(f.title, f.original);
+    const notes = [f.duration, f.imdb ? `IMDb ${String(f.imdb).replace('.', ',')}` : '', f.rt ? `RT ${f.rt} %` : '', f.letterboxd ? `Letterboxd ${String(f.letterboxd).replace('.', ',')}` : ''].filter(Boolean).join(' · ');
+    return `<article class="sc-film">${c ? `<button type="button" data-film="${esc(c.id)}">${poster(c)}</button>` : `<div class="poster ph">${esc(f.title[0] || '?')}</div>`}
+      <div><h3>${esc(f.title)}</h3><p class="meta">${esc(notes)}</p>${showtimeButtons(f, list)}</div></article>`;
+  }).join('');
+  $('#seances').innerHTML = html || '<p class="empty">Aucune séance avec ce filtre.</p>';
+}
+
+function openSeance(i) {
+  const s = shownSeances[i];
+  if (!s) return;
+  const { film, st } = s;
+  const start = st.start.slice(0, 16);
+  const endD = new Date(`${start}:00`); endD.setMinutes(endD.getMinutes() + (film.minutes || 120) + 20);
+  const end = `${isoDay(endD)}T${pad(endD.getHours())}:${pad(endD.getMinutes())}`;
+  const title = `🍿 ${film.title}`;
+  const details = [`${st.cinema} · ${st.version}`, st.book].filter(Boolean).join('\n');
+  const q = o => new URLSearchParams(o).toString();
+  const g = x => x.replace(/[-:]/g, '') + '00';
+  $('#cal-title').textContent = film.title;
+  $('#cal-sub').textContent = `${st.cinema} · ${cap(dayLabel(start.slice(0, 10)))} à ${hm(st.start)} · ${st.version}`;
+  $('#cal-options').innerHTML = [
+    st.book ? [`Réserver chez ${st.cinema}`, st.book] : null,
+    ['Ajouter à Calendrier Apple', `/api/ics?${q({ t: film.title, s: start, e: end, l: st.cinema, u: st.book || '' })}`],
+    ['Ajouter à Google Agenda', `https://calendar.google.com/calendar/render?${q({ action: 'TEMPLATE', text: title, dates: `${g(start)}/${g(end)}`, ctz: 'Europe/Paris', location: st.cinema, details })}`],
+    ['Ajouter à Outlook', `https://outlook.live.com/calendar/0/deeplink/compose?${q({ path: '/calendar/action/compose', rru: 'addevent', subject: title, startdt: start, enddt: end, location: st.cinema, body: details })}`],
+  ].filter(Boolean).map(([l, h], k) => `<a class="as-option"${k === 0 && st.book ? ' style="background:var(--red);color:#fff"' : ''} href="${esc(h)}"${h.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${esc(l)}</a>`).join('');
+  $('#cal').hidden = false;
+}
+
+// Choix des cinémas
+function renderPick() {
+  const list = cinemas.filter(c => pickCard === 'all' || c.cards.includes(pickCard) || myCines.includes(c.id));
+  const groups = new Map();
+  list.sort((a, b) => a.zip.localeCompare(b.zip)).forEach(c => { const n = +c.zip.slice(3); const g = c.zip === '75123' ? 'Paris Centre (1er – 4e)' : c.zip.startsWith('75') ? `Paris ${n === 1 ? '1er' : `${n}e`}` : c.area; if (!groups.has(g)) groups.set(g, []); groups.get(g).push(c); });
+  $('#pick-body').innerHTML = `<div style="padding:8px 16px 0"><div class="chips" style="margin:0">${[['pass', 'Carte Pathé'], ['ugc', 'UGC Illimité'], ['all', 'Tous les cinémas']].map(([v, l]) =>
+    `<button class="chip${pickCard === v ? ' on' : ''}" type="button" data-pcard="${v}">${l}</button>`).join('')}</div>
+    <p class="page-sub">${myCines.length} cinéma${myCines.length > 1 ? 's' : ''} choisi${myCines.length > 1 ? 's' : ''} · 15 au plus</p>
+    ${[...groups].map(([g, cs]) => `<div class="cine-group">${esc(g)}</div>${cs.map(c => `<button class="cine-row${myCines.includes(c.id) ? ' on' : ''}" type="button" data-cine="${c.id}">
+      <span class="box">${myCines.includes(c.id) ? '✓' : ''}</span><b>${esc(c.name)}</b><small>${c.cards.includes('pass') ? 'Carte Pathé' : c.cards.includes('ugc') ? 'UGC Illimité' : ''}</small></button>`).join('')}`).join('')}</div>`;
+}
+
 // ---------------------------------------------------------------- rendu
 function render() {
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
   const n = Object.keys(myList).length;
   $('#list-count').hidden = !n; $('#list-count').textContent = n;
   if (!cat) { $('#view').innerHTML = '<p class="empty">On éteint la lumière, la séance commence…</p>'; return; }
-  $('#view').innerHTML = { week: renderWeek, calendar: renderCalendar, boxoffice: renderBoxOffice }[tab]();
+  $('#view').innerHTML = { week: renderWeek, calendar: renderCalendar, boxoffice: renderBoxOffice, cines: renderCines }[tab]();
+  if (tab === 'cines') { if (myCines) fillCines(); else loadCinemas().then(render); }
   document.querySelectorAll('[data-notes]').forEach(el => { const f = findFilm(el.dataset.notes); if (f) fillNotes(f, el); });
 }
 
@@ -278,8 +398,9 @@ function openFilm(id) {
       <div class="scores" id="scores"><div class="na"><b>…</b><span>IMDb</span></div><div class="na"><b>…</b><span>Rotten T.</span></div><div class="na"><b>…</b><span>Letterboxd</span></div></div>
       ${f.synopsis ? `<p class="syn">${esc(f.synopsis)}</p>` : ''}
       ${f.director || f.cast?.length ? `<p class="people">${f.director ? `De ${esc(f.director)}` : ''}${f.director && f.cast?.length ? '<br>' : ''}${f.cast?.length ? `Avec ${esc(f.cast.join(', '))}` : ''}</p>` : ''}
+      ${myCines?.length ? '<div class="section-title" style="margin:6px 0 0">Séances dans mes cinés</div><div class="film-seances" id="film-seances"><p class="loading" style="padding:10px 0">Recherche…</p></div>' : ''}
       <div class="actions">
-        <a class="btn red" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Voir les séances</a>
+        <a class="btn red" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Toutes les séances</a>
         ${f.date ? `<button class="btn" type="button" data-cal="${esc(f.id)}">${CAL_ICON}Agenda</button>` : `<a class="btn" href="https://www.pathe.fr/films" target="_blank" rel="noopener">Pathé</a>`}
         <a class="btn" href="https://www.allocine.fr/rechercher/?q=${encodeURIComponent(cleanTitle(f.title))}" target="_blank" rel="noopener">Allociné</a>
         <a class="btn" href="https://www.jpbox-office.com/fichfilm.php?id=${esc(f.id)}&view=2" target="_blank" rel="noopener">Chiffres JP</a>
@@ -288,6 +409,18 @@ function openFilm(id) {
   $('#film').hidden = false;
   document.body.classList.add('sheet-open');
   $('#film-body').scrollTop = 0;
+  if (myCines?.length) {
+    fetch(`/api/seances?${new URLSearchParams({ c: myCines.join('.'), t: cleanTitle(f.title), o: f.original || '' })}`).then(r => r.ok ? r.json() : {}).then(d => {
+      const box = $('#film-seances');
+      if (!box) return;
+      const now = new Date().toISOString().slice(0, 10);
+      const sts = (d.film?.showtimes || []).filter(st => st.start.slice(0, 10) >= now);
+      if (!sts.length) { box.innerHTML = '<p class="people">Pas de séance prévue dans tes cinémas pour l\'instant.</p>'; return; }
+      shownSeances = [];
+      const days = [...new Set(sts.map(st => st.start.slice(0, 10)))].slice(0, 4);
+      box.innerHTML = days.map(dd => `<div><div class="day-h">${esc(cap(dayLabel(dd)))}</div>${showtimeButtons(d.film, sts.filter(st => st.start.startsWith(dd)))}</div>`).join('');
+    }).catch(() => { const box = $('#film-seances'); if (box) box.innerHTML = '<p class="people">Séances indisponibles.</p>'; });
+  }
   getRatings(f).then(r => {
     const box = $('#scores');
     if (!box || $('#film').hidden) return;
@@ -352,8 +485,11 @@ tab = read(KEYS.tab) || 'week';
 calView = read(KEYS.view) || 'month';
 filter = read(KEYS.filter) || 'big';
 myList = read(KEYS.list) || {};
+myCines = read(KEYS.cines);
+cinemas = read(KEYS.cinemas) || [];
 ratingsCache = read(KEYS.ratings) || {};
-if (!['week', 'calendar', 'boxoffice'].includes(tab)) tab = 'week';
+if (!['week', 'calendar', 'boxoffice', 'cines'].includes(tab)) tab = 'week';
+loadCinemas();
 
 $('.tabs').addEventListener('click', ev => {
   const b = ev.target.closest('.tab');
@@ -373,6 +509,19 @@ document.addEventListener('click', ev => {
   const d = t.closest('[data-day]'); if (d) { selDay = selDay === d.dataset.day ? null : d.dataset.day; render(); return; }
   const m = t.closest('[data-month]'); if (m) { monthOffset += +m.dataset.month; selDay = null; render(); return; }
   const bo = t.closest('[data-bo]'); if (bo) { boView = bo.dataset.bo; render(); return; }
+  const se = t.closest('[data-seance]'); if (se) { openSeance(+se.dataset.seance); return; }
+  const sd = t.closest('[data-sday]'); if (sd) { seanceDate = sd.dataset.sday; render(); return; }
+  const sf = t.closest('[data-sfilter]'); if (sf) { seanceFilter = sf.dataset.sfilter; render(); return; }
+  if (t.closest('[data-open-pick]')) { loadCinemas().then(() => { renderPick(); $('#pick').hidden = false; document.body.classList.add('sheet-open'); }); return; }
+  if (t.closest('[data-close-pick]')) { $('#pick').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
+  const pc = t.closest('[data-pcard]'); if (pc) { pickCard = pc.dataset.pcard; renderPick(); return; }
+  const ci = t.closest('[data-cine]'); if (ci) {
+    const id = +ci.dataset.cine;
+    if (myCines.includes(id)) myCines = myCines.filter(x => x !== id);
+    else if (myCines.length < 15) myCines = [...myCines, id];
+    else toast('15 cinémas au plus');
+    write(KEYS.cines, myCines); renderPick(); return;
+  }
 });
 $('#open-list').addEventListener('click', () => { renderList(); $('#list').hidden = false; document.body.classList.add('sheet-open'); });
 

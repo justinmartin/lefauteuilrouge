@@ -42,7 +42,7 @@ a { color: inherit; }
 
 /* ----- Onglets ----- */
 .tabs {
-  position: fixed; inset: auto 0 0 0; z-index: 20; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  position: fixed; inset: auto 0 0 0; z-index: 20; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
   padding: 4px 4px calc(var(--safe-bottom) + 2px); background: rgba(20, 20, 20, 0.92); border-top: 1px solid var(--line);
   backdrop-filter: saturate(160%) blur(16px); -webkit-backdrop-filter: saturate(160%) blur(16px);
 }
@@ -202,3 +202,33 @@ main { max-width: 640px; margin: 0 auto; padding: 16px 16px 0; }
 .toast { position: fixed; left: 50%; bottom: calc(var(--safe-bottom) + 86px); transform: translateX(-50%); background: var(--paper); color: #141414; font-size: 14px; font-weight: 600; padding: 10px 16px; border-radius: 10px; z-index: 70; }
 .icon-btn .count[hidden] { display: none; }
 .sub-pill { text-decoration: none; color: var(--text); }
+
+/* ----- Mes cinés ----- */
+.days { display: flex; gap: 6px; overflow-x: auto; margin: 4px -16px 0; padding: 0 16px 2px; scrollbar-width: none; }
+.days::-webkit-scrollbar { display: none; }
+.days button { flex: none; min-width: 58px; padding: 8px 10px; border-radius: 12px; background: var(--raised); display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.days button span { font-size: 10.5px; font-weight: 600; color: var(--text-3); text-transform: uppercase; }
+.days button b { font-size: 17px; font-weight: 600; }
+.days button.on { background: var(--paper); color: #141414; }
+.days button.on span { color: #6b665f; }
+.sc-film { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.sc-film .poster { width: 54px; }
+.sc-film h3 { font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.05; }
+.sc-film .meta { margin-top: 2px; }
+.sc-cine { margin-top: 8px; }
+.sc-cine > span { font-size: 11.5px; font-weight: 600; color: var(--text-3); }
+.times { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
+.time { min-height: 34px; padding: 0 10px; border-radius: 9px; border: 1px solid var(--line-2); font-size: 13.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; font-variant-numeric: tabular-nums; }
+.time small { font-size: 10px; font-weight: 700; color: var(--text-3); }
+.time.past { opacity: 0.35; }
+.time:active { background: var(--raised-2); }
+.loading { text-align: center; color: var(--text-3); padding: 34px 0; font-size: 14px; }
+.cine-group { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-3); margin: 18px 0 6px; }
+.cine-row { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 50px; padding: 6px 0; border-bottom: 1px solid var(--line); text-align: left; }
+.cine-row .box { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid var(--line-2); display: grid; place-items: center; flex: none; font-size: 14px; }
+.cine-row.on .box { background: var(--red); border-color: var(--red); color: #fff; }
+.cine-row b { flex: 1; font-size: 15px; font-weight: 500; }
+.cine-row small { font-size: 10.5px; color: var(--text-3); }
+.film-seances { display: grid; gap: 10px; }
+.film-seances .day-h { font-size: 12px; font-weight: 600; color: var(--text-2); margin-top: 4px; }
+.sc-film { align-items: start; }
