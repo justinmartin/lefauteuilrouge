@@ -1,11 +1,13 @@
-// Newsletter du lundi : les sorties de mercredi, les grosses sorties des 3 semaines suivantes et le
-// box-office France de la semaine. Données : l'API de l'app (sinon JP's Box-Office en direct).
+// Newsletter du lundi : la sortie phare de mercredi (avec ses notes), les autres sorties, les grosses
+// sorties des 3 semaines suivantes, le box-office France / États-Unis / monde et la séance de rattrapage.
+// Données : l'API de l'app (sinon JP's Box-Office en direct).
 // Usage : node scripts/newsletter.js [--dry-run]   (dry-run : écrit out/newsletter.html sans envoyer)
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const { catalog } = require('../lib/jpbox');
 const { weeklyPicks } = require('../lib/reco');
+const { ratings } = require('../lib/ratings');
 
 const APP_URL = process.env.APP_URL || 'https://lefauteuilrouge.vercel.app';
 const DRY = process.argv.includes('--dry-run');
@@ -14,9 +16,11 @@ const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'sa
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fmt = n => n == null ? '–' : n.toLocaleString('fr-FR').replace(/ /g, ' ');
+const short = n => n == null ? '–' : n >= 1e9 ? `${(n / 1e9).toLocaleString('fr-FR', { maximumFractionDigits: 2 })} Md` : n >= 1e6 ? `${(n / 1e6).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} M` : n >= 1e3 ? `${Math.round(n / 1e3)} k` : String(n);
 const day = s => { const d = new Date(`${s}T12:00:00Z`); return `${DAYS[d.getUTCDay()]} ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`; };
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const addDays = (s, n) => { const d = new Date(`${s}T12:00:00Z`); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+const clean = t => String(t || '').replace(/\s*\(\d{4}\)\s*$/, '');
 
 async function loadCatalog() {
   try {
@@ -33,101 +37,142 @@ function nextWednesday(now = new Date()) {
   return d.toISOString().slice(0, 10);
 }
 
-const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif";
-const SERIF = "Georgia,'Times New Roman',serif";
-const GOLD = '#e8b54d', CREAM = '#f6e7c8', VELVET = '#b3141e';
+// DA : papier, encre, rouge fauteuil ; Instrument Serif si la messagerie charge la police, sinon Georgia
+const SERIF = "'Instrument Serif',Georgia,'Times New Roman',serif";
+const SANS = "'Space Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif";
+const PAPER = '#f4f1ea', INK = '#141414', RED = '#d7262e', GREY = '#6b665f', LINE = '#d6d0c4';
 
-const title = (t, sub = '') => `<tr><td style="padding:26px 22px 8px">
-  <div style="font-family:${FONT};font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:${GOLD}">${t}</div>
-  ${sub ? `<div style="font-family:${FONT};font-size:13px;color:#cdb9a5;margin-top:3px">${sub}</div>` : ''}
-  <div style="height:1px;background:rgba(232,181,77,.25);margin-top:10px"></div></td></tr>`;
+const sectionTitle = (t, sub = '') => `<tr><td style="padding:24px 24px 6px;border-top:1px solid ${LINE}">
+  <div style="font-family:${SANS};font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:${RED}">${t}</div>
+  ${sub ? `<div style="font-family:${SANS};font-size:12.5px;color:${GREY};margin-top:3px">${sub}</div>` : ''}</td></tr>`;
 
-function filmCard(f) {
-  const meta = [f.genre, f.country, f.duration].filter(Boolean).join(' · ');
-  const people = [f.director ? `De ${f.director}` : '', f.cast?.length ? `Avec ${f.cast.slice(0, 3).join(', ')}` : ''].filter(Boolean).join(' · ');
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#2a0f13;border:1px solid rgba(232,181,77,.22);border-radius:12px;margin:10px 0"><tr>
-    <td width="96" style="padding:12px;vertical-align:top">${f.poster ? `<img src="${esc(f.poster)}" width="90" style="display:block;width:90px;border-radius:6px" alt="">` : ''}</td>
-    <td style="padding:12px 14px 12px 4px;vertical-align:top;font-family:${FONT}">
-      <div style="font-family:${SERIF};font-size:20px;line-height:1.15;color:${CREAM}">${esc(f.title)}</div>
-      ${meta ? `<div style="font-size:13px;color:#cdb9a5;margin-top:5px">${esc(meta)}${f.screens ? ` · <b style="color:${GOLD}">${fmt(f.screens)} salles</b>` : ''}</div>` : ''}
-      ${people ? `<div style="font-size:12.5px;color:#8f7a6c;margin-top:3px">${esc(people)}</div>` : ''}
-      ${f.synopsis ? `<div style="font-size:13px;line-height:1.45;color:#cdb9a5;margin-top:7px">${esc(f.synopsis.length > 230 ? f.synopsis.slice(0, 227).replace(/\s\S*$/, '') + '…' : f.synopsis)}</div>` : ''}
+function notesLine(r) {
+  if (!r?.found) return '';
+  const parts = [];
+  if (r.imdb?.rating) parts.push(`IMDb <b>${r.imdb.rating.toLocaleString('fr-FR')}</b>`);
+  if (r.rt?.critics != null) parts.push(`Rotten Tomatoes <b>${r.rt.critics} %</b>`);
+  if (r.letterboxd?.rating) parts.push(`Letterboxd <b>${r.letterboxd.rating.toLocaleString('fr-FR', { maximumFractionDigits: 1 })}</b>`);
+  return parts.join(' · ');
+}
+
+function featured(f, r) {
+  const meta = [f.genre, f.country, f.duration, f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean).join(' · ');
+  const people = [f.director ? `De ${f.director}` : '', f.cast?.length ? `avec ${f.cast.slice(0, 3).join(', ')}` : ''].filter(Boolean).join(', ');
+  const notes = notesLine(r);
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td width="140" style="vertical-align:top;padding:4px 0">${f.poster ? `<img src="${esc(f.poster)}" width="130" style="display:block;width:130px;border-radius:8px" alt="">` : ''}</td>
+    <td style="vertical-align:top;padding:0 0 0 14px;font-family:${SANS}">
+      <div style="font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${RED}">La sortie de la semaine</div>
+      <div style="font-family:${SERIF};font-size:34px;line-height:1;color:${INK};margin-top:6px">${esc(clean(f.title))}</div>
+      ${meta ? `<div style="font-size:13px;color:${GREY};margin-top:6px">${esc(meta)}</div>` : ''}
+      ${notes ? `<div style="font-size:13px;color:${INK};margin-top:4px">${notes}</div>` : ''}
+      ${people ? `<div style="font-size:12.5px;color:${GREY};margin-top:4px">${esc(people)}</div>` : ''}
+      ${f.synopsis ? `<div style="font-size:13.5px;line-height:1.5;color:#2a2826;margin-top:8px">${esc(f.synopsis.length > 260 ? f.synopsis.slice(0, 257).replace(/\s\S*$/, '') + '…' : f.synopsis)}</div>` : ''}
     </td></tr></table>`;
+}
+
+// Les autres sorties du mercredi, en « tickets » (souche rouge pour les grosses)
+function ticketRow(f, big, r) {
+  const notes = notesLine(r);
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0;border:1px solid ${LINE};border-radius:10px;background:#fffdf8"><tr>
+    <td width="50" style="padding:0">${f.poster ? `<img src="${esc(f.poster)}" width="50" style="display:block;width:50px;border-radius:10px 0 0 10px" alt="">` : ''}</td>
+    <td style="padding:8px 12px;font-family:${SANS}">
+      <div style="font-family:${SERIF};font-size:20px;line-height:1.1;color:${INK}">${esc(clean(f.title))}</div>
+      <div style="font-size:12px;color:${GREY};margin-top:2px">${esc([f.genre, f.director || f.cast?.[0], f.duration].filter(Boolean).join(' · '))}</div>
+      ${notes ? `<div style="font-size:11.5px;color:${INK};margin-top:2px">${notes}</div>` : ''}
+    </td>
+    <td width="58" style="border-left:1.5px dashed ${big ? '#fffdf8' : LINE};background:${big ? RED : '#fffdf8'};color:${big ? '#fff' : GREY};text-align:center;font-family:${SANS};font-size:10.5px;font-weight:700;border-radius:0 10px 10px 0;line-height:1.2">${f.screens ? `${fmt(f.screens)}<br>salles` : big ? 'Grosse<br>sortie' : '—'}</td>
+  </tr></table>`;
 }
 
 function posterStrip(list) {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>${list.slice(0, 4).map(f => `
-    <td width="25%" style="padding:6px;vertical-align:top;font-family:${FONT}">
+    <td width="25%" style="padding:4px;vertical-align:top;font-family:${SANS}">
       ${f.poster ? `<img src="${esc(f.poster)}" width="120" style="display:block;width:100%;max-width:120px;border-radius:6px" alt="">` : ''}
-      <div style="font-size:12.5px;font-weight:600;color:${CREAM};margin-top:6px;line-height:1.25">${esc(f.title)}</div>
-      ${f.screens ? `<div style="font-size:11px;color:#8f7a6c">${fmt(f.screens)} salles</div>` : ''}
+      <div style="font-size:12.5px;font-weight:600;color:${INK};margin-top:6px;line-height:1.25">${esc(clean(f.title))}</div>
+      ${f.screens ? `<div style="font-size:11px;color:${GREY}">${fmt(f.screens)} salles</div>` : f.genre ? `<div style="font-size:11px;color:${GREY}">${esc(f.genre)}</div>` : ''}
     </td>`).join('')}${'<td width="25%"></td>'.repeat(Math.max(0, 4 - list.length))}</tr></table>`;
 }
 
-function boTable(bo) {
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-family:${FONT}">${bo.rows.slice(0, 10).map(r => `
-    <tr><td width="34" style="padding:8px 0;border-bottom:1px solid rgba(232,181,77,.15);font-family:${SERIF};font-size:22px;color:${r.rank <= 3 ? '#f3d58f' : GOLD};text-align:center">${r.rank}</td>
-      <td style="padding:8px 8px;border-bottom:1px solid rgba(232,181,77,.15)">
-        <div style="font-size:14.5px;font-weight:650;color:${CREAM}">${esc(r.title)}${r.isNew ? ` <span style="font-size:10px;font-weight:800;color:#fff;background:${VELVET};border-radius:3px;padding:1px 5px;vertical-align:middle">NOUVEAU</span>` : ''}</div>
-        <div style="font-size:12px;color:#8f7a6c">${esc(r.distributor || '')}${r.weeks > 1 ? ` · ${r.weeks}e semaine` : ''}</div></td>
-      <td style="padding:8px 0;border-bottom:1px solid rgba(232,181,77,.15);text-align:right;white-space:nowrap">
-        <div style="font-size:14.5px;font-weight:700;color:${CREAM}">${fmt(r.entries)}</div>
-        <div style="font-size:11.5px;color:${r.change && r.change.startsWith('-') ? '#ff9a92' : '#8f7a6c'}">${r.change || 'entrées'} · total ${fmt(r.total)}</div></td></tr>`).join('')}</table>`;
+function boRows(rows, value) {
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-family:${SANS}">${rows.map(r => `
+    <tr><td width="30" style="padding:7px 0;border-bottom:1px solid ${LINE};font-family:${SERIF};font-size:20px;color:${r.rank === 1 ? RED : GREY}">${r.rank}</td>
+      <td style="padding:7px 6px;border-bottom:1px solid ${LINE};font-size:13.5px;color:${INK}">${esc(clean(r.title))}${r.isNew ? ` <span style="font-size:9.5px;font-weight:700;color:#fff;background:${RED};border-radius:3px;padding:1px 4px;vertical-align:middle">NOUVEAU</span>` : ''}</td>
+      <td style="padding:7px 0;border-bottom:1px solid ${LINE};text-align:right;white-space:nowrap;font-size:13px;color:${INK}">${value(r)}</td></tr>`).join('')}</table>`;
 }
 
-// « La séance de rattrapage » : 3 classiques à (re)voir
 function recoSection(picks) {
   if (!picks?.length) return '';
-  return title('La séance de rattrapage', '3 films à voir, piochés dans les grands classements') + `<tr><td style="padding:0 22px">${picks.map(f => `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#2a0f13;border:1px solid rgba(232,181,77,.22);border-radius:12px;margin:10px 0"><tr>
-      <td width="86" style="padding:12px;vertical-align:top">${f.poster ? `<a href="${esc(f.link)}"><img src="${esc(f.poster)}" width="80" style="display:block;width:80px;border-radius:6px" alt=""></a>` : ''}</td>
-      <td style="padding:12px 14px 12px 4px;vertical-align:top;font-family:${FONT}">
-        <a href="${esc(f.link)}" style="text-decoration:none"><span style="font-family:${SERIF};font-size:19px;line-height:1.15;color:${CREAM}">${esc(f.title)}</span></a>
-        <div style="font-size:12.5px;color:#cdb9a5;margin-top:4px">${f.year} · ${esc(f.director)}${f.original && f.original !== f.title ? ` · <i>${esc(f.original)}</i>` : ''}</div>
-        <div style="margin-top:6px">${f.sourceLabels.map(l => `<span style="display:inline-block;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#f3d58f;background:rgba(232,181,77,.14);border-radius:4px;padding:2px 6px;margin:0 4px 4px 0">${esc(l)}</span>`).join('')}</div>
-        ${f.synopsis ? `<div style="font-size:13px;line-height:1.45;color:#cdb9a5;margin-top:4px">${esc(f.synopsis)}</div>` : ''}
-      </td></tr></table>`).join('')}</td></tr>`;
+  return sectionTitle('La séance de rattrapage', '3 films à voir, piochés dans les grands classements') + `<tr><td style="padding:6px 20px 8px">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>${picks.map(f => `
+      <td width="33%" style="padding:4px;vertical-align:top;font-family:${SANS}">
+        ${f.poster ? `<a href="${esc(f.link)}"><img src="${esc(f.poster)}" width="160" style="display:block;width:100%;max-width:160px;border-radius:6px" alt=""></a>` : ''}
+        <a href="${esc(f.link)}" style="text-decoration:none"><div style="font-family:${SERIF};font-size:19px;line-height:1.1;color:${INK};margin-top:6px">${esc(f.title)}</div></a>
+        <div style="font-size:11.5px;color:${GREY};margin-top:2px">${f.year} · ${esc(f.director)}</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:${RED};margin-top:4px">${esc(f.sourceLabels.join(' · '))}</div>
+      </td>`).join('')}</tr></table></td></tr>`;
 }
 
-function render(cat, wed, picks = []) {
+function render(cat, wed, picks = [], notes = {}) {
   const on = d => cat.films.filter(f => f.date === d).sort((a, b) => (b.screens || 0) - (a.screens || 0));
-  const big = l => { const b = l.filter(f => (f.screens || 0) >= BIG_SCREENS); return b.length ? b : l.slice(0, 3); };
-  const thisWeek = on(wed);
-  const main = big(thisWeek), rest = thisWeek.filter(f => !main.includes(f));
-  let body = title(`Mercredi ${new Date(`${wed}T12:00:00Z`).getUTCDate()} ${MONTHS[new Date(`${wed}T12:00:00Z`).getUTCMonth()]} au cinéma`, `${thisWeek.length} sortie${thisWeek.length > 1 ? 's' : ''}`);
-  body += `<tr><td style="padding:0 22px">${main.map(filmCard).join('') || `<p style="font-family:${FONT};color:#8f7a6c">Pas encore de sorties annoncées.</p>`}
-    ${rest.length ? `<p style="font-family:${FONT};font-size:13px;color:#cdb9a5;margin:12px 0 0">Aussi : ${rest.map(f => esc(f.title)).join(', ')}.</p>` : ''}</td></tr>`;
-  for (let i = 1; i <= 3; i++) {
-    const d = addDays(wed, 7 * i), l = on(d);
-    if (!l.length) continue;
-    body += title(cap(day(d)), `${l.length} sortie${l.length > 1 ? 's' : ''}`) + `<tr><td style="padding:0 16px">${posterStrip(big(l))}</td></tr>`;
+  const bigOf = l => { const b = l.filter(f => (f.screens || 0) >= BIG_SCREENS); return b.length ? b : l.slice(0, 3); };
+  const thisWeek = on(wed), big = bigOf(thisWeek);
+  const wedDate = new Date(`${wed}T12:00:00Z`);
+  let body = sectionTitle(`Mercredi ${wedDate.getUTCDate()} ${MONTHS[wedDate.getUTCMonth()]} au cinéma`, `${thisWeek.length} sortie${thisWeek.length > 1 ? 's' : ''}`);
+  body += `<tr><td style="padding:8px 24px 4px">${thisWeek.length ? featured(thisWeek[0], notes[thisWeek[0].id])
+    + thisWeek.slice(1).map(f => ticketRow(f, big.includes(f), notes[f.id])).join('') : `<p style="font-family:${SANS};color:${GREY}">Pas encore de sorties annoncées.</p>`}</td></tr>`;
+
+  const next = [1, 2, 3].map(i => addDays(wed, 7 * i)).map(d => ({ d, l: on(d) })).filter(x => x.l.length);
+  if (next.length) {
+    body += sectionTitle('Les 3 semaines suivantes');
+    body += next.map(({ d, l }) => `<tr><td style="padding:8px 20px 4px"><div style="font-family:${SERIF};font-size:22px;color:${INK};padding:0 4px 4px">${esc(cap(day(d)))} <span style="font-family:${SANS};font-size:12px;color:${GREY}">· ${l.length} sortie${l.length > 1 ? 's' : ''}</span></div>${posterStrip(bigOf(l))}</td></tr>`).join('');
   }
-  const bo = cat.boxoffice?.rows?.length ? cat.boxoffice : cat.boxoffice_prev;  // la plus récente, même partielle
-  if (bo?.rows?.length) {
-    const label = (bo.label || '').replace(/^Semaine \d+ - DU /i, 'du ').replace(/\s*\(\d Jours?\)/i, '').toLowerCase();
-    body += title('Box-office France', `${esc(label)}${bo.days && bo.days < 7 ? ` · ${bo.days} premiers jours` : ''}`) + `<tr><td style="padding:0 22px">${boTable(bo)}</td></tr>`;
+
+  const fr = cat.boxoffice?.rows?.length ? cat.boxoffice : cat.boxoffice_prev;
+  if (fr?.rows?.length) {
+    const label = (fr.label || '').replace(/^Semaine \d+ - DU /i, 'du ').toLowerCase();
+    body += sectionTitle('Box-office France', `${esc(label)}${fr.days && fr.days < 7 ? ` · ${fr.days} premiers jours` : ''}`)
+      + `<tr><td style="padding:6px 24px">${boRows(fr.rows.slice(0, 10), r => `<b>${fmt(r.entries)}</b> <span style="color:${GREY};font-size:11.5px">· total ${short(r.total)}</span>`)}</td></tr>`;
+  }
+  const us = cat.boxoffice_us, world = cat.world;
+  if (us?.rows?.length || world?.rows?.length) {
+    body += sectionTitle('Ailleurs dans le monde', 'Week-end aux États-Unis · cumul mondial de l\'année');
+    body += `<tr><td style="padding:6px 24px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td width="50%" style="vertical-align:top;padding-right:10px">${us?.rows?.length ? `<div style="font-family:${SANS};font-size:11px;font-weight:700;color:${GREY};margin-bottom:2px">ÉTATS-UNIS</div>${boRows(us.rows.slice(0, 5), r => `${short(r.entries)} $`)}` : ''}</td>
+      <td width="50%" style="vertical-align:top;padding-left:10px">${world?.rows?.length ? `<div style="font-family:${SANS};font-size:11px;font-weight:700;color:${GREY};margin-bottom:2px">MONDE ${world.year}</div>${boRows(world.rows.slice(0, 5), r => `${short(r.world)} $`)}` : ''}</td>
+    </tr></table></td></tr>`;
   }
   body += recoSection(picks);
+
   const subject = `🍿 Le Fauteuil Rouge — les sorties du ${day(wed)}`;
-  const html = `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Le Fauteuil Rouge</title></head>
-<body style="margin:0;background:#140608">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#140608"><tr><td align="center" style="padding:16px 8px">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;background:#1f0a0d;border:1px solid rgba(232,181,77,.3);border-radius:16px">
-<tr><td style="padding:26px 22px 18px;text-align:center;background:#2b0a0e;border-radius:16px 16px 0 0;border-bottom:2px solid ${GOLD}">
-  <img src="${APP_URL}/icon-192.png" width="56" height="56" alt="" style="display:inline-block;border-radius:14px">
-  <div style="font-family:${SERIF};font-size:30px;color:${CREAM};margin-top:8px"><i style="color:${GOLD};font-size:22px">le</i> Fauteuil <i style="color:#d1222c">Rouge</i></div>
-  <div style="font-family:${FONT};font-size:12px;letter-spacing:3px;text-transform:uppercase;color:${GOLD};margin-top:6px">Votre semaine au cinéma</div></td></tr>
+  const html = `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Le Fauteuil Rouge</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"></head>
+<body style="margin:0;background:#e9e4d9">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#e9e4d9"><tr><td align="center" style="padding:16px 8px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;background:${PAPER};border-radius:16px;overflow:hidden">
+<tr><td style="background:${INK};padding:20px 24px">
+  <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+    <td style="padding-right:12px"><img src="${APP_URL}/icon-192.png" width="48" height="48" alt="" style="display:block;border-radius:12px"></td>
+    <td><div style="font-family:${SERIF};font-size:30px;line-height:1;color:${PAPER}">le fauteuil <i style="color:#ff4a50">rouge</i></div>
+      <div style="font-family:${SANS};font-size:11px;letter-spacing:3px;color:#a8a29a;margin-top:5px">VOTRE SEMAINE AU CINÉMA</div></td>
+  </tr></table></td></tr>
 ${body}
-<tr><td style="padding:24px 22px;text-align:center;font-family:${FONT};font-size:12px;color:#8f7a6c;line-height:1.7">
-  <a href="${APP_URL}" style="color:${CREAM};font-weight:700">Ouvrir l'app</a> pour tout le calendrier de l'année.<br>Chiffres : JP's Box-Office.</td></tr>
+<tr><td style="padding:22px 24px;border-top:1px solid ${LINE};text-align:center;font-family:${SANS};font-size:12px;color:${GREY};line-height:1.7">
+  <a href="${APP_URL}" style="color:${INK};font-weight:700">Ouvrir l'app</a> pour le calendrier de l'année, les notes et votre liste.<br>Chiffres : JP's Box-Office · notes : IMDb, Rotten Tomatoes, Letterboxd.</td></tr>
 </table></td></tr></table></body></html>`;
   return { subject, html };
 }
 
 async function main() {
   const cat = await loadCatalog();
+  const wed = nextWednesday();
+  // Notes des films de mercredi (une requête à la fois, pour ne pas brusquer les sites)
+  const notes = {};
+  for (const f of cat.films.filter(x => x.date === wed).slice(0, 8)) {
+    notes[f.id] = await ratings({ title: f.title, original: f.original, year: +wed.slice(0, 4) }).catch(() => null);
+  }
   const picks = await weeklyPicks().catch(() => []);
-  const { subject, html } = render(cat, nextWednesday(), picks);
+  const { subject, html } = render(cat, wed, picks, notes);
   const out = path.join(__dirname, '..', 'out');
   fs.mkdirSync(out, { recursive: true });
   fs.writeFileSync(path.join(out, 'newsletter.html'), html);

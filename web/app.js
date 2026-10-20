@@ -1,15 +1,23 @@
 // Le Fauteuil Rouge — app.
-// Données : /api/catalog (sorties France sur l'année + box-office de la semaine, d'après JP's Box-Office),
-// gardées sur le téléphone pour l'ouverture instantanée et le hors-ligne.
-const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', filter: 'lfr_filter' };
+// Données : /api/catalog (sorties France sur l'année, box-office France / US / monde, d'après JP's Box-Office)
+// et /api/ratings (IMDb, Rotten Tomatoes, Letterboxd), gardées sur le téléphone pour l'ouverture instantanée.
+const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter' };
 const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+const SHORT_DAYS = ['DIM.', 'LUN.', 'MAR.', 'MER.', 'JEU.', 'VEN.', 'SAM.'];
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+const MONTHS_SHORT = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+const WEEKDAYS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 const BIG_SCREENS = 250; // au-delà : « grosse sortie »
 
 let cat = null;
 let tab = 'week';
-let filter = 'big';      // calendrier : big | all
-let boWeek = 'last';     // box-office : last | prev
+let calView = 'month';   // month | weeks | list
+let filter = 'big';      // big | all | mine | genre:<nom>
+let selDay = null;
+let monthOffset = 0;
+let boView = 'fr';       // fr | fr-prev | us | world
+let myList = {};         // { id: { title, date, poster } }
+let ratingsCache = {};
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -22,162 +30,313 @@ const addDays = (s, n) => { const d = parseDay(s); d.setDate(d.getDate() + n); r
 const dayLabel = s => { const d = parseDay(s); return `${DAYS[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}`; };
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const fmt = n => n == null ? '–' : n.toLocaleString('fr-FR');
-const short = n => n >= 1e6 ? `${(n / 1e6).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} M` : n >= 1e3 ? `${Math.round(n / 1e3)} k` : String(n);
+const short = n => n == null ? '–' : n >= 1e9 ? `${(n / 1e9).toLocaleString('fr-FR', { maximumFractionDigits: 2 })} Md` : n >= 1e6 ? `${(n / 1e6).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} M` : n >= 1e3 ? `${Math.round(n / 1e3)} k` : String(n);
+const cleanTitle = t => String(t || '').replace(/\s*\(\d{4}\)\s*$/, '');
+const today = () => isoDay(new Date());
 
-// Semaine ciné « en cours » : du mercredi au mardi. Lundi et mardi, on regarde déjà le mercredi qui vient.
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2400);
+}
+
+// Semaine ciné : du mercredi au mardi. Lundi et mardi, on regarde déjà le mercredi qui vient.
 function featuredWednesday() {
-  const d = new Date();
-  const wd = d.getDay();
-  const back = (wd - 3 + 7) % 7;               // jours depuis le dernier mercredi
+  const d = new Date(), wd = d.getDay();
   if (wd === 1 || wd === 2) d.setDate(d.getDate() + (3 - wd));
-  else d.setDate(d.getDate() - back);
+  else d.setDate(d.getDate() - ((wd - 3 + 7) % 7));
   return isoDay(d);
 }
 
-// Les films d'une date, les plus gros d'abord ; « gros » = beaucoup de salles (ou les 3 premiers si inconnu)
-function filmsOn(date) {
-  return cat.films.filter(f => f.date === date).sort((a, b) => (b.screens || 0) - (a.screens || 0));
-}
+const filmsOn = date => cat.films.filter(f => f.date === date).sort((a, b) => (b.screens || 0) - (a.screens || 0));
 function isBig(f, list) {
   if (f.screens != null) return f.screens >= BIG_SCREENS;
-  const known = list.some(x => x.screens != null);
-  return !known && list.indexOf(f) < 3;
+  return !list.some(x => x.screens != null) && list.indexOf(f) < 3;
+}
+const findFilm = id => cat.films.find(f => f.id === id)
+  || [...(cat.boxoffice?.rows || []), ...(cat.boxoffice_prev?.rows || []), ...(cat.boxoffice_us?.rows || []), ...(cat.world?.rows || [])].find(f => f.id === id);
+
+// ---------------------------------------------------------------- notes (IMDb, RT, Letterboxd)
+const yearOf = f => +(f.date || '').slice(0, 4) || new Date().getFullYear();
+async function getRatings(f) {
+  const key = f.id;
+  const hit = ratingsCache[key];
+  if (hit && Date.now() - hit.at < 24 * 3600e3) return hit.data;
+  try {
+    const r = await fetch(`/api/ratings?${new URLSearchParams({ t: cleanTitle(f.title), o: f.original || '', y: yearOf(f) })}`);
+    const data = r.ok ? await r.json() : null;
+    if (data) { ratingsCache[key] = { at: Date.now(), data }; write(KEYS.ratings, ratingsCache); }
+    return data;
+  } catch (e) { return null; }
+}
+function notesLine(r) {
+  if (!r || !r.found) return '<span class="na">Pas encore de notes</span>';
+  const parts = [];
+  if (r.imdb?.rating) parts.push(`IMDb <b>${r.imdb.rating.toLocaleString('fr-FR')}</b>`);
+  if (r.rt?.critics != null) parts.push(`RT <b>${r.rt.critics} %</b>`);
+  if (r.letterboxd?.rating) parts.push(`Letterboxd <b>${r.letterboxd.rating.toLocaleString('fr-FR', { maximumFractionDigits: 1 })}</b>`);
+  return parts.join(' · ') || '<span class="na">Pas encore de notes</span>';
+}
+function fillNotes(f, el) {
+  getRatings(f).then(r => { if (el.isConnected) el.innerHTML = notesLine(r); });
 }
 
 // ---------------------------------------------------------------- composants
-function poster(f, cls = 'poster') {
-  return f.poster ? `<img class="${cls}" src="${esc(f.poster)}" alt="" loading="lazy">` : `<div class="${cls} ph">${esc((f.title || '?')[0])}</div>`;
+const poster = (f, cls = 'poster') => f.poster ? `<img class="${cls}" src="${esc(f.poster)}" alt="" loading="lazy">` : `<div class="${cls} ph">${esc((f.title || '?')[0])}</div>`;
+const CAL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>';
+const TICKET_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2.5a2.5 2.5 0 0 0 0 5V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4.5a2.5 2.5 0 0 0 0-5z"/></svg>';
+const meta = f => [f.genre, f.duration, f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean).join(' · ');
+const showtimesUrl = f => `https://www.google.com/search?q=${encodeURIComponent(`séances ${cleanTitle(f.title)}`)}`;
+
+function hero(f, label) {
+  return `<article class="hero">
+    <button type="button" data-film="${esc(f.id)}" aria-label="${esc(f.title)}">${poster(f)}</button>
+    <div class="hero-body">
+      <span class="eyebrow">${esc(label)}</span>
+      <h2>${esc(cleanTitle(f.title))}</h2>
+      <span class="meta">${esc(meta(f))}</span>
+      <span class="notes" data-notes="${esc(f.id)}"><span class="na">Notes…</span></span>
+      <div class="hero-actions">
+        <a class="pill-btn red" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Séances</a>
+        <button class="pill-btn" type="button" data-cal="${esc(f.id)}">${CAL_ICON}Agenda</button>
+      </div>
+    </div>
+  </article>`;
 }
 
-function ticket(f) {
-  const meta = [f.genre, f.country, f.duration].filter(Boolean).join(' · ');
+function ticket(f, list) {
+  const big = isBig(f, list);
   return `<button class="ticket" type="button" data-film="${esc(f.id)}">
     ${poster(f)}
-    <div class="t-body">
-      <div class="badges">${f.screens ? `<span class="badge">${fmt(f.screens)} salles</span>` : ''}</div>
-      <div class="t-title">${esc(f.title)}</div>
-      ${f.original ? `<div class="t-orig">${esc(f.original)}</div>` : ''}
-      ${meta ? `<div class="t-meta">${esc(meta)}</div>` : ''}
-      ${f.director || f.cast?.length ? `<div class="t-people">${f.director ? `De ${esc(f.director)}` : ''}${f.director && f.cast?.length ? ' · ' : ''}${f.cast?.length ? `Avec ${esc(f.cast.slice(0, 3).join(', '))}` : ''}</div>` : ''}
-      ${f.synopsis ? `<div class="t-syn">${esc(f.synopsis)}</div>` : ''}
-    </div>
+    <div class="t-body"><div class="t-title">${esc(cleanTitle(f.title))}</div><div class="t-meta">${esc([f.genre, f.director || f.cast?.[0], f.duration].filter(Boolean).join(' · '))}</div></div>
+    <div class="stub${big ? ' big' : ''}">${f.screens ? `${fmt(f.screens)}<br>salles` : big ? 'Grosse<br>sortie' : '—'}</div>
+    ${myList[f.id] ? '<span class="star" aria-label="Dans ma liste">★</span>' : ''}
   </button>`;
 }
 
-function mini(f) {
-  return `<button class="mini" type="button" data-film="${esc(f.id)}">${poster(f)}<b>${esc(f.title)}</b>${f.screens ? `<small>${fmt(f.screens)} salles</small>` : ''}</button>`;
-}
+const mini = f => `<button class="mini${myList[f.id] ? ' mine' : ''}" type="button" data-film="${esc(f.id)}">${poster(f)}<b>${esc(cleanTitle(f.title))}</b>${f.screens ? `<small>${fmt(f.screens)} salles</small>` : f.genre ? `<small>${esc(f.genre)}</small>` : ''}</button>`;
 
-function boRow(r) {
-  const move = r.isNew ? '<small class="new">NEW</small>' : r.move ? `<small class="${r.move > 0 ? 'up' : 'down'}">${r.move > 0 ? '▲' : '▼'}${Math.abs(r.move)}</small>` : '<small>=</small>';
-  return `<div class="bo">
-    <div class="rk">${r.rank}${move}</div>
-    ${poster(r)}
-    <div class="name"><b>${esc(r.title)}</b><small>${esc(r.distributor || '')}${r.weeks ? `${r.distributor ? ' · ' : ''}${r.weeks === 1 ? '1re semaine' : `${r.weeks}e semaine`}` : ''}</small></div>
-    <div class="num"><b>${fmt(r.entries)}</b><small class="${r.change && r.change.startsWith('-') ? 'down' : ''}">${r.change ? esc(r.change) : r.weeks > 1 ? '' : 'entrées'}</small><br><small>Total ${short(r.total || 0)}</small></div>
-  </div>`;
+function head(kicker, title, sub = '', right = '') {
+  return `<header class="page-head${right ? ' row' : ''}"><div><div class="kicker">${esc(kicker)}</div><h1 class="page-title">${esc(title)}</h1>${sub ? `<p class="page-sub">${sub}</p>` : ''}</div>${right}</header>`;
 }
+const source = () => `<p class="source">Sorties et box-office : JP's Box-Office · notes : IMDb, Rotten Tomatoes, Letterboxd</p>`;
 
-function marquee(kicker, title) {
-  return `<header class="marquee"><div class="kicker">${esc(kicker)}</div><h1>${esc(title)}</h1><div class="bulbs"></div></header>`;
-}
-
-// ---------------------------------------------------------------- pages
+// ---------------------------------------------------------------- Semaine
 function renderWeek() {
   const wed = featuredWednesday();
   const list = filmsOn(wed);
-  const big = list.filter(f => isBig(f, list)), rest = list.filter(f => !isBig(f, list));
-  let html = marquee(`Sorties du ${dayLabel(wed)}`, 'Cette semaine');
-  html += big.length ? big.map(ticket).join('') : list.slice(0, 3).map(ticket).join('');
-  const others = big.length ? rest : list.slice(3);
-  if (others.length) html += `<div class="section"><h2>Aussi en salles</h2><span>${others.length} film${others.length > 1 ? 's' : ''}</span></div><div class="posters">${others.map(mini).join('')}</div>`;
+  const bigCount = list.filter(f => isBig(f, list)).length;
+  let html = head(dayLabel(wed), 'Cette semaine', list.length ? `${list.length} sortie${list.length > 1 ? 's' : ''}${bigCount ? ` · ${bigCount} grosse${bigCount > 1 ? 's' : ''}` : ''}` : '');
   if (!list.length) html += '<p class="empty">Pas encore de sorties annoncées pour cette semaine.</p>';
-  // Les 3 semaines suivantes : les grosses sorties
+  else {
+    html += hero(list[0], 'La sortie de la semaine');
+    if (list.length > 1) html += `<div class="section-title">Aussi mercredi</div>${list.slice(1).map(f => ticket(f, list)).join('')}`;
+  }
   for (let i = 1; i <= 3; i++) {
     const d = addDays(wed, 7 * i), l = filmsOn(d);
     if (!l.length) continue;
     const top = l.filter(f => isBig(f, l));
-    html += `<div class="section"><h2>${cap(dayLabel(d))}</h2><span>${l.length} sortie${l.length > 1 ? 's' : ''}</span></div>
-      <div class="posters">${(top.length ? top : l.slice(0, 4)).map(mini).join('')}</div>`;
+    html += `<div class="section-title">${esc(dayLabel(d))} · ${l.length} sortie${l.length > 1 ? 's' : ''}</div><div class="posters">${(top.length ? top : l.slice(0, 4)).map(mini).join('')}</div>`;
   }
   const bo = cat.boxoffice;
   if (bo?.rows?.length) {
-    html += `<div class="section"><h2>Box-office France</h2><a href="#" data-goto="boxoffice">Tout le top ›</a></div>
-      <div class="bo-top3">${bo.rows.slice(0, 5).map(boRow).join('')}</div>`;
+    html += `<div class="section-title">Box-office France</div><div class="podium">${bo.rows.slice(0, 3).map(r => `
+      <button class="pod" type="button" data-film="${esc(r.id || '')}">${poster(r)}<span class="rk">${r.rank}</span><b>${esc(cleanTitle(r.title))}</b><small>${short(r.entries)} entrées</small></button>`).join('')}</div>`;
   }
   return html + source();
 }
 
-function renderCalendar() {
-  const from = addDays(featuredWednesday(), -7);
+// ---------------------------------------------------------------- Calendrier
+const genres = () => {
+  const count = {};
+  cat.films.filter(f => f.date >= today()).forEach(f => { if (f.genre) count[f.genre] = (count[f.genre] || 0) + 1; });
+  return Object.entries(count).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([g]) => g);
+};
+function keep(list) {
+  if (filter === 'all') return list;
+  if (filter === 'mine') return list.filter(f => myList[f.id]);
+  if (filter.startsWith('genre:')) return list.filter(f => f.genre === filter.slice(6));
+  const big = list.filter(f => isBig(f, list));
+  return big;
+}
+const visibleOn = d => keep(filmsOn(d));
+
+function monthView() {
+  const base = new Date(); base.setDate(1); base.setMonth(base.getMonth() + monthOffset);
+  const y = base.getFullYear(), m = base.getMonth();
+  const first = new Date(y, m, 1), last = new Date(y, m + 1, 0);
+  const cells = [];
+  for (let i = 0; i < (first.getDay() + 6) % 7; i++) cells.push('<div class="cal-day out"></div>');
+  const t = today();
+  for (let n = 1; n <= last.getDate(); n++) {
+    const d = isoDay(new Date(y, m, n));
+    const l = visibleOn(d);
+    const cls = ['cal-day', d === t ? 'today' : '', d === selDay ? 'sel' : '', d < t ? 'past' : ''].filter(Boolean).join(' ');
+    cells.push(`<button class="${cls}" type="button" data-day="${d}" aria-label="${esc(dayLabel(d))}${l.length ? `, ${l.length} film${l.length > 1 ? 's' : ''}` : ''}">
+      <span class="num">${n}</span>${l.length ? (l[0].poster ? `<img class="thumb" src="${esc(l[0].poster)}" alt="">` : '<span class="thumb"></span>') : ''}${l.length > 1 ? `<span class="thumb more">+${l.length - 1}</span>` : ''}</button>`);
+  }
+  const lastDate = cat.films.reduce((a, f) => f.date > a ? f.date : a, '');
+  const maxOffset = lastDate ? (parseDay(lastDate).getFullYear() - new Date().getFullYear()) * 12 + parseDay(lastDate).getMonth() - new Date().getMonth() : 0;
+  let html = `<div class="month-head"><h3>${cap(MONTHS[m])} ${y}</h3><div class="nav">
+      <button type="button" data-month="-1" aria-label="Mois précédent"${monthOffset <= -1 ? ' disabled' : ''}>‹</button>
+      <button type="button" data-month="1" aria-label="Mois suivant"${monthOffset >= maxOffset ? ' disabled' : ''}>›</button></div></div>
+    <div class="cal-head">${WEEKDAYS.map(w => `<span>${w}</span>`).join('')}</div><div class="cal-grid">${cells.join('')}</div>`;
+  if (selDay) {
+    const l = visibleOn(selDay);
+    html += `<h3 class="day-title">${esc(cap(dayLabel(selDay)))}<small>${l.length} film${l.length > 1 ? 's' : ''}</small></h3>${l.length ? `<div class="posters">${l.map(mini).join('')}</div>` : '<p class="empty">Rien ce jour-là avec ce filtre.</p>'}`;
+  }
+  return html;
+}
+
+function weeksView() {
+  const from = featuredWednesday();
   const dates = [...new Set(cat.films.map(f => f.date))].filter(d => d >= from).sort();
-  let html = marquee('Toute l\'année', 'Calendrier des sorties');
-  html += `<div class="filters" role="group" aria-label="Filtrer">
-    <button class="chip${filter === 'big' ? ' on' : ''}" type="button" data-filter="big">Grosses sorties</button>
-    <button class="chip${filter === 'all' ? ' on' : ''}" type="button" data-filter="all">Toutes les sorties</button>
-  </div>`;
-  let month = '';
   const thisWed = featuredWednesday();
-  dates.forEach(d => {
-    const l = filmsOn(d);
-    const shown = filter === 'big' ? (l.filter(f => isBig(f, l)).length ? l.filter(f => isBig(f, l)) : l.slice(0, 2)) : l;
-    if (!shown.length) return;
-    const m = MONTHS[parseDay(d).getMonth()] + ' ' + parseDay(d).getFullYear();
-    if (m !== month) { month = m; html += `<div class="month">${esc(cap(m))}</div>`; }
-    html += `<div class="wk"><b>${esc(cap(dayLabel(d)))}</b>${d === thisWed ? '<span class="today">Cette semaine</span>' : ''}${filter === 'big' && l.length > shown.length ? `<span>+ ${l.length - shown.length} autre${l.length - shown.length > 1 ? 's' : ''}</span>` : ''}</div>
-      <div class="posters">${shown.map(mini).join('')}</div>`;
-  });
+  return dates.map(d => {
+    const all = filmsOn(d), l = keep(all);
+    if (!l.length) return '';
+    return `<h3 class="day-title">${esc(cap(dayLabel(d)))}${d === thisWed ? '<span class="tag-now">Cette semaine</span>' : `<small>${all.length} sortie${all.length > 1 ? 's' : ''}</small>`}</h3><div class="posters">${l.map(mini).join('')}</div>`;
+  }).join('') || '<p class="empty">Rien avec ce filtre.</p>';
+}
+
+function listView() {
+  const dates = [...new Set(cat.films.map(f => f.date))].filter(d => d >= addDays(today(), -6)).sort();
+  return dates.map(d => {
+    const l = keep(filmsOn(d));
+    if (!l.length) return '';
+    const dt = parseDay(d);
+    return `<div class="ag-day"><div class="ag-date"><span>${SHORT_DAYS[dt.getDay()]}</span><b>${dt.getDate()}</b><small>${MONTHS_SHORT[dt.getMonth()]}</small></div>
+      <div class="ag-list">${l.map(f => `<button class="ag-item" type="button" data-film="${esc(f.id)}">${poster(f)}<b>${esc(cleanTitle(f.title))}</b><small>${f.screens ? `${fmt(f.screens)} s.` : esc(f.genre || '')}</small></button>`).join('')}</div></div>`;
+  }).join('') || '<p class="empty">Rien avec ce filtre.</p>';
+}
+
+function renderCalendar() {
+  const listCount = Object.keys(myList).length;
+  let html = head(`${new Date().getFullYear()} – ${new Date().getFullYear() + 1}`, 'Calendrier', '', `<a class="sub-pill" href="webcal://${location.host}/api/ics?all=1" aria-label="S'abonner aux grosses sorties dans mon agenda">${CAL_ICON}S'abonner</a>`);
+  html += `<div class="seg" role="tablist" aria-label="Affichage">${[['month', 'Mois'], ['weeks', 'Semaines'], ['list', 'Liste']].map(([v, l]) =>
+    `<button type="button" role="tab" aria-selected="${calView === v}" class="${calView === v ? 'on' : ''}" data-view="${v}">${l}</button>`).join('')}</div>`;
+  const chips = [['big', 'Grosses sorties'], ['all', 'Toutes'], ['mine', `Ma liste${listCount ? ` · ${listCount}` : ''}`], ...genres().map(g => [`genre:${g}`, g])];
+  html += `<div class="chips" role="group" aria-label="Filtrer">${chips.map(([v, l]) => `<button class="chip${filter === v ? ' on' : ''}" type="button" data-filter="${esc(v)}">${esc(l)}</button>`).join('')}</div>`;
+  html += calView === 'weeks' ? weeksView() : calView === 'list' ? listView() : monthView();
   return html + source();
 }
 
+// ---------------------------------------------------------------- Box-office
 function renderBoxOffice() {
-  const bo = boWeek === 'prev' ? cat.boxoffice_prev : cat.boxoffice;
-  let html = marquee('France', 'Box-office');
-  html += `<div class="seg" role="tablist">
-    <button type="button" class="${boWeek === 'last' ? 'on' : ''}" data-bo="last">Cette semaine</button>
-    <button type="button" class="${boWeek === 'prev' ? 'on' : ''}" data-bo="prev">Semaine d'avant</button>
-  </div>`;
+  let html = head(boView === 'world' ? `Cumul ${cat.world?.year || ''}` : 'Classement de la semaine', 'Box-office');
+  html += `<div class="seg" role="tablist" aria-label="Pays">${[['fr', 'France'], ['us', 'États-Unis'], ['world', 'Monde']].map(([v, l]) =>
+    `<button type="button" class="${boView.startsWith(v) ? 'on' : ''}" data-bo="${v}">${l}</button>`).join('')}</div>`;
+  if (boView === 'world') {
+    const rows = cat.world?.rows || [];
+    if (!rows.length) return html + '<p class="empty">Box-office mondial indisponible.</p>';
+    html += `<div class="podium">${rows.slice(0, 3).map(r => `<button class="pod" type="button" data-film="${esc(r.id)}">${poster(r)}<span class="rk">${r.rank}</span><b>${esc(cleanTitle(r.title))}</b><small>${short(r.world)} $</small></button>`).join('')}</div>`;
+    html += `<div class="bo-list">${rows.slice(3).map(r => `<button class="bo" type="button" data-film="${esc(r.id)}"><span class="rk">${r.rank}</span>
+      <span class="name"><b>${esc(cleanTitle(r.title))}</b><small>US ${short(r.us)} $ · international ${short(r.intl)} $</small></span>
+      <span class="num"><b>${short(r.world)} $</b><small>monde</small></span></button>`).join('')}</div>`;
+    return html + source();
+  }
+  const bo = boView === 'us' ? cat.boxoffice_us : boView === 'fr-prev' ? cat.boxoffice_prev : cat.boxoffice;
   if (!bo?.rows?.length) return html + '<p class="empty">Box-office indisponible pour le moment.</p>';
-  const label = (bo.label || '').replace(/^Semaine (\d+) - DU /i, 'Semaine $1 · du ').replace(/\((\d) Jours?\)/i, '');
-  html += `<p class="bo-head">${esc(label.toLowerCase().replace(/^s/, 'S'))}${bo.days && bo.days < 7 ? ` · ${bo.days} premiers jours` : ''}</p>`;
-  return html + `<div class="bo-top3">${bo.rows.map(boRow).join('')}</div>` + source();
+  const usd = bo.unit === 'usd';
+  const label = (bo.label || '').replace(/^(Semaine|Week-?end) \d+ - /i, '').replace(/^DU/i, 'du').toLowerCase();
+  if (boView !== 'us') html += `<div class="chips"><button class="chip${boView === 'fr' ? ' on' : ''}" type="button" data-bo="fr">Cette semaine</button><button class="chip${boView === 'fr-prev' ? ' on' : ''}" type="button" data-bo="fr-prev">Semaine d'avant</button></div>`;
+  html += `<p class="page-sub">${usd ? 'Week-end ' : 'Semaine '}${esc(label)}${bo.days && bo.days < 7 ? ` · ${bo.days} premiers jours` : ''}</p>`;
+  const unit = n => usd ? `${short(n)} $` : `${short(n)}`;
+  html += `<div class="podium">${bo.rows.slice(0, 3).map(r => `<button class="pod" type="button" data-film="${esc(r.id || '')}">${poster(r)}<span class="rk">${r.rank}</span><b>${esc(cleanTitle(r.title))}</b><small>${unit(r.entries)}${usd ? '' : ' entrées'} · ${r.isNew ? 'nouveau' : r.change || ''}</small></button>`).join('')}</div>`;
+  html += `<div class="bo-list">${bo.rows.slice(3).map(r => `<button class="bo" type="button" data-film="${esc(r.id || '')}"><span class="rk">${r.rank}</span>
+    <span class="name"><b>${esc(cleanTitle(r.title))}</b><small>${esc([r.distributor, r.weeks > 1 ? `${r.weeks}e semaine` : '', `total ${unit(r.total)}`].filter(Boolean).join(' · '))}</small></span>
+    <span class="num"><b>${usd ? unit(r.entries) : fmt(r.entries)}</b><small class="${r.isNew ? 'new' : r.change?.startsWith('-') ? 'down' : ''}">${r.isNew ? 'nouveau' : esc(r.change || '')}</small></span></button>`).join('')}</div>`;
+  return html + source();
 }
 
-const source = () => `<p class="source">Données : JP's Box-Office · mises à jour ${cat.generated_at ? new Date(cat.generated_at).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }) : ''}</p>`;
-
+// ---------------------------------------------------------------- rendu
 function render() {
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  const n = Object.keys(myList).length;
+  $('#list-count').hidden = !n; $('#list-count').textContent = n;
   if (!cat) { $('#view').innerHTML = '<p class="empty">On éteint la lumière, la séance commence…</p>'; return; }
   $('#view').innerHTML = { week: renderWeek, calendar: renderCalendar, boxoffice: renderBoxOffice }[tab]();
+  document.querySelectorAll('[data-notes]').forEach(el => { const f = findFilm(el.dataset.notes); if (f) fillNotes(f, el); });
 }
 
 // ---------------------------------------------------------------- fiche film
 function openFilm(id) {
-  const f = cat.films.find(x => x.id === id) || [...(cat.boxoffice?.rows || []), ...(cat.boxoffice_prev?.rows || [])].find(x => x.id === id);
+  const f = findFilm(id);
   if (!f) return;
-  const meta = [f.genre, f.country, f.duration].filter(Boolean).join(' · ') || f.info || '';
-  const ics = f.date ? `/api/ics?t=${encodeURIComponent(f.title)}&d=${f.date}` : '';
+  const inList = !!myList[f.id];
+  const sub = [f.date ? `Sortie le ${dayLabel(f.date)}` : '', [f.genre, f.country, f.duration].filter(Boolean).join(' · ') || f.info || '', f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean);
   $('#film-body').innerHTML = `
-    <div class="film-top">${poster(f)}
-      <div>
-        <h2 id="film-title">${esc(f.title)}</h2>
-        ${f.original ? `<p class="t-orig" style="margin-top:4px">${esc(f.original)}</p>` : ''}
-        ${f.date ? `<p class="t-meta" style="margin-top:10px">Sortie le ${esc(dayLabel(f.date))}</p>` : ''}
-        ${meta ? `<p class="t-meta" style="margin-top:4px">${esc(meta)}</p>` : ''}
-        ${f.director ? `<p class="t-people" style="margin-top:8px">De ${esc(f.director)}</p>` : ''}
-        ${f.cast?.length ? `<p class="t-people">Avec ${esc(f.cast.join(', '))}</p>` : ''}
-        ${f.screens ? `<p class="badges" style="margin-top:10px"><span class="badge">${fmt(f.screens)} salles</span></p>` : ''}
+    <div class="film-hero">
+      <div class="bar">
+        <button class="back" type="button" data-close-film><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Retour</button>
+        <button class="mylist-btn${inList ? ' on' : ''}" type="button" data-mylist="${esc(f.id)}">${inList ? '★ Dans ma liste' : '☆ Ma liste'}</button>
       </div>
+      <div class="film-top">${poster(f)}<div><h2 id="film-title">${esc(cleanTitle(f.title))}</h2>${f.original ? `<p class="orig">${esc(f.original)}</p>` : ''}<p class="meta">${sub.map(esc).join('<br>')}</p></div></div>
     </div>
-    ${f.synopsis ? `<p class="film-syn">${esc(f.synopsis)}</p>` : ''}
-    <div class="actions">
-      ${ics ? `<a class="btn primary" href="${ics}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Ajouter la sortie à mon agenda</a>` : ''}
-      <a class="btn" href="https://www.jpbox-office.com/fichfilm.php?id=${esc(f.id)}&view=2" target="_blank" rel="noopener">Fiche complète</a>
+    <div class="film-main">
+      <div class="scores" id="scores"><div class="na"><b>…</b><span>IMDb</span></div><div class="na"><b>…</b><span>Rotten T.</span></div><div class="na"><b>…</b><span>Letterboxd</span></div></div>
+      ${f.synopsis ? `<p class="syn">${esc(f.synopsis)}</p>` : ''}
+      ${f.director || f.cast?.length ? `<p class="people">${f.director ? `De ${esc(f.director)}` : ''}${f.director && f.cast?.length ? '<br>' : ''}${f.cast?.length ? `Avec ${esc(f.cast.join(', '))}` : ''}</p>` : ''}
+      <div class="actions">
+        <a class="btn red" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Voir les séances</a>
+        ${f.date ? `<button class="btn" type="button" data-cal="${esc(f.id)}">${CAL_ICON}Agenda</button>` : `<a class="btn" href="https://www.pathe.fr/films" target="_blank" rel="noopener">Pathé</a>`}
+        <a class="btn" href="https://www.allocine.fr/rechercher/?q=${encodeURIComponent(cleanTitle(f.title))}" target="_blank" rel="noopener">Allociné</a>
+        <a class="btn" href="https://www.jpbox-office.com/fichfilm.php?id=${esc(f.id)}&view=2" target="_blank" rel="noopener">Chiffres JP</a>
+      </div>
     </div>`;
   $('#film').hidden = false;
   document.body.classList.add('sheet-open');
+  $('#film-body').scrollTop = 0;
+  getRatings(f).then(r => {
+    const box = $('#scores');
+    if (!box || $('#film').hidden) return;
+    const cell = (label, val, url) => val != null ? `<a href="${esc(url)}" target="_blank" rel="noopener"><b>${val}</b><span>${label}</span></a>` : `<div class="na"><b>—</b><span>${label}</span></div>`;
+    box.innerHTML = cell('IMDb', r?.imdb?.rating?.toLocaleString('fr-FR'), r?.imdb?.url)
+      + cell('Rotten T.', r?.rt?.critics != null ? `${r.rt.critics} %` : null, r?.rt?.url)
+      + cell('Letterboxd', r?.letterboxd?.rating?.toLocaleString('fr-FR', { maximumFractionDigits: 1 }), r?.letterboxd?.url);
+  });
 }
-function closeFilm() { $('#film').hidden = true; document.body.classList.remove('sheet-open'); }
+function closeFilm() { $('#film').hidden = true; if ($('#list').hidden) document.body.classList.remove('sheet-open'); render(); }
+
+function toggleMyList(id) {
+  const f = findFilm(id);
+  if (!f) return;
+  if (myList[id]) { delete myList[id]; toast('Retiré de ma liste'); }
+  else { myList[id] = { title: f.title, date: f.date || '', poster: f.poster || '' }; toast('Ajouté à ma liste'); }
+  write(KEYS.list, myList);
+  const n = Object.keys(myList).length;
+  $('#list-count').hidden = !n; $('#list-count').textContent = n;
+  const b = document.querySelector(`[data-mylist="${CSS.escape(id)}"]`);
+  if (b) { b.classList.toggle('on', !!myList[id]); b.textContent = myList[id] ? '★ Dans ma liste' : '☆ Ma liste'; }
+  if (!$('#list').hidden) renderList();
+}
+
+// ---------------------------------------------------------------- Ma liste
+function renderList() {
+  const items = Object.entries(myList).map(([id, v]) => ({ id, ...v, ...(findFilm(id) || {}) })).sort((a, b) => (a.date || '9').localeCompare(b.date || '9'));
+  $('#list-body').innerHTML = items.length ? `<div class="ag-list" style="margin-top:8px">${items.map(f => `
+    <button class="ag-item" type="button" data-film="${esc(f.id)}">${poster(f)}<b>${esc(cleanTitle(f.title))}</b><small>${f.date ? (f.date < today() ? 'en salles' : esc(dayLabel(f.date))) : ''}</small></button>`).join('')}</div>`
+    : '<p class="empty">Ajoute des films avec ☆ dans leur fiche : ils apparaîtront ici et dans le filtre « Ma liste » du calendrier.</p>';
+}
+
+// ---------------------------------------------------------------- agenda
+function openCalSheet(id) {
+  const f = findFilm(id);
+  if (!f?.date) return;
+  const d = f.date.replace(/-/g, ''), next = addDays(f.date, 1).replace(/-/g, '');
+  const title = `🍿 Sortie : ${cleanTitle(f.title)}`;
+  const details = `${[f.genre, f.duration].filter(Boolean).join(' · ')}\n${location.origin}`;
+  const q = o => new URLSearchParams(o).toString();
+  $('#cal-title').textContent = cleanTitle(f.title);
+  $('#cal-sub').textContent = `Sortie le ${dayLabel(f.date)}`;
+  $('#cal-options').innerHTML = [
+    ['Calendrier Apple', `/api/ics?${q({ t: cleanTitle(f.title), d: f.date })}`],
+    ['Google Agenda', `https://calendar.google.com/calendar/render?${q({ action: 'TEMPLATE', text: title, dates: `${d}/${next}`, details })}`],
+    ['Outlook', `https://outlook.live.com/calendar/0/deeplink/compose?${q({ path: '/calendar/action/compose', rru: 'addevent', subject: title, startdt: f.date, enddt: addDays(f.date, 1), allday: 'true', body: details })}`],
+  ].map(([l, h]) => `<a class="as-option" href="${esc(h)}"${h.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${l}</a>`).join('');
+  $('#cal').hidden = false;
+}
 
 // ---------------------------------------------------------------- données
 async function load() {
@@ -190,23 +349,35 @@ async function load() {
 
 cat = read(KEYS.catalog);
 tab = read(KEYS.tab) || 'week';
+calView = read(KEYS.view) || 'month';
 filter = read(KEYS.filter) || 'big';
+myList = read(KEYS.list) || {};
+ratingsCache = read(KEYS.ratings) || {};
+if (!['week', 'calendar', 'boxoffice'].includes(tab)) tab = 'week';
+
 $('.tabs').addEventListener('click', ev => {
   const b = ev.target.closest('.tab');
   if (!b) return;
   tab = b.dataset.tab; write(KEYS.tab, tab); render(); window.scrollTo(0, 0);
 });
-$('#view').addEventListener('click', ev => {
-  const film = ev.target.closest('[data-film]');
-  if (film) { openFilm(film.dataset.film); return; }
-  const f = ev.target.closest('[data-filter]');
-  if (f) { filter = f.dataset.filter; write(KEYS.filter, filter); render(); return; }
-  const b = ev.target.closest('[data-bo]');
-  if (b) { boWeek = b.dataset.bo; render(); return; }
-  const g = ev.target.closest('[data-goto]');
-  if (g) { ev.preventDefault(); tab = g.dataset.goto; write(KEYS.tab, tab); render(); window.scrollTo(0, 0); }
+document.addEventListener('click', ev => {
+  const t = ev.target;
+  const cal = t.closest('[data-cal]'); if (cal) { openCalSheet(cal.dataset.cal); return; }
+  const ml = t.closest('[data-mylist]'); if (ml) { toggleMyList(ml.dataset.mylist); return; }
+  if (t.closest('[data-close-film]')) { closeFilm(); return; }
+  if (t.closest('[data-close-list]')) { $('#list').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
+  if (t.closest('#cal [data-close]') || t.closest('.as-option')) { setTimeout(() => { $('#cal').hidden = true; }, 0); return; }
+  const film = t.closest('[data-film]'); if (film && film.dataset.film) { openFilm(film.dataset.film); return; }
+  const v = t.closest('[data-view]'); if (v) { calView = v.dataset.view; write(KEYS.view, calView); render(); return; }
+  const f = t.closest('[data-filter]'); if (f) { filter = f.dataset.filter; write(KEYS.filter, filter); render(); return; }
+  const d = t.closest('[data-day]'); if (d) { selDay = selDay === d.dataset.day ? null : d.dataset.day; render(); return; }
+  const m = t.closest('[data-month]'); if (m) { monthOffset += +m.dataset.month; selDay = null; render(); return; }
+  const bo = t.closest('[data-bo]'); if (bo) { boView = bo.dataset.bo; render(); return; }
 });
-$('#film').addEventListener('click', ev => { if (ev.target.closest('[data-close]')) closeFilm(); });
+$('#open-list').addEventListener('click', () => { renderList(); $('#list').hidden = false; document.body.classList.add('sheet-open'); });
+
+// Par défaut, le calendrier s'ouvre sur le mercredi de la semaine
+selDay = featuredWednesday();
 render();
 load();
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
