@@ -1,0 +1,33 @@
+name: Newsletter du lundi
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # lundi 7 h / 8 h à Paris
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci --no-audit --no-fund
+      - name: Envoyer la newsletter
+        run: node scripts/newsletter.js
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+
+  # GitHub désactive les workflows planifiés après 60 jours sans activité : on le réactive à chaque passage.
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/newsletter.yml/enable"
+        env:
+          GH_TOKEN: ${{ github.token }}

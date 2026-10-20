@@ -1,0 +1,8 @@
+{
+  "name": "lefauteuilrouge",
+  "private": true,
+  "description": "Le Fauteuil Rouge : sorties ciné, box-office et newsletter hebdomadaire",
+  "engines": { "node": ">=20" },
+  "scripts": { "newsletter": "node scripts/newsletter.js", "test-newsletter": "node scripts/newsletter.js --dry-run" },
+  "dependencies": { "nodemailer": "^7.0.13" }
+}
