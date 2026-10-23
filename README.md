@@ -7,13 +7,13 @@ Les sorties ciné, les séances du soir et le box-office, en **app** (PWA) et en
 
 ## L'app
 
-Trois onglets :
+Quatre onglets :
 
 - **À l'affiche**
   - *Cette semaine* : la sortie phare et les autres sorties du mercredi, avec la note du Fauteuil, les 3 semaines suivantes, les sorties streaming, les festivals et cérémonies.
   - *À venir* : la frise de l'année (affiche plus grande = plus de salles), ou la vue Mois. Filtres : grosses sorties, toutes, ma liste, genres. Abonnement webcal aux grosses sorties.
   - *Box-office* : France (semaine en cours et précédente), week-end US, cumul mondial de l'année.
-  - *À la une* : l'actu ciné de 12 sites (AlloCiné et AlloCiné Séries, Écran Large, Télérama, Les Inrocks, Le Bleu du Miroir, Cineuropa, Deadline, Variety, IndieWire, /Film, The Playlist) d'après leurs flux RSS (`lib/news.js`, `/api/news`, cache 30 min). Mise en page magazine (une, deux en vedette, puis le fil), filtres Sorties / Critiques / Industrie / Séries et FR / EN, lien vers la fiche quand un film du calendrier est cité. Les jeux vidéo sont écartés. On ne reprend que le titre, l'image, un extrait et le lien.
+- **À la une** : l'actu ciné de 12 sites (AlloCiné et AlloCiné Séries, Écran Large, Télérama, Les Inrocks, Le Bleu du Miroir, Cineuropa, Deadline, Variety, IndieWire, /Film, The Playlist) d'après leurs flux RSS (`lib/news.js`, `/api/news`, cache 30 min). Mise en page magazine (une, deux en vedette, puis le fil), filtres par rubrique (Sorties / Critiques / Industrie / Séries), par langue (FR / EN) et par source, lien vers la fiche quand un film du calendrier est cité. Les jeux vidéo sont écartés. On ne reprend que le titre, l'image, un extrait et le lien.
 - **Ce soir** : la frise horaire des séances dans les cinémas choisis (carte Pathé par défaut ; 25 au plus, avec « Tout sélectionner » par arrondissement), sur 7 jours, en VO ou VF. Une séance ouvre « J'y vais », la réservation et l'ajout à l'agenda.
 - **Mes films** : *À voir* (avec compte à rebours avant la sortie), *Mes séances* (les tickets « J'y vais » : partage, itinéraire, réservation), *Vus*.
 

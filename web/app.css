@@ -42,7 +42,7 @@ a { color: inherit; }
 
 /* ----- Onglets ----- */
 .tabs {
-  position: fixed; inset: auto 0 0 0; z-index: 20; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  position: fixed; inset: auto 0 0 0; z-index: 20; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
   padding: 4px 4px calc(var(--safe-bottom) + 2px); background: rgba(20, 20, 20, 0.92); border-top: 1px solid var(--line);
   backdrop-filter: saturate(160%) blur(16px); -webkit-backdrop-filter: saturate(160%) blur(16px);
 }
@@ -583,3 +583,8 @@ button.as-option { width: 100%; text-align: left; }
   .nw-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
 }
 @media (prefers-reduced-motion: reduce) { .nw-img img { transition: none; } }
+
+.nw-sources { margin-top: 8px; }
+.nw-sources .chip { display: inline-flex; align-items: center; gap: 6px; }
+.nw-sources .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 1px rgba(244, 241, 234, 0.25); }
+@media (min-width: 960px) { .tabs { grid-template-columns: none; } }

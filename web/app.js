@@ -199,8 +199,8 @@ const skeleton = (n = 3) => `<div class="skel-list" aria-hidden="true">${'<div c
 // ================================================================ À l'affiche
 function renderAffiche() {
   let html = head('À l’affiche', sub.affiche === 'avenir' ? `<a class="sub-pill" href="webcal://${location.host}/api/ics?all=1" aria-label="S’abonner aux grosses sorties dans mon agenda">${CAL_ICON}S’abonner</a>` : '');
-  html += seg('sub', [['semaine', 'Semaine'], ['avenir', 'À venir'], ['bo', 'Box-office'], ['une', 'À la une']], sub.affiche);
-  html += sub.affiche === 'avenir' ? renderAvenir() : sub.affiche === 'bo' ? renderBoxOffice() : sub.affiche === 'une' ? renderUne() : renderWeek();
+  html += seg('sub', [['semaine', 'Cette semaine'], ['avenir', 'À venir'], ['bo', 'Box-office']], sub.affiche);
+  html += sub.affiche === 'avenir' ? renderAvenir() : sub.affiche === 'bo' ? renderBoxOffice() : renderWeek();
   return html + source();
 }
 
@@ -309,7 +309,7 @@ function renderAvenir() {
 // ---------------------------------------------------------------- À la une (actu ciné)
 // 12 sites (AlloCiné, Écran Large, Télérama, Les Inrocks, Le Bleu du Miroir, Cineuropa, Deadline, Variety,
 // IndieWire, /Film, The Playlist), d'après leurs flux RSS ; gardés 30 min sur le téléphone.
-let newsData = null, newsCat = 'all', newsLang = 'all', newsLoading = false;
+let newsData = null, newsCat = 'all', newsLang = 'all', newsSrc = 'all', newsLoading = false;
 const NEWS_CATS = [['all', 'Tout'], ['sorties', 'Sorties'], ['critiques', 'Critiques'], ['industrie', 'Industrie'], ['series', 'Séries']];
 function loadNews() {
   if (newsLoading) return;
@@ -319,7 +319,7 @@ function loadNews() {
   newsLoading = true;
   fetch('/api/news').then(r => r.ok ? r.json() : null).then(d => {
     if (d?.articles?.length) { newsData = d; write(KEYS.news, { at: Date.now(), data: d }); }
-  }).catch(() => {}).finally(() => { newsLoading = false; if (tab === 'affiche' && sub.affiche === 'une') render(); });
+  }).catch(() => {}).finally(() => { newsLoading = false; if (tab === 'une') render(); });
 }
 function ago(iso) {
   const m = Math.round((Date.now() - new Date(iso)) / 60000);
@@ -349,10 +349,11 @@ function newsCard(a, kind) {
 function renderUne() {
   if (!newsData) loadNews();
   else if (!read(KEYS.news) || Date.now() - read(KEYS.news).at > 30 * 60e3) loadNews();
-  let html = `<div class="nw-filters"><div class="chips">${NEWS_CATS.map(([v, l]) => `<button class="chip${newsCat === v ? ' on' : ''}" type="button" data-ncat="${v}">${l}</button>`).join('')}</div>
-    <div class="zoom" style="margin-top:8px">${[['all', 'FR + EN'], ['fr', 'FR'], ['en', 'EN']].map(([v, l]) => `<button type="button" class="${newsLang === v ? 'on' : ''}" data-nlang="${v}">${l}</button>`).join('')}</div></div>`;
+  let html = head('À la une') + `<div class="nw-filters"><div class="chips">${NEWS_CATS.map(([v, l]) => `<button class="chip${newsCat === v ? ' on' : ''}" type="button" data-ncat="${v}">${l}</button>`).join('')}</div>
+    <div class="zoom" style="margin-top:8px">${[['all', 'FR + EN'], ['fr', 'FR'], ['en', 'EN']].map(([v, l]) => `<button type="button" class="${newsLang === v ? 'on' : ''}" data-nlang="${v}">${l}</button>`).join('')}</div>
+    ${newsData ? `<div class="chips nw-sources"><button class="chip${newsSrc === 'all' ? ' on' : ''}" type="button" data-nsrc="all">Toutes les sources</button>${newsData.sources.filter(x => newsLang === 'all' || x.lang === newsLang).map(x => `<button class="chip${newsSrc === x.id ? ' on' : ''}" type="button" data-nsrc="${x.id}"><i class="dot" style="background:${x.color}"></i>${esc(x.name)}</button>`).join('')}</div>` : ''}</div>`;
   if (!newsData) return html + `<div class="nw-skel"><span class="skel" style="height:220px;border-radius:18px"></span>${skeleton(4)}</div>`;
-  const list = newsData.articles.filter(a => (newsCat === 'all' || a.cat === newsCat) && (newsLang === 'all' || a.lang === newsLang));
+  const list = newsData.articles.filter(a => (newsCat === 'all' || a.cat === newsCat) && (newsLang === 'all' || a.lang === newsLang) && (newsSrc === 'all' || a.source === newsSrc));
   if (!list.length) return html + '<p class="empty">Rien dans cette rubrique pour le moment.</p>';
   // La une : l'article récent avec une image ; puis deux en vedette ; puis le fil
   const leadI = Math.max(0, list.findIndex(a => a.image));
@@ -855,7 +856,7 @@ const saveNav = () => { write(KEYS.tab, tab); write(KEYS.sub, sub); };
 function render() {
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
   if (!cat) { $('#view').innerHTML = `<p class="empty">On éteint la lumière, la séance commence…</p>${skeleton(5)}`; return; }
-  $('#view').innerHTML = { affiche: renderAffiche, soir: renderSoir, films: renderFilms }[tab]();
+  $('#view').innerHTML = { affiche: renderAffiche, une: renderUne, soir: renderSoir, films: renderFilms }[tab]();
   if (tab === 'soir') { if (myCines) fillSoir(); else loadCinemas().then(render); }
   fillScores();
 }
@@ -1041,7 +1042,8 @@ if (tab === 'week') tab = 'affiche';
 if (tab === 'calendar') { tab = 'affiche'; sub.affiche = 'avenir'; }
 if (tab === 'boxoffice') { tab = 'affiche'; sub.affiche = 'bo'; }
 if (tab === 'cines') tab = 'soir';
-if (!['affiche', 'soir', 'films'].includes(tab)) tab = 'affiche';
+if (sub.affiche === 'une') { tab = 'une'; sub.affiche = 'semaine'; }
+if (!['affiche', 'une', 'soir', 'films'].includes(tab)) tab = 'affiche';
 calView = read(KEYS.view) === 'month' ? 'month' : 'year';
 filter = read(KEYS.filter) || 'big';
 myList = read(KEYS.list) || {};
@@ -1073,7 +1075,8 @@ document.addEventListener('click', ev => {
   const d = t.closest('[data-day]'); if (d) { selDay = selDay === d.dataset.day ? null : d.dataset.day; render(); return; }
   const m = t.closest('[data-month]'); if (m) { monthOffset += +m.dataset.month; selDay = null; render(); return; }
   const nc = t.closest('[data-ncat]'); if (nc) { newsCat = nc.dataset.ncat; render(); return; }
-  const nl = t.closest('[data-nlang]'); if (nl) { newsLang = nl.dataset.nlang; render(); return; }
+  const nl = t.closest('[data-nlang]'); if (nl) { newsLang = nl.dataset.nlang; if (newsSrc !== 'all' && !newsData?.sources.some(x => x.id === newsSrc && (newsLang === 'all' || x.lang === newsLang))) newsSrc = 'all'; render(); return; }
+  const ns = t.closest('[data-nsrc]'); if (ns) { newsSrc = ns.dataset.nsrc; render(); return; }
   const bo = t.closest('[data-bo]'); if (bo) { boView = bo.dataset.bo; render(); return; }
   const se = t.closest('[data-seance]'); if (se) { openSeance(+se.dataset.seance); return; }
   const sd = t.closest('[data-sday]'); if (sd) { seanceDate = sd.dataset.sday; render(); return; }
@@ -1134,7 +1137,7 @@ render();
 // Lien depuis la newsletter : ?film=<id> ouvre la fiche, &add=1 l'ajoute à « À voir »
 const deep = new URLSearchParams(location.search);
 function openDeepLink() {
-  if (deep.get('une') === '1') { tab = 'affiche'; sub.affiche = 'une'; saveNav(); render(); history.replaceState(null, '', location.pathname); return true; }
+  if (deep.get('une') === '1') { tab = 'une'; saveNav(); render(); history.replaceState(null, '', location.pathname); return true; }
   const id = deep.get('film');
   if (!id || !cat || !findFilm(id)) return false;
   if (deep.get('add') === '1' && !myList[id]) toggleMyList(id);
