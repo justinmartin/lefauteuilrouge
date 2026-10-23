@@ -3,7 +3,7 @@
 // /api/ratings (IMDb, Rotten Tomatoes, Letterboxd, bande-annonce) et /api/seances (paris-cine.info),
 // gardées sur le téléphone pour l'ouverture instantanée.
 // Trois onglets : À l'affiche (semaine, à venir, box-office), Ce soir (frise des séances), Mes films (liste, tickets, vus).
-const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', sub: 'lfr_sub', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas', tickets: 'lfr_tickets', seances: 'lfr_seances', account: 'lfr_account', updated: 'lfr_updated', onboarded: 'lfr_onboarded', reprises: 'lfr_reprises', notified: 'lfr_notified' };
+const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', sub: 'lfr_sub', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas', tickets: 'lfr_tickets', seances: 'lfr_seances', account: 'lfr_account', updated: 'lfr_updated', onboarded: 'lfr_onboarded', reprises: 'lfr_reprises', notified: 'lfr_notified', news: 'lfr_news' };
 const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
 const SHORT_DAYS = ['DIM.', 'LUN.', 'MAR.', 'MER.', 'JEU.', 'VEN.', 'SAM.'];
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
@@ -199,8 +199,8 @@ const skeleton = (n = 3) => `<div class="skel-list" aria-hidden="true">${'<div c
 // ================================================================ À l'affiche
 function renderAffiche() {
   let html = head('À l’affiche', sub.affiche === 'avenir' ? `<a class="sub-pill" href="webcal://${location.host}/api/ics?all=1" aria-label="S’abonner aux grosses sorties dans mon agenda">${CAL_ICON}S’abonner</a>` : '');
-  html += seg('sub', [['semaine', 'Cette semaine'], ['avenir', 'À venir'], ['bo', 'Box-office']], sub.affiche);
-  html += sub.affiche === 'avenir' ? renderAvenir() : sub.affiche === 'bo' ? renderBoxOffice() : renderWeek();
+  html += seg('sub', [['semaine', 'Semaine'], ['avenir', 'À venir'], ['bo', 'Box-office'], ['une', 'À la une']], sub.affiche);
+  html += sub.affiche === 'avenir' ? renderAvenir() : sub.affiche === 'bo' ? renderBoxOffice() : sub.affiche === 'une' ? renderUne() : renderWeek();
   return html + source();
 }
 
@@ -304,6 +304,64 @@ function renderAvenir() {
   if (cat.events?.length) html += `<div class="section-title">Festivals et cérémonies</div>${eventCards(cat.events)}`;
   if (cat.streaming?.length) html += `<div class="section-title">À venir en streaming</div>${streamingRows(cat.streaming.filter(s => s.date >= addDays(today(), -7)))}`;
   return html;
+}
+
+// ---------------------------------------------------------------- À la une (actu ciné)
+// 12 sites (AlloCiné, Écran Large, Télérama, Les Inrocks, Le Bleu du Miroir, Cineuropa, Deadline, Variety,
+// IndieWire, /Film, The Playlist), d'après leurs flux RSS ; gardés 30 min sur le téléphone.
+let newsData = null, newsCat = 'all', newsLang = 'all', newsLoading = false;
+const NEWS_CATS = [['all', 'Tout'], ['sorties', 'Sorties'], ['critiques', 'Critiques'], ['industrie', 'Industrie'], ['series', 'Séries']];
+function loadNews() {
+  if (newsLoading) return;
+  const saved = read(KEYS.news);
+  if (saved && Date.now() - saved.at < 30 * 60e3) { newsData = saved.data; return; }
+  if (saved && !newsData) newsData = saved.data;
+  newsLoading = true;
+  fetch('/api/news').then(r => r.ok ? r.json() : null).then(d => {
+    if (d?.articles?.length) { newsData = d; write(KEYS.news, { at: Date.now(), data: d }); }
+  }).catch(() => {}).finally(() => { newsLoading = false; if (tab === 'affiche' && sub.affiche === 'une') render(); });
+}
+function ago(iso) {
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (m < 60) return `il y a ${Math.max(1, m)} min`;
+  const h = Math.round(m / 60);
+  if (h < 24) return `il y a ${h} h`;
+  const d = Math.round(h / 24);
+  return d === 1 ? 'hier' : `il y a ${d} jours`;
+}
+// Un film du calendrier cité dans le titre : lien vers sa fiche
+function filmInTitle(title) {
+  const t = ` ${normT(title)} `;
+  return (cat?.films || []).find(f => { const k = normT(cleanTitle(f.title)); return k.length >= 5 && t.includes(` ${k} `); });
+}
+function newsBadge(src, a) {
+  return `<span class="nw-src" style="--c:${src.color};--i:${src.ink}">${esc(src.name)}</span>${a.lang === 'en' ? '<span class="nw-en">EN</span>' : ''}<span class="nw-ago">${ago(a.date)}</span>`;
+}
+function newsCard(a, kind) {
+  const src = newsData.sources.find(x => x.id === a.source) || { name: a.source, color: '#3a3836', ink: '#fff' };
+  const f = filmInTitle(a.title);
+  const img = a.image ? `<img src="${esc(a.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<span class="nw-ph" style="--c:${src.color};--i:${src.ink}">${esc(src.name)}</span>`;
+  const film = f ? `<button class="nw-film" type="button" data-film="${esc(f.id)}">→ ${esc(cleanTitle(f.title))}</button>` : '';
+  return `<article class="nw nw-${kind}"><a class="nw-link" href="${esc(a.url)}" target="_blank" rel="noopener">
+    <span class="nw-img" data-ph="${esc(src.name)}" style="--c:${src.color};--i:${src.ink}">${img}</span>
+    <span class="nw-body"><span class="nw-meta">${newsBadge(src, a)}</span><span class="nw-title">${esc(a.title)}</span>${kind === 'lead' && a.excerpt ? `<span class="nw-ex">${esc(a.excerpt)}</span>` : ''}</span></a>${film}</article>`;
+}
+function renderUne() {
+  if (!newsData) loadNews();
+  else if (!read(KEYS.news) || Date.now() - read(KEYS.news).at > 30 * 60e3) loadNews();
+  let html = `<div class="nw-filters"><div class="chips">${NEWS_CATS.map(([v, l]) => `<button class="chip${newsCat === v ? ' on' : ''}" type="button" data-ncat="${v}">${l}</button>`).join('')}</div>
+    <div class="zoom" style="margin-top:8px">${[['all', 'FR + EN'], ['fr', 'FR'], ['en', 'EN']].map(([v, l]) => `<button type="button" class="${newsLang === v ? 'on' : ''}" data-nlang="${v}">${l}</button>`).join('')}</div></div>`;
+  if (!newsData) return html + `<div class="nw-skel"><span class="skel" style="height:220px;border-radius:18px"></span>${skeleton(4)}</div>`;
+  const list = newsData.articles.filter(a => (newsCat === 'all' || a.cat === newsCat) && (newsLang === 'all' || a.lang === newsLang));
+  if (!list.length) return html + '<p class="empty">Rien dans cette rubrique pour le moment.</p>';
+  // La une : l'article récent avec une image ; puis deux en vedette ; puis le fil
+  const leadI = Math.max(0, list.findIndex(a => a.image));
+  const lead = list[leadI], rest = list.filter((_, i) => i !== leadI);
+  const duo = rest.filter(a => a.image).slice(0, 2), fil = rest.filter(a => !duo.includes(a));
+  html += newsCard(lead, 'lead');
+  if (duo.length) html += `<div class="nw-duo">${duo.map(a => newsCard(a, 'mid')).join('')}</div>`;
+  html += `<div class="section-title">Le fil</div><div class="nw-list">${fil.slice(0, 60).map(a => newsCard(a, 'row')).join('')}</div>`;
+  return html + `<p class="source">Articles de ${newsData.sources.map(x => x.name).join(', ')} · chaque article s’ouvre sur son site</p>`;
 }
 
 // ---------------------------------------------------------------- Box-office
@@ -1014,6 +1072,8 @@ document.addEventListener('click', ev => {
   const f = t.closest('[data-filter]'); if (f) { filter = f.dataset.filter; write(KEYS.filter, filter); render(); return; }
   const d = t.closest('[data-day]'); if (d) { selDay = selDay === d.dataset.day ? null : d.dataset.day; render(); return; }
   const m = t.closest('[data-month]'); if (m) { monthOffset += +m.dataset.month; selDay = null; render(); return; }
+  const nc = t.closest('[data-ncat]'); if (nc) { newsCat = nc.dataset.ncat; render(); return; }
+  const nl = t.closest('[data-nlang]'); if (nl) { newsLang = nl.dataset.nlang; render(); return; }
   const bo = t.closest('[data-bo]'); if (bo) { boView = bo.dataset.bo; render(); return; }
   const se = t.closest('[data-seance]'); if (se) { openSeance(+se.dataset.seance); return; }
   const sd = t.closest('[data-sday]'); if (sd) { seanceDate = sd.dataset.sday; render(); return; }
@@ -1057,6 +1117,11 @@ document.addEventListener('click', ev => {
 $('#open-me').addEventListener('click', openMe);
 $('#open-search').addEventListener('click', () => { $('#search').hidden = false; document.body.classList.add('sheet-open'); renderSearch(); setTimeout(() => $('#q').focus(), 50); });
 $('#q').addEventListener('input', renderSearch);
+// Image d'article introuvable : le nom de la source, en couleur, à la place
+document.addEventListener('error', ev => {
+  const box = ev.target.tagName === 'IMG' && ev.target.closest('.nw-img');
+  if (box) box.innerHTML = `<span class="nw-ph">${esc(box.dataset.ph || '')}</span>`;
+}, true);
 // Fenêtre redimensionnée (ordinateur) : la frise du soir se recale sur la largeur
 let resizeTimer = null;
 window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { if (tab === 'soir') fillSoir(); }, 250); });
@@ -1069,6 +1134,7 @@ render();
 // Lien depuis la newsletter : ?film=<id> ouvre la fiche, &add=1 l'ajoute à « À voir »
 const deep = new URLSearchParams(location.search);
 function openDeepLink() {
+  if (deep.get('une') === '1') { tab = 'affiche'; sub.affiche = 'une'; saveNav(); render(); history.replaceState(null, '', location.pathname); return true; }
   const id = deep.get('film');
   if (!id || !cat || !findFilm(id)) return false;
   if (deep.get('add') === '1' && !myList[id]) toggleMyList(id);

@@ -13,6 +13,7 @@ Trois onglets :
   - *Cette semaine* : la sortie phare et les autres sorties du mercredi, avec la note du Fauteuil, les 3 semaines suivantes, les sorties streaming, les festivals et cérémonies.
   - *À venir* : la frise de l'année (affiche plus grande = plus de salles), ou la vue Mois. Filtres : grosses sorties, toutes, ma liste, genres. Abonnement webcal aux grosses sorties.
   - *Box-office* : France (semaine en cours et précédente), week-end US, cumul mondial de l'année.
+  - *À la une* : l'actu ciné de 12 sites (AlloCiné et AlloCiné Séries, Écran Large, Télérama, Les Inrocks, Le Bleu du Miroir, Cineuropa, Deadline, Variety, IndieWire, /Film, The Playlist) d'après leurs flux RSS (`lib/news.js`, `/api/news`, cache 30 min). Mise en page magazine (une, deux en vedette, puis le fil), filtres Sorties / Critiques / Industrie / Séries et FR / EN, lien vers la fiche quand un film du calendrier est cité. Les jeux vidéo sont écartés. On ne reprend que le titre, l'image, un extrait et le lien.
 - **Ce soir** : la frise horaire des séances dans les cinémas choisis (carte Pathé par défaut ; 25 au plus, avec « Tout sélectionner » par arrondissement), sur 7 jours, en VO ou VF. Une séance ouvre « J'y vais », la réservation et l'ajout à l'agenda.
 - **Mes films** : *À voir* (avec compte à rebours avant la sortie), *Mes séances* (les tickets « J'y vais » : partage, itinéraire, réservation), *Vus*.
 
@@ -36,6 +37,7 @@ Les sorties streaming affichent le logo de la plateforme (`web/logos/`, en SVG, 
 - les 3 semaines suivantes ;
 - le box-office France, US et monde ;
 - les sorties streaming, les festivals et cérémonies ;
+- **À la une** : 5 articles de la semaine (3 en français, 2 en anglais), de sources et de rubriques différentes ;
 - la **séance de rattrapage** : 3 classiques par semaine sans répétition (`data/classiques.json`, rotation dans `lib/reco.js`).
 
 Chaque affiche et chaque titre ouvre la fiche du film dans l'app (`/?film=<id>`). « ☆ À voir » l'ajoute aussi à la liste (`&add=1`).
@@ -78,6 +80,7 @@ Pathé bloque toute lecture automatique de son site (403 anti-robots) : il n'est
 | `/api/seances?c=ids` · `?list=cinemas` · `?c=&t=` | Séances des cinémas choisis, liste des cinémas, séances d'un film | 6 h |
 | `/api/ics` | Fichier agenda (sortie, séance, ou flux de toutes les grosses sorties) | — |
 | `/api/img?u=` | Relais d'affiches (JP's Box-Office, Wikipédia), pour lire leurs couleurs | 30 jours |
+| `/api/news` | Actu ciné (12 flux RSS, 7 derniers jours) | 30 min |
 | `/api/find?q=` | Recherche dans tous les films (Wikidata) | 7 jours |
 | `/api/reprises` | Films anciens à l'affiche à Paris cette semaine | 12 h |
 | `/api/account` (POST) | Compte : `signup`, `login`, `pull`, `push`, `logout` | aucun |

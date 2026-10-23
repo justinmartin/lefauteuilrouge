@@ -8,6 +8,7 @@ const nodemailer = require('nodemailer');
 const { catalog } = require('../lib/jpbox');
 const { weeklyPicks } = require('../lib/reco');
 const { ratings } = require('../lib/ratings');
+const { news, pick } = require('../lib/news');
 
 const APP_URL = process.env.APP_URL || 'https://lefauteuilrouge.vercel.app';
 // Liens vers l'app : ?film=<id> ouvre la fiche, &add=1 l'ajoute aussi à « À voir »
@@ -118,7 +119,7 @@ function recoSection(picks) {
       </td>`).join('')}</tr></table></td></tr>`;
 }
 
-function render(cat, wed, picks = [], notes = {}) {
+function render(cat, wed, picks = [], notes = {}, une = null) {
   const on = d => cat.films.filter(f => f.date === d).sort((a, b) => (b.screens || 0) - (a.screens || 0));
   const bigOf = l => { const b = l.filter(f => (f.screens || 0) >= BIG_SCREENS); return b.length ? b : l.slice(0, 3); };
   const thisWeek = on(wed), big = bigOf(thisWeek);
@@ -147,6 +148,15 @@ function render(cat, wed, picks = [], notes = {}) {
       <td width="50%" style="vertical-align:top;padding-left:10px">${world?.rows?.length ? `<div style="font-family:${SANS};font-size:11px;font-weight:700;color:${GREY};margin-bottom:2px">MONDE ${world.year}</div>${boRows(world.rows.slice(0, 5), r => `${short(r.world)} $`)}` : ''}</td>
     </tr></table></td></tr>`;
   }
+  // À la une : 5 articles de la semaine (3 en français, 2 en anglais), de sources et de rubriques différentes
+  if (une?.picks?.length) {
+    body += sectionTitle('À la une', 'L’actu ciné de la semaine') + `<tr><td style="padding:6px 24px">${une.picks.map(a => { const src = une.sources.find(x => x.id === a.source) || { name: a.source, color: GREY, ink: '#fff' };
+      return `<div style="padding:10px 0;border-bottom:1px solid ${LINE};font-family:${SANS}">
+        <span style="display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:${src.color};color:${src.ink};border-radius:4px;padding:2px 6px">${esc(src.name)}</span>${a.lang === 'en' ? ` <span style="font-size:9.5px;font-weight:700;color:${GREY};border:1px solid ${LINE};border-radius:4px;padding:1px 4px">EN</span>` : ''}
+        <a href="${esc(a.url)}" style="display:block;margin-top:5px;font-family:${SERIF};font-size:19px;line-height:1.15;color:${INK};text-decoration:none">${esc(a.title)}</a></div>`; }).join('')}
+      <div style="padding-top:10px;font-family:${SANS};font-size:12.5px"><a href="${APP_URL}/?une=1" style="color:${RED};font-weight:700">Toute l’actu dans l’app ›</a></div></td></tr>`;
+  }
+
   // Streaming : sorties des 10 prochains jours ; festivals et cérémonies des 30 prochains jours
   const today = new Date().toISOString().slice(0, 10);
   const stream = (cat.streaming || []).filter(x => x.date >= today && x.date <= addDays(today, 10));
@@ -191,7 +201,8 @@ async function main() {
     notes[f.id] = await ratings({ title: f.title, original: f.original, year: +wed.slice(0, 4) }).catch(() => null);
   }
   const picks = await weeklyPicks().catch(() => []);
-  const { subject, html } = render(cat, wed, picks, notes);
+  const une = await news().then(d => ({ ...d, picks: pick(d.articles) })).catch(() => null);
+  const { subject, html } = render(cat, wed, picks, notes, une);
   const out = path.join(__dirname, '..', 'out');
   fs.mkdirSync(out, { recursive: true });
   fs.writeFileSync(path.join(out, 'newsletter.html'), html);

@@ -530,3 +530,56 @@ button.as-option { width: 100%; text-align: left; }
 .cine-group { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .group-btn { font-size: 11px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--red-2); padding: 6px 0; min-height: 32px; }
 .group-btn.on { color: var(--text-3); }
+
+/* ================= À la une ================= */
+.nw-filters { margin-top: 12px; }
+.nw-filters .zoom { justify-content: flex-start; }
+.nw { position: relative; }
+.nw-link { display: block; text-decoration: none; color: inherit; }
+.nw-img { display: block; overflow: hidden; background: var(--raised-2); }
+.nw-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.nw-link:hover .nw-img img { transform: scale(1.03); }
+.nw-ph { width: 100%; height: 100%; display: grid; place-items: center; background: var(--c); color: var(--i); font-family: var(--serif); font-size: 20px; padding: 8px; text-align: center; }
+.nw-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.nw-src { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--c); color: var(--i); border-radius: 5px; padding: 3px 6px; line-height: 1; }
+.nw-en { font-size: 9.5px; font-weight: 700; border: 1px solid var(--line-2); color: var(--text-2); border-radius: 5px; padding: 2px 5px; line-height: 1; }
+.nw-ago { font-size: 11.5px; color: var(--text-3); }
+.nw-title { display: block; }
+.nw-film { margin-top: 6px; font-size: 12px; font-weight: 600; color: var(--red-2); padding: 4px 0; }
+
+/* La une : grande image, titre posé dessus */
+.nw-lead { margin-top: 16px; }
+.nw-lead .nw-link { position: relative; border-radius: 20px; overflow: hidden; }
+.nw-lead .nw-img { aspect-ratio: 4 / 3; }
+.nw-lead .nw-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 16px 16px; background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.88) 55%); display: flex; flex-direction: column; gap: 8px; }
+.nw-lead .nw-title { font-family: var(--serif); font-size: 30px; line-height: 1.02; color: #fff; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.nw-lead .nw-ex { font-size: 13px; line-height: 1.45; color: rgba(244, 241, 234, 0.8); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.nw-lead .nw-ago { color: rgba(244, 241, 234, 0.75); }
+.nw-lead .nw-en { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
+
+/* Deux en vedette */
+.nw-duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.nw-mid .nw-img { aspect-ratio: 3 / 2; border-radius: 14px; }
+.nw-mid .nw-body { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
+.nw-mid .nw-title { font-family: var(--serif); font-size: 19px; line-height: 1.08; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Le fil */
+.nw-list { display: flex; flex-direction: column; }
+.nw-row { border-bottom: 1px solid var(--line); padding: 12px 0; }
+.nw-row .nw-link { display: grid; grid-template-columns: minmax(0, 1fr) 96px; gap: 12px; align-items: start; }
+.nw-row .nw-img { order: 2; width: 96px; height: 68px; border-radius: 10px; }
+.nw-row .nw-ph { font-size: 12px; }
+.nw-row .nw-body { display: flex; flex-direction: column; gap: 6px; }
+.nw-row .nw-title { font-size: 15px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.nw-skel { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+
+@media (min-width: 960px) {
+  .nw-lead .nw-img { aspect-ratio: 21 / 9; }
+  .nw-lead .nw-body { padding: 80px 28px 26px; }
+  .nw-lead .nw-title { font-size: 44px; max-width: 900px; }
+  .nw-lead .nw-ex { max-width: 760px; font-size: 14.5px; }
+  .nw-duo { gap: 20px; }
+  .nw-mid .nw-title { font-size: 24px; }
+  .nw-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+}
+@media (prefers-reduced-motion: reduce) { .nw-img img { transition: none; } }
