@@ -16,6 +16,8 @@ Trois onglets :
 - **Ce soir** : la frise horaire des séances dans les cinémas choisis (carte Pathé par défaut), sur 7 jours, en VO ou VF. Une séance ouvre « J'y vais », la réservation et l'ajout à l'agenda.
 - **Mes films** : *À voir* (avec compte à rebours avant la sortie), *Mes séances* (les tickets « J'y vais » : partage, itinéraire, réservation), *Vus*.
 
+**Films guettés** : la recherche trouve aussi **tous les films**, même anciens (Wikidata, `/api/find`). Une étoile sur un vieux film le « guette ». Dès qu'il repasse dans une salle de Paris ou de la petite couronne (reprise, ressortie, rétrospective : liste `/api/reprises` tirée de paris-cine.info), ou qu'une ressortie nationale est annoncée, l'app affiche « 🎬 Ça ressort » à l'ouverture, avec un bandeau en tête de « Cette semaine ». Sa fiche indique alors où le voir dans tout Paris. Le rapprochement se fait par identifiant IMDb, sinon par titre et année.
+
 La **fiche film** prend la couleur de l'affiche. Elle affiche la bande-annonce intégrée quand Wikidata la connaît, la **note du Fauteuil**, l'« En bref » tiré de Wikipédia et les séances dans tes cinés. La **recherche** (loupe) trouve un titre ou un réalisateur.
 
 **La note du Fauteuil** est la moyenne des notes disponibles, ramenées sur 10 : Rotten Tomatoes (critiques) % ÷ 10, IMDb (spectateurs) tel quel, Letterboxd (cinéphiles) × 2. Elle est suivie d'un mot (Excellent, Très bien, Bien, Mitigé, Décevant). Une phrase indique si critiques et public sont d'accord : 2 points d'écart ou plus, et c'est « la presse aime plus que le public » ou l'inverse.
@@ -74,6 +76,8 @@ Pathé bloque toute lecture automatique de son site (403 anti-robots) : il n'est
 | `/api/seances?c=ids` · `?list=cinemas` · `?c=&t=` | Séances des cinémas choisis, liste des cinémas, séances d'un film | 6 h |
 | `/api/ics` | Fichier agenda (sortie, séance, ou flux de toutes les grosses sorties) | — |
 | `/api/img?u=` | Relais d'affiches (JP's Box-Office, Wikipédia), pour lire leurs couleurs | 30 jours |
+| `/api/find?q=` | Recherche dans tous les films (Wikidata) | 7 jours |
+| `/api/reprises` | Films anciens à l'affiche à Paris cette semaine | 12 h |
 | `/api/account` (POST) | Compte : `signup`, `login`, `pull`, `push`, `logout` | aucun |
 | `/t/<données>` → `/api/t` | Page du ticket partagé | 1 jour |
 

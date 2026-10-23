@@ -3,7 +3,7 @@
 // /api/ratings (IMDb, Rotten Tomatoes, Letterboxd, bande-annonce) et /api/seances (paris-cine.info),
 // gardées sur le téléphone pour l'ouverture instantanée.
 // Trois onglets : À l'affiche (semaine, à venir, box-office), Ce soir (frise des séances), Mes films (liste, tickets, vus).
-const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', sub: 'lfr_sub', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas', tickets: 'lfr_tickets', seances: 'lfr_seances', account: 'lfr_account', updated: 'lfr_updated', onboarded: 'lfr_onboarded' };
+const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', sub: 'lfr_sub', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas', tickets: 'lfr_tickets', seances: 'lfr_seances', account: 'lfr_account', updated: 'lfr_updated', onboarded: 'lfr_onboarded', reprises: 'lfr_reprises', notified: 'lfr_notified' };
 const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
 const SHORT_DAYS = ['DIM.', 'LUN.', 'MAR.', 'MER.', 'JEU.', 'VEN.', 'SAM.'];
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
@@ -69,11 +69,13 @@ function isBig(f, list) {
   if (f.screens != null) return f.screens >= BIG_SCREENS;
   return !list.some(x => x.screens != null) && list.indexOf(f) < 3;
 }
-const findFilm = id => cat.films.find(f => f.id === id)
+let found = {};          // résultats de la recherche « tous les films » (Wikidata), par id
+const oldFilm = id => found[id] || (myList[id]?.old ? { id, ...myList[id] } : null);
+const findFilm = id => oldFilm(id) || cat.films.find(f => f.id === id)
   || [...(cat.boxoffice?.rows || []), ...(cat.boxoffice_prev?.rows || []), ...(cat.boxoffice_us?.rows || []), ...(cat.world?.rows || [])].find(f => f.id === id);
 
 // ---------------------------------------------------------------- notes (IMDb, RT, Letterboxd)
-const yearOf = f => +(f.date || '').slice(0, 4) || new Date().getFullYear();
+const yearOf = f => f.year || +(f.date || '').slice(0, 4) || new Date().getFullYear();
 async function getRatings(f) {
   const key = f.id;
   const hit = ratingsCache[key];
@@ -201,7 +203,7 @@ function renderWeek() {
   const wed = featuredWednesday();
   const list = filmsOn(wed);
   const bigCount = list.filter(f => isBig(f, list)).length;
-  let html = `<div class="section-title" style="margin-top:16px">${esc(dayLabel(wed))}${list.length ? ` · ${list.length} sortie${list.length > 1 ? 's' : ''}${bigCount ? `, ${bigCount} grosse${bigCount > 1 ? 's' : ''}` : ''}` : ''}</div>`;
+  let html = repriseBanner() + `<div class="section-title" style="margin-top:16px">${esc(dayLabel(wed))}${list.length ? ` · ${list.length} sortie${list.length > 1 ? 's' : ''}${bigCount ? `, ${bigCount} grosse${bigCount > 1 ? 's' : ''}` : ''}` : ''}</div>`;
   if (!list.length) html += '<p class="empty">Pas encore de sorties annoncées pour cette semaine.</p>';
   else {
     html += hero(list[0], 'La sortie de la semaine');
@@ -507,6 +509,43 @@ async function shareTicket(id) {
   } catch (e) { /* partage annulé */ }
 }
 
+// ================================================================ films guettés et reprises
+// Un vieux film mis en favori est « guetté » : dès qu'il repasse dans une salle de Paris (reprise, ressortie,
+// rétrospective, d'après paris-cine.info) ou qu'une ressortie nationale est annoncée, l'app prévient.
+let reprises = null; // [{ title, original, year, director, imdb, cinemas }]
+const repKey = t => normT(String(t || '').replace(/\(\s*(rep|ressortie)[^)]*\)/i, ''));
+function showing(f) {
+  if (!f) return null;
+  const keys = [repKey(f.title), repKey(f.original)].filter(Boolean);
+  const r = (reprises || []).find(x => (f.imdb && x.imdb === f.imdb) || ([repKey(x.title), repKey(x.original)].some(k => k && keys.includes(k)) && (!f.year || !x.year || Math.abs(x.year - f.year) <= 1)));
+  if (r) return { paris: true, cinemas: r.cinemas };
+  const c = (cat?.films || []).find(x => /\(\s*rep/i.test(x.title) && keys.includes(repKey(x.title)));
+  return c ? { national: c } : null;
+}
+async function loadReprises() {
+  if (!Object.values(myList).some(v => v.old)) return;
+  const saved = read(KEYS.reprises);
+  if (saved && Date.now() - saved.at < 6 * 3600e3) reprises = saved.films;
+  else {
+    try { const r = await fetch('/api/reprises'); if (r.ok) { reprises = (await r.json()).films || []; write(KEYS.reprises, { at: Date.now(), films: reprises }); } }
+    catch (e) { reprises = saved?.films || null; }
+  }
+  // Boom : un film guetté vient de ressortir
+  const seen = read(KEYS.notified) || {};
+  const fresh = Object.entries(myList).filter(([id, v]) => v.old && showing({ id, ...v }) && !seen[id]);
+  if (fresh.length) {
+    fresh.forEach(([id]) => { seen[id] = Date.now(); });
+    write(KEYS.notified, seen);
+    toast(`🎬 Ça ressort : ${fresh.map(([, v]) => cleanTitle(v.title)).join(', ')}`);
+  }
+  render();
+}
+function repriseBanner() {
+  const list = Object.entries(myList).filter(([, v]) => v.old).map(([id, v]) => ({ id, ...v, show: showing({ id, ...v }) })).filter(f => f.show);
+  if (!list.length) return '';
+  return `<div class="reprise-banner"><span class="ev-kind">Ça ressort</span>${list.map(f => `<button class="rb-item" type="button" data-film="${esc(f.id)}">${poster(f)}<span><b>${esc(cleanTitle(f.title))}</b><small>${f.show.paris ? `en salle à Paris${f.show.cinemas ? ` · ${f.show.cinemas} salle${f.show.cinemas > 1 ? 's' : ''}` : ''}` : `ressortie le ${shortDate(f.show.national.date)}`}</small></span></button>`).join('')}</div>`;
+}
+
 // ================================================================ compte et synchronisation
 // Pseudo + mot de passe (empreinte scrypt côté serveur). Synchronise la liste, les tickets et les cinémas :
 // le plus récent gagne ; à la connexion, ce qui est sur le téléphone et sur le compte est fusionné.
@@ -647,8 +686,10 @@ function renderFilms() {
   }
   // À voir : en salle d'abord, puis par date de sortie avec le compte à rebours
   const t = today();
-  const items = Object.entries(myList).map(([id, v]) => ({ id, ...v, ...(findFilm(id) || {}) })).sort((a, b) => (a.date || '0').localeCompare(b.date || '0'));
-  if (!items.length) return html + '<p class="empty">Ajoute des films avec « À voir plus tard » dans leur fiche.</p>';
+  const all = Object.entries(myList).map(([id, v]) => ({ id, ...v, ...(findFilm(id) || {}) }));
+  const guettes = all.filter(f => f.old);
+  const items = all.filter(f => !f.old).sort((a, b) => (a.date || '0').localeCompare(b.date || '0'));
+  if (!all.length) return html + '<p class="empty">Ajoute des films avec l’étoile, dans leur fiche ou dans la recherche (même les vieux films : l’app te prévient s’ils ressortent).</p>';
   const inTheaters = items.filter(f => !f.date || f.date <= t), soon = items.filter(f => f.date && f.date > t);
   const row = f => {
     const days = f.date && f.date > t ? daysBetween(t, f.date) : null;
@@ -656,6 +697,8 @@ function renderFilms() {
   };
   if (inTheaters.length) html += `<div class="section-title">En salle</div>${inTheaters.map(row).join('')}`;
   if (soon.length) html += `<div class="section-title">Bientôt</div>${soon.map(row).join('')}`;
+  if (guettes.length) html += `<div class="section-title">Films guettés</div><p class="page-sub" style="margin:-4px 0 6px">Prévenu dès qu’ils repassent en salle à Paris.</p>${guettes.map(f => { const sh = showing(f);
+    return `<button class="list-row" type="button" data-film="${esc(f.id)}">${poster(f)}<span class="lr-body"><b>${esc(cleanTitle(f.title))}</b><small>${esc([f.year, f.director].filter(Boolean).join(' · '))}</small></span>${sh ? '<span class="pill-on">En salle</span>' : '<span class="pill-off">Guetté</span>'}</button>`; }).join('')}`;
   return html;
 }
 
@@ -700,7 +743,25 @@ function renderSearch() {
   if (films.length) html += `<div class="section-title">Films</div>${films.slice(0, 20).map(searchRow).join('')}`;
   if (directors.length) html += `<div class="section-title">Réalisateurs</div>${directors.map(d => { const n = cat.films.filter(f => f.director === d).length;
     return `<button class="list-row" type="button" data-director="${esc(d)}"><span class="avatar">${esc(d.split(' ').map(w => w[0]).join('').slice(0, 2))}</span><span class="lr-body"><b>${esc(d)}</b><small>${n} film${n > 1 ? 's' : ''} cette année</small></span></button>`; }).join('')}`;
-  box.innerHTML = html || '<p class="empty">Rien trouvé dans les sorties de l’année.</p>';
+  box.innerHTML = (html || '') + `<div id="find-res"><div class="section-title">Tous les films</div>${q.length >= 3 ? skeleton(2) : '<p class="page-sub">Tape au moins 3 lettres pour chercher dans tous les films, même les vieux.</p>'}</div>`;
+  if (q.length >= 3) findAll($('#q').value.trim(), films);
+}
+// Tous les films (Wikidata), pour les vieux films : avec un petit délai pour ne pas chercher à chaque lettre
+let findTimer = null;
+function findAll(query, local) {
+  clearTimeout(findTimer);
+  findTimer = setTimeout(async () => {
+    let list = [];
+    try { const r = await fetch(`/api/find?${new URLSearchParams({ q: query })}`); if (r.ok) list = (await r.json()).films || []; } catch (e) { /* hors-ligne */ }
+    const box = $('#find-res');
+    if (!box || $('#q').value.trim() !== query) return;
+    // Pas de doublon avec les sorties de l'année déjà affichées
+    const have = new Set(local.map(f => `${normT(cleanTitle(f.title))}|${yearOf(f)}`));
+    list = list.filter(f => !have.has(`${normT(f.title)}|${f.year}`));
+    list.forEach(f => { found[f.id] = { ...f, old: true }; });
+    box.innerHTML = `<div class="section-title">Tous les films</div>${list.length ? list.map(f => { const sh = showing(f);
+      return `<div class="sr-row"><button class="list-row" type="button" data-film="${esc(f.id)}">${poster(f)}<span class="lr-body"><b>${esc(f.title)}</b><small>${esc([f.year, f.director].filter(Boolean).join(' · '))}${sh ? ' · 🎬 en salle à Paris' : ''}</small></span></button>${starBtn(f)}</div>`; }).join('') : '<p class="page-sub">Rien trouvé.</p>'}`;
+  }, 350);
 }
 
 // ================================================================ rendu
@@ -763,7 +824,7 @@ function openFilm(id) {
   const sheet = $('#film');
   sheet.style.removeProperty('--tint-bg'); sheet.style.removeProperty('--tint-accent');
   const inList = !!myList[f.id];
-  const subl = [f.date ? `Sortie le ${dayLabel(f.date)}` : '', [f.genre, f.country, f.duration].filter(Boolean).join(' · ') || f.info || '', f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean);
+  const subl = f.old ? [[f.year, f.director && `de ${f.director}`].filter(Boolean).join(' · ')] : [f.date ? `Sortie le ${dayLabel(f.date)}` : '', [f.genre, f.country, f.duration].filter(Boolean).join(' · ') || f.info || '', f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean);
   $('#film-body').innerHTML = `
     <div class="film-hero">
       <div class="bar">
@@ -775,30 +836,30 @@ function openFilm(id) {
     <div class="film-main">
       <div id="scores"><div class="rating">${skeleton(1)}</div></div>
       <div class="actions">
-        <button class="btn accent${inList ? ' on' : ''}" type="button" data-mylist="${esc(f.id)}">${inList ? '★ Dans ma liste' : '☆ À voir plus tard'}</button>
+        <button class="btn accent${inList ? ' on' : ''}" type="button" data-mylist="${esc(f.id)}">${inList ? '★ Dans ma liste' : f.old ? '☆ Guetter sa ressortie' : '☆ À voir plus tard'}</button>
         <a class="btn" id="trailer-btn" href="${trailerUrl(f)}" target="_blank" rel="noopener">${PLAY_ICON}Bande-annonce</a>
       </div>
       <div id="brief"></div>
       ${f.synopsis ? `<p class="syn">${esc(f.synopsis)}</p>` : ''}
       ${f.director || f.cast?.length ? `<p class="people">${f.director ? `De ${esc(f.director)}` : ''}${f.director && f.cast?.length ? '<br>' : ''}${f.cast?.length ? `Avec ${esc(f.cast.join(', '))}` : ''}</p>` : ''}
-      ${myCines?.length ? '<div class="section-title" style="margin:6px 0 0">Séances dans mes cinés</div><div class="film-seances" id="film-seances"><p class="loading" style="padding:10px 0">Recherche…</p></div>' : ''}
+      ${f.old ? '<div class="section-title" style="margin:6px 0 0">Où le voir à Paris</div><div class="film-seances" id="film-seances"><p class="loading" style="padding:10px 0">Recherche dans toutes les salles…</p></div>' : myCines?.length ? '<div class="section-title" style="margin:6px 0 0">Séances dans mes cinés</div><div class="film-seances" id="film-seances"><p class="loading" style="padding:10px 0">Recherche…</p></div>' : ''}
       <div class="actions">
-        ${f.date && f.date > today() ? `<button class="btn" type="button" data-cal="${esc(f.id)}">${CAL_ICON}Sortie dans l’agenda</button>` : `<a class="btn" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Autres séances</a>`}
+        ${f.date && f.date > today() ? `<button class="btn" type="button" data-cal="${esc(f.id)}">${CAL_ICON}Sortie dans l’agenda</button>` : f.old ? '' : `<a class="btn" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Autres séances</a>`}
         <a class="btn" href="https://www.allocine.fr/rechercher/?q=${encodeURIComponent(cleanTitle(f.title))}" target="_blank" rel="noopener">Allociné</a>
-        <a class="btn wide" href="https://www.jpbox-office.com/fichfilm.php?id=${esc(f.id)}&view=2" target="_blank" rel="noopener">Chiffres JP's Box-Office</a>
+        ${f.old ? (f.imdb ? `<a class="btn wide" href="https://www.imdb.com/title/${esc(f.imdb)}/" target="_blank" rel="noopener">Fiche IMDb</a>` : '') : `<a class="btn wide" href="https://www.jpbox-office.com/fichfilm.php?id=${esc(f.id)}&view=2" target="_blank" rel="noopener">Chiffres JP's Box-Office</a>`}
       </div>
     </div>`;
   sheet.hidden = false;
   document.body.classList.add('sheet-open');
   $('#film-body').scrollTop = 0;
   tintFrom(f.poster).then(t => { if (t && !sheet.hidden && $('#film-title')?.textContent === cleanTitle(f.title)) { sheet.style.setProperty('--tint-bg', t.bg); sheet.style.setProperty('--tint-accent', t.accent); } });
-  if (myCines?.length) {
-    fetch(`/api/seances?${new URLSearchParams({ c: myCines.join('.'), t: cleanTitle(f.title), o: f.original || '' })}`).then(r => r.ok ? r.json() : {}).then(d => {
+  if (f.old || myCines?.length) {
+    fetch(`/api/seances?${new URLSearchParams(f.old ? { all: '1', t: cleanTitle(f.title), o: f.original || '' } : { c: myCines.join('.'), t: cleanTitle(f.title), o: f.original || '' })}`).then(r => r.ok ? r.json() : {}).then(d => {
       const box = $('#film-seances');
       if (!box) return;
       const now = today();
       const sts = (d.film?.showtimes || []).filter(st => st.start.slice(0, 10) >= now);
-      if (!sts.length) { box.innerHTML = '<p class="people">Pas de séance prévue dans tes cinémas pour l’instant.</p>'; return; }
+      if (!sts.length) { box.innerHTML = `<p class="people">${f.old ? (myList[f.id] ? 'Pas en salle à Paris en ce moment. Il est guetté : tu seras prévenu à sa ressortie.' : 'Pas en salle à Paris en ce moment. Mets-le en favori pour être prévenu s’il ressort.') : 'Pas de séance prévue dans tes cinémas pour l’instant.'}</p>`; return; }
       shownSeances = [];
       const days = [...new Set(sts.map(st => st.start.slice(0, 10)))].slice(0, 4);
       box.innerHTML = days.map(dd => `<div><div class="day-h">${esc(cap(dayLabel(dd)))}</div>${showtimeButtons(d.film, sts.filter(st => st.start.startsWith(dd)))}</div>`).join('') + '<p class="people">Touche une séance pour « J’y vais », réserver ou l’ajouter à l’agenda.</p>';
@@ -835,6 +896,7 @@ function toggleMyList(id) {
   const f = findFilm(id);
   if (!f) return;
   if (myList[id]) { delete myList[id]; toast('Retiré de ma liste'); }
+  else if (f.old) { myList[id] = { title: f.title, original: f.original || '', year: f.year || null, director: f.director || '', imdb: f.imdb || '', poster: f.poster || '', old: true }; toast(showing(f) ? '🎬 Bonne nouvelle : il est en salle à Paris !' : 'Guetté : tu seras prévenu s’il ressort'); if (!reprises) loadReprises(); }
   else { myList[id] = { title: f.title, date: f.date || '', poster: f.poster || '' }; toast('Ajouté à « À voir »'); }
   write(KEYS.list, myList); markChanged();
   const b = document.querySelector(`[data-mylist="${CSS.escape(id)}"]`);
@@ -969,6 +1031,7 @@ function openDeepLink() {
 }
 const deepDone = openDeepLink();
 pullOnOpen();
+loadReprises();
 if (!deepDone) welcome();
 load().then(() => { if (!deepDone) openDeepLink(); });
 

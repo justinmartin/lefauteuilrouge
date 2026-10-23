@@ -1,6 +1,6 @@
 // Relais d'affiches (JP's Box-Office, Wikipédia) servi depuis notre domaine : la fiche film peut ainsi
 // lire les couleurs de l'affiche (le navigateur l'interdit sur une image d'un autre site).
-const HOSTS = ['www.jpbox-office.com', 'jpbox-office.com', 'upload.wikimedia.org'];
+const HOSTS = ['www.jpbox-office.com', 'jpbox-office.com', 'upload.wikimedia.org', 'thumb.wikimedia.org'];
 const UA = 'lefauteuilrouge (newsletter perso ; github.com/justinmartin)';
 
 module.exports = async (req, res) => {

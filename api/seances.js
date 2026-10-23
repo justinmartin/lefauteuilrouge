@@ -1,4 +1,5 @@
 // Séances : /api/seances?list=cinemas  |  ?c=104.169 (la semaine)  |  ?c=104.169&t=<titre>&o=<original> (un film)
+//   |  ?all=1&t=<titre>&o=<original> (un film, dans tout Paris)
 // Source : paris-cine.info (données Allociné). Réponses gardées 6 h par le CDN pour ménager le site.
 const { theaters, week, film } = require('../lib/seances');
 
@@ -7,6 +8,13 @@ module.exports = async (req, res) => {
     if (req.query.list === 'cinemas') {
       res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=604800');
       res.status(200).json({ cinemas: await theaters() });
+      return;
+    }
+    // Un film dans tout Paris (pour les reprises) : /api/seances?all=1&t=<titre>&o=<original>
+    if (req.query.all === '1' && req.query.t) {
+      const ids = (await theaters()).map(c => c.id);
+      res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=86400');
+      res.status(200).json({ film: await film(ids, String(req.query.t).slice(0, 200), String(req.query.o || '').slice(0, 200)) });
       return;
     }
     const ids = String(req.query.c || '').split(/[.,]/).map(Number).filter(n => Number.isInteger(n) && n > 0).slice(0, 15).sort((a, b) => a - b);

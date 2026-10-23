@@ -2,7 +2,7 @@
 // (JSON en base64url), rien n'est stocké. Page lisible sans l'app, avec aperçu (affiche) dans iMessage / WhatsApp.
 // Liens de réservation et affiches limités aux sites connus : le lien ne peut pas servir à rediriger ailleurs.
 const BOOK_HOSTS = ['pathe.fr', 'ugc.fr', 'mk2.com', 'mk2.fr', 'allocine.fr', 'cinemaspathegaumont.com', 'cgrcinemas.fr', 'paris-cine.info'];
-const POSTER_HOSTS = ['jpbox-office.com', 'upload.wikimedia.org'];
+const POSTER_HOSTS = ['jpbox-office.com', 'upload.wikimedia.org', 'thumb.wikimedia.org'];
 const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
 
