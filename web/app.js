@@ -859,6 +859,7 @@ function openFilm(id) {
       if (!box) return;
       const now = today();
       const sts = (d.film?.showtimes || []).filter(st => st.start.slice(0, 10) >= now);
+      if (!sts.length && f.old && showing(f)?.paris) { box.innerHTML = `<p class="people">À l’affiche dans ${showing(f).cinemas || 'des'} salle${showing(f).cinemas > 1 ? 's' : ''} à Paris, mais les horaires n’ont pas pu être chargés. Réessaie dans un instant.</p>`; return; }
       if (!sts.length) { box.innerHTML = `<p class="people">${f.old ? (myList[f.id] ? 'Pas en salle à Paris en ce moment. Il est guetté : tu seras prévenu à sa ressortie.' : 'Pas en salle à Paris en ce moment. Mets-le en favori pour être prévenu s’il ressort.') : 'Pas de séance prévue dans tes cinémas pour l’instant.'}</p>`; return; }
       shownSeances = [];
       const days = [...new Set(sts.map(st => st.start.slice(0, 10)))].slice(0, 4);
