@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
       res.status(200).json({ film: f });
       return;
     }
-    const ids = String(req.query.c || '').split(/[.,]/).map(Number).filter(n => Number.isInteger(n) && n > 0).slice(0, 15).sort((a, b) => a - b);
+    const ids = String(req.query.c || '').split(/[.,]/).map(Number).filter(n => Number.isInteger(n) && n > 0).slice(0, 25).sort((a, b) => a - b);
     if (!ids.length) { res.status(400).json({ error: 'cinémas manquants' }); return; }
     res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=259200');
     if (req.query.t) {

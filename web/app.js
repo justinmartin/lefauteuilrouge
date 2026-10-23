@@ -27,6 +27,8 @@ let myCines = null;      // identifiants paris-cine.info des cinémas choisis
 let cinemas = [];        // tous les cinémas de Paris et petite couronne
 let seanceDate = null;
 let seanceFilter = 'all'; // all | vo | vf
+const MAX_CINES = 25;
+let pickGroups = [];
 let pickCard = 'pass';    // filtre du choix des cinémas : pass | ugc | mk2 | all
 const seancesCache = {};
 let shownSeances = [];   // séances affichées (pour la feuille Réserver / J'y vais / Agenda)
@@ -142,6 +144,7 @@ const CAL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" str
 const TICKET_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2.5a2.5 2.5 0 0 0 0 5V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4.5a2.5 2.5 0 0 0 0-5z"/></svg>';
 const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
 const SLIDERS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>';
+const USER_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>';
 const SHARE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>';
 const PIN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
 const meta = f => [f.genre, f.duration, f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean).join(' · ');
@@ -594,14 +597,14 @@ async function pullOnOpen() {
     else if ((mine.updated || 0) > (data?.updated || 0)) pushNow();
   } catch (e) { if (e.status === 401) signOutLocal('Session expirée : reconnecte-toi dans Mes films.'); }
 }
-function signOutLocal(msg) { account = null; write(KEYS.account, null); if (msg) toast(msg); }
+function signOutLocal(msg) { account = null; write(KEYS.account, null); refreshMeButton(); if (msg) toast(msg); }
 async function authSubmit(mode, form) {
   const pseudo = form.pseudo.value.trim(), password = form.password.value;
   const msg = $('#acc-msg');
   msg.textContent = mode === 'signup' ? 'Création du compte…' : 'Connexion…';
   try {
     const res = await api({ action: mode, pseudo, password });
-    account = { pseudo: res.pseudo, token: res.token }; write(KEYS.account, account);
+    account = { pseudo: res.pseudo, token: res.token }; write(KEYS.account, account); refreshMeButton();
     const merged = merge(localData(), res.data);
     applyData(merged);
     await pushNow();
@@ -621,17 +624,28 @@ function welcome() {
 }
 function renderAccount(first = false) {
   const body = $('#account-body');
-  $('#account-title').textContent = first ? 'Bienvenue' : 'Mon compte';
+  $('#account-title').textContent = first ? 'Bienvenue' : 'Mon espace';
+  const n = Object.values(myList).filter(v => !v.old).length, g = Object.values(myList).filter(v => v.old).length;
+  const upcoming = tickets.filter(k => k.end >= isoMin(new Date())).length;
+  const names = cinemas.filter(c => myCines?.includes(c.id)).map(c => c.name);
+  // Mes cinés et récap (pas sur l'écran de bienvenue)
+  const extra = first ? '' : `
+    <section class="me-block"><div class="me-head"><h3>Mes cinés</h3><button class="text-btn" type="button" data-open-pick>Modifier</button></div>
+      <p class="page-sub">${names.length ? `${names.length} cinéma${names.length > 1 ? 's' : ''} pour « Ce soir » et les séances des fiches` : 'Aucun cinéma choisi'}</p>
+      ${names.length ? `<div class="me-cines">${names.map(x => `<span>${esc(x)}</span>`).join('')}</div>` : ''}</section>
+    <section class="me-block"><h3>Mes films</h3><div class="me-stats">
+      <button type="button" data-goto="avoir"><b>${n}</b><small>à voir</small></button>
+      <button type="button" data-goto="avoir"><b>${g}</b><small>guetté${g > 1 ? 's' : ''}</small></button>
+      <button type="button" data-goto="seances"><b>${upcoming}</b><small>séance${upcoming > 1 ? 's' : ''} prévue${upcoming > 1 ? 's' : ''}</small></button>
+    </div></section>`;
   if (account) {
-    const n = Object.keys(myList).length;
-    body.innerHTML = `<div class="acc-box"><p class="acc-who">Connecté en tant que <b>${esc(account.pseudo)}</b></p>
-      <p class="page-sub">Ta liste (${n} film${n > 1 ? 's' : ''}), tes ${tickets.length} ticket${tickets.length > 1 ? 's' : ''} et tes cinémas sont synchronisés sur tous les appareils où tu te connectes.</p>
-      <button class="btn" type="button" data-acc-sync>Synchroniser maintenant</button>
-      <button class="btn" type="button" data-acc-logout>Se déconnecter de cet appareil</button>
-      <button class="link-btn center" type="button" data-acc-delete>Supprimer mon compte</button></div>`;
+    body.innerHTML = `<div class="acc-box"><section class="me-block"><div class="me-head"><h3><span class="me-avatar">${esc(account.pseudo[0].toUpperCase())}</span>${esc(account.pseudo)}</h3></div>
+      <p class="page-sub">Ta liste, tes tickets et tes cinémas sont synchronisés sur tous les appareils où tu te connectes.</p>
+      <div class="me-actions"><button class="btn" type="button" data-acc-sync>Synchroniser maintenant</button><button class="btn" type="button" data-acc-logout>Se déconnecter</button></div>
+      <button class="link-btn" type="button" data-acc-delete>Supprimer mon compte</button></section>${extra}</div>`;
     return;
   }
-  body.innerHTML = `<div class="acc-box">
+  body.innerHTML = `<div class="acc-box"><section class="me-block">${first ? '' : '<h3>Compte</h3><p class="page-sub">Facultatif : un pseudo pour retrouver ta liste, tes tickets et tes cinémas sur tous tes appareils.</p>'}
     <div class="seg" style="grid-template-columns:repeat(2,minmax(0,1fr))"><button type="button" class="${accMode === 'login' ? 'on' : ''}" data-acc-mode="login">Se connecter</button><button type="button" class="${accMode === 'signup' ? 'on' : ''}" data-acc-mode="signup">Créer un compte</button></div>
     <form id="acc-form" class="acc-form" autocomplete="on">
       <label>Pseudo<input name="pseudo" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required minlength="3" maxlength="24" pattern="[A-Za-z0-9][A-Za-z0-9._\\-]{2,23}"></label>
@@ -639,9 +653,18 @@ function renderAccount(first = false) {
       <button class="btn accent-red" type="submit">${accMode === 'signup' ? 'Créer mon compte' : 'Me connecter'}</button>
       <p class="page-sub" id="acc-msg" role="status"></p>
     </form>
-    <button class="btn" type="button" data-acc-skip>Continuer sans compte</button>
-    <p class="people">Sans compte, tout fonctionne pareil, mais ta liste, tes tickets et tes cinémas restent seulement sur ce téléphone. Tu pourras créer un compte plus tard depuis « Mes films ».</p>
-    <p class="people">Pas d'e-mail demandé. Le mot de passe n'est jamais stocké en clair (seulement son empreinte). Sans e-mail, pas de récupération possible : garde-le dans ton trousseau.</p></div>`;
+    ${first ? `<button class="btn" type="button" data-acc-skip>Continuer sans compte</button>
+    <p class="people">Sans compte, tout fonctionne pareil, mais ta liste, tes tickets et tes cinémas restent seulement sur ce téléphone. Tu pourras créer un compte plus tard depuis l’icône en haut à droite.</p>` : ''}
+    <p class="people">Pas d'e-mail demandé. Le mot de passe n'est jamais stocké en clair (seulement son empreinte). Sans e-mail, pas de récupération possible : garde-le dans ton trousseau.</p></section>${extra}</div>`;
+}
+function openMe() {
+  loadCinemas().then(() => { renderAccount(); $('#account').hidden = false; document.body.classList.add('sheet-open'); });
+}
+function refreshMeButton() {
+  const b = $('#open-me');
+  if (!b) return;
+  b.innerHTML = account ? `<span class="me-avatar small">${esc(account.pseudo[0].toUpperCase())}</span>` : USER_ICON;
+  b.setAttribute('aria-label', account ? `Mon espace (${account.pseudo})` : 'Mon espace');
 }
 
 // ================================================================ Mes films
@@ -650,7 +673,7 @@ function renderFilms() {
   const upcoming = tickets.filter(k => k.end >= now).sort((a, b) => a.start.localeCompare(b.start));
   const past = tickets.filter(k => k.end < now).sort((a, b) => b.start.localeCompare(a.start));
   const n = Object.keys(myList).length;
-  let html = head('Mes films', `<button class="acc-btn" type="button" data-open-account>${account ? esc(account.pseudo) : 'Synchroniser'}</button>`);
+  let html = head('Mes films');
   html += seg('fsub', [['avoir', `À voir${n ? ` · ${n}` : ''}`], ['seances', `Mes séances${upcoming.length ? ` · ${upcoming.length}` : ''}`], ['vus', `Vus${past.length ? ` · ${past.length}` : ''}`]], sub.films);
   if (sub.films === 'seances') {
     if (!upcoming.length) return html + '<p class="empty">Aucune séance prévue.<br><small>Choisis une séance dans « Ce soir » ou dans une fiche film, puis « J’y vais ».</small></p>';
@@ -708,11 +731,13 @@ function renderPick() {
   const list = cinemas.filter(c => pickCard === 'all' || c.cards.includes(pickCard) || myCines.includes(c.id));
   const groups = new Map();
   list.sort((a, b) => a.zip.localeCompare(b.zip)).forEach(c => { const n = +c.zip.slice(3); const g = c.zip === '75123' ? 'Paris Centre (1er – 4e)' : c.zip.startsWith('75') ? `Paris ${n === 1 ? '1er' : `${n}e`}` : c.area; if (!groups.has(g)) groups.set(g, []); groups.get(g).push(c); });
+  pickGroups = [...groups].map(([, cs]) => cs.map(c => c.id));
   $('#pick-body').innerHTML = `<div style="padding:8px 16px 0"><div class="chips" style="margin:0">${[['pass', 'Carte Pathé'], ['ugc', 'UGC Illimité'], ['mk2', 'MK2'], ['all', 'Tous les cinémas']].map(([v, l]) =>
     `<button class="chip${pickCard === v ? ' on' : ''}" type="button" data-pcard="${v}">${l}</button>`).join('')}</div>
-    <p class="page-sub">${myCines.length} cinéma${myCines.length > 1 ? 's' : ''} choisi${myCines.length > 1 ? 's' : ''} · 15 au plus</p>
-    ${[...groups].map(([g, cs]) => `<div class="cine-group">${esc(g)}</div>${cs.map(c => `<button class="cine-row${myCines.includes(c.id) ? ' on' : ''}" type="button" data-cine="${c.id}">
-      <span class="box">${myCines.includes(c.id) ? '✓' : ''}</span><b>${esc(c.name)}</b><small>${[c.cards.includes('pass') && 'Carte Pathé', c.cards.includes('ugc') && 'UGC Illimité', c.cards.includes('mk2') && 'MK2'].filter(Boolean).join(' · ')}</small></button>`).join('')}`).join('')}</div>`;
+    <p class="page-sub">${myCines.length} cinéma${myCines.length > 1 ? 's' : ''} choisi${myCines.length > 1 ? 's' : ''} · ${MAX_CINES} au plus${myCines.length ? ' · <button class="link-btn" type="button" data-pclear>tout retirer</button>' : ''}</p>
+    ${[...groups].map(([g, cs], gi) => { const all = cs.every(c => myCines.includes(c.id)); return `<div class="cine-group"><span>${esc(g)}</span><button class="group-btn${all ? ' on' : ''}" type="button" data-pgroup="${gi}">${all ? 'Tout retirer' : 'Tout sélectionner'}</button></div>`; } )
+      .map((h, gi) => h + [...groups][gi][1].map(c => `<button class="cine-row${myCines.includes(c.id) ? ' on' : ''}" type="button" data-cine="${c.id}">
+      <span class="box">${myCines.includes(c.id) ? '✓' : ''}</span><b>${esc(c.name)}</b><small>${[c.cards.includes('pass') && 'Carte Pathé', c.cards.includes('ugc') && 'UGC Illimité', c.cards.includes('mk2') && 'MK2'].filter(Boolean).join(' · ')}</small></button>`).join('')).join('')}</div>`;
 }
 
 // ================================================================ recherche
@@ -990,7 +1015,7 @@ document.addEventListener('click', ev => {
   const sd = t.closest('[data-sday]'); if (sd) { seanceDate = sd.dataset.sday; render(); return; }
   const sf = t.closest('[data-sfilter]'); if (sf) { seanceFilter = sf.dataset.sfilter; render(); return; }
   const sh = t.closest('[data-share]'); if (sh) { shareTicket(sh.dataset.share); return; }
-  if (t.closest('[data-open-account]')) { renderAccount(); $('#account').hidden = false; document.body.classList.add('sheet-open'); return; }
+  if (t.closest('[data-open-account]')) { openMe(); return; }
   if (t.closest('[data-close-account]')) { write(KEYS.onboarded, true); $('#account').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
   if (t.closest('[data-acc-skip]')) { write(KEYS.onboarded, true); $('#account').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
   const am = t.closest('[data-acc-mode]'); if (am) { accMode = am.dataset.accMode; renderAccount(); return; }
@@ -1003,16 +1028,29 @@ document.addEventListener('click', ev => {
   if (t.closest('[data-acc-logout]')) { const a = account; signOutLocal(); api({ action: 'logout', pseudo: a.pseudo, token: a.token }).catch(() => {}); renderAccount(); render(); toast('Déconnecté de cet appareil'); return; }
   const ut = t.closest('[data-unticket]'); if (ut) { tickets = tickets.filter(k => k.id !== ut.dataset.unticket); write(KEYS.tickets, tickets); markChanged(); toast('Ticket retiré'); render(); return; }
   if (t.closest('[data-open-pick]')) { loadCinemas().then(() => { renderPick(); $('#pick').hidden = false; document.body.classList.add('sheet-open'); }); return; }
-  if (t.closest('[data-close-pick]')) { $('#pick').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
+  if (t.closest('[data-close-pick]')) { $('#pick').hidden = true; if ($('#account').hidden) document.body.classList.remove('sheet-open'); else renderAccount(); render(); return; }
+  const pg = t.closest('[data-pgroup]'); if (pg) {
+    const ids = pickGroups[+pg.dataset.pgroup] || [];
+    if (ids.every(id => myCines.includes(id))) myCines = myCines.filter(id => !ids.includes(id));
+    else {
+      const add = ids.filter(id => !myCines.includes(id)), room = MAX_CINES - myCines.length;
+      myCines = [...myCines, ...add.slice(0, Math.max(0, room))];
+      if (add.length > room) toast(`${MAX_CINES} cinémas au plus : ${Math.max(0, room)} ajouté${room > 1 ? 's' : ''}`);
+    }
+    write(KEYS.cines, myCines); markChanged(); renderPick(); return;
+  }
+  if (t.closest('[data-pclear]')) { myCines = []; write(KEYS.cines, myCines); markChanged(); renderPick(); return; }
+  const gt = t.closest('[data-goto]'); if (gt) { $('#account').hidden = true; document.body.classList.remove('sheet-open'); tab = 'films'; sub.films = gt.dataset.goto; saveNav(); render(); window.scrollTo(0, 0); return; }
   const pc = t.closest('[data-pcard]'); if (pc) { pickCard = pc.dataset.pcard; renderPick(); return; }
   const ci = t.closest('[data-cine]'); if (ci) {
     const id = +ci.dataset.cine;
     if (myCines.includes(id)) myCines = myCines.filter(x => x !== id);
-    else if (myCines.length < 15) myCines = [...myCines, id];
-    else toast('15 cinémas au plus');
+    else if (myCines.length < MAX_CINES) myCines = [...myCines, id];
+    else toast(`${MAX_CINES} cinémas au plus`);
     write(KEYS.cines, myCines); markChanged(); renderPick(); return;
   }
 });
+$('#open-me').addEventListener('click', openMe);
 $('#open-search').addEventListener('click', () => { $('#search').hidden = false; document.body.classList.add('sheet-open'); renderSearch(); setTimeout(() => $('#q').focus(), 50); });
 $('#q').addEventListener('input', renderSearch);
 // Fenêtre redimensionnée (ordinateur) : la frise du soir se recale sur la largeur
@@ -1034,6 +1072,7 @@ function openDeepLink() {
   history.replaceState(null, '', location.pathname);
   return true;
 }
+refreshMeButton();
 const deepDone = openDeepLink();
 pullOnOpen();
 loadReprises();
