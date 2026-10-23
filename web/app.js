@@ -3,7 +3,7 @@
 // /api/ratings (IMDb, Rotten Tomatoes, Letterboxd, bande-annonce) et /api/seances (paris-cine.info),
 // gardées sur le téléphone pour l'ouverture instantanée.
 // Trois onglets : À l'affiche (semaine, à venir, box-office), Ce soir (frise des séances), Mes films (liste, tickets, vus).
-const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', sub: 'lfr_sub', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas', tickets: 'lfr_tickets', seances: 'lfr_seances', account: 'lfr_account', updated: 'lfr_updated' };
+const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', sub: 'lfr_sub', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas', tickets: 'lfr_tickets', seances: 'lfr_seances', account: 'lfr_account', updated: 'lfr_updated', onboarded: 'lfr_onboarded' };
 const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
 const SHORT_DAYS = ['DIM.', 'LUN.', 'MAR.', 'MER.', 'JEU.', 'VEN.', 'SAM.'];
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
@@ -565,19 +565,30 @@ async function authSubmit(mode, form) {
     const merged = merge(localData(), res.data);
     applyData(merged);
     await pushNow();
-    toast(mode === 'signup' ? 'Compte créé, tout est synchronisé' : 'Connecté, tout est synchronisé');
+    write(KEYS.onboarded, true);
+    toast(mode === 'signup' ? `Bienvenue ${res.pseudo} : tout est synchronisé` : 'Connecté, tout est synchronisé');
     renderAccount(); render();
   } catch (e) { msg.textContent = e.message; }
 }
 let accMode = 'login';
-function renderAccount() {
+// Premier lancement : proposer un pseudo, ou continuer sans compte (tout marche pareil, rien n'est sauvegardé en ligne)
+function welcome() {
+  if (account || read(KEYS.onboarded)) return;
+  accMode = 'signup';
+  renderAccount(true);
+  $('#account-title').textContent = 'Bienvenue';
+  $('#account').hidden = false; document.body.classList.add('sheet-open');
+}
+function renderAccount(first = false) {
   const body = $('#account-body');
+  $('#account-title').textContent = first ? 'Bienvenue' : 'Mon compte';
   if (account) {
     const n = Object.keys(myList).length;
     body.innerHTML = `<div class="acc-box"><p class="acc-who">Connecté en tant que <b>${esc(account.pseudo)}</b></p>
       <p class="page-sub">Ta liste (${n} film${n > 1 ? 's' : ''}), tes ${tickets.length} ticket${tickets.length > 1 ? 's' : ''} et tes cinémas sont synchronisés sur tous les appareils où tu te connectes.</p>
       <button class="btn" type="button" data-acc-sync>Synchroniser maintenant</button>
-      <button class="btn" type="button" data-acc-logout>Se déconnecter de cet appareil</button></div>`;
+      <button class="btn" type="button" data-acc-logout>Se déconnecter de cet appareil</button>
+      <button class="link-btn center" type="button" data-acc-delete>Supprimer mon compte</button></div>`;
     return;
   }
   body.innerHTML = `<div class="acc-box">
@@ -588,6 +599,8 @@ function renderAccount() {
       <button class="btn accent-red" type="submit">${accMode === 'signup' ? 'Créer mon compte' : 'Me connecter'}</button>
       <p class="page-sub" id="acc-msg" role="status"></p>
     </form>
+    <button class="btn" type="button" data-acc-skip>Continuer sans compte</button>
+    <p class="people">Sans compte, tout fonctionne pareil, mais ta liste, tes tickets et tes cinémas restent seulement sur ce téléphone. Tu pourras créer un compte plus tard depuis « Mes films ».</p>
     <p class="people">Pas d'e-mail demandé. Le mot de passe n'est jamais stocké en clair (seulement son empreinte). Sans e-mail, pas de récupération possible : garde-le dans ton trousseau.</p></div>`;
 }
 
@@ -659,20 +672,32 @@ function renderPick() {
 }
 
 // ================================================================ recherche
+const starBtn = f => `<button class="star-btn${myList[f.id] ? ' on' : ''}" type="button" data-mylist="${esc(f.id)}" aria-label="${myList[f.id] ? 'Retirer de ma liste' : 'Ajouter à ma liste'} : ${esc(cleanTitle(f.title))}">${myList[f.id] ? '★' : '☆'}</button>`;
+function searchRow(f) {
+  const t = today();
+  const days = f.date && f.date > t ? daysBetween(t, f.date) : null;
+  const when = f.date ? (days != null ? `Sort le ${dayLabel(f.date)} · dans ${days} jour${days > 1 ? 's' : ''}` : `En salle depuis le ${shortDate(f.date)}`) : [f.genre, f.director].filter(Boolean).join(' · ');
+  return `<div class="sr-row"><button class="list-row" type="button" data-film="${esc(f.id)}">${poster(f)}<span class="lr-body"><b>${esc(cleanTitle(f.title))}</b><small>${esc(when)}</small></span></button>${starBtn(f)}</div>`;
+}
 function renderSearch() {
   const q = normT($('#q').value);
   const box = $('#search-body');
   if (!cat) { box.innerHTML = ''; return; }
-  if (q.length < 2) { box.innerHTML = '<p class="empty">Un titre ou un nom de réalisateur.</p>'; return; }
+  if (q.length < 2) {
+    // Sans recherche : les grosses sorties à venir, à garder d'une étoile
+    const t = today(), soon = [];
+    [...new Set(cat.films.map(f => f.date))].filter(d => d > t).sort().forEach(d => { const l = filmsOn(d); l.filter(f => isBig(f, l)).forEach(f => soon.push(f)); });
+    box.innerHTML = `<p class="page-sub" style="margin-top:12px">Un titre ou un réalisateur. L'étoile garde le film dans « À voir », avec le compte à rebours jusqu'à sa sortie.</p><div class="section-title">Les grosses sorties à venir</div>${soon.slice(0, 15).map(searchRow).join('')}`;
+    return;
+  }
   const seen = new Set(), films = [];
   [...cat.films, ...(cat.boxoffice?.rows || []), ...(cat.boxoffice_us?.rows || []), ...(cat.world?.rows || [])].forEach(f => {
     if (!f.id || seen.has(f.id)) return;
     if ([f.title, f.original, f.director].some(v => normT(v).includes(q))) { seen.add(f.id); films.push(f); }
   });
   const directors = [...new Set(cat.films.map(f => f.director).filter(d => d && normT(d).includes(q)))].slice(0, 4);
-  const t = today();
   let html = '';
-  if (films.length) html += `<div class="section-title">Films</div>${films.slice(0, 15).map(f => `<button class="list-row" type="button" data-film="${esc(f.id)}">${poster(f)}<span class="lr-body"><b>${esc(cleanTitle(f.title))}</b><small>${esc(f.date ? (f.date > t ? `Sort le ${dayLabel(f.date)}` : `En salle depuis le ${shortDate(f.date)}`) : [f.genre, f.director].filter(Boolean).join(' · '))}</small></span></button>`).join('')}`;
+  if (films.length) html += `<div class="section-title">Films</div>${films.slice(0, 20).map(searchRow).join('')}`;
   if (directors.length) html += `<div class="section-title">Réalisateurs</div>${directors.map(d => { const n = cat.films.filter(f => f.director === d).length;
     return `<button class="list-row" type="button" data-director="${esc(d)}"><span class="avatar">${esc(d.split(' ').map(w => w[0]).join('').slice(0, 2))}</span><span class="lr-body"><b>${esc(d)}</b><small>${n} film${n > 1 ? 's' : ''} cette année</small></span></button>`; }).join('')}`;
   box.innerHTML = html || '<p class="empty">Rien trouvé dans les sorties de l’année.</p>';
@@ -814,7 +839,8 @@ function toggleMyList(id) {
   write(KEYS.list, myList); markChanged();
   const b = document.querySelector(`[data-mylist="${CSS.escape(id)}"]`);
   if (b) {
-    b.classList.toggle('on', !!myList[id]); b.textContent = myList[id] ? '★ Dans ma liste' : '☆ À voir plus tard';
+    b.classList.toggle('on', !!myList[id]);
+    b.textContent = b.classList.contains('star-btn') ? (myList[id] ? '★' : '☆') : myList[id] ? '★ Dans ma liste' : '☆ À voir plus tard';
     b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
     if (navigator.vibrate && navigator.userActivation?.hasBeenActive) navigator.vibrate(12);
   }
@@ -853,6 +879,7 @@ async function load() {
     }
   } catch (e) { /* hors-ligne : on garde le programme en mémoire */ }
   render();
+  if (!$('#search').hidden) renderSearch();
 }
 
 cat = read(KEYS.catalog);
@@ -900,9 +927,15 @@ document.addEventListener('click', ev => {
   const sf = t.closest('[data-sfilter]'); if (sf) { seanceFilter = sf.dataset.sfilter; render(); return; }
   const sh = t.closest('[data-share]'); if (sh) { shareTicket(sh.dataset.share); return; }
   if (t.closest('[data-open-account]')) { renderAccount(); $('#account').hidden = false; document.body.classList.add('sheet-open'); return; }
-  if (t.closest('[data-close-account]')) { $('#account').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
+  if (t.closest('[data-close-account]')) { write(KEYS.onboarded, true); $('#account').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
+  if (t.closest('[data-acc-skip]')) { write(KEYS.onboarded, true); $('#account').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
   const am = t.closest('[data-acc-mode]'); if (am) { accMode = am.dataset.accMode; renderAccount(); return; }
   if (t.closest('[data-acc-sync]')) { pushNow().then(pullOnOpen).then(() => toast('Synchronisé')); return; }
+  if (t.closest('[data-acc-delete]')) {
+    const pw = prompt(`Supprimer définitivement le compte ${account.pseudo} ? Tes films restent sur ce téléphone.\nMot de passe :`);
+    if (pw) api({ action: 'delete', pseudo: account.pseudo, password: pw }).then(() => { signOutLocal(); renderAccount(); render(); toast('Compte supprimé'); }).catch(e => toast(e.message));
+    return;
+  }
   if (t.closest('[data-acc-logout]')) { const a = account; signOutLocal(); api({ action: 'logout', pseudo: a.pseudo, token: a.token }).catch(() => {}); renderAccount(); render(); toast('Déconnecté de cet appareil'); return; }
   const ut = t.closest('[data-unticket]'); if (ut) { tickets = tickets.filter(k => k.id !== ut.dataset.unticket); write(KEYS.tickets, tickets); markChanged(); toast('Ticket retiré'); render(); return; }
   if (t.closest('[data-open-pick]')) { loadCinemas().then(() => { renderPick(); $('#pick').hidden = false; document.body.classList.add('sheet-open'); }); return; }
@@ -936,6 +969,7 @@ function openDeepLink() {
 }
 const deepDone = openDeepLink();
 pullOnOpen();
+if (!deepDone) welcome();
 load().then(() => { if (!deepDone) openDeepLink(); });
 
 // Préchargement des séances dès l'ouverture : « Ce soir » est prêt quand on y arrive
