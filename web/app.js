@@ -14,7 +14,7 @@ const PX_MIN = 74;       // frise du soir : pixels par heure au minimum (plus su
 
 let cat = null;
 let tab = 'affiche';
-let sub = { affiche: 'semaine', films: 'avoir' };
+let sub = { affiche: 'semaine', films: 'avoir', une: 'actu' };
 let calView = 'year';    // year (frise) | month
 let filter = 'big';      // big | all | mine | genre:<nom>
 let selDay = null;
@@ -199,8 +199,8 @@ const skeleton = (n = 3) => `<div class="skel-list" aria-hidden="true">${'<div c
 // ================================================================ À l'affiche
 function renderAffiche() {
   let html = head('À l’affiche', sub.affiche === 'avenir' ? `<a class="sub-pill" href="webcal://${location.host}/api/ics?all=1" aria-label="S’abonner aux grosses sorties dans mon agenda">${CAL_ICON}S’abonner</a>` : '');
-  html += seg('sub', [['semaine', 'Cette semaine'], ['avenir', 'À venir'], ['bo', 'Box-office']], sub.affiche);
-  html += sub.affiche === 'avenir' ? renderAvenir() : sub.affiche === 'bo' ? renderBoxOffice() : renderWeek();
+  html += seg('sub', [['semaine', 'Cette semaine'], ['avenir', 'À venir']], sub.affiche);
+  html += sub.affiche === 'avenir' ? renderAvenir() : renderWeek();
   return html + source();
 }
 
@@ -346,23 +346,33 @@ function newsCard(a, kind) {
     <span class="nw-img" data-ph="${esc(src.name)}" style="--c:${src.color};--i:${src.ink}">${img}</span>
     <span class="nw-body"><span class="nw-meta">${newsBadge(src, a)}</span><span class="nw-title">${esc(a.title)}</span>${kind === 'lead' && a.excerpt ? `<span class="nw-ex">${esc(a.excerpt)}</span>` : ''}</span></a>${film}</article>`;
 }
+let newsQuery = '';
 function renderUne() {
+  let html = head('À la une') + seg('usub', [['actu', 'Actu'], ['bo', 'Box-office']], sub.une);
+  if (sub.une === 'bo') return html + renderBoxOffice() + source();
   if (!newsData) loadNews();
   else if (!read(KEYS.news) || Date.now() - read(KEYS.news).at > 30 * 60e3) loadNews();
-  let html = head('À la une') + `<div class="nw-filters"><div class="chips">${NEWS_CATS.map(([v, l]) => `<button class="chip${newsCat === v ? ' on' : ''}" type="button" data-ncat="${v}">${l}</button>`).join('')}</div>
+  html += `<label class="nw-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="nq" type="search" placeholder="Chercher dans l’actu : un film, un nom…" value="${esc(newsQuery)}" autocomplete="off" aria-label="Chercher dans l’actu"></label>
+    <div class="nw-filters"><div class="chips">${NEWS_CATS.map(([v, l]) => `<button class="chip${newsCat === v ? ' on' : ''}" type="button" data-ncat="${v}">${l}</button>`).join('')}</div>
     <div class="zoom" style="margin-top:8px">${[['all', 'FR + EN'], ['fr', 'FR'], ['en', 'EN']].map(([v, l]) => `<button type="button" class="${newsLang === v ? 'on' : ''}" data-nlang="${v}">${l}</button>`).join('')}</div>
     ${newsData ? `<div class="chips nw-sources"><button class="chip${newsSrc === 'all' ? ' on' : ''}" type="button" data-nsrc="all">Toutes les sources</button>${newsData.sources.filter(x => newsLang === 'all' || x.lang === newsLang).map(x => `<button class="chip${newsSrc === x.id ? ' on' : ''}" type="button" data-nsrc="${x.id}"><i class="dot" style="background:${x.color}"></i>${esc(x.name)}</button>`).join('')}</div>` : ''}</div>`;
   if (!newsData) return html + `<div class="nw-skel"><span class="skel" style="height:220px;border-radius:18px"></span>${skeleton(4)}</div>`;
-  const list = newsData.articles.filter(a => (newsCat === 'all' || a.cat === newsCat) && (newsLang === 'all' || a.lang === newsLang) && (newsSrc === 'all' || a.source === newsSrc));
-  if (!list.length) return html + '<p class="empty">Rien dans cette rubrique pour le moment.</p>';
+  return html + `<div id="nw-results">${newsResults()}</div><p class="source">Articles de ${newsData.sources.map(x => x.name).join(', ')} · actu rafraîchie toutes les 30 min · chaque article s’ouvre sur son site</p>`;
+}
+// Les articles selon les filtres et la recherche (mis à jour seul pendant la frappe, pour garder le clavier ouvert)
+function newsResults() {
+  const q = normT(newsQuery);
+  const list = newsData.articles.filter(a => (newsCat === 'all' || a.cat === newsCat) && (newsLang === 'all' || a.lang === newsLang) && (newsSrc === 'all' || a.source === newsSrc)
+    && (!q || normT(`${a.title} ${a.excerpt}`).includes(q)));
+  if (!list.length) return `<p class="empty">${q ? 'Aucun article de la semaine ne parle de ça.' : 'Rien dans cette rubrique pour le moment.'}</p>`;
+  if (q) return `<p class="page-sub" style="margin-top:14px">${list.length} article${list.length > 1 ? 's' : ''} cette semaine</p><div class="nw-list">${list.slice(0, 80).map(a => newsCard(a, 'row')).join('')}</div>`;
   // La une : l'article récent avec une image ; puis deux en vedette ; puis le fil
   const leadI = Math.max(0, list.findIndex(a => a.image));
   const lead = list[leadI], rest = list.filter((_, i) => i !== leadI);
   const duo = rest.filter(a => a.image).slice(0, 2), fil = rest.filter(a => !duo.includes(a));
-  html += newsCard(lead, 'lead');
+  let html = newsCard(lead, 'lead');
   if (duo.length) html += `<div class="nw-duo">${duo.map(a => newsCard(a, 'mid')).join('')}</div>`;
-  html += `<div class="section-title">Le fil</div><div class="nw-list">${fil.slice(0, 60).map(a => newsCard(a, 'row')).join('')}</div>`;
-  return html + `<p class="source">Articles de ${newsData.sources.map(x => x.name).join(', ')} · chaque article s’ouvre sur son site</p>`;
+  return html + `<div class="section-title">Le fil</div><div class="nw-list">${fil.slice(0, 60).map(a => newsCard(a, 'row')).join('')}</div>`;
 }
 
 // ---------------------------------------------------------------- Box-office
@@ -1036,13 +1046,14 @@ async function load() {
 
 cat = read(KEYS.catalog);
 tab = read(KEYS.tab) || 'affiche';
-sub = { affiche: 'semaine', films: 'avoir', ...(read(KEYS.sub) || {}) };
+sub = { affiche: 'semaine', films: 'avoir', une: 'actu', ...(read(KEYS.sub) || {}) };
 // anciens onglets (avant la V2)
 if (tab === 'week') tab = 'affiche';
 if (tab === 'calendar') { tab = 'affiche'; sub.affiche = 'avenir'; }
-if (tab === 'boxoffice') { tab = 'affiche'; sub.affiche = 'bo'; }
+if (tab === 'boxoffice') { tab = 'une'; sub.une = 'bo'; }
 if (tab === 'cines') tab = 'soir';
 if (sub.affiche === 'une') { tab = 'une'; sub.affiche = 'semaine'; }
+if (sub.affiche === 'bo') { sub.affiche = 'semaine'; sub.une = 'bo'; } // le box-office est passé dans « À la une »
 if (!['affiche', 'une', 'soir', 'films'].includes(tab)) tab = 'affiche';
 calView = read(KEYS.view) === 'month' ? 'month' : 'year';
 filter = read(KEYS.filter) || 'big';
@@ -1069,6 +1080,7 @@ document.addEventListener('click', ev => {
   const film = t.closest('[data-film]'); if (film && film.dataset.film) { openFilm(film.dataset.film); return; }
   const dir = t.closest('[data-director]'); if (dir) { $('#q').value = dir.dataset.director; renderSearch(); return; }
   const sb = t.closest('[data-sub]'); if (sb) { sub.affiche = sb.dataset.sub; saveNav(); render(); return; }
+  const us = t.closest('[data-usub]'); if (us) { sub.une = us.dataset.usub; saveNav(); render(); return; }
   const fs = t.closest('[data-fsub]'); if (fs) { sub.films = fs.dataset.fsub; saveNav(); render(); return; }
   const v = t.closest('[data-view]'); if (v) { calView = v.dataset.view; write(KEYS.view, calView); render(); return; }
   const f = t.closest('[data-filter]'); if (f) { filter = f.dataset.filter; write(KEYS.filter, filter); render(); return; }
@@ -1120,6 +1132,7 @@ document.addEventListener('click', ev => {
 $('#open-me').addEventListener('click', openMe);
 $('#open-search').addEventListener('click', () => { $('#search').hidden = false; document.body.classList.add('sheet-open'); renderSearch(); setTimeout(() => $('#q').focus(), 50); });
 $('#q').addEventListener('input', renderSearch);
+document.addEventListener('input', ev => { if (ev.target.id === 'nq') { newsQuery = ev.target.value; const box = $('#nw-results'); if (box) box.innerHTML = newsResults(); } });
 // Image d'article introuvable : le nom de la source, en couleur, à la place
 document.addEventListener('error', ev => {
   const box = ev.target.tagName === 'IMG' && ev.target.closest('.nw-img');
@@ -1137,7 +1150,7 @@ render();
 // Lien depuis la newsletter : ?film=<id> ouvre la fiche, &add=1 l'ajoute à « À voir »
 const deep = new URLSearchParams(location.search);
 function openDeepLink() {
-  if (deep.get('une') === '1') { tab = 'une'; saveNav(); render(); history.replaceState(null, '', location.pathname); return true; }
+  if (deep.get('une') === '1') { tab = 'une'; sub.une = 'actu'; saveNav(); render(); history.replaceState(null, '', location.pathname); return true; }
   const id = deep.get('film');
   if (!id || !cat || !findFilm(id)) return false;
   if (deep.get('add') === '1' && !myList[id]) toggleMyList(id);

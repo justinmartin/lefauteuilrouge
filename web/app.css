@@ -588,3 +588,7 @@ button.as-option { width: 100%; text-align: left; }
 .nw-sources .chip { display: inline-flex; align-items: center; gap: 6px; }
 .nw-sources .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 1px rgba(244, 241, 234, 0.25); }
 @media (min-width: 960px) { .tabs { grid-template-columns: none; } }
+
+.nw-search { display: flex; align-items: center; gap: 8px; margin-top: 14px; background: var(--raised); border: 1px solid var(--line-2); border-radius: 12px; padding: 0 12px; min-height: 44px; max-width: 560px; }
+.nw-search svg { width: 18px; height: 18px; color: var(--text-3); flex: none; }
+.nw-search input { flex: 1; min-width: 0; background: none; border: none; outline: none; color: var(--text); font: inherit; font-size: 16px; }
