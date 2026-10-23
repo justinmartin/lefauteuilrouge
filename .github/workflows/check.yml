@@ -1,0 +1,22 @@
+name: Contrôle des données
+
+# Chaque soir : l'app a-t-elle encore des sorties, un box-office, des notes et des cinémas ?
+# Si une source casse (site qui change de format), un mail d'alerte part à EMAIL_USER.
+on:
+  schedule:
+    - cron: "41 18 * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci --no-audit --no-fund
+      - run: node scripts/check.js
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}

@@ -739,7 +739,15 @@ function openCalSheet(id) {
 async function load() {
   try {
     const r = await fetch('/api/catalog', { cache: 'no-store' });
-    if (r.ok) { const c = await r.json(); if (c.films?.length) { cat = c; write(KEYS.catalog, c); } }
+    if (r.ok) {
+      const c = await r.json();
+      if (c.films?.length) {
+        // Une section vide côté serveur (source en panne) : on garde celle de la dernière fois
+        const has = v => Array.isArray(v) ? v.length : v?.rows?.length;
+        ['boxoffice', 'boxoffice_prev', 'boxoffice_us', 'world', 'streaming'].forEach(k => { if (!has(c[k]) && has(cat?.[k])) c[k] = cat[k]; });
+        cat = c; write(KEYS.catalog, c);
+      }
+    }
   } catch (e) { /* hors-ligne : on garde le programme en mémoire */ }
   render();
 }

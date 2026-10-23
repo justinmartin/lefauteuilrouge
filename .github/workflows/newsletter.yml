@@ -2,32 +2,136 @@ name: Newsletter du lundi
 
 on:
   schedule:
-    - cron: "0 6 * * 1"   # lundi 7 h / 8 h à Paris
+    # Objectif : newsletter le lundi vers 7 h 45 à Paris. Les tâches planifiées de GitHub partent avec des heures
+    # de retard le matin, mais à peu près à l'heure le soir. Le run du dimanche soir attend donc sur place
+    # (5 h 40 au plus, limite de 6 h par run), puis se relance lui-même (« relais » : un lancement par l'API
+    # démarre tout de suite) jusqu'à 7 h 40. Les déclenchements du lundi matin servent de filet.
+    - cron: "23 19-23 * * 0"
+    - cron: "23 0-10 * * 1"
   workflow_dispatch:
+    inputs:
+      relay:
+        description: "Relais automatique (attendre lundi 7 h 40). Laisser décoché pour envoyer tout de suite."
+        type: boolean
+        default: false
 
-permissions:
-  actions: write
+# Un seul run à la fois : celui qui attend garde la main, les suivants voient « déjà envoyée ».
+concurrency:
+  group: newsletter
+  cancel-in-progress: false
 
 jobs:
   send:
     runs-on: ubuntu-latest
+    timeout-minutes: 355
+    permissions:
+      actions: write   # pour se relancer (relais)
+      contents: read
     steps:
+      - name: Lundi de la semaine
+        id: day
+        run: echo "monday=$(TZ=Europe/Paris date -d "$( [ "$(TZ=Europe/Paris date +%u)" = 1 ] && echo today || echo 'next monday')" +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Déjà envoyée ce lundi ?
+        id: sent_week
+        uses: actions/cache/restore@v4
+        with:
+          path: .sent
+          key: lfr-sent-${{ steps.day.outputs.monday }}
+          lookup-only: true
+
+      - name: Attendre lundi 7 h 40 à Paris
+        id: gate
+        env:
+          MANUAL: ${{ github.event_name == 'workflow_dispatch' && !inputs.relay }}
+          SENT: ${{ steps.sent_week.outputs.cache-hit == 'true' }}
+          MONDAY: ${{ steps.day.outputs.monday }}
+        run: |
+          go=false; relay=false
+          if [ "$MANUAL" = "true" ]; then
+            go=true
+          elif [ "$SENT" = "true" ]; then
+            echo "Déjà envoyée pour le lundi $MONDAY."
+          else
+            now=$(date +%s)
+            target=$(TZ=Europe/Paris date -d "$MONDAY 07:40" +%s)
+            wait=$((target - now))
+            if [ "$wait" -gt 43200 ]; then
+              echo "Envoi dans plus de 12 h : les déclenchements du dimanche soir s'en chargeront."
+            elif [ "$wait" -le 20400 ]; then
+              if [ "$wait" -gt 0 ]; then echo "Attente de $((wait / 60)) min…"; sleep "$wait"; fi
+              go=true
+            else
+              nap=$((wait - 20000)); [ "$nap" -gt 20400 ] && nap=20400
+              echo "Envoi dans $((wait / 60)) min : attente de $((nap / 60)) min puis relais."
+              sleep "$nap"
+              relay=true
+            fi
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"
+          echo "relay=$relay" >> "$GITHUB_OUTPUT"
+
+      - name: Relais
+        if: steps.gate.outputs.relay == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run newsletter.yml --repo "${{ github.repository }}" -f relay=true
+
+      - name: Déjà envoyée (après l'attente) ?
+        id: sent
+        if: steps.gate.outputs.go == 'true' && !(github.event_name == 'workflow_dispatch' && !inputs.relay)
+        uses: actions/cache/restore@v4
+        with:
+          path: .sent
+          key: lfr-sent-${{ steps.day.outputs.monday }}
+
       - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true' && steps.sent.outputs.cache-hit != 'true'
       - uses: actions/setup-node@v4
+        if: steps.gate.outputs.go == 'true' && steps.sent.outputs.cache-hit != 'true'
         with:
           node-version: 20
       - run: npm ci --no-audit --no-fund
+        if: steps.gate.outputs.go == 'true' && steps.sent.outputs.cache-hit != 'true'
+
       - name: Envoyer la newsletter
+        if: steps.gate.outputs.go == 'true' && steps.sent.outputs.cache-hit != 'true'
         run: node scripts/newsletter.js
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
 
-  # GitHub désactive les workflows planifiés après 60 jours sans activité : on le réactive à chaque passage.
+      - name: Marquer comme envoyée
+        if: success() && steps.gate.outputs.go == 'true' && steps.sent.outputs.cache-hit != 'true'
+        run: mkdir -p .sent && date > .sent/stamp
+
+      - name: Mémoriser l'envoi de la semaine
+        if: success() && steps.gate.outputs.go == 'true' && steps.sent.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .sent
+          key: lfr-sent-${{ steps.day.outputs.monday }}
+
+      - name: Alerte en cas d'échec
+        if: failure()
+        run: |
+          [ -f scripts/alert.js ] || { git clone --depth 1 "https://github.com/${{ github.repository }}" . && npm ci --no-audit --no-fund; }
+          node scripts/alert.js "la newsletter du lundi a échoué" "Journal : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+
+  # GitHub désactive les workflows planifiés après 60 jours sans activité : on le réactive le dimanche soir.
   keepalive:
+    if: github.event.schedule == '23 19-23 * * 0'
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/newsletter.yml/enable"
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/check.yml/enable"
         env:
           GH_TOKEN: ${{ github.token }}
