@@ -13,8 +13,9 @@ module.exports = async (req, res) => {
     // Un film dans tout Paris (pour les reprises) : /api/seances?all=1&t=<titre>&o=<original>
     if (req.query.all === '1' && req.query.t) {
       const ids = (await theaters()).map(c => c.id);
-      res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=86400');
-      res.status(200).json({ film: await film(ids, String(req.query.t).slice(0, 200), String(req.query.o || '').slice(0, 200)) });
+      const f = await film(ids, String(req.query.t).slice(0, 200), String(req.query.o || '').slice(0, 200));
+      res.setHeader('Cache-Control', f?.showtimes?.length ? 's-maxage=21600, stale-while-revalidate=86400' : 's-maxage=600');
+      res.status(200).json({ film: f });
       return;
     }
     const ids = String(req.query.c || '').split(/[.,]/).map(Number).filter(n => Number.isInteger(n) && n > 0).slice(0, 15).sort((a, b) => a - b);
