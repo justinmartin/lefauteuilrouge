@@ -6,6 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 const { wikidata, about, get } = require('../lib/ratings');
+const { fullSynopsis } = require('../lib/jpbox');
 
 const APP_URL = process.env.APP_URL || 'https://lefauteuilrouge.vercel.app';
 const FILE = path.join(__dirname, '..', 'data', 'enrich.json');
@@ -80,6 +81,14 @@ async function main() {
       console.log(`${e.found ? '✓' : '·'} ${f.title}${e.found ? ` : ${FIELDS.filter(k => e[k] && !(Array.isArray(e[k]) && !e[k].length)).join(', ')}` : ' (introuvable sur Wikidata)'}`);
     } catch (err) { console.log(`✗ ${f.title} : ${err.message}`); }
     await sleep(1500); // Wikidata et Wikipédia limitent le nombre de requêtes : on y va doucement
+  }
+  // Résumés : celui des listes de JP's Box-Office est coupé (« … ») ; la fiche du film a le résumé complet
+  const cut = cat.films.filter(f => (!f.synopsis || /…$/.test(f.synopsis)) && !out[f.id]?.synopsisFull);
+  console.log(`${cut.length} résumés à compléter sur JP's Box-Office`);
+  for (const f of cut) {
+    const full = await fullSynopsis(f.id).catch(() => null);
+    if (full) { out[f.id] = { ...(out[f.id] || { at: Date.now() }), synopsisFull: full }; console.log(`✓ résumé : ${f.title}`); }
+    await sleep(800);
   }
   fs.writeFileSync(FILE, JSON.stringify(out, null, 1) + '\n');
   console.log(`data/enrich.json : ${Object.keys(out).length} fiches`);

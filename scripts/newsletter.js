@@ -59,8 +59,8 @@ function notesLine(r) {
 }
 
 function featured(f, r) {
-  const meta = [f.genre, f.country, f.duration, f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean).join(' · ');
-  const people = [f.director ? `De ${f.director}` : '', f.cast?.length ? `avec ${f.cast.slice(0, 3).join(', ')}` : ''].filter(Boolean).join(', ');
+  const meta = [f.genre, f.duration, f.screens ? `${fmt(f.screens)} salles` : '', f.director ? `Réal. ${f.director}` : ''].filter(Boolean).join(' · ');
+  const people = f.cast?.length ? `Avec ${f.cast.slice(0, 3).join(', ')}` : '';
   const notes = notesLine(r);
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
     <td width="140" style="vertical-align:top;padding:4px 0">${f.poster ? `<a href="${filmUrl(f)}"><img src="${esc(f.poster)}" width="130" style="display:block;width:130px;border-radius:8px;border:0" alt=""></a>` : ''}</td>
@@ -83,7 +83,7 @@ function ticketRow(f, big, r) {
     <td width="50" style="padding:0">${f.poster ? `<a href="${filmUrl(f)}"><img src="${esc(f.poster)}" width="50" style="display:block;width:50px;border-radius:10px 0 0 10px;border:0" alt=""></a>` : ''}</td>
     <td style="padding:8px 12px;font-family:${SANS}">
       <a href="${filmUrl(f)}" style="text-decoration:none"><div style="font-family:${SERIF};font-size:20px;line-height:1.1;color:${INK}">${esc(clean(f.title))}</div></a>
-      <div style="font-size:12px;color:${GREY};margin-top:2px">${esc([f.genre, f.director || f.cast?.[0], f.duration].filter(Boolean).join(' · '))} · <a href="${filmUrl(f, true)}" style="color:${RED};font-weight:700;text-decoration:none">☆ À voir</a></div>
+      <div style="font-size:12px;color:${GREY};margin-top:2px">${esc([f.genre, f.duration, f.director ? `Réal. ${f.director}` : f.cast?.[0]].filter(Boolean).join(' · '))} · <a href="${filmUrl(f, true)}" style="color:${RED};font-weight:700;text-decoration:none">☆ À voir</a></div>
       ${notes ? `<div style="font-size:11.5px;color:${INK};margin-top:2px">${notes}</div>` : ''}
     </td>
     <td width="58" style="border-left:1.5px dashed ${big ? '#fffdf8' : LINE};background:${big ? RED : '#fffdf8'};color:${big ? '#fff' : GREY};text-align:center;font-family:${SANS};font-size:10.5px;font-weight:700;border-radius:0 10px 10px 0;line-height:1.2">${f.screens ? `${fmt(f.screens)}<br>salles` : big ? 'Grosse<br>sortie' : '—'}</td>

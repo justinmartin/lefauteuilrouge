@@ -81,11 +81,11 @@ const yearOf = f => f.year || +(f.date || '').slice(0, 4) || new Date().getFullY
 async function getRatings(f) {
   const key = f.id;
   const hit = ratingsCache[key];
-  if (hit && Date.now() - hit.at < 24 * 3600e3 && 'trailer' in (hit.data || {})) return hit.data;
+  if (hit && hit.v === 2 && Date.now() - hit.at < 24 * 3600e3) return hit.data;
   try {
     const r = await fetch(`/api/ratings?${new URLSearchParams({ t: cleanTitle(f.title), o: f.original || '', y: yearOf(f) })}`);
     const data = r.ok ? await r.json() : null;
-    if (data) { ratingsCache[key] = { at: Date.now(), data }; write(KEYS.ratings, ratingsCache); }
+    if (data) { ratingsCache[key] = { v: 2, at: Date.now(), data }; write(KEYS.ratings, ratingsCache); }
     return data;
   } catch (e) { return null; }
 }
@@ -96,16 +96,18 @@ function score(r) {
   if (!r?.found) return null;
   const parts = [];
   if (r.rt?.critics != null) parts.push({ k: 'critics', v: r.rt.critics / 10 });
+  if (r.allocine?.press) parts.push({ k: 'critics', v: r.allocine.press * 2 });
   if (r.imdb?.rating) parts.push({ k: 'viewers', v: r.imdb.rating });
+  if (r.allocine?.spectators) parts.push({ k: 'viewers', v: r.allocine.spectators * 2 });
   if (r.letterboxd?.rating) parts.push({ k: 'cinephiles', v: r.letterboxd.rating * 2 });
   if (!parts.length) return null;
   const avg = parts.reduce((a, p) => a + p.v, 0) / parts.length;
   const vals = parts.map(p => p.v), spread = Math.max(...vals) - Math.min(...vals);
   const word = avg >= 8 ? 'Excellent' : avg >= 7 ? 'Très bien' : avg >= 6 ? 'Bien' : avg >= 5 ? 'Mitigé' : 'Décevant';
   let agree = '', divided = false;
-  const crit = parts.find(p => p.k === 'critics'), pub = parts.filter(p => p.k !== 'critics');
-  const pubAvg = pub.length ? pub.reduce((a, p) => a + p.v, 0) / pub.length : null;
-  if (crit && pubAvg != null && Math.abs(crit.v - pubAvg) >= 2) { divided = true; agree = crit.v > pubAvg ? 'la presse aime plus que le public' : 'le public aime plus que la presse'; }
+  const avgOf = l => l.length ? l.reduce((a, p) => a + p.v, 0) / l.length : null;
+  const critAvg = avgOf(parts.filter(p => p.k === 'critics')), pubAvg = avgOf(parts.filter(p => p.k !== 'critics'));
+  if (critAvg != null && pubAvg != null && Math.abs(critAvg - pubAvg) >= 2) { divided = true; agree = critAvg > pubAvg ? 'la presse aime plus que le public' : 'le public aime plus que la presse'; }
   else if (parts.length >= 2 && spread <= 1.5) agree = 'critiques et spectateurs d’accord';
   return { avg, txt: avg.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }), word, agree, divided };
 }
@@ -147,7 +149,7 @@ const SLIDERS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
 const USER_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>';
 const SHARE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>';
 const PIN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
-const meta = f => [f.genre, f.duration, f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean).join(' · ');
+const meta = f => [f.genre, f.duration, f.screens ? `${fmt(f.screens)} salles` : '', f.director ? `Réal. ${f.director}` : ''].filter(Boolean).join(' · ');
 const showtimesUrl = f => `https://www.google.com/search?q=${encodeURIComponent(`séances ${cleanTitle(f.title)}`)}`;
 const trailerUrl = f => `https://www.youtube.com/results?search_query=${encodeURIComponent(`${cleanTitle(f.title)} bande annonce VF ${(f.date || '').slice(0, 4)}`)}`;
 const PLATFORM_COLORS = { Netflix: '#e50914', 'Prime Video': '#1f8fff', 'Apple TV': '#6b6b70', 'Disney+': '#1b3fa3' };
@@ -177,7 +179,7 @@ function ticket(f, list) {
   const big = isBig(f, list);
   return `<button class="ticket" type="button" data-film="${esc(f.id)}">
     ${poster(f)}
-    <div class="t-body"><div class="t-title">${esc(cleanTitle(f.title))}</div><div class="t-meta">${esc([f.genre, f.director || f.cast?.[0], f.duration].filter(Boolean).join(' · '))}</div><span class="score-tag" data-score="${esc(f.id)}"></span></div>
+    <div class="t-body"><div class="t-title">${esc(cleanTitle(f.title))}</div><div class="t-meta">${esc([f.genre, f.duration, f.director ? `Réal. ${f.director}` : f.cast?.[0]].filter(Boolean).join(' · '))}</div><span class="score-tag" data-score="${esc(f.id)}"></span></div>
     <div class="stub${big ? ' big' : ''}">${f.screens ? `${fmt(f.screens)}<br>salles` : big ? 'Grosse<br>sortie' : '—'}</div>
     ${myList[f.id] ? '<span class="star" aria-label="Dans ma liste">★</span>' : ''}
   </button>`;
@@ -839,7 +841,9 @@ function ratingBlock(r) {
   const row = (label, src, val, pct, url) => val == null ? '' : `<a class="r-row" href="${esc(url || '#')}" target="_blank" rel="noopener"><span class="r-l"><b>${label}</b><small>${src}</small></span><span class="r-bar"><i style="width:${Math.max(0, Math.min(100, pct))}%"></i></span><span class="r-v">${val}</span></a>`;
   return `<div class="rating"><div class="r-top"><div class="r-big"><b>${s.txt}</b><span>/10</span></div><div class="r-word"><b>${esc(s.word)}</b>${s.agree ? `<small>${esc(s.agree)}</small>` : ''}</div></div>
     ${row('Critiques', 'Rotten Tomatoes', r.rt?.critics != null ? `${r.rt.critics} %` : null, r.rt?.critics, r.rt?.url)}
+    ${row('Presse française', 'Allociné', r.allocine?.press ? `${r.allocine.press.toLocaleString('fr-FR')}/5` : null, (r.allocine?.press || 0) * 20, `https://www.allocine.fr/rechercher/?q=${encodeURIComponent(r.title || '')}`)}
     ${row('Spectateurs', 'IMDb', r.imdb?.rating ? r.imdb.rating.toLocaleString('fr-FR') : null, (r.imdb?.rating || 0) * 10, r.imdb?.url)}
+    ${row('Spectateurs FR', 'Allociné', r.allocine?.spectators ? `${r.allocine.spectators.toLocaleString('fr-FR')}/5` : null, (r.allocine?.spectators || 0) * 20, `https://www.allocine.fr/rechercher/?q=${encodeURIComponent(r.title || '')}`)}
     ${row('Cinéphiles', 'Letterboxd', r.letterboxd?.rating ? r.letterboxd.rating.toLocaleString('fr-FR', { maximumFractionDigits: 1 }) : null, (r.letterboxd?.rating || 0) * 20, r.letterboxd?.url)}
     <small class="r-note">Moyenne des notes disponibles, ramenées sur 10.</small></div>`;
 }
@@ -850,7 +854,7 @@ function openFilm(id) {
   const sheet = $('#film');
   sheet.style.removeProperty('--tint-bg'); sheet.style.removeProperty('--tint-accent');
   const inList = !!myList[f.id];
-  const subl = f.old ? [[f.year, f.director && `de ${f.director}`].filter(Boolean).join(' · ')] : [f.date ? `Sortie le ${dayLabel(f.date)}` : '', [f.genre, f.country, f.duration].filter(Boolean).join(' · ') || f.info || '', f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean);
+  const subl = f.old ? [[f.year, f.director && `Réal. ${f.director}`].filter(Boolean).join(' · ')] : [f.date ? `Sortie le ${dayLabel(f.date)}` : '', [f.genre, f.country, f.duration, f.screens ? `${fmt(f.screens)} salles` : ''].filter(Boolean).join(' · ') || f.info || '', f.director ? `Réal. ${f.director}` : ''].filter(Boolean);
   $('#film-body').innerHTML = `
     <div class="film-hero">
       <div class="bar">
@@ -867,7 +871,7 @@ function openFilm(id) {
       </div>
       <div id="brief"></div>
       ${f.synopsis ? `<p class="syn">${esc(f.synopsis)}</p>` : ''}
-      ${f.director || f.cast?.length ? `<p class="people">${f.director ? `De ${esc(f.director)}` : ''}${f.director && f.cast?.length ? '<br>' : ''}${f.cast?.length ? `Avec ${esc(f.cast.join(', '))}` : ''}</p>` : ''}
+      ${f.cast?.length ? `<p class="people">Avec ${esc(f.cast.join(', '))}</p>` : ''}
       ${f.old ? '<div class="section-title" style="margin:6px 0 0">Où le voir à Paris</div><div class="film-seances" id="film-seances"><p class="loading" style="padding:10px 0">Recherche dans toutes les salles…</p></div>' : myCines?.length ? '<div class="section-title" style="margin:6px 0 0">Séances dans mes cinés</div><div class="film-seances" id="film-seances"><p class="loading" style="padding:10px 0">Recherche…</p></div>' : ''}
       <div class="actions">
         ${f.date && f.date > today() ? `<button class="btn" type="button" data-cal="${esc(f.id)}">${CAL_ICON}Sortie dans l’agenda</button>` : f.old ? '' : `<a class="btn" href="${showtimesUrl(f)}" target="_blank" rel="noopener">${TICKET_ICON}Autres séances</a>`}
@@ -895,7 +899,7 @@ function openFilm(id) {
   getRatings(f).then(r => {
     const box = $('#scores');
     if (!box || sheet.hidden) return;
-    box.innerHTML = ratingBlock(r);
+    box.innerHTML = ratingBlock(r ? { ...r, title: cleanTitle(f.title) } : r);
     const brief = $('#brief');
     if (brief && r?.about?.text) brief.innerHTML = `<div class="brief-box"><span class="ev-kind">En bref</span><p>${esc(r.about.text)}</p><a href="${esc(r.about.url)}" target="_blank" rel="noopener">Wikipédia ›</a></div>`;
     // Bande-annonce intégrée quand Wikidata la connaît : lecture automatique sans le son

@@ -20,7 +20,7 @@ Trois onglets :
 
 La **fiche film** prend la couleur de l'affiche. Elle affiche la bande-annonce intégrée quand Wikidata la connaît, la **note du Fauteuil**, l'« En bref » tiré de Wikipédia et les séances dans tes cinés. La **recherche** (loupe) trouve un titre ou un réalisateur.
 
-**La note du Fauteuil** est la moyenne des notes disponibles, ramenées sur 10 : Rotten Tomatoes (critiques) % ÷ 10, IMDb (spectateurs) tel quel, Letterboxd (cinéphiles) × 2. Elle est suivie d'un mot (Excellent, Très bien, Bien, Mitigé, Décevant). Une phrase indique si critiques et public sont d'accord : 2 points d'écart ou plus, et c'est « la presse aime plus que le public » ou l'inverse.
+**La note du Fauteuil** est la moyenne des notes disponibles, ramenées sur 10 : Rotten Tomatoes (critiques) % ÷ 10, presse Allociné × 2, IMDb (spectateurs) tel quel, spectateurs Allociné × 2, Letterboxd (cinéphiles) × 2. Elle est suivie d'un mot (Excellent, Très bien, Bien, Mitigé, Décevant). Une phrase indique si critiques et public sont d'accord : 2 points d'écart ou plus entre la moyenne presse et la moyenne public, et c'est « la presse aime plus que le public » ou l'inverse.
 
 Ta liste, tes tickets et tes cinémas sont gardés **sur le téléphone** (localStorage). Avec un **compte** (pseudo + mot de passe, dans **Mon espace** : l'icône en haut à droite, accessible de partout, qui regroupe aussi le choix de « Mes cinés » et le récap de tes films), ils se synchronisent entre appareils : le plus récent gagne, et à la connexion ce qui est sur le téléphone et sur le compte est fusionné. Le mot de passe n'est jamais stocké, seulement son empreinte scrypt avec un sel. Les sessions sont des jetons aléatoires (seule leur empreinte est gardée), et un compte est bloqué 15 min après 8 essais ratés. Il n'y a pas d'e-mail, donc pas de récupération de mot de passe. Les comptes vivent dans le store Vercel Blob privé `lefauteuilrouge-comptes` (un fichier par compte).
 
@@ -59,6 +59,8 @@ Si la newsletter échoue, une alerte part aussi à `EMAIL_USER`.
 |---|---|---|
 | Sorties France, salles, box-office France / US / monde | JP's Box-Office (pages publiques) | `lib/jpbox.js` |
 | Notes IMDb, Rotten Tomatoes, Letterboxd, bande-annonce | Wikidata (identifiants), jeu de données IMDb, pages RT et Letterboxd | `lib/ratings.js` |
+| Notes de secours et notes Allociné (presse, spectateurs) | paris-cine.info, pour les films à l'affiche à Paris, quand Wikidata ne connaît pas encore le film | `lib/seances.js` (`notesFor`) |
+| Résumé complet | Fiche du film sur JP's Box-Office (celui des listes est coupé) | `scripts/enrich.js` → `synopsisFull` |
 | « En bref » | Wikipédia (fr, sinon en) | `lib/ratings.js` |
 | Séances, cinémas, cartes acceptées, liens de réservation | paris-cine.info (cache 6 h, 3 requêtes à la fois au plus, crédité dans l'app) | `lib/seances.js` |
 | Sorties streaming | Listes Wikipédia (Prime Video, Apple TV, Disney+) et Wikidata (Netflix) | `lib/streaming.js` |
