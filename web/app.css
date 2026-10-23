@@ -244,6 +244,8 @@ main { max-width: 640px; margin: 0 auto; padding: 16px 16px 0; }
 .plat { font-size: 9.5px; font-weight: 700; color: #fff; border-radius: 5px; padding: 3px 5px; text-align: center; line-height: 1.1; }
 a.bo { text-decoration: none; color: inherit; }
 .bo:has(.plat) { grid-template-columns: 62px minmax(0, 1fr) auto; }
+.plat-logo { width: 38px; height: 38px; border-radius: 9px; display: block; box-shadow: 0 0 0 1px rgba(244, 241, 234, 0.08); }
+.bo:has(.plat-logo) { grid-template-columns: 38px minmax(0, 1fr) auto; gap: 12px; }
 .events { display: flex; gap: 8px; overflow-x: auto; margin: 0 -16px; padding: 0 16px 2px; scrollbar-width: none; }
 .events::-webkit-scrollbar { display: none; }
 .event { flex: none; width: 168px; background: var(--raised); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 3px; text-decoration: none; }
@@ -393,3 +395,14 @@ button.as-option { width: 100%; text-align: left; }
 .skel-lines { display: grid; gap: 8px; }
 .skel.short { width: 55%; }
 @media (prefers-reduced-motion: reduce) { .skel { animation: none; } .pop { animation: none; } }
+
+/* Compte */
+.acc-btn { min-height: 36px; padding: 0 13px; border-radius: 18px; border: 1px solid var(--line-2); font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.acc-box { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.acc-who { font-size: 16px; }
+.acc-form { display: flex; flex-direction: column; gap: 12px; }
+.acc-form label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text-2); }
+.acc-form input { min-height: 46px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--raised); color: var(--text); font: inherit; font-size: 16px; padding: 0 14px; }
+.acc-form input:focus { outline: 2px solid var(--red-2); outline-offset: 1px; }
+.btn.accent-red { background: var(--red); color: #fff; border: none; }
+#account .btn { width: 100%; border: none; }

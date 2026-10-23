@@ -8,5 +8,11 @@
   },
   "regions": [
     "cdg1"
+  ],
+  "rewrites": [
+    {
+      "source": "/t/:d",
+      "destination": "/api/t?d=:d"
+    }
   ]
 }

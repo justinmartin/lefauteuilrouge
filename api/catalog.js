@@ -1,12 +1,14 @@
 // Programme ciné (sorties France de l'année, box-office France / US / monde), sorties streaming
 // et festivals / cérémonies. Recalculé au plus toutes les 6 h (cache du CDN de Vercel).
 const { catalog } = require('../lib/jpbox');
+const { enrichCatalog } = require('../lib/enrich');
 const { streaming } = require('../lib/streaming');
 const { events } = require('../data/evenements.json');
 
 module.exports = async (req, res) => {
   try {
-    const [data, stream] = await Promise.all([catalog(), streaming().catch(() => [])]);
+    const [raw, stream] = await Promise.all([catalog(), streaming().catch(() => [])]);
+    const data = await enrichCatalog(raw).catch(() => raw);
     const today = new Date().toISOString().slice(0, 10);
     // Une section vide (site source en panne ou modifié) : cache court, pour réessayer vite au lieu de servir du vide 6 h
     const partial = !data.films?.length || !data.boxoffice?.rows?.length || !data.boxoffice_us?.rows?.length || !data.world?.rows?.length;

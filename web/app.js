@@ -3,7 +3,7 @@
 // /api/ratings (IMDb, Rotten Tomatoes, Letterboxd, bande-annonce) et /api/seances (paris-cine.info),
 // gardées sur le téléphone pour l'ouverture instantanée.
 // Trois onglets : À l'affiche (semaine, à venir, box-office), Ce soir (frise des séances), Mes films (liste, tickets, vus).
-const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', sub: 'lfr_sub', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas', tickets: 'lfr_tickets' };
+const KEYS = { catalog: 'lfr_catalog', tab: 'lfr_tab', sub: 'lfr_sub', list: 'lfr_list', ratings: 'lfr_ratings', view: 'lfr_calview', filter: 'lfr_filter', cines: 'lfr_cines', cinemas: 'lfr_cinemas', tickets: 'lfr_tickets', seances: 'lfr_seances', account: 'lfr_account', updated: 'lfr_updated' };
 const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
 const SHORT_DAYS = ['DIM.', 'LUN.', 'MAR.', 'MER.', 'JEU.', 'VEN.', 'SAM.'];
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
@@ -27,7 +27,7 @@ let myCines = null;      // identifiants paris-cine.info des cinémas choisis
 let cinemas = [];        // tous les cinémas de Paris et petite couronne
 let seanceDate = null;
 let seanceFilter = 'all'; // all | vo | vf
-let pickCard = 'pass';    // filtre du choix des cinémas : pass | ugc | all
+let pickCard = 'pass';    // filtre du choix des cinémas : pass | ugc | mk2 | all
 const seancesCache = {};
 let shownSeances = [];   // séances affichées (pour la feuille Réserver / J'y vais / Agenda)
 let curSeance = null;
@@ -125,8 +125,8 @@ function fillScores() {
 // Sorties streaming et festivals
 function streamingRows(list) {
   return `<div class="bo-list">${list.map(s => `<a class="bo" href="${esc(s.url)}" target="_blank" rel="noopener">
-    <span class="plat" style="background:${PLATFORM_COLORS[s.platform] || '#3a3836'}">${esc(s.platform)}</span>
-    <span class="name"><b>${esc(s.title)}</b><small>${esc(s.genre || 'Film original')}</small></span>
+    ${PLATFORM_LOGOS[s.platform] ? `<img class="plat-logo" src="/logos/${PLATFORM_LOGOS[s.platform]}.svg" alt="${esc(s.platform)}" width="38" height="38">` : `<span class="plat" style="background:${PLATFORM_COLORS[s.platform] || '#3a3836'}">${esc(s.platform)}</span>`}
+    <span class="name"><b>${esc(s.title)}</b><small>${esc(s.platform)} · ${esc(s.genre || 'film original')}</small></span>
     <span class="num"><b>${shortDate(s.date)}</b></span></a>`).join('')}</div>`;
 }
 function eventCards(list) {
@@ -146,6 +146,8 @@ const meta = f => [f.genre, f.duration, f.screens ? `${fmt(f.screens)} salles` :
 const showtimesUrl = f => `https://www.google.com/search?q=${encodeURIComponent(`séances ${cleanTitle(f.title)}`)}`;
 const trailerUrl = f => `https://www.youtube.com/results?search_query=${encodeURIComponent(`${cleanTitle(f.title)} bande annonce VF ${(f.date || '').slice(0, 4)}`)}`;
 const PLATFORM_COLORS = { Netflix: '#e50914', 'Prime Video': '#1f8fff', 'Apple TV': '#6b6b70', 'Disney+': '#1b3fa3' };
+// Logos des plateformes (web/logos/*.svg, et *.png pour les mails)
+const PLATFORM_LOGOS = { Netflix: 'netflix', 'Prime Video': 'prime', 'Apple TV': 'appletv', 'Disney+': 'disney', 'Canal+': 'canal' };
 const shortDate = d => { const x = parseDay(d); return `${x.getDate()} ${MONTHS_SHORT[x.getMonth()]}`; };
 const eventDates = e => e.start === e.end ? shortDate(e.start) : `${parseDay(e.start).getDate()}–${shortDate(e.end)}`;
 
@@ -345,11 +347,24 @@ async function loadCinemas() {
 }
 
 // La semaine de séances des cinémas choisis (une requête, gardée en mémoire), filtrée ensuite par jour
+// Les séances sont aussi gardées sur le téléphone (3 h) : « Ce soir » s'affiche tout de suite, puis se met à jour.
+function fetchSeances(key) {
+  return fetch(`/api/seances?c=${key}`).then(r => r.ok ? r.json() : Promise.reject(new Error(r.status))).then(d => {
+    const films = d.films || [];
+    write(KEYS.seances, { key, at: Date.now(), films });
+    return films;
+  });
+}
 async function loadDay(date) {
   const key = [...myCines].sort((a, b) => a - b).join('.');
   if (!seancesCache[key]) {
-    seancesCache[key] = fetch(`/api/seances?c=${key}`).then(r => r.ok ? r.json() : { films: [] }).then(d => d.films || [])
-      .catch(e => { delete seancesCache[key]; throw e; });
+    const saved = read(KEYS.seances);
+    if (saved?.key === key && Date.now() - saved.at < 3 * 3600e3) {
+      seancesCache[key] = Promise.resolve(saved.films);
+      if (Date.now() - saved.at > 20 * 60e3) fetchSeances(key).then(films => { seancesCache[key] = Promise.resolve(films); if (tab === 'soir') fillSoir(); }).catch(() => {});
+    } else {
+      seancesCache[key] = fetchSeances(key).catch(e => { delete seancesCache[key]; throw e; });
+    }
   }
   const films = await seancesCache[key];
   return films.map(f => ({ ...f, showtimes: f.showtimes.filter(st => st.start.startsWith(date)) })).filter(f => f.showtimes.length)
@@ -465,7 +480,7 @@ function addTicket(s) {
   const endD = new Date(`${start}:00`); endD.setMinutes(endD.getMinutes() + (film.minutes || 120) + 20);
   const c = catalogFilm(film.title, film.original);
   tickets.push({ id, title: film.title, filmId: c?.id || '', poster: c?.poster || '', start, end: isoMin(endD), cinema: st.cinema, version: [st.version, st.format].filter(Boolean).join(' '), book: st.book || '' });
-  write(KEYS.tickets, tickets);
+  write(KEYS.tickets, tickets); markChanged();
   $('#cal').hidden = true;
   toast('Ticket créé · onglet Mes films');
 }
@@ -478,14 +493,102 @@ function untilLabel(start) {
   if (days === 1) return ['C’est', 'demain'];
   return ['Dans', `${days} jours`];
 }
+// Partage : un lien vers une page ticket (/t/…) lisible sans l'app, les données de la séance dans le lien
+const b64url = str => btoa(String.fromCharCode(...new TextEncoder().encode(str))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+const ticketLink = k => `${location.origin}/t/${b64url(JSON.stringify({ t: k.title, f: k.filmId, p: k.poster, s: k.start, e: k.end, c: k.cinema, v: k.version, b: k.book }))}`;
 async function shareTicket(id) {
   const k = tickets.find(x => x.id === id);
   if (!k) return;
-  const text = `On va voir ${k.title} ? ${cap(dayLabel(k.start.slice(0, 10)))} à ${hm(k.start)}, ${k.cinema} (${k.version}).`;
+  const url = ticketLink(k);
+  const text = `On va voir ${cleanTitle(k.title)} ? ${cap(dayLabel(k.start.slice(0, 10)))} à ${hm(k.start)}, ${k.cinema}.`;
   try {
-    if (navigator.share) await navigator.share({ title: k.title, text, url: k.book || location.origin });
-    else { await navigator.clipboard.writeText(`${text} ${k.book || ''}`.trim()); toast('Copié, prêt à envoyer'); }
+    if (navigator.share) await navigator.share({ title: cleanTitle(k.title), text, url });
+    else { await navigator.clipboard.writeText(`${text} ${url}`); toast('Lien copié, prêt à envoyer'); }
   } catch (e) { /* partage annulé */ }
+}
+
+// ================================================================ compte et synchronisation
+// Pseudo + mot de passe (empreinte scrypt côté serveur). Synchronise la liste, les tickets et les cinémas :
+// le plus récent gagne ; à la connexion, ce qui est sur le téléphone et sur le compte est fusionné.
+let account = null; // { pseudo, token }
+let pushTimer = null;
+const localData = () => ({ list: myList, tickets, cines: myCines, updated: read(KEYS.updated) || 0 });
+async function api(body) {
+  const r = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) { const e = new Error(d.error || 'Erreur, réessaie.'); e.status = r.status; throw e; }
+  return d;
+}
+function applyData(d) {
+  if (!d) return;
+  myList = d.list || {}; tickets = d.tickets || [];
+  if (d.cines?.length) { myCines = d.cines; write(KEYS.cines, myCines); }
+  write(KEYS.list, myList); write(KEYS.tickets, tickets); write(KEYS.updated, d.updated || Date.now());
+}
+function merge(a, b) {
+  const ids = new Set();
+  return {
+    list: { ...(b?.list || {}), ...(a?.list || {}) },
+    tickets: [...(a?.tickets || []), ...(b?.tickets || [])].filter(k => !ids.has(k.id) && ids.add(k.id)),
+    cines: a?.cines?.length ? a.cines : b?.cines || null,
+    updated: Date.now(),
+  };
+}
+function markChanged() {
+  write(KEYS.updated, Date.now());
+  if (!account) return;
+  clearTimeout(pushTimer);
+  pushTimer = setTimeout(pushNow, 1200);
+}
+async function pushNow() {
+  if (!account) return;
+  try { await api({ action: 'push', pseudo: account.pseudo, token: account.token, data: localData() }); }
+  catch (e) { if (e.status === 401) signOutLocal('Session expirée : reconnecte-toi dans Mes films.'); }
+}
+async function pullOnOpen() {
+  if (!account) return;
+  try {
+    const { data } = await api({ action: 'pull', pseudo: account.pseudo, token: account.token });
+    const mine = localData();
+    if (data && (data.updated || 0) > (mine.updated || 0)) { applyData(data); render(); }
+    else if ((mine.updated || 0) > (data?.updated || 0)) pushNow();
+  } catch (e) { if (e.status === 401) signOutLocal('Session expirée : reconnecte-toi dans Mes films.'); }
+}
+function signOutLocal(msg) { account = null; write(KEYS.account, null); if (msg) toast(msg); }
+async function authSubmit(mode, form) {
+  const pseudo = form.pseudo.value.trim(), password = form.password.value;
+  const msg = $('#acc-msg');
+  msg.textContent = mode === 'signup' ? 'Création du compte…' : 'Connexion…';
+  try {
+    const res = await api({ action: mode, pseudo, password });
+    account = { pseudo: res.pseudo, token: res.token }; write(KEYS.account, account);
+    const merged = merge(localData(), res.data);
+    applyData(merged);
+    await pushNow();
+    toast(mode === 'signup' ? 'Compte créé, tout est synchronisé' : 'Connecté, tout est synchronisé');
+    renderAccount(); render();
+  } catch (e) { msg.textContent = e.message; }
+}
+let accMode = 'login';
+function renderAccount() {
+  const body = $('#account-body');
+  if (account) {
+    const n = Object.keys(myList).length;
+    body.innerHTML = `<div class="acc-box"><p class="acc-who">Connecté en tant que <b>${esc(account.pseudo)}</b></p>
+      <p class="page-sub">Ta liste (${n} film${n > 1 ? 's' : ''}), tes ${tickets.length} ticket${tickets.length > 1 ? 's' : ''} et tes cinémas sont synchronisés sur tous les appareils où tu te connectes.</p>
+      <button class="btn" type="button" data-acc-sync>Synchroniser maintenant</button>
+      <button class="btn" type="button" data-acc-logout>Se déconnecter de cet appareil</button></div>`;
+    return;
+  }
+  body.innerHTML = `<div class="acc-box">
+    <div class="seg" style="grid-template-columns:repeat(2,minmax(0,1fr))"><button type="button" class="${accMode === 'login' ? 'on' : ''}" data-acc-mode="login">Se connecter</button><button type="button" class="${accMode === 'signup' ? 'on' : ''}" data-acc-mode="signup">Créer un compte</button></div>
+    <form id="acc-form" class="acc-form" autocomplete="on">
+      <label>Pseudo<input name="pseudo" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required minlength="3" maxlength="24" pattern="[A-Za-z0-9][A-Za-z0-9._\\-]{2,23}"></label>
+      <label>Mot de passe<input name="password" type="password" autocomplete="${accMode === 'signup' ? 'new-password' : 'current-password'}" required minlength="8"></label>
+      <button class="btn accent-red" type="submit">${accMode === 'signup' ? 'Créer mon compte' : 'Me connecter'}</button>
+      <p class="page-sub" id="acc-msg" role="status"></p>
+    </form>
+    <p class="people">Pas d'e-mail demandé. Le mot de passe n'est jamais stocké en clair (seulement son empreinte). Sans e-mail, pas de récupération possible : garde-le dans ton trousseau.</p></div>`;
 }
 
 // ================================================================ Mes films
@@ -494,7 +597,7 @@ function renderFilms() {
   const upcoming = tickets.filter(k => k.end >= now).sort((a, b) => a.start.localeCompare(b.start));
   const past = tickets.filter(k => k.end < now).sort((a, b) => b.start.localeCompare(a.start));
   const n = Object.keys(myList).length;
-  let html = head('Mes films');
+  let html = head('Mes films', `<button class="acc-btn" type="button" data-open-account>${account ? esc(account.pseudo) : 'Synchroniser'}</button>`);
   html += seg('fsub', [['avoir', `À voir${n ? ` · ${n}` : ''}`], ['seances', `Mes séances${upcoming.length ? ` · ${upcoming.length}` : ''}`], ['vus', `Vus${past.length ? ` · ${past.length}` : ''}`]], sub.films);
   if (sub.films === 'seances') {
     if (!upcoming.length) return html + '<p class="empty">Aucune séance prévue.<br><small>Choisis une séance dans « Ce soir » ou dans une fiche film, puis « J’y vais ».</small></p>';
@@ -548,11 +651,11 @@ function renderPick() {
   const list = cinemas.filter(c => pickCard === 'all' || c.cards.includes(pickCard) || myCines.includes(c.id));
   const groups = new Map();
   list.sort((a, b) => a.zip.localeCompare(b.zip)).forEach(c => { const n = +c.zip.slice(3); const g = c.zip === '75123' ? 'Paris Centre (1er – 4e)' : c.zip.startsWith('75') ? `Paris ${n === 1 ? '1er' : `${n}e`}` : c.area; if (!groups.has(g)) groups.set(g, []); groups.get(g).push(c); });
-  $('#pick-body').innerHTML = `<div style="padding:8px 16px 0"><div class="chips" style="margin:0">${[['pass', 'Carte Pathé'], ['ugc', 'UGC Illimité'], ['all', 'Tous les cinémas']].map(([v, l]) =>
+  $('#pick-body').innerHTML = `<div style="padding:8px 16px 0"><div class="chips" style="margin:0">${[['pass', 'Carte Pathé'], ['ugc', 'UGC Illimité'], ['mk2', 'MK2'], ['all', 'Tous les cinémas']].map(([v, l]) =>
     `<button class="chip${pickCard === v ? ' on' : ''}" type="button" data-pcard="${v}">${l}</button>`).join('')}</div>
     <p class="page-sub">${myCines.length} cinéma${myCines.length > 1 ? 's' : ''} choisi${myCines.length > 1 ? 's' : ''} · 15 au plus</p>
     ${[...groups].map(([g, cs]) => `<div class="cine-group">${esc(g)}</div>${cs.map(c => `<button class="cine-row${myCines.includes(c.id) ? ' on' : ''}" type="button" data-cine="${c.id}">
-      <span class="box">${myCines.includes(c.id) ? '✓' : ''}</span><b>${esc(c.name)}</b><small>${c.cards.includes('pass') ? 'Carte Pathé' : c.cards.includes('ugc') ? 'UGC Illimité' : ''}</small></button>`).join('')}`).join('')}</div>`;
+      <span class="box">${myCines.includes(c.id) ? '✓' : ''}</span><b>${esc(c.name)}</b><small>${[c.cards.includes('pass') && 'Carte Pathé', c.cards.includes('ugc') && 'UGC Illimité', c.cards.includes('mk2') && 'MK2'].filter(Boolean).join(' · ')}</small></button>`).join('')}`).join('')}</div>`;
 }
 
 // ================================================================ recherche
@@ -708,7 +811,7 @@ function toggleMyList(id) {
   if (!f) return;
   if (myList[id]) { delete myList[id]; toast('Retiré de ma liste'); }
   else { myList[id] = { title: f.title, date: f.date || '', poster: f.poster || '' }; toast('Ajouté à « À voir »'); }
-  write(KEYS.list, myList);
+  write(KEYS.list, myList); markChanged();
   const b = document.querySelector(`[data-mylist="${CSS.escape(id)}"]`);
   if (b) {
     b.classList.toggle('on', !!myList[id]); b.textContent = myList[id] ? '★ Dans ma liste' : '☆ À voir plus tard';
@@ -768,7 +871,7 @@ tickets = read(KEYS.tickets) || [];
 myCines = read(KEYS.cines);
 cinemas = read(KEYS.cinemas) || [];
 ratingsCache = read(KEYS.ratings) || {};
-loadCinemas();
+account = read(KEYS.account);
 
 $('.tabs').addEventListener('click', ev => {
   const b = ev.target.closest('.tab');
@@ -796,7 +899,12 @@ document.addEventListener('click', ev => {
   const sd = t.closest('[data-sday]'); if (sd) { seanceDate = sd.dataset.sday; render(); return; }
   const sf = t.closest('[data-sfilter]'); if (sf) { seanceFilter = sf.dataset.sfilter; render(); return; }
   const sh = t.closest('[data-share]'); if (sh) { shareTicket(sh.dataset.share); return; }
-  const ut = t.closest('[data-unticket]'); if (ut) { tickets = tickets.filter(k => k.id !== ut.dataset.unticket); write(KEYS.tickets, tickets); toast('Ticket retiré'); render(); return; }
+  if (t.closest('[data-open-account]')) { renderAccount(); $('#account').hidden = false; document.body.classList.add('sheet-open'); return; }
+  if (t.closest('[data-close-account]')) { $('#account').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
+  const am = t.closest('[data-acc-mode]'); if (am) { accMode = am.dataset.accMode; renderAccount(); return; }
+  if (t.closest('[data-acc-sync]')) { pushNow().then(pullOnOpen).then(() => toast('Synchronisé')); return; }
+  if (t.closest('[data-acc-logout]')) { const a = account; signOutLocal(); api({ action: 'logout', pseudo: a.pseudo, token: a.token }).catch(() => {}); renderAccount(); render(); toast('Déconnecté de cet appareil'); return; }
+  const ut = t.closest('[data-unticket]'); if (ut) { tickets = tickets.filter(k => k.id !== ut.dataset.unticket); write(KEYS.tickets, tickets); markChanged(); toast('Ticket retiré'); render(); return; }
   if (t.closest('[data-open-pick]')) { loadCinemas().then(() => { renderPick(); $('#pick').hidden = false; document.body.classList.add('sheet-open'); }); return; }
   if (t.closest('[data-close-pick]')) { $('#pick').hidden = true; document.body.classList.remove('sheet-open'); render(); return; }
   const pc = t.closest('[data-pcard]'); if (pc) { pickCard = pc.dataset.pcard; renderPick(); return; }
@@ -805,14 +913,31 @@ document.addEventListener('click', ev => {
     if (myCines.includes(id)) myCines = myCines.filter(x => x !== id);
     else if (myCines.length < 15) myCines = [...myCines, id];
     else toast('15 cinémas au plus');
-    write(KEYS.cines, myCines); renderPick(); return;
+    write(KEYS.cines, myCines); markChanged(); renderPick(); return;
   }
 });
 $('#open-search').addEventListener('click', () => { $('#search').hidden = false; document.body.classList.add('sheet-open'); renderSearch(); setTimeout(() => $('#q').focus(), 50); });
 $('#q').addEventListener('input', renderSearch);
+document.addEventListener('submit', ev => { if (ev.target.id === 'acc-form') { ev.preventDefault(); authSubmit(accMode, ev.target); } });
 
 // Par défaut, le mois s'ouvre sur le mercredi de la semaine
 selDay = featuredWednesday();
 render();
-load();
+
+// Lien depuis la newsletter : ?film=<id> ouvre la fiche, &add=1 l'ajoute à « À voir »
+const deep = new URLSearchParams(location.search);
+function openDeepLink() {
+  const id = deep.get('film');
+  if (!id || !cat || !findFilm(id)) return false;
+  if (deep.get('add') === '1' && !myList[id]) toggleMyList(id);
+  openFilm(id);
+  history.replaceState(null, '', location.pathname);
+  return true;
+}
+const deepDone = openDeepLink();
+pullOnOpen();
+load().then(() => { if (!deepDone) openDeepLink(); });
+
+// Préchargement des séances dès l'ouverture : « Ce soir » est prêt quand on y arrive
+loadCinemas().then(() => { if (myCines?.length) loadDay(today()).catch(() => {}); });
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});

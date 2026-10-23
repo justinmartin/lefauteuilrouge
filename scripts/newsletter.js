@@ -10,6 +10,9 @@ const { weeklyPicks } = require('../lib/reco');
 const { ratings } = require('../lib/ratings');
 
 const APP_URL = process.env.APP_URL || 'https://lefauteuilrouge.vercel.app';
+// Liens vers l'app : ?film=<id> ouvre la fiche, &add=1 l'ajoute aussi à « À voir »
+const filmUrl = (f, add) => `${APP_URL}/?film=${encodeURIComponent(f.id)}${add ? '&add=1' : ''}`;
+const LOGOS = { Netflix: 'netflix', 'Prime Video': 'prime', 'Apple TV': 'appletv', 'Disney+': 'disney', 'Canal+': 'canal' };
 const DRY = process.argv.includes('--dry-run');
 const BIG_SCREENS = 250;
 const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
@@ -60,16 +63,16 @@ function featured(f, r) {
   const people = [f.director ? `De ${f.director}` : '', f.cast?.length ? `avec ${f.cast.slice(0, 3).join(', ')}` : ''].filter(Boolean).join(', ');
   const notes = notesLine(r);
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td width="140" style="vertical-align:top;padding:4px 0">${f.poster ? `<img src="${esc(f.poster)}" width="130" style="display:block;width:130px;border-radius:8px" alt="">` : ''}</td>
+    <td width="140" style="vertical-align:top;padding:4px 0">${f.poster ? `<a href="${filmUrl(f)}"><img src="${esc(f.poster)}" width="130" style="display:block;width:130px;border-radius:8px;border:0" alt=""></a>` : ''}</td>
     <td style="vertical-align:top;padding:0 0 0 14px;font-family:${SANS}">
       <div style="font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${RED}">La sortie de la semaine</div>
-      <div style="font-family:${SERIF};font-size:34px;line-height:1;color:${INK};margin-top:6px">${esc(clean(f.title))}</div>
+      <a href="${filmUrl(f)}" style="text-decoration:none"><div style="font-family:${SERIF};font-size:34px;line-height:1;color:${INK};margin-top:6px">${esc(clean(f.title))}</div></a>
       ${meta ? `<div style="font-size:13px;color:${GREY};margin-top:6px">${esc(meta)}</div>` : ''}
       ${notes ? `<div style="font-size:13px;color:${INK};margin-top:4px">${notes}</div>` : ''}
       ${people ? `<div style="font-size:12.5px;color:${GREY};margin-top:4px">${esc(people)}</div>` : ''}
       ${r?.about?.text ? `<div style="font-size:13px;line-height:1.5;color:${INK};margin-top:8px;padding:8px 10px;background:#fffdf8;border-radius:8px"><b style="font-size:10px;letter-spacing:1.5px;color:${RED}">EN BREF</b><br>${esc(r.about.text)}</div>` : ''}
       ${f.synopsis ? `<div style="font-size:13.5px;line-height:1.5;color:#2a2826;margin-top:8px">${esc(f.synopsis.length > 260 ? f.synopsis.slice(0, 257).replace(/\s\S*$/, '') + '…' : f.synopsis)}</div>` : ''}
-      <div style="margin-top:10px"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(clean(f.title) + ' bande annonce VF')}" style="font-size:12.5px;font-weight:700;color:${RED}">▶ Bande-annonce</a></div>
+      <div style="margin-top:12px"><a href="${filmUrl(f, true)}" style="display:inline-block;font-size:12.5px;font-weight:700;color:#fff;background:${RED};border-radius:8px;padding:7px 12px;text-decoration:none">☆ À voir</a>&nbsp;&nbsp;<a href="${filmUrl(f)}" style="font-size:12.5px;font-weight:700;color:${INK}">Séances et fiche ›</a>&nbsp;&nbsp;<a href="https://www.youtube.com/results?search_query=${encodeURIComponent(clean(f.title) + ' bande annonce VF')}" style="font-size:12.5px;font-weight:700;color:${RED}">▶ Bande-annonce</a></div>
     </td></tr></table>`;
 }
 
@@ -77,10 +80,10 @@ function featured(f, r) {
 function ticketRow(f, big, r) {
   const notes = notesLine(r);
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0;border:1px solid ${LINE};border-radius:10px;background:#fffdf8"><tr>
-    <td width="50" style="padding:0">${f.poster ? `<img src="${esc(f.poster)}" width="50" style="display:block;width:50px;border-radius:10px 0 0 10px" alt="">` : ''}</td>
+    <td width="50" style="padding:0">${f.poster ? `<a href="${filmUrl(f)}"><img src="${esc(f.poster)}" width="50" style="display:block;width:50px;border-radius:10px 0 0 10px;border:0" alt=""></a>` : ''}</td>
     <td style="padding:8px 12px;font-family:${SANS}">
-      <div style="font-family:${SERIF};font-size:20px;line-height:1.1;color:${INK}">${esc(clean(f.title))}</div>
-      <div style="font-size:12px;color:${GREY};margin-top:2px">${esc([f.genre, f.director || f.cast?.[0], f.duration].filter(Boolean).join(' · '))}</div>
+      <a href="${filmUrl(f)}" style="text-decoration:none"><div style="font-family:${SERIF};font-size:20px;line-height:1.1;color:${INK}">${esc(clean(f.title))}</div></a>
+      <div style="font-size:12px;color:${GREY};margin-top:2px">${esc([f.genre, f.director || f.cast?.[0], f.duration].filter(Boolean).join(' · '))} · <a href="${filmUrl(f, true)}" style="color:${RED};font-weight:700;text-decoration:none">☆ À voir</a></div>
       ${notes ? `<div style="font-size:11.5px;color:${INK};margin-top:2px">${notes}</div>` : ''}
     </td>
     <td width="58" style="border-left:1.5px dashed ${big ? '#fffdf8' : LINE};background:${big ? RED : '#fffdf8'};color:${big ? '#fff' : GREY};text-align:center;font-family:${SANS};font-size:10.5px;font-weight:700;border-radius:0 10px 10px 0;line-height:1.2">${f.screens ? `${fmt(f.screens)}<br>salles` : big ? 'Grosse<br>sortie' : '—'}</td>
@@ -90,8 +93,8 @@ function ticketRow(f, big, r) {
 function posterStrip(list) {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>${list.slice(0, 4).map(f => `
     <td width="25%" style="padding:4px;vertical-align:top;font-family:${SANS}">
-      ${f.poster ? `<img src="${esc(f.poster)}" width="120" style="display:block;width:100%;max-width:120px;border-radius:6px" alt="">` : ''}
-      <div style="font-size:12.5px;font-weight:600;color:${INK};margin-top:6px;line-height:1.25">${esc(clean(f.title))}</div>
+      ${f.poster ? `<a href="${filmUrl(f)}"><img src="${esc(f.poster)}" width="120" style="display:block;width:100%;max-width:120px;border-radius:6px;border:0" alt=""></a>` : ''}
+      <a href="${filmUrl(f)}" style="text-decoration:none"><div style="font-size:12.5px;font-weight:600;color:${INK};margin-top:6px;line-height:1.25">${esc(clean(f.title))}</div></a>
       ${f.screens ? `<div style="font-size:11px;color:${GREY}">${fmt(f.screens)} salles</div>` : f.genre ? `<div style="font-size:11px;color:${GREY}">${esc(f.genre)}</div>` : ''}
     </td>`).join('')}${'<td width="25%"></td>'.repeat(Math.max(0, 4 - list.length))}</tr></table>`;
 }
@@ -150,7 +153,7 @@ function render(cat, wed, picks = [], notes = {}) {
   if (stream.length) {
     body += sectionTitle('En streaming', 'Films originaux des plateformes') + `<tr><td style="padding:6px 24px">${stream.map(x => `
       <div style="padding:7px 0;border-bottom:1px solid ${LINE};font-family:${SANS};font-size:13.5px;color:${INK}">
-        <span style="display:inline-block;min-width:76px;font-size:10px;font-weight:700;color:#fff;background:${({ Netflix: '#e50914', 'Prime Video': '#1f8fff', 'Apple TV': '#6b6b70', 'Disney+': '#1b3fa3' })[x.platform] || GREY};border-radius:4px;padding:2px 5px;text-align:center;margin-right:8px">${esc(x.platform)}</span>
+        ${LOGOS[x.platform] ? `<img src="${APP_URL}/logos/${LOGOS[x.platform]}.png" width="28" height="28" alt="${esc(x.platform)}" style="border-radius:7px;vertical-align:middle;margin-right:10px;border:0">` : `<span style="display:inline-block;min-width:76px;font-size:10px;font-weight:700;color:#fff;background:${GREY};border-radius:4px;padding:2px 5px;text-align:center;margin-right:8px">${esc(x.platform)}</span>`}
         <b style="font-weight:600">${esc(x.title)}</b> <span style="color:${GREY};font-size:12px">· ${esc(cap(day(x.date)))}${x.genre ? ' · ' + esc(x.genre) : ''}</span></div>`).join('')}</td></tr>`;
   }
   const events = (cat.events || []).filter(e => e.start <= addDays(today, 30));
