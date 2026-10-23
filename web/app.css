@@ -422,3 +422,89 @@ button.as-option { width: 100%; text-align: left; }
 .pill-on, .pill-off { font-size: 10.5px; font-weight: 700; border-radius: 6px; padding: 3px 7px; white-space: nowrap; }
 .pill-on { background: var(--red); color: #fff; }
 .pill-off { border: 1px solid var(--line-2); color: var(--text-3); }
+
+/* ================= Grand écran (ordinateur, tablette en paysage) =================
+   Navigation à gauche, contenu plus large en grilles, fiches et feuilles en fenêtres centrées. */
+@media (hover: hover) {
+  .ticket:hover, .list-row:hover, .mini:hover .poster, .pod:hover, .bo:hover, .fr-item:hover, .rb-item:hover { filter: brightness(1.12); }
+  .tl-pill:hover { filter: brightness(1.2); }
+  button, a { transition: filter 0.15s ease, background-color 0.15s ease; }
+}
+@media (min-width: 960px) {
+  body { padding: calc(var(--safe-top) + 64px) 0 40px 232px; }
+  .top { padding-left: 24px; padding-right: 20px; }
+  .wordmark { font-size: 27px; }
+
+  /* Onglets : colonne à gauche */
+  .tabs { inset: 61px auto 0 0; width: 232px; display: flex; flex-direction: column; gap: 4px; padding: 20px 14px; border-top: none; border-right: 1px solid var(--line); background: var(--bg); }
+  .tab { flex-direction: row; justify-content: flex-start; gap: 12px; min-height: 48px; padding: 0 14px; border-radius: 12px; font-size: 15px; color: var(--text-3); }
+  .tab svg { width: 22px; height: 22px; }
+  .tab:hover { background: var(--raised); color: var(--text-2); }
+  .tab.active { background: var(--raised-2); color: var(--text); }
+
+  main { max-width: 1120px; padding: 28px 40px 0; }
+  .page-title { font-size: 56px; }
+  .seg { max-width: 560px; }
+  .section-title { margin-top: 32px; }
+
+  /* À l'affiche */
+  .hero { grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 20px; max-width: 900px; }
+  .hero .poster { width: 200px; }
+  .hero h2 { font-size: 44px; }
+  .hero .brief { -webkit-line-clamp: 5; font-size: 14px; }
+  .hero-actions { max-width: 420px; }
+  .tickets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tickets .ticket { margin-bottom: 0; }
+  .posters { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 18px; }
+  .mini b { font-size: 14px; }
+  .events .event { width: 210px; }
+  .reprise-banner { max-width: 900px; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+  .reprise-banner .ev-kind { width: 100%; }
+  .rb-item { width: auto; }
+
+  /* Frise de l'année */
+  .frise { margin: 16px -40px 0; padding: 0 40px 10px; gap: 22px; }
+  .fr-col { width: 210px; }
+  .fr-item.l { width: 210px; } .fr-item.m { width: 102px; } .fr-item.s { width: 65px; }
+  .fr-cap b { font-size: 20px; }
+
+  /* Calendrier mois */
+  .cal-day { min-height: 92px; }
+  .cal-day .thumb { width: 36px; height: 50px; }
+
+  /* Box-office */
+  .podium { gap: 14px; max-width: 760px; }
+  .bo-list { max-width: 900px; }
+
+  /* Ce soir */
+  .tl { margin: 18px 0 0; padding: 0; }
+  .days { margin: 4px 0 0; padding: 0; }
+  .chips { margin: 10px 0 0; padding: 0 0 2px; flex-wrap: wrap; overflow: visible; }
+
+  /* Mes films */
+  .big-ticket { max-width: 540px; }
+  .mini-ticket, .list-row, .sr-row { max-width: 760px; }
+  .link-btn.center { margin-left: 0; }
+
+  /* Fiches et feuilles : fenêtres centrées sur un fond assombri */
+  body.sheet-open::before { content: ''; position: fixed; inset: 0; z-index: 39; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+  .sheet { inset: 32px auto 32px 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 64px)); border-radius: 22px; overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); border: 1px solid var(--line-2); }
+  #search, #account, #pick { width: min(640px, calc(100vw - 64px)); }
+  #account { inset: 80px auto auto 50%; max-height: calc(100vh - 160px); }
+  .film-hero { padding-top: 14px; }
+  .film-hero .film-top { grid-template-columns: 180px minmax(0, 1fr); gap: 22px; }
+  .film-top .poster { width: 180px; }
+  .film-top h2 { font-size: 48px; }
+  .film-main { padding: 0 28px; }
+  .film-hero { padding-left: 28px; padding-right: 28px; }
+  .trailer { margin: 10px -28px 0; }
+
+  /* Feuille d'actions (réserver, agenda) au centre */
+  .action-sheet { align-items: center; }
+  .as-panel { border-radius: 18px; max-width: 460px; }
+
+  .toast { bottom: 28px; left: calc(50% + 116px); }
+}
+@media (min-width: 1400px) {
+  .tickets { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

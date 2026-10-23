@@ -10,7 +10,7 @@ const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet'
 const MONTHS_SHORT = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
 const WEEKDAYS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 const BIG_SCREENS = 250; // au-delà : « grosse sortie »
-const PX = 74;           // frise du soir : pixels par heure
+const PX_MIN = 74;       // frise du soir : pixels par heure au minimum (plus sur grand écran, pour tout voir sans défiler)
 
 let cat = null;
 let tab = 'affiche';
@@ -207,7 +207,7 @@ function renderWeek() {
   if (!list.length) html += '<p class="empty">Pas encore de sorties annoncées pour cette semaine.</p>';
   else {
     html += hero(list[0], 'La sortie de la semaine');
-    if (list.length > 1) html += `<div class="section-title">Aussi mercredi</div>${list.slice(1).map(f => ticket(f, list)).join('')}`;
+    if (list.length > 1) html += `<div class="section-title">Aussi mercredi</div><div class="tickets">${list.slice(1).map(f => ticket(f, list)).join('')}</div>`;
   }
   for (let i = 1; i <= 3; i++) {
     const d = addDays(wed, 7 * i), l = filmsOn(d);
@@ -421,6 +421,7 @@ async function fillSoir() {
   if (!items.length) { $('#seances').innerHTML = `<p class="empty">${isToday ? 'Plus de séance aujourd’hui dans tes cinés avec ce filtre.' : 'Aucune séance ce jour-là avec ce filtre.'}</p>`; return; }
   const h0 = Math.floor(Math.min(...items.map(i => i.s), isToday ? nowMin : Infinity) / 60);
   const h1 = Math.ceil(Math.max(...items.map(i => i.e)) / 60);
+  const PX = Math.max(PX_MIN, Math.min(170, Math.floor(($('#seances').clientWidth - 8) / Math.max(1, h1 - h0))));
   const x = m => Math.round((m - h0 * 60) / 60 * PX);
   const W = x(h1 * 60);
   const byCine = new Map();
@@ -1014,6 +1015,9 @@ document.addEventListener('click', ev => {
 });
 $('#open-search').addEventListener('click', () => { $('#search').hidden = false; document.body.classList.add('sheet-open'); renderSearch(); setTimeout(() => $('#q').focus(), 50); });
 $('#q').addEventListener('input', renderSearch);
+// Fenêtre redimensionnée (ordinateur) : la frise du soir se recale sur la largeur
+let resizeTimer = null;
+window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { if (tab === 'soir') fillSoir(); }, 250); });
 document.addEventListener('submit', ev => { if (ev.target.id === 'acc-form') { ev.preventDefault(); authSubmit(accMode, ev.target); } });
 
 // Par défaut, le mois s'ouvre sur le mercredi de la semaine

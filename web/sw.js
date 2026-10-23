@@ -1,5 +1,5 @@
 // Hors-ligne : l'interface est mise en cache, les données restent gardées par l'app (localStorage).
-const CACHE = 'lfr-v10';
+const CACHE = 'lfr-v11';
 const SHELL = ['/', '/app.css', '/app.js', '/logo.svg', '/manifest.webmanifest'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL))); self.skipWaiting(); });
 self.addEventListener('activate', e => {
