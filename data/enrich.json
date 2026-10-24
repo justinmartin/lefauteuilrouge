@@ -40,7 +40,14 @@
   "jpAt": 1792827011265,
   "genre": "Drame",
   "country": "Italie",
-  "original": "Tre Ciotole"
+  "original": "Tre Ciotole",
+  "director": "Isabel Coixet",
+  "duration": "2h00",
+  "cast": [
+   "Alba Rohrwacher",
+   "Elio Germano",
+   "Galatea Bellugi"
+  ]
  },
  "25045": {
   "at": 1792827075962,
@@ -72,7 +79,13 @@
   "synopsisFull": "Lors de son ultime concert à Paris, un chef d’orchestre de renom est confronté à un admirateur insistant. Sous ses apparences de « Monsieur tout le monde », le « Fan » s’infiltre dans l’Opéra, perturbe la soirée et force un face à face inattendu avec le chef d’orchestre. Surgit alors un passé commun enfoui, où la musique devient le révélateur d’une vérité bouleversante. Une nuit de tension et de vérité où la mémoire, la culpabilité et la justice s’affrontent en sourdine.",
   "director": "Alexandre Arcady",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "duration": "1h30",
+  "cast": [
+   "Kad Merad",
+   "Benoît Poelvoorde",
+   "Caterina Murino"
+  ]
  },
  "25285": {
   "at": 1792750678846,
@@ -145,7 +158,8 @@
   "country": "France",
   "original": "Les Misérables",
   "synopsis": "Les Misérables est un film français réalisé par Fred Cavayé et sorti en 2026. Il s'agit d'une adaptation du roman du même nom de Victor Hugo. Cette nouvelle version est davantage centrée sur Jean Valjean, incarné par Vincent Lindon.",
-  "at": 1792736281211
+  "at": 1792736281211,
+  "duration": "2h56"
  },
  "25310": {
   "genre": "Comédie",
@@ -160,7 +174,8 @@
   "synopsis": "Ducobu et le Fantôme de Saint-Potache est une comédie française réalisée par Élie Semoun et sortie en 2026. Il s'agit du sixième film d'une saga inspirée de la série de bande dessinée belge L'Élève Ducobu de Godi et Zidrou.",
   "at": 1792736109031,
   "jpAt": 1792827043325,
-  "synopsisFull": "C’est Halloween, et Ducobu revient pour une aventure pleine de rires et de mystères ! Le professeur Latouche et Mademoiselle Rateau emménagent dans une maison… hantée par le ? fantôme d'Anatole, le plus grand cancre de l’histoire de l’école Saint-Potache. Ce fantôme farceur va entraîner Ducobu, Léonie, leurs parents et Kitrish dans une série de péripéties ? aussi drôles qu’inattendues. Mais attention : à Halloween, tout peut arriver…"
+  "synopsisFull": "C’est Halloween, et Ducobu revient pour une aventure pleine de rires et de mystères ! Le professeur Latouche et Mademoiselle Rateau emménagent dans une maison… hantée par le ? fantôme d'Anatole, le plus grand cancre de l’histoire de l’école Saint-Potache. Ce fantôme farceur va entraîner Ducobu, Léonie, leurs parents et Kitrish dans une série de péripéties ? aussi drôles qu’inattendues. Mais attention : à Halloween, tout peut arriver…",
+  "duration": "1h30"
  },
  "25336": {
   "at": 1792827075029,
@@ -172,7 +187,8 @@
   "synopsisFull": "Juin 1943, Jean Moulin, chef de la Résistance, est arrêté alors qu'il tente de réunifier les forces de l’Armée Secrète Interrogé par Klaus Barbie, le chef de la Gestapo de Lyon, Moulin est entraîné dans une confrontation implacable. Son ultime combat face à la manipulation et la brutalité commence.? Le destin de la France libre en dépend.",
   "jpAt": 1792827063115,
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "director": "László Nemes"
  },
  "25341": {
   "at": 1792750632732,
@@ -180,7 +196,14 @@
   "jpAt": 1792827022626,
   "genre": "Comédie",
   "country": "Etats-Unis",
-  "original": "The Invite"
+  "original": "The Invite",
+  "director": "Olivia Wilde",
+  "duration": "1h47",
+  "cast": [
+   "Seth Rogen",
+   "Olivia Wilde",
+   "Penélope Cruz"
+  ]
  },
  "25342": {
   "at": 1792750641831,
@@ -188,7 +211,9 @@
   "jpAt": 1792827034907,
   "genre": "Animation",
   "country": "Japon",
-  "original": "Detective Conan: Fallen Angel of the Highway"
+  "original": "Detective Conan: Fallen Angel of the Highway",
+  "director": "Takahiro Hasui",
+  "duration": "1h50"
  },
  "25361": {
   "at": 1792750629528,
@@ -241,7 +266,8 @@
   "synopsis": "Pressure est un film de guerre franco-britannique réalisé par Anthony Maras et sorti en 2026. Il s'agit d'une adaptation de la pièce de théâtre du même nom de David Haig, qui signe le scénario en collaboration avec le réalisateur.",
   "at": 1792734663949,
   "jpAt": 1792827015044,
-  "synopsisFull": "Dans les soixante-douze heures précédant le Jour J, le chef météorologue britannique James Stagg est appelé à fournir les prévisions les plus importantes de l'histoire afin que les Alliés puissent débarquer sur les plages normandes."
+  "synopsisFull": "Dans les soixante-douze heures précédant le Jour J, le chef météorologue britannique James Stagg est appelé à fournir les prévisions les plus importantes de l'histoire afin que les Alliés puissent débarquer sur les plages normandes.",
+  "duration": "1h40"
  },
  "25387": {
   "genre": "Drame",
@@ -254,14 +280,22 @@
   "synopsis": "Notre salut est un film dramatique franco-belge réalisé par Emmanuel Marre — arrière-petit-fils du protagoniste du film — et sorti en 2026. Le film est produit par Michigan Films (Belgique) et Kidam (France).",
   "at": 1792734858078,
   "jpAt": 1792827038724,
-  "synopsisFull": "Septembre 1940, le régime de Pétain se met en place. Henri Marre, 49 ans, débarque à Vichy sans le sou, sans contact, loin de sa femme et ses enfants. Il voit dans la nouvelle administration l’opportunité de trouver enfin la place qu’il mérite. Dans sa valise, son traité politique édité à compte d’auteur, Notre Salut, où il défend ses convictions patriotiques et ses méthodes d'ingénieur. Son credo : « gagner en efficacité » pour relever la France de la débâcle. Mais peut-être qu’Henri cherche avant tout à fuir sa propre débâcle…"
+  "synopsisFull": "Septembre 1940, le régime de Pétain se met en place. Henri Marre, 49 ans, débarque à Vichy sans le sou, sans contact, loin de sa femme et ses enfants. Il voit dans la nouvelle administration l’opportunité de trouver enfin la place qu’il mérite. Dans sa valise, son traité politique édité à compte d’auteur, Notre Salut, où il défend ses convictions patriotiques et ses méthodes d'ingénieur. Son credo : « gagner en efficacité » pour relever la France de la débâcle. Mais peut-être qu’Henri cherche avant tout à fuir sa propre débâcle…",
+  "duration": "2h39"
  },
  "25390": {
   "at": 1792750650557,
   "synopsisFull": "Russie, 2022. Gleb, chef d’entreprise prospère, vit avec sa femme Galina et leur fils dans une ville de province. Il se retrouve confronté à des problèmes professionnels croissants, dans un monde de plus en plus instable. L’effondrement d’une vie soigneusement construite bascule rapidement dans la violence.",
   "jpAt": 1792827054733,
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "director": "Andreï Zviaguintsev",
+  "duration": "2h20",
+  "cast": [
+   "Dmitri Mazourov",
+   "Iris Lebedeva",
+   "Boris Koudrine"
+  ]
  },
  "25392": {
   "genre": "LGBT",
@@ -328,7 +362,14 @@
   "jpAt": 1792827053761,
   "genre": "Aventure - Action",
   "country": "Etats-Unis",
-  "original": "Whalefall"
+  "original": "Whalefall",
+  "director": "Brian Duffield",
+  "duration": "1h46",
+  "cast": [
+   "Austin Abrams",
+   "Josh Brolin",
+   "Elisabeth Shue"
+  ]
  },
  "25433": {
   "genre": "Drame",
@@ -343,7 +384,8 @@
   "synopsis": "Les Héros du Louvre est un film français réalisé par Élie Chouraqui et sorti en 2026.",
   "at": 1792734644388,
   "jpAt": 1792827014115,
-  "synopsisFull": "Paris 1939. Amoureux des arts, Babi Maklouf Benhamou exerce le plus beau métier du monde : il est gardien de nuit au musée du Louvre. Mais alors que la Seconde Guerre Mondiale éclate et que l’invasion allemande est imminente, Jacques Jaujard, le conservateur du musée, organise le sauvetage secret des œuvres d’art afin qu’elles ne tombent pas aux mains des nazis. Il confie alors à Babi l’un des camions chargés de transporter les chefs-d’œuvre hors de Paris. Babi accepte, à une condition : que toute sa famille l’accompagne… C’est le début d’une aventure familiale épique et dangereuse à travers la France occupée, qui va lier à jamais le destin des trésors du Louvre à celui de la famille de Babi Maklouf…"
+  "synopsisFull": "Paris 1939. Amoureux des arts, Babi Maklouf Benhamou exerce le plus beau métier du monde : il est gardien de nuit au musée du Louvre. Mais alors que la Seconde Guerre Mondiale éclate et que l’invasion allemande est imminente, Jacques Jaujard, le conservateur du musée, organise le sauvetage secret des œuvres d’art afin qu’elles ne tombent pas aux mains des nazis. Il confie alors à Babi l’un des camions chargés de transporter les chefs-d’œuvre hors de Paris. Babi accepte, à une condition : que toute sa famille l’accompagne… C’est le début d’une aventure familiale épique et dangereuse à travers la France occupée, qui va lier à jamais le destin des trésors du Louvre à celui de la famille de Babi Maklouf…",
+  "duration": "1h45"
  },
  "25434": {
   "genre": "Policier dramatique",
@@ -420,7 +462,14 @@
   "jpAt": 1792827052776,
   "genre": "Horreur",
   "country": "Etats-Unis",
-  "original": "Other Mommy"
+  "original": "Other Mommy",
+  "director": "Rob Savage",
+  "duration": "1h34",
+  "cast": [
+   "Jessica Chastain",
+   "Jay Duplass",
+   "Arabella Olivia Clark"
+  ]
  },
  "25469": {
   "at": 1792750685873,
@@ -459,14 +508,28 @@
   "synopsisFull": "Benjamin et Amélie, jeune couple de trentenaires décide d’acheter la maison de leurs rêves en viager à Nicolette, une dame qui semble mourante. Mais peu après la vente, elle va beaucoup mieux et le couple se demande s’il n’a pas été arnaqué. Bientôt à genoux financièrement, ils sont forcés de penser au pire.",
   "jpAt": 1792827044328,
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "director": "Claude Zidi Jr.",
+  "duration": "1h30",
+  "cast": [
+   "Kev Adams",
+   "Chantal Ladesou",
+   "Camille Aguilar"
+  ]
  },
  "25485": {
   "at": 1792750637496,
   "synopsisFull": "Garance est une jeune actrice alcoolique. Huit ans d’un parcours fait de déménagements, de travail, de rencontres, de fêtes et d’angoisses, de joies et de coups durs… Mais aussi une révolution intime, amicale et sexuelle.",
   "jpAt": 1792827029289,
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "director": "Jeanne Herry",
+  "duration": "1h55",
+  "cast": [
+   "Adèle Exarchopoulos",
+   "Sara Giraudeau",
+   "Sarajeanne Drillaud"
+  ]
  },
  "25487": {
   "genre": "Drame",
@@ -603,7 +666,12 @@
   "at": 1792734686436,
   "jpAt": 1792827019830,
   "synopsisFull": "Suite à la perte de son père dans un accident aux circonstances troubles, Billie, 14 ans, déménage dans une nouvelle ville avec sa mère et son frère. Alors que ces bouleversements accentuent les tensions familiales, elle fait de nouvelles rencontres et se raccroche à la musique qui la relie encore à son père. Billie se lance alors dans une quête qui pourrait aussi bien la sauver que faire voler sa famille en éclats.",
-  "genre": "Drame"
+  "genre": "Drame",
+  "cast": [
+   "Roschdy Zem",
+   "Bonnie Bouriche Troutaud",
+   "Julia Faure"
+  ]
  },
  "25541": {
   "genre": "Drame",
@@ -612,7 +680,13 @@
   "synopsis": "Justin le Juste est un film historique franco-belge réalisé par Éric Barbier et sorti en 2026.",
   "at": 1792734785841,
   "jpAt": 1792827028363,
-  "synopsisFull": "1915. La guerre, c’est une terre inconnue où l’on envoie Justin, misérable paysan, à une époque où il doit s’occuper de ses champs. Il doit partir se battre, au nom d’une loi qu’il ignore, contre un ennemi qu’il n’a jamais vu, alors qu’il ne rêve que de rester dans sa ferme. Sa rencontre avec Basile, un tirailleur sénégalais, va lui ouvrir les yeux sur cette guerre qu’il ne comprend pas. C’est avec lui, qu’il va se révolter contre les injustices d’un commandement absurde, et devenir un héros pas comme les autres."
+  "synopsisFull": "1915. La guerre, c’est une terre inconnue où l’on envoie Justin, misérable paysan, à une époque où il doit s’occuper de ses champs. Il doit partir se battre, au nom d’une loi qu’il ignore, contre un ennemi qu’il n’a jamais vu, alors qu’il ne rêve que de rester dans sa ferme. Sa rencontre avec Basile, un tirailleur sénégalais, va lui ouvrir les yeux sur cette guerre qu’il ne comprend pas. C’est avec lui, qu’il va se révolter contre les injustices d’un commandement absurde, et devenir un héros pas comme les autres.",
+  "duration": "1h50",
+  "cast": [
+   "Alban Ivanov",
+   "Birane Ba",
+   "Alexandra Lamy"
+  ]
  },
  "25546": {
   "at": 1792750653810,
@@ -620,7 +694,8 @@
   "jpAt": 1792827056569,
   "genre": "Animation",
   "country": "Etats-Unis",
-  "original": "Forgotten Island"
+  "original": "Forgotten Island",
+  "director": "Joel Crawford,Januel P. Mercado"
  },
  "25548": {
   "at": 1792750672443,
@@ -636,7 +711,14 @@
   "jpAt": 1792827031169,
   "genre": "Drame",
   "country": "Grande-Bretagne",
-  "original": "Sense and Sensibility (2026)"
+  "original": "Sense and Sensibility (2026)",
+  "director": "Georgia Oakley",
+  "duration": "2h12",
+  "cast": [
+   "Daisy Edgar-Jones",
+   "Esmé Creed-Miles",
+   "Caitriona Balfe"
+  ]
  },
  "25550": {
   "genre": "Drame",
@@ -645,7 +727,12 @@
   "at": 1792739773179,
   "synopsisFull": "Fraîchement élu, le président Paul Archambault doit affronter une crise sans précédent : son homologue russe, cible d'un attentat, brandit un ultimatum nucléaire menaçant un allié de la France. Face au risque d'escalade militaire, le président réunit son état-major dans le bunker de l'Elysée. Dans le secret du Poste de Commandement Jupiter, Paul va devoir prendre une décision vertigineuse.",
   "jpAt": 1792827069492,
-  "country": "France"
+  "country": "France",
+  "cast": [
+   "Denis Ménochet",
+   "André Dussollier",
+   "Reda Kateb"
+  ]
  },
  "25551": {
   "cast": [
@@ -658,14 +745,18 @@
   "at": 1792739700247,
   "synopsisFull": "Novembre 1972. Au tribunal de Bobigny, un procès hors norme secoue la France entière. Marie-Claire Chevalier, 16 ans, est accusée d’avoir avorté illégalement. À la barre, sa mère et toutes les femmes qui l’ont aidée. Leur avocate, Gisèle Halimi, fait un pari fou, insensé : elle leur demande de ne pas plaider coupable. Gisèle va faire ce qui n’a jamais été fait auparavant, elle va accuser et attaquer la loi, au risque de tout perdre.\nSéances (10)",
   "jpAt": 1792827065826,
-  "genre": "Drame"
+  "genre": "Drame",
+  "director": "Lauriane Escaffre,Yvo Muller",
+  "duration": "1h42"
  },
  "25552": {
   "at": 1792750655995,
   "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés...",
   "jpAt": 1792827058456,
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "director": "Eric Judor",
+  "duration": "1h28"
  },
  "25553": {
   "at": 1792750670319,
@@ -679,7 +770,8 @@
   "synopsisFull": "Dans le Paris d'aujourd'hui, Anastasia, jeune danseuse, intègre le prestigieux Opéra de Paris. Alors qu’elle répète l'Orpheus, un opéra maudit qui aurait été composé par le Fantôme de l'Opéra, elle tombe amoureuse d'un mystérieux pianiste. A l’approche de la première représentation, entre accidents inexpliqués et révélations troublantes, Anastasia se trouve plongée dans une histoire d'amour impossible, à la frontière du réel et du fantastique.",
   "jpAt": 1792827062134,
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "director": "Alexandre Castagnetti"
  },
  "25555": {
   "genre": "Drame",
@@ -705,7 +797,12 @@
   "at": 1792739787670,
   "synopsisFull": "Lucia, 17 ans, est amenée par la police dans une unité de soins pédopsychiatriques de l’hôpital public. Ici tous les patients ont entre 15 et 18 ans. Lucia connaît l’endroit, elle y a fait de nombreux séjours. Elle retrouve son amie Eloïse, en hospitalisation longue durée, mais aussi Yasmine, Camilia, Ulysse, André…tous ont des pathologies et des parcours différents. Les médecins les soignent, les écoutent, reçoivent leurs parents, tout en gérant un service en surchauffe. Mais un jour, l’arrivée du mystérieux Enzo menace de tout bouleverser.",
   "jpAt": 1792827070463,
-  "genre": "Drame"
+  "genre": "Drame",
+  "cast": [
+   "Zoé Monpart",
+   "Malou Khebizi",
+   "Kenji Peyran"
+  ]
  },
  "25557": {
   "genre": "Comédie",
@@ -771,7 +868,8 @@
   "jpAt": 1792827012261,
   "synopsisFull": "Enzo, 19 ans et sa soeur Carla, 20 ans, sont livrés à eux-mêmes depuis plusieurs années. Quand leur père, Anthony est libéré de prison, Enzo voit la promesse fragile d’une famille à reconstruire contrairement à Carla pour qui l’idée reste inconcevable. Rattrapé par son passé, Enzo doit se confronter à une vérité qu’il a trop longtemps gardée pour lui.",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "duration": "1h46"
  },
  "25563": {
   "at": 1792750683259,
@@ -844,14 +942,23 @@
   "jpAt": 1792827024480,
   "synopsisFull": "Lorsque Gil rencontre Jacques, leur amour est évident. Mais l’intensité des débuts laisse place à une relation où elle se sent de plus en plus enfermée, jusqu’à en perdre ses repères. Jacques la rassure : si elle pense bien, il ne lui arrivera que du bien. Peu à peu, Gil comprend le contrôle qu’il exerce sur sa vie…",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "director": "Géraldine Nakache",
+  "duration": "1h34"
  },
  "25585": {
   "at": 1792750643995,
   "synopsisFull": "Les blessures de l'enfance ne s'effacent pas, elles se réparent.\nMuriel Salmona, psychiatre de renom et spécialiste des violences sexuelles, consacre sa vie à soigner celles et ceux que l'enfance a brisés.\nIncarnée à l'écran par Sandrine Bonnaire, Marianne Denicourt et Isild Le Besco, elle accompagne des patients qui affrontent leur passé et ouvrent, pas à pas, le chemin de la réparation",
   "jpAt": 1792827040578,
   "genre": "Documentaire",
-  "country": "France"
+  "country": "France",
+  "director": "Sylvie Meyer",
+  "duration": "1h29",
+  "cast": [
+   "Isild Le Besco",
+   "Sandrine Bonnaire",
+   "Marianne Denicourt"
+  ]
  },
  "25586": {
   "synopsis": "Melpomène est un film dramatique français réalisé par Charlotte Dauphin et sorti en 2026.",
@@ -859,7 +966,14 @@
   "jpAt": 1792827041468,
   "synopsisFull": "Trente ans après la mort mystérieuse de sa mère, Marthe revient dans le sud de la France pour faire éclater la vérité. Mais plus elle s'approche de son passé, plus le réel semble lui échapper.",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "director": "Charlotte Dauphin",
+  "duration": "1h28",
+  "cast": [
+   "Charlotte Dauphin",
+   "Pascal Greggory",
+   "Andie MacDowell"
+  ]
  },
  "25587": {
   "synopsis": "La Dernière Patiente est un film français réalisé par Rémi Bassaler sorti en 2026.",
@@ -867,7 +981,14 @@
   "jpAt": 1792827010326,
   "synopsisFull": "La veille de son départ à la retraite, Judith, médecin de banlieue, ouvre la porte de son cabinet à Aïda, enceinte de huit mois et en rupture de soin. Confrontée à un système de santé à bout de souffle, Judith accepte d'héberger la jeune femme et s'engage alors dans une nuit où toutes ses convictions de soignante seront mises à l’épreuve.",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "director": "Rémi Bassaler",
+  "duration": "1h20",
+  "cast": [
+   "Anouk Grinberg",
+   "Luàna Bajrami",
+   "Félix Lefebvre"
+  ]
  },
  "25588": {
   "genre": "Drame",
@@ -879,7 +1000,8 @@
   "synopsis": "Adieu monde cruel est un film franco-belge réalisé par Félix de Givry et sorti en 2026.",
   "at": 1792735985365,
   "jpAt": 1792827020715,
-  "synopsisFull": "Otto Vidal, 14 ans, a disparu après avoir adressé une lettre d’adieu aux élèves de sa classe. Alors que tout le monde le croit mort, Léna, une fille de son lycée, le reconnaît une nuit en train d’errer dans les rues de la ville."
+  "synopsisFull": "Otto Vidal, 14 ans, a disparu après avoir adressé une lettre d’adieu aux élèves de sa classe. Alors que tout le monde le croit mort, Léna, une fille de son lycée, le reconnaît une nuit en train d’errer dans les rues de la ville.",
+  "duration": "1h33"
  },
  "25589": {
   "genre": "Documentaire",
@@ -894,7 +1016,8 @@
   "at": 1792734684133,
   "jpAt": 1792827018913,
   "synopsisFull": "Après le triomphe de la Révolution cubaine en 1959, six guérilleros ont suivi Che Guevara dans sa tentative d’étendre le soulèvement au-delà de l’île. En 1967, après leur dernière bataille en Bolivie et l’exécution du Che, ces guerriers de l’ombre se lancent dans un périple extraordinaire de 2 400 km à travers la Bolivie, poursuivis par 4 000 soldats en territoire ennemi dans l’espoir de rejoindre Cuba. Soixante ans plus tard, les derniers camarades survivants du Che racontent cette histoire inédite, faite d’endurance et de loyauté, dans laquelle les destins individuels ont été façonnés par les grands courants géopolitiques de la Guerre froide. Mêlant des images d’archives rares, des animations et des interviews exclusives, le film fait revivre un chapitre oublié de l’Histoire.",
-  "country": "France"
+  "country": "France",
+  "duration": "1h38"
  },
  "25591": {
   "at": 1792750636295,
@@ -933,7 +1056,14 @@
   "synopsisFull": "Dans un village népalais niché au cœur d’une forêt peuplée d’éléphants sauvages vit une communauté kinnar aussi vénérée que crainte pour ses pouvoirs de bénédiction et de malédiction. Pirati, l'une des mères de la communauté, rêve de s’échapper avec l’homme qu’elle aime. Mais lorsqu’une de ses filles disparaît, elle se doit mener l'enquête et choisir entre son désir de liberté et ses responsabilités envers sa communauté.",
   "jpAt": 1792827032157,
   "genre": "Comédie dramatique",
-  "original": "Elephants in the Fog"
+  "original": "Elephants in the Fog",
+  "director": "Abinash Bikram Shah",
+  "duration": "1h47",
+  "cast": [
+   "Pushpa Thing Lama",
+   "Deepika Yadav",
+   "Jasmin Bishwokarma"
+  ]
  },
  "25598": {
   "genre": "Comédie",
@@ -957,7 +1087,9 @@
   "jpAt": 1792827049056,
   "genre": "Animation",
   "country": "Japon",
-  "original": "Doraemon: Nobita and the New Castle of the Undersea Devil"
+  "original": "Doraemon: Nobita and the New Castle of the Undersea Devil",
+  "director": "Tetsuo Yajima",
+  "duration": "1h41"
  },
  "25600": {
   "genre": "Action de science-fiction",
@@ -971,7 +1103,8 @@
   "country": "États-Unis",
   "original": "Street Fighter",
   "synopsis": "Street Fighter est un film américain réalisé par Kitao Sakurai et sorti en 2026. Il s'agit d'une adaptation de la série de jeux vidéo du même nom. C'est le 3e long métrage en prise de vues réelles et un reboot de la franchise de Capcom.",
-  "at": 1792736285100
+  "at": 1792736285100,
+  "duration": "2h00"
  },
  "25601": {
   "genre": "Thriller",
@@ -993,7 +1126,13 @@
   "jpAt": 1792827039620,
   "synopsisFull": "Annie Ernaux est sollicitée pour une signature de son dernier ouvrage dans la ville de son enfance, Rouen. Alors qu'elle s'y rend, elle est prise d'un vertige et replonge dans le souvenir de l'été 1958, celui de sa première nuit avec un homme. Nuit dont l'onde de choc s'est propagée violemment dans son corps et sur le reste de son existence.",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "duration": "1h57",
+  "cast": [
+   "Tess Barthélemy",
+   "Valérie Dréville",
+   "Maïwène Barthèlemy"
+  ]
  },
  "25603": {
   "genre": "Drame",
@@ -1002,7 +1141,13 @@
   "synopsis": "Les Roches rouges est un film dramatique sentimental luso-italo-français réalisé par Bruno Dumont et sorti en 2026.",
   "at": 1792734842203,
   "jpAt": 1792827033985,
-  "synopsisFull": "Sur la Côte d’Azur, deux bandes d’enfants s’affrontent à leur jeu favori : sauter des rochers rouges de la Méditerranée. Géo, 5 ans à peine, découvre le temps d’un été un monde où l’amitié se mêle à la rivalité, et où les premiers élans du cœur deviennent source de tensions."
+  "synopsisFull": "Sur la Côte d’Azur, deux bandes d’enfants s’affrontent à leur jeu favori : sauter des rochers rouges de la Méditerranée. Géo, 5 ans à peine, découvre le temps d’un été un monde où l’amitié se mêle à la rivalité, et où les premiers élans du cœur deviennent source de tensions.",
+  "duration": "1h30",
+  "cast": [
+   "Kaylon Lancel",
+   "Kelsie Verdeilles",
+   "Louise Podolski"
+  ]
  },
  "25604": {
   "country": "Japon",
@@ -1010,14 +1155,27 @@
   "at": 1792734772140,
   "synopsisFull": "Seiichi Yabushita, instituteur respecté, est accusé par une mère d’avoir harcelé et humilié son fils. Très vite, la machine s’emballe. Médias, rumeurs, opinion publique : chacun impose son récit. Yabushita est alors pris dans une spirale où la vérité n’est plus qu’une version parmi d’autres.",
   "jpAt": 1792827025437,
-  "genre": "Drame"
+  "genre": "Drame",
+  "director": "Takashi Miike",
+  "duration": "2h09",
+  "cast": [
+   "Gô Ayano",
+   "Kô Shibasaki",
+   "Kazuya Kamenashi"
+  ]
  },
  "25606": {
   "at": 1792750657056,
   "synopsisFull": "L'ascension fulgurante de Matt Hagen, de gamin des rues de Gotham à star hollywoodienne, est brutalement interrompue lorsqu'un baron du crime le laisse atrocement défiguré. Abandonné de tous et n'ayant plus rien à perdre, Matt se tourne vers un traitement expérimental qui lui rend miraculeusement son apparence… mais altère profondément sa perception de la réalité. Il sombre alors dans une spirale destructrice, consumé par un irrépressible désir de vengeance.",
   "jpAt": 1792827059458,
   "genre": "Comicbook",
-  "country": "Etats-Unis"
+  "country": "Etats-Unis",
+  "director": "James Watkins",
+  "cast": [
+   "Tom Rhys Harries",
+   "Naomi Ackie",
+   "Eddie Marsan"
+  ]
  },
  "25609": {
   "at": 1792750659261,
@@ -1025,7 +1183,8 @@
   "jpAt": 1792827061230,
   "genre": "Science Fiction",
   "country": "Etats-Unis",
-  "original": "Klara and the Sun"
+  "original": "Klara and the Sun",
+  "director": "Taika Waititi"
  },
  "25611": {
   "director": "Robert Guédiguian",
@@ -1052,7 +1211,14 @@
   "synopsisFull": "Dans la campagne du Nord-Est de la France. Les sangliers qui ravagent les cultures provoquent une guerre ouverte entre chasseurs et agriculteurs. Brun, céréalier en faillite, lutte pour maintenir sa ferme à flot. Quand un notable du coin le pousse à bout, il déraille et disparaît. Un an plus tard, Fulda, un gendarme corse muté dans la région pour raisons disciplinaires, mène l’enquête. Entre intuitions fulgurantes et ratés spectaculaires, ses méthodes approximatives le mènent sur la piste des Attilas, des sangliers aux dimensions hors normes. Mais sa récente rupture amoureuse et la vodka dans laquelle flotte son cerveau n’aident pas. Heureusement, il y a Stéphane, la nouvelle psy de la gendarmerie : elle est là pour mettre un peu d’ordre dans son chaos — à moins que ce ne soit l’inverse ?",
   "jpAt": 1792827048105,
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "director": "Sarah Arnold",
+  "duration": "1h35",
+  "cast": [
+   "Alexis Manenti",
+   "Ella Rumpf",
+   "Vincent Dedienne"
+  ]
  },
  "25615": {
   "at": 1792750675648,
@@ -1095,6 +1261,7 @@
   "synopsis": "Sanguine est un film franco-belge réalisé par Marion Le Corroller et sorti en 2026.",
   "at": 1792823056399,
   "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…",
-  "jpAt": 1792827064011
+  "jpAt": 1792827064011,
+  "director": "Marion Le Corroller"
  }
 }

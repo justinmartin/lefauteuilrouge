@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const { wikidata, about, get } = require('../lib/ratings');
 const { filmPage } = require('../lib/jpbox');
+const { showingNotes } = require('../lib/seances');
 
 const APP_URL = process.env.APP_URL || 'https://lefauteuilrouge.vercel.app';
 const FILE = path.join(__dirname, '..', 'data', 'enrich.json');
@@ -98,6 +99,23 @@ async function main() {
     }
     await sleep(800);
   }
+  // Films à l'affiche à Paris : réalisation, durée et casting d'après paris-cine.info (une seule requête)
+  const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\(\d{4}\)/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  const showing = await showingNotes().catch(() => []);
+  let pc = 0;
+  for (const f of cat.films) {
+    const e = out[f.id] || {};
+    if ((f.director || e.director) && (f.duration || e.duration) && (f.cast?.length || e.cast?.length)) continue;
+    const want = [norm(f.title), norm(f.original)].filter(Boolean);
+    const m = showing.find(x => [norm(x.ti), norm(x.o_ti)].some(t => t && want.includes(t)));
+    if (!m) continue;
+    const add = {};
+    if (!f.director && !e.director && m.di) add.director = m.di;
+    if (!f.duration && !e.duration && /\dh/.test(m.du || '')) add.duration = m.du;
+    if (!f.cast?.length && !e.cast?.length && m.ac) add.cast = m.ac.split(',').map(x => x.trim()).filter(Boolean).slice(0, 4);
+    if (Object.keys(add).length) { out[f.id] = { ...(out[f.id] || { at: Date.now() }), ...add }; pc++; }
+  }
+  console.log(`${pc} fiches complétées par paris-cine.info`);
   fs.writeFileSync(FILE, JSON.stringify(out, null, 1) + '\n');
   console.log(`data/enrich.json : ${Object.keys(out).length} fiches`);
 }
