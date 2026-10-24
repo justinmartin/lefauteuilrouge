@@ -63,7 +63,7 @@ Si la newsletter échoue, une alerte part aussi à `EMAIL_USER`.
 | Sorties France, salles, box-office France / US / monde | JP's Box-Office (pages publiques) | `lib/jpbox.js` |
 | Notes IMDb, Rotten Tomatoes, Letterboxd, bande-annonce | Wikidata (identifiants), jeu de données IMDb, pages RT et Letterboxd | `lib/ratings.js` |
 | Notes de secours et notes Allociné (presse, spectateurs) | paris-cine.info, pour les films à l'affiche à Paris, quand Wikidata ne connaît pas encore le film | `lib/seances.js` (`notesFor`) |
-| Résumé complet | Fiche du film sur JP's Box-Office (celui des listes est coupé) | `scripts/enrich.js` → `synopsisFull` |
+| Résumé complet, réalisation, titre original, pays, genre | Fiche du film sur JP's Box-Office (connus même avant la sortie ; le résumé des listes est coupé), revue chaque semaine | `scripts/enrich.js` (`filmPage`) |
 | « En bref » | Wikipédia (fr, sinon en) | `lib/ratings.js` |
 | Séances, cinémas, cartes acceptées, liens de réservation | paris-cine.info (cache 6 h, 3 requêtes à la fois au plus, crédité dans l'app) | `lib/seances.js` |
 | Sorties streaming | Listes Wikipédia (Prime Video, Apple TV, Disney+) et Wikidata (Netflix) | `lib/streaming.js` |

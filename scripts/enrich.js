@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 const { wikidata, about, get } = require('../lib/ratings');
-const { fullSynopsis } = require('../lib/jpbox');
+const { filmPage } = require('../lib/jpbox');
 
 const APP_URL = process.env.APP_URL || 'https://lefauteuilrouge.vercel.app';
 const FILE = path.join(__dirname, '..', 'data', 'enrich.json');
@@ -82,12 +82,20 @@ async function main() {
     } catch (err) { console.log(`✗ ${f.title} : ${err.message}`); }
     await sleep(1500); // Wikidata et Wikipédia limitent le nombre de requêtes : on y va doucement
   }
-  // Résumés : celui des listes de JP's Box-Office est coupé (« … ») ; la fiche du film a le résumé complet
-  const cut = cat.films.filter(f => (!f.synopsis || /…$/.test(f.synopsis)) && !out[f.id]?.synopsisFull);
-  console.log(`${cut.length} résumés à compléter sur JP's Box-Office`);
-  for (const f of cut) {
-    const full = await fullSynopsis(f.id).catch(() => null);
-    if (full) { out[f.id] = { ...(out[f.id] || { at: Date.now() }), synopsisFull: full }; console.log(`✓ résumé : ${f.title}`); }
+  // Fiche du film sur JP's Box-Office : résumé complet (celui des listes est coupé), réalisation, titre original,
+  // pays et genre, connus même avant la sortie. Revue au plus une fois par semaine.
+  const jpTodo = cat.films.filter(f => (ALL || !out[f.id]?.jpAt || Date.now() - out[f.id].jpAt > WEEK)
+    && (!f.synopsis || /…$/.test(f.synopsis) || !f.director || !f.genre || !f.country || !f.original));
+  console.log(`${jpTodo.length} fiches à compléter sur JP's Box-Office`);
+  for (const f of jpTodo) {
+    const p = await filmPage(f.id).catch(() => null);
+    if (p) {
+      const e = { ...(out[f.id] || { at: Date.now() }), jpAt: Date.now() };
+      if (p.synopsis) e.synopsisFull = p.synopsis;
+      ['director', 'genre', 'country', 'original'].forEach(k => { if (p[k] && !e[k]) e[k] = p[k]; });
+      out[f.id] = e;
+      console.log(`✓ JP : ${f.title}`);
+    }
     await sleep(800);
   }
   fs.writeFileSync(FILE, JSON.stringify(out, null, 1) + '\n');
