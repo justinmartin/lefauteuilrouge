@@ -490,6 +490,10 @@
   "at": 1792750670319,
   "synopsisFull": "Stan, trentenaire d’origine modeste, rencontre pour la première fois la famille de sa petite amie Cléo. Il découvre alors la tradition familiale : à chaque anniversaire de France, l’impressionnante maîtresse de maison, on lance une partie de Trivial Pursuit ©. Il sait qu’il n’a aucune chance face à ces amoureux de la culture, mais il n’a pas le choix : toute la famille doit participer, sans exception. Qu’est-ce qui pourrait mal tourner ? Après tout ce n’est qu’un jeu de société…"
  },
+ "25554": {
+  "at": 1792823164710,
+  "synopsisFull": "Dans le Paris d'aujourd'hui, Anastasia, jeune danseuse, intègre le prestigieux Opéra de Paris. Alors qu’elle répète l'Orpheus, un opéra maudit qui aurait été composé par le Fantôme de l'Opéra, elle tombe amoureuse d'un mystérieux pianiste. A l’approche de la première représentation, entre accidents inexpliqués et révélations troublantes, Anastasia se trouve plongée dans une histoire d'amour impossible, à la frontière du réel et du fantastique."
+ },
  "25555": {
   "genre": "Drame",
   "duration": "1h52",
@@ -783,5 +787,22 @@
   "synopsis": "Possible Love est un film américano-sud-coréen réalisé par Lee Chang-dong et sorti en 2026.",
   "at": 1792739702990,
   "synopsisFull": "Les vies entremêlées de deux couples mariés menant des existences complètement opposées. À mesure que leurs mondes se heurtent, des fissures commencent à apparaître dans leur quotidien."
+ },
+ "25629": {
+  "at": 1792823166969,
+  "synopsisFull": "Le héros de guerre, Ryan « Fang » Flanagan, est accusé d'un crime qu'il n'a pas commis. N'ayant plus rien à perdre, il entraîne la police dans une course-poursuite à travers le pays, retransmise en direct à la télévision."
+ },
+ "25630": {
+  "genre": "Ou téléfilm d'horreur",
+  "cast": [
+   "Mara Taquin",
+   "Karin Viard",
+   "Kim Higelin",
+   "Sami Outalbali"
+  ],
+  "country": "France, Belgique",
+  "synopsis": "Sanguine est un film franco-belge réalisé par Marion Le Corroller et sorti en 2026.",
+  "at": 1792823056399,
+  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…"
  }
 }
