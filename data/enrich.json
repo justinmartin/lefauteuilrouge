@@ -1278,5 +1278,102 @@
   "genre": "Animation",
   "country": "Etats-Unis",
   "original": "Wildwood"
+ },
+ "25632": {
+  "at": 1792997711325,
+  "jpAt": 1792997711325,
+  "synopsisFull": "Mochy est un jeune chien au grand cœur… mais il n’a pas un physique facile… Ça ne l’empêche pas d’avoir un rêve : participer au concours du plus beau chien. Défiant tous les obstacles, il va tout faire pour réaliser ce projet fou avec le secret espoir d’y trouver l’humain qui l’aimera pour la vie.",
+  "genre": "Animation",
+  "country": "Belgique",
+  "original": "Yugly",
+  "director": "Jérémie Degruson,Yanis Belaid",
+  "duration": "1h25"
+ },
+ "25633": {
+  "at": 1792997712353,
+  "jpAt": 1792997712353,
+  "synopsisFull": "Dans une ferme au cœur de la Beauce, Christophe, 11 ans, règle ses pas sur ceux de son père. Mais à l’école, à la maison, sur le tracteur, Christophe penche... et tombe. Il est obligé de porter un corset pour filer droit. Tandis que la ferme traverse des moments difficiles, Christophe grandit comme il peut. Il découvre la musique et fait la rencontre de Clara, avec qui tout semble devenir possible.",
+  "genre": "Animation",
+  "country": "France",
+  "director": "Louis Clichy",
+  "duration": "1h31"
+ },
+ "25634": {
+  "at": 1792997710299,
+  "jpAt": 1792997710299,
+  "synopsisFull": "Plongez dans un univers où la différence devient poésie à travers six récits touchants. De Rémi, le souriceau vivant la tête en bas, à Sacha et son parcours inclusif à l’école, de Lina qui s'envole avec un pull, à Lily qui fait éternuer la lune... Ce programme explore avec tendresse les perceptions singulières de l’enfance. Entre tricot de nuages, cités sous-marines et métamorphoses fantastiques du quotidien, ces films nous invitent à voir le monde avec les yeux de ceux et celles qui rêvent et vivent à un rythme différent, parfois juste « en décalé ».",
+  "genre": "Animation",
+  "country": "France",
+  "director": "Arnaud Demuynck,Noé Garcia"
+ },
+ "25635": {
+  "at": 1792997708219,
+  "jpAt": 1792997708219,
+  "synopsisFull": "En France, rire des puissants est devenu un sport à risque. En trente ans, les humoristes les plus libres de la télévision et de la radio ont été méthodiquement neutralisés, marginalisés, censurés, voire virés. Dans l'audiovisuel public comme dans les médias privés, le même mécanisme se répète : on tolère la satire tant qu'elle ne mord pas. Dès qu'elle touche au pouvoir, on coupe le micro. Des plateaux de Canal+ aux studios de France Inter en passant par les couloirs de France Télévisions, du règne de Nicolas Sarkozy à celui d'Emmanuel Macron, ce documentaire retrace la mécanique d'une mise au silence qui en dit long sur l'état réel de la liberté d'expression dans l'audiovisuel français.",
+  "genre": "Documentaire",
+  "country": "France",
+  "director": "Matéo Larroque,Clara Menais",
+  "duration": "1h37",
+  "cast": [
+   "Guillaume Meurice",
+   "Lionel Dutemple",
+   "Sandrine Alexi"
+  ]
+ },
+ "25636": {
+  "at": 1792997709257,
+  "jpAt": 1792997709257,
+  "synopsisFull": "Betty Delorge et Harry Fortepaille, deux épouvantails très amoureux, rêvent d’un mariage inoubliable. Tout semble prêt pour le grand jour… jusqu’à ce que Harry parte chercher une dernière chose indispensable à la célébration : des fleurs roses. Pendant son absence, Réginald Dufoin, un épouvantail malin et un peu trop sûr de lui, arrive avec des idées qui pourraient bien gâcher la fête.",
+  "genre": "Animation",
+  "country": "Grande-Bretagne",
+  "original": "The Scarecrows’ Wedding",
+  "director": "Samantha Cutler,Jeroen Jaspaert"
+ },
+ "25637": {
+  "at": 1792997707180,
+  "jpAt": 1792997707180,
+  "synopsisFull": "Il était une fois une petite oie à la recherche d’une chaussette verte, un ourson qui avait trouvé un bonnet, un étrange chien au pelage bleu, deux voisins lapins fâchés… et une lérote qui rêvait de neige plutôt que d’hiberner.\nOuvrez la malle aux trésors de l’école des loisirs et découvrez Chien Bleu et quatre autres histoires comme vous ne les avez encore jamais vues ni entendues !",
+  "genre": "Animation",
+  "country": "France",
+  "director": "Dominique Pochat,Jean-Christophe Ribot"
+ },
+ "25638": {
+  "at": 1792997715666,
+  "jpAt": 1792997715666,
+  "synopsisFull": "Un récit historique dramatisé sur l’ascension et la chute d’Urbain Grandier, un prêtre catholique romain du XVIIe siècle accusé de sorcellerie à la suite des prétendues possessions de Loudun, en France. LES DIABLES met également en lumière sœur Jeanne des Anges, une religieuse sexuellement réprimée qui, sans le vouloir, déclenche les accusations.",
+  "genre": "Drame",
+  "country": "Grande-Bretagne",
+  "original": "The Devils (Rep. 2026)"
+ },
+ "25639": {
+  "at": 1792997682939,
+  "jpAt": 1792997713487,
+  "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille.",
+  "genre": "Aventure - Action",
+  "country": "Inde",
+  "director": "Nelson Dilipkumar",
+  "duration": "2h46",
+  "cast": [
+   "Rajinikanth",
+   "Vinayakan",
+   "Ramya Krishnan"
+  ]
+ },
+ "25641": {
+  "genre": "Ou téléfilm d'amour",
+  "duration": "1h45",
+  "minutes": 105,
+  "director": "Eleanor Wilson, Alex Huston Fischer",
+  "cast": [
+   "Alexander Skarsgård",
+   "Peter Dinklage",
+   "Elizabeth Debicki",
+   "Olivia Colman"
+  ],
+  "country": "États-Unis",
+  "synopsis": "Wicker est un drame romantique multinational réalisé par Alex Huston Fischer et Eleanor Wilson et sorti en 2026.",
+  "at": 1792997703166,
+  "jpAt": 1792997714623,
+  "synopsisFull": "Mise au ban de son village, une pêcheuse solitaire commande au vannier local un mari en osier. Cet époux improbable se révèle doté d’une sensibilité et de talents qui dépassent toutes ses attentes. À son contact, elle découvre un désir insoupçonné et, peu à peu, s’éprend véritablement de lui. Mais bientôt, son étrange mari attise les convoitises, la jalousie et les fantasmes des villageois, faisant vaciller les certitudes d’une communauté jusque-là bien ordonnée."
  }
 }
