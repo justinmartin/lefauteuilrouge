@@ -109,7 +109,8 @@
   "synopsis": "Wild Horse Nine est un film américano-britanniquo-chilien réalisé par Martin McDonagh et sorti en 2026. Il met en scène John Malkovich, Sam Rockwell, Steve Buscemi, Parker Posey et Tom Waits.",
   "at": 1792739683412,
   "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…",
-  "jpAt": 1792827064918
+  "jpAt": 1792827064918,
+  "duration": "1h58"
  },
  "25291": {
   "genre": "Comédie",
@@ -1375,5 +1376,19 @@
   "at": 1792997703166,
   "jpAt": 1792997714623,
   "synopsisFull": "Mise au ban de son village, une pêcheuse solitaire commande au vannier local un mari en osier. Cet époux improbable se révèle doté d’une sensibilité et de talents qui dépassent toutes ses attentes. À son contact, elle découvre un désir insoupçonné et, peu à peu, s’éprend véritablement de lui. Mais bientôt, son étrange mari attise les convoitises, la jalousie et les fantasmes des villageois, faisant vaciller les certitudes d’une communauté jusque-là bien ordonnée."
+ },
+ "25642": {
+  "genre": "Drame",
+  "duration": "2h25",
+  "minutes": 145,
+  "director": "Marine Atlan",
+  "cast": [
+   "Antonia Buresi"
+  ],
+  "country": "France, Italie",
+  "synopsis": "La Gradiva est un film franco-italien réalisé par Marine Atlan et sorti en 2026.",
+  "at": 1793083642114,
+  "jpAt": 1793083644183,
+  "synopsisFull": "Un groupe de lycéens français part en voyage scolaire à Naples pour découvrir les ruines de Pompéi et ses corps pétrifiés par le Vésuve. C’est là que le vertige les saisit brutalement. L’un après l’autre, ils se laissent submerger par le désir et la colère jusqu’à s’y abandonner complètement."
  }
 }
