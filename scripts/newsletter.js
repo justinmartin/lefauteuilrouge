@@ -173,7 +173,7 @@ function render(cat, wed, picks = [], notes = {}, une = null) {
   }
   body += recoSection(picks);
 
-  const subject = `🍿 Le Fauteuil Rouge — les sorties du ${day(wed)}`;
+  const subject = `Le Fauteuil Rouge — les sorties du ${day(wed)}`;
   const html = `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Le Fauteuil Rouge</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"></head>
 <body style="margin:0;background:#e9e4d9">

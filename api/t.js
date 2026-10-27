@@ -38,7 +38,7 @@ module.exports = (req, res) => {
   const g = x => x.replace(/[-:]/g, '') + '00';
   const end = k.end || k.start;
   const ics = `/api/ics?${q({ t: title, s: k.start, e: end, l: k.cinema, u: k.book })}`;
-  const gcal = `https://calendar.google.com/calendar/render?${q({ action: 'TEMPLATE', text: `🍿 ${title}`, dates: `${g(k.start)}/${g(end)}`, ctz: 'Europe/Paris', location: k.cinema, details: [k.version, k.book].filter(Boolean).join('\n') })}`;
+  const gcal = `https://calendar.google.com/calendar/render?${q({ action: 'TEMPLATE', text: title, dates: `${g(k.start)}/${g(end)}`, ctz: 'Europe/Paris', location: k.cinema, details: [k.version, k.book].filter(Boolean).join('\n') })}`;
   const desc = `${k.cinema}${k.version ? ` · ${k.version}` : ''} · Le Fauteuil Rouge`;
   res.status(200).send(`<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">

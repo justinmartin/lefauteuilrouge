@@ -17,7 +17,7 @@ async function feed(res) {
   big.forEach(f => {
     const next = new Date(`${f.date}T12:00:00Z`); next.setUTCDate(next.getUTCDate() + 1);
     lines.push('BEGIN:VEVENT', `UID:lfr-${f.id}@lefauteuilrouge`, `DTSTAMP:${stamp}`, `DTSTART;VALUE=DATE:${f.date.replace(/-/g, '')}`,
-      `DTEND;VALUE=DATE:${next.toISOString().slice(0, 10).replace(/-/g, '')}`, `SUMMARY:${esc('🍿 ' + f.title.replace(/\s*\(\d{4}\)$/, ''))}`,
+      `DTEND;VALUE=DATE:${next.toISOString().slice(0, 10).replace(/-/g, '')}`, `SUMMARY:${esc(f.title.replace(/\s*\(\d{4}\)$/, ''))}`,
       `DESCRIPTION:${esc([f.genre, f.duration, f.screens ? f.screens + ' salles' : ''].filter(Boolean).join(' · '))}`, 'END:VEVENT');
   });
   lines.push('END:VCALENDAR');
@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
       'END:VTIMEZONE', 'BEGIN:VEVENT',
       `UID:lfr-seance-${local(start)}-${title.replace(/[^\w]/g, '').slice(0, 30)}@lefauteuilrouge`, `DTSTAMP:${stamp}`,
       `DTSTART;TZID=Europe/Paris:${local(start)}`, `DTEND;TZID=Europe/Paris:${local(end)}`,
-      `SUMMARY:${esc2('🍿 ' + title)}`, loc ? `LOCATION:${esc2(loc)}` : null, url ? `URL:${url}` : null,
+      `SUMMARY:${esc2(title)}`, loc ? `LOCATION:${esc2(loc)}` : null, url ? `URL:${url}` : null,
       `DESCRIPTION:${esc2([loc, url].filter(Boolean).join('\n'))}`,
       'BEGIN:VALARM', 'TRIGGER:-PT1H', 'ACTION:DISPLAY', `DESCRIPTION:${esc2(title)}`, 'END:VALARM',
       'END:VEVENT', 'END:VCALENDAR'].filter(Boolean).join('\r\n');
@@ -61,7 +61,7 @@ module.exports = async (req, res) => {
   const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Le Fauteuil Rouge//FR', 'METHOD:PUBLISH', 'BEGIN:VEVENT',
     `UID:lfr-${d}-${title.replace(/[^\w]/g, '').slice(0, 40)}@lefauteuilrouge`, `DTSTAMP:${stamp}`,
     `DTSTART;VALUE=DATE:${d}`, `DTEND;VALUE=DATE:${next.toISOString().slice(0, 10).replace(/-/g, '')}`,
-    `SUMMARY:${esc('🎬 Sortie : ' + title)}`, 'DESCRIPTION:Le Fauteuil Rouge — https://lefauteuilrouge.vercel.app',
+    `SUMMARY:${esc('Sortie : ' + title)}`, 'DESCRIPTION:Le Fauteuil Rouge — https://lefauteuilrouge.vercel.app',
     'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
   res.setHeader('Content-Type', 'text/calendar; charset=utf-8');
   res.setHeader('Content-Disposition', 'inline; filename="sortie.ics"');

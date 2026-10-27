@@ -143,6 +143,8 @@ function eventCards(list) {
 // ---------------------------------------------------------------- composants
 const poster = (f, cls = 'poster') => f.poster ? `<img class="${cls}" src="${esc(f.poster)}" alt="" loading="lazy">` : `<div class="${cls} ph">${esc((cleanTitle(f.title) || '?')[0])}</div>`;
 const CAL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>';
+const star = on => `<svg class="star-ic" viewBox="0 0 24 24" fill="${on ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>`;
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
 const TICKET_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2.5a2.5 2.5 0 0 0 0 5V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4.5a2.5 2.5 0 0 0 0-5z"/></svg>';
 const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
 const SLIDERS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>';
@@ -162,8 +164,8 @@ function hero(f, label) {
   return `<article class="hero">
     <button type="button" data-film="${esc(f.id)}" aria-label="${esc(f.title)}">${poster(f)}</button>
     <div class="hero-body">
-      <span class="eyebrow">${esc(label)}</span>
       <h2>${esc(cleanTitle(f.title))}</h2>
+      <span class="hero-label">${esc(label)}</span>
       <span class="meta">${esc(meta(f))}</span>
       <span class="score-tag" data-score="${esc(f.id)}"></span>
       <span class="brief" data-brief="${esc(f.id)}"></span>
@@ -181,7 +183,7 @@ function ticket(f, list) {
     ${poster(f)}
     <div class="t-body"><div class="t-title">${esc(cleanTitle(f.title))}</div><div class="t-meta">${esc([f.genre, f.duration, f.director ? `Réal. ${f.director}` : f.cast?.[0]].filter(Boolean).join(' · '))}</div><span class="score-tag" data-score="${esc(f.id)}"></span></div>
     <div class="stub${big ? ' big' : ''}">${f.screens ? `${fmt(f.screens)}<br>salles` : big ? 'Grosse<br>sortie' : '—'}</div>
-    ${myList[f.id] ? '<span class="star" aria-label="Dans ma liste">★</span>' : ''}
+    ${myList[f.id] ? `<span class="star" aria-label="Dans ma liste">${star(true)}</span>` : ''}
   </button>`;
 }
 
@@ -531,14 +533,14 @@ function openSeance(i) {
   const start = st.start.slice(0, 16);
   const endD = new Date(`${start}:00`); endD.setMinutes(endD.getMinutes() + (film.minutes || 120) + 20);
   const end = isoMin(endD);
-  const title = `🍿 ${film.title}`;
+  const title = film.title;
   const details = [`${st.cinema} · ${st.version}`, st.book].filter(Boolean).join('\n');
   const q = o => new URLSearchParams(o).toString();
   const g = x => x.replace(/[-:]/g, '') + '00';
   const going = tickets.some(k => k.id === ticketId(film, st));
   $('#cal-title').textContent = film.title;
   $('#cal-sub').textContent = `${st.cinema} · ${cap(dayLabel(start.slice(0, 10)))} à ${hm(st.start)} · ${st.version} · sortie vers ${hm(end)}`;
-  $('#cal-options').innerHTML = `<button class="as-option go${going ? ' done' : ''}" type="button" data-going>${going ? '✓ Ticket créé · voir Mes films' : 'J’y vais · créer mon ticket'}</button>` + [
+  $('#cal-options').innerHTML = `<button class="as-option go${going ? ' done' : ''}" type="button" data-going>${going ? 'Ticket créé · voir Mes films' : 'J’y vais · créer mon ticket'}</button>` + [
     st.book ? [`Réserver chez ${st.cinema}`, st.book] : null,
     ['Ajouter à Calendrier Apple', `/api/ics?${q({ t: film.title, s: start, e: end, l: st.cinema, u: st.book || '' })}`],
     ['Ajouter à Google Agenda', `https://calendar.google.com/calendar/render?${q({ action: 'TEMPLATE', text: title, dates: `${g(start)}/${g(end)}`, ctz: 'Europe/Paris', location: st.cinema, details })}`],
@@ -611,7 +613,7 @@ async function loadReprises() {
   if (fresh.length) {
     fresh.forEach(([id]) => { seen[id] = Date.now(); });
     write(KEYS.notified, seen);
-    toast(`🎬 Ça ressort : ${fresh.map(([, v]) => cleanTitle(v.title)).join(', ')}`);
+    toast(`Ça ressort : ${fresh.map(([, v]) => cleanTitle(v.title)).join(', ')}`);
   }
   render();
 }
@@ -808,11 +810,11 @@ function renderPick() {
     <p class="page-sub">${myCines.length} cinéma${myCines.length > 1 ? 's' : ''} choisi${myCines.length > 1 ? 's' : ''} · ${MAX_CINES} au plus${myCines.length ? ' · <button class="link-btn" type="button" data-pclear>tout retirer</button>' : ''}</p>
     ${[...groups].map(([g, cs], gi) => { const all = cs.every(c => myCines.includes(c.id)); return `<div class="cine-group"><span>${esc(g)}</span><button class="group-btn${all ? ' on' : ''}" type="button" data-pgroup="${gi}">${all ? 'Tout retirer' : 'Tout sélectionner'}</button></div>`; } )
       .map((h, gi) => h + [...groups][gi][1].map(c => `<button class="cine-row${myCines.includes(c.id) ? ' on' : ''}" type="button" data-cine="${c.id}">
-      <span class="box">${myCines.includes(c.id) ? '✓' : ''}</span><b>${esc(c.name)}</b><small>${[c.cards.includes('pass') && 'Carte Pathé', c.cards.includes('ugc') && 'UGC Illimité', c.cards.includes('mk2') && 'MK2'].filter(Boolean).join(' · ')}</small></button>`).join('')).join('')}</div>`;
+      <span class="box">${myCines.includes(c.id) ? CHECK : ''}</span><b>${esc(c.name)}</b><small>${[c.cards.includes('pass') && 'Carte Pathé', c.cards.includes('ugc') && 'UGC Illimité', c.cards.includes('mk2') && 'MK2'].filter(Boolean).join(' · ')}</small></button>`).join('')).join('')}</div>`;
 }
 
 // ================================================================ recherche
-const starBtn = f => `<button class="star-btn${myList[f.id] ? ' on' : ''}" type="button" data-mylist="${esc(f.id)}" aria-label="${myList[f.id] ? 'Retirer de ma liste' : 'Ajouter à ma liste'} : ${esc(cleanTitle(f.title))}">${myList[f.id] ? '★' : '☆'}</button>`;
+const starBtn = f => `<button class="star-btn${myList[f.id] ? ' on' : ''}" type="button" data-mylist="${esc(f.id)}" aria-label="${myList[f.id] ? 'Retirer de ma liste' : 'Ajouter à ma liste'} : ${esc(cleanTitle(f.title))}">${star(!!myList[f.id])}</button>`;
 function searchRow(f) {
   const t = today();
   const days = f.date && f.date > t ? daysBetween(t, f.date) : null;
@@ -935,7 +937,7 @@ function openFilm(id) {
     <div class="film-main">
       <div id="scores"><div class="rating">${skeleton(1)}</div></div>
       <div class="actions">
-        <button class="btn accent${inList ? ' on' : ''}" type="button" data-mylist="${esc(f.id)}">${inList ? '★ Dans ma liste' : f.old ? '☆ Guetter sa ressortie' : '☆ À voir plus tard'}</button>
+        <button class="btn accent${inList ? ' on' : ''}" type="button" data-mylist="${esc(f.id)}">${star(inList)}${inList ? 'Dans ma liste' : f.old ? 'Guetter sa ressortie' : 'À voir plus tard'}</button>
         <a class="btn" id="trailer-btn" href="${trailerUrl(f)}" target="_blank" rel="noopener">${PLAY_ICON}Bande-annonce</a>
       </div>
       <div id="brief"></div>
@@ -1002,7 +1004,7 @@ function toggleMyList(id) {
   const b = document.querySelector(`[data-mylist="${CSS.escape(id)}"]`);
   if (b) {
     b.classList.toggle('on', !!myList[id]);
-    b.textContent = b.classList.contains('star-btn') ? (myList[id] ? '★' : '☆') : myList[id] ? '★ Dans ma liste' : '☆ À voir plus tard';
+    b.innerHTML = b.classList.contains('star-btn') ? star(!!myList[id]) : star(!!myList[id]) + (myList[id] ? 'Dans ma liste' : 'À voir plus tard');
     b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
     if (navigator.vibrate && navigator.userActivation?.hasBeenActive) navigator.vibrate(12);
   }
@@ -1013,7 +1015,7 @@ function openCalSheet(id) {
   const f = findFilm(id);
   if (!f?.date) return;
   const d = f.date.replace(/-/g, ''), next = addDays(f.date, 1).replace(/-/g, '');
-  const title = `🍿 Sortie : ${cleanTitle(f.title)}`;
+  const title = `Sortie : ${cleanTitle(f.title)}`;
   const details = `${[f.genre, f.duration].filter(Boolean).join(' · ')}\n${location.origin}`;
   const q = o => new URLSearchParams(o).toString();
   $('#cal-title').textContent = cleanTitle(f.title);
