@@ -600,3 +600,4 @@ button.as-option { width: 100%; text-align: left; }
 ::selection { background: var(--red); color: #fff; }
 input, textarea { caret-color: var(--red); }
 :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; border-radius: 4px; }
+.kicker::first-letter, .section-title::first-letter { text-transform: uppercase; }
