@@ -236,7 +236,8 @@
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
   "at": 1792736287974,
   "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police.",
-  "jpAt": 1792827057495
+  "jpAt": 1792827057495,
+  "duration": "2h20"
  },
  "25378": {
   "genre": "Ou téléfilm criminel",
@@ -703,7 +704,8 @@
   "genre": "Animation",
   "country": "Etats-Unis",
   "original": "Forgotten Island",
-  "director": "Joel Crawford,Januel P. Mercado"
+  "director": "Joel Crawford,Januel P. Mercado",
+  "duration": "1h48"
  },
  "25548": {
   "at": 1792750672443,
@@ -764,7 +766,12 @@
   "genre": "Comédie",
   "country": "France",
   "director": "Eric Judor",
-  "duration": "1h28"
+  "duration": "1h28",
+  "cast": [
+   "Eric Judor",
+   "Alexandra Lamy",
+   "Hafid F. Benamar"
+  ]
  },
  "25553": {
   "at": 1792750670319,
@@ -1183,7 +1190,8 @@
    "Tom Rhys Harries",
    "Naomi Ackie",
    "Eddie Marsan"
-  ]
+  ],
+  "duration": "1h49"
  },
  "25609": {
   "at": 1792750659261,
@@ -1192,7 +1200,13 @@
   "genre": "Science Fiction",
   "country": "Etats-Unis",
   "original": "Klara and the Sun",
-  "director": "Taika Waititi"
+  "director": "Taika Waititi",
+  "duration": "1h56",
+  "cast": [
+   "Jenna Ortega",
+   "Mia Tharia",
+   "Amy Adams"
+  ]
  },
  "25611": {
   "director": "Robert Guédiguian",
@@ -1201,7 +1215,12 @@
   "at": 1792736362634,
   "synopsisFull": "Juliette, 30 ans, semble avoir tout pour elle : un poste prestigieux dans la finance, une belle maison, une vie rythmée par les voyages et les amours de passage. Lorsqu’elle est agressée par un collègue, son monde s’effondre. Juliette s'engage alors sur un nouveau chemin pour redonner un sens à sa vie.",
   "jpAt": 1792827060344,
-  "genre": "Comédie dramatique"
+  "genre": "Comédie dramatique",
+  "cast": [
+   "Marilou Aussilloux",
+   "Ariane Ascaride",
+   "Jean-Pierre Darroussin"
+  ]
  },
  "25612": {
   "genre": "Documentaire",
