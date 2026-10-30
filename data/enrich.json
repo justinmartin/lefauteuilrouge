@@ -24,8 +24,7 @@
   "country": "États-Unis",
   "original": "The Hunger Games: Sunrise on the Reaping",
   "synopsis": "Hunger Games : Lever de soleil sur la moisson est un film d'action américain réalisé par Francis Lawrence et dont la sortie est prévue en 2026. Le scénario, écrit par Billy Ray, est de l'adaptation cinématographique du roman du même nom de Suzanne Collins, publié en 2025.",
-  "at": 1792739835505,
-  "synopsisFull": "Alors que le jour se lève sur les 50e Hunger Games annuels, la peur s'empare des districts de Panem. Cette année, en l'honneur du Quarter Quell, deux fois plus de tributs seront tirés au sort. Dans le District 12, Haymitch Abernathy essaie de ne pas trop penser à ses chances. Tout ce qui lui importe est d'être avec la fille qu'il aime. Mais lorsque qu'il est appelé, tous ses rêves s'effondrent. Il est arraché à sa famille et à son amour, transporté au Capitole avec les trois autres tributs du District 12 : une jeune amie qui est presque une sœur pour lui, un parieur compulsif, et la fille la plus prétentieuse de la ville. Alors que les Jeux commencent, Haymitch comprend qu'il a été piégé pour échouer. Mais il est prêt à se battre... et faire en sorte que ce combat résonne bien au-delà de l'arène."
+  "at": 1793346842989
  },
  "24982": {
   "at": 1792827094281,
@@ -68,24 +67,18 @@
   ],
   "country": "États-Unis, Royaume-Uni",
   "synopsis": "Digger est une comédie noire américano-britannico-mexicaine coécrite et réalisée par Alejandro González Iñárritu, sortie en 2026.",
-  "at": 1792734844675,
-  "jpAt": 1792827035885,
+  "at": 1793346369592,
+  "jpAt": 1793347039961,
   "synopsisFull": "L'homme le plus puissant du monde se lance dans une mission effrénée pour prouver qu'il est le sauveur de l'humanité avant que le désastre qu'il a déclenché ne détruise tout."
  },
  "25178": {
-  "synopsis": "Fausse Note est un film franco-belge réalisé par Alexandre Arcady et sorti en 2026. Il met en scène Kad Merad, Benoît Poelvoorde et Caterina Murino. Le scénario est adapté du texte original de Didier Caron.",
-  "at": 1792736187152,
-  "jpAt": 1792827047213,
-  "synopsisFull": "Lors de son ultime concert à Paris, un chef d’orchestre de renom est confronté à un admirateur insistant. Sous ses apparences de « Monsieur tout le monde », le « Fan » s’infiltre dans l’Opéra, perturbe la soirée et force un face à face inattendu avec le chef d’orchestre. Surgit alors un passé commun enfoui, où la musique devient le révélateur d’une vérité bouleversante. Une nuit de tension et de vérité où la mémoire, la culpabilité et la justice s’affrontent en sourdine.",
   "director": "Alexandre Arcady",
+  "synopsis": "Fausse Note est un film franco-belge réalisé par Alexandre Arcady et sorti en 2026. Il met en scène Kad Merad, Benoît Poelvoorde et Caterina Murino. Le scénario est adapté du texte original de Didier Caron.",
+  "at": 1793346552330,
+  "jpAt": 1793347046775,
+  "synopsisFull": "Lors de son ultime concert à Paris, un chef d’orchestre de renom est confronté à un admirateur insistant. Sous ses apparences de « Monsieur tout le monde », le « Fan » s’infiltre dans l’Opéra, perturbe la soirée et force un face à face inattendu avec le chef d’orchestre. Surgit alors un passé commun enfoui, où la musique devient le révélateur d’une vérité bouleversante. Une nuit de tension et de vérité où la mémoire, la culpabilité et la justice s’affrontent en sourdine.",
   "genre": "Drame",
-  "country": "France",
-  "duration": "1h30",
-  "cast": [
-   "Kad Merad",
-   "Benoît Poelvoorde",
-   "Caterina Murino"
-  ]
+  "country": "France"
  },
  "25285": {
   "at": 1792750678846,
@@ -107,10 +100,9 @@
   ],
   "country": "États-Unis, Royaume-Uni",
   "synopsis": "Wild Horse Nine est un film américano-britanniquo-chilien réalisé par Martin McDonagh et sorti en 2026. Il met en scène John Malkovich, Sam Rockwell, Steve Buscemi, Parker Posey et Tom Waits.",
-  "at": 1792739683412,
-  "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…",
-  "jpAt": 1792827064918,
-  "duration": "1h58"
+  "at": 1793346664155,
+  "jpAt": 1793347051183,
+  "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…"
  },
  "25291": {
   "genre": "Comédie",
@@ -137,8 +129,8 @@
   ],
   "country": "France, Italie",
   "synopsis": "Changer l'eau des fleurs est un film franco-italien réalisé par Jean-Pierre Jeunet et dont la sortie est prévue en 2026. Il s'agit d'une adaptation du roman du même nom de Valérie Perrin.",
-  "at": 1792739903636,
-  "jpAt": 1792827078709,
+  "at": 1793346924760,
+  "jpAt": 1793347057667,
   "synopsisFull": "Violette, la quarantaine, est garde-cimetière dans une petite ville de Bourgogne. Son quotidien est rythmé par les confidences des personnes de passage ou habitués du lieu, qui viennent trouver un peu de réconfort dans sa loge. Un jour, elle reçoit la visite d'un policier, Julien Seul, venu déposer les cendres de sa mère sur la tombe de l'homme qu'elle aimait. Intrigué par l’histoire de Violette, dont le mari a disparu mystérieusement, peu de temps après leur arrivée au cimetière, il décide d’enquêter, faisant sans le vouloir remonter à la surface de douloureux souvenirs ainsi que des vérités salvatrices pour Violette."
  },
  "25301": {
@@ -173,10 +165,9 @@
   ],
   "country": "France, Belgique",
   "synopsis": "Ducobu et le Fantôme de Saint-Potache est une comédie française réalisée par Élie Semoun et sortie en 2026. Il s'agit du sixième film d'une saga inspirée de la série de bande dessinée belge L'Élève Ducobu de Godi et Zidrou.",
-  "at": 1792736109031,
-  "jpAt": 1792827043325,
-  "synopsisFull": "C’est Halloween, et Ducobu revient pour une aventure pleine de rires et de mystères ! Le professeur Latouche et Mademoiselle Rateau emménagent dans une maison… hantée par le ? fantôme d'Anatole, le plus grand cancre de l’histoire de l’école Saint-Potache. Ce fantôme farceur va entraîner Ducobu, Léonie, leurs parents et Kitrish dans une série de péripéties ? aussi drôles qu’inattendues. Mais attention : à Halloween, tout peut arriver…",
-  "duration": "1h30"
+  "at": 1793346491359,
+  "jpAt": 1793347044495,
+  "synopsisFull": "C’est Halloween, et Ducobu revient pour une aventure pleine de rires et de mystères ! Le professeur Latouche et Mademoiselle Rateau emménagent dans une maison… hantée par le ? fantôme d'Anatole, le plus grand cancre de l’histoire de l’école Saint-Potache. Ce fantôme farceur va entraîner Ducobu, Léonie, leurs parents et Kitrish dans une série de péripéties ? aussi drôles qu’inattendues. Mais attention : à Halloween, tout peut arriver…"
  },
  "25336": {
   "at": 1792827075029,
@@ -266,10 +257,9 @@
   ],
   "country": "Royaume-Uni, France",
   "synopsis": "Pressure est un film de guerre franco-britannique réalisé par Anthony Maras et sorti en 2026. Il s'agit d'une adaptation de la pièce de théâtre du même nom de David Haig, qui signe le scénario en collaboration avec le réalisateur.",
-  "at": 1792734663949,
-  "jpAt": 1792827015044,
-  "synopsisFull": "Dans les soixante-douze heures précédant le Jour J, le chef météorologue britannique James Stagg est appelé à fournir les prévisions les plus importantes de l'histoire afin que les Alliés puissent débarquer sur les plages normandes.",
-  "duration": "1h40"
+  "at": 1793346125653,
+  "jpAt": 1793347032036,
+  "synopsisFull": "Dans les soixante-douze heures précédant le Jour J, le chef météorologue britannique James Stagg est appelé à fournir les prévisions les plus importantes de l'histoire afin que les Alliés puissent débarquer sur les plages normandes."
  },
  "25387": {
   "genre": "Drame",
@@ -280,10 +270,9 @@
   ],
   "country": "France, Belgique",
   "synopsis": "Notre salut est un film dramatique franco-belge réalisé par Emmanuel Marre — arrière-petit-fils du protagoniste du film — et sorti en 2026. Le film est produit par Michigan Films (Belgique) et Kidam (France).",
-  "at": 1792734858078,
-  "jpAt": 1792827038724,
-  "synopsisFull": "Septembre 1940, le régime de Pétain se met en place. Henri Marre, 49 ans, débarque à Vichy sans le sou, sans contact, loin de sa femme et ses enfants. Il voit dans la nouvelle administration l’opportunité de trouver enfin la place qu’il mérite. Dans sa valise, son traité politique édité à compte d’auteur, Notre Salut, où il défend ses convictions patriotiques et ses méthodes d'ingénieur. Son credo : « gagner en efficacité » pour relever la France de la débâcle. Mais peut-être qu’Henri cherche avant tout à fuir sa propre débâcle…",
-  "duration": "2h39"
+  "at": 1793346427865,
+  "jpAt": 1793347041035,
+  "synopsisFull": "Septembre 1940, le régime de Pétain se met en place. Henri Marre, 49 ans, débarque à Vichy sans le sou, sans contact, loin de sa femme et ses enfants. Il voit dans la nouvelle administration l’opportunité de trouver enfin la place qu’il mérite. Dans sa valise, son traité politique édité à compte d’auteur, Notre Salut, où il défend ses convictions patriotiques et ses méthodes d'ingénieur. Son credo : « gagner en efficacité » pour relever la France de la débâcle. Mais peut-être qu’Henri cherche avant tout à fuir sa propre débâcle…"
  },
  "25390": {
   "at": 1792750650557,
@@ -337,8 +326,8 @@
   ],
   "country": "États-Unis",
   "synopsis": "Heart of the Beast ou Au Cœur de la Bête au Québec est un film américain réalisé par David Ayer sorti en 2026.",
-  "at": 1792734784065,
-  "jpAt": 1792827027441,
+  "at": 1793346306385,
+  "jpAt": 1793347036616,
   "synopsisFull": "Un ancien membre des forces spéciales de la marine de guerre des États-Unis, les SEAL, se perd avec son berger allemand de combat au milieu de l'Alaska. Marqué par un trouble de stress post-traumatique, il va devoir survivre avec l'aide de son chien et d’un guide local qui le prévient des dangers mortels de cette zone désertique."
  },
  "25431": {
@@ -384,10 +373,9 @@
   ],
   "country": "France",
   "synopsis": "Les Héros du Louvre est un film français réalisé par Élie Chouraqui et sorti en 2026.",
-  "at": 1792734644388,
-  "jpAt": 1792827014115,
-  "synopsisFull": "Paris 1939. Amoureux des arts, Babi Maklouf Benhamou exerce le plus beau métier du monde : il est gardien de nuit au musée du Louvre. Mais alors que la Seconde Guerre Mondiale éclate et que l’invasion allemande est imminente, Jacques Jaujard, le conservateur du musée, organise le sauvetage secret des œuvres d’art afin qu’elles ne tombent pas aux mains des nazis. Il confie alors à Babi l’un des camions chargés de transporter les chefs-d’œuvre hors de Paris. Babi accepte, à une condition : que toute sa famille l’accompagne… C’est le début d’une aventure familiale épique et dangereuse à travers la France occupée, qui va lier à jamais le destin des trésors du Louvre à celui de la famille de Babi Maklouf…",
-  "duration": "1h45"
+  "at": 1793346123193,
+  "jpAt": 1793347030831,
+  "synopsisFull": "Paris 1939. Amoureux des arts, Babi Maklouf Benhamou exerce le plus beau métier du monde : il est gardien de nuit au musée du Louvre. Mais alors que la Seconde Guerre Mondiale éclate et que l’invasion allemande est imminente, Jacques Jaujard, le conservateur du musée, organise le sauvetage secret des œuvres d’art afin qu’elles ne tombent pas aux mains des nazis. Il confie alors à Babi l’un des camions chargés de transporter les chefs-d’œuvre hors de Paris. Babi accepte, à une condition : que toute sa famille l’accompagne… C’est le début d’une aventure familiale épique et dangereuse à travers la France occupée, qui va lier à jamais le destin des trésors du Louvre à celui de la famille de Babi Maklouf…"
  },
  "25434": {
   "genre": "Policier dramatique",
@@ -399,8 +387,8 @@
   ],
   "country": "États-Unis",
   "synopsis": "Paper Tiger est un film américain réalisé par James Gray et sorti en 2026.",
-  "at": 1792739841878,
-  "jpAt": 1792827072268,
+  "at": 1793346845561,
+  "jpAt": 1793347055490,
   "synopsisFull": "Deux frères que tout oppose s’unissent pour une affaire douteuse liée à la mafia russe. Mais ce qui devait être une opportunité devient un cauchemar, mettant en péril leur famille, leur intégrité, et leur lien fraternel."
  },
  "25435": {
@@ -499,9 +487,9 @@
  "25482": {
   "original": "Ebenezer: A Christmas Carol",
   "synopsis": "Scrooge est un film américain réalisé par Ti West dont la sortie est prévue en 2026. Il s'agit d'une nouvelle adaptation du conte Un chant de Noël de Charles Dickens.",
-  "at": 1792739765117,
+  "at": 1793346778018,
+  "jpAt": 1793347052256,
   "synopsisFull": "Pour changer son futur, Scrooge va revivre son passé.",
-  "jpAt": 1792827068574,
   "genre": "Fantasy",
   "country": "Etats-Unis"
  },
@@ -569,7 +557,7 @@
   "country": "France",
   "original": "Dix pour cent : le Film",
   "synopsis": "Dix pour cent, le film est un film français réalisé par Émilie Noblet et sorti en 2026. Il est diffusé sur Netflix.",
-  "at": 1792734722398
+  "at": 1793346245885
  },
  "25489": {
   "genre": "Drame",
@@ -584,8 +572,8 @@
   ],
   "country": "France",
   "synopsis": "Histoires de la nuit est un film dramatique français écrit et réalisé par Léa Mysius et sorti en 2026.",
-  "at": 1792735988241,
-  "jpAt": 1792827021701,
+  "at": 1793346248149,
+  "jpAt": 1793347035407,
   "synopsisFull": "Nora, Thomas et leur fille Ida vivent dans une ferme isolée avec pour seule voisine, Cristina, une peintre italienne. Alors que tout le monde prépare une soirée d’anniversaire surprise pour Nora, trois hommes rôdent autour de la maison et s’invitent à la fête, faisant surgir des secrets bien gardés…"
  },
  "25491": {
@@ -625,8 +613,8 @@
   ],
   "country": "Pologne, Grèce",
   "synopsis": "Hot Spot est un film polonais réalisé par Agnieszka Smoczyńska, sorti en 2026.",
-  "at": 1792740006458,
-  "jpAt": 1792827085145,
+  "at": 1793346967425,
+  "jpAt": 1793347058745,
   "synopsisFull": "Dans une société gouvernée par une IA sensible, un détective privé enquêtant sur un meurtre tombe sur un groupe rebelle capable d'ébranler le chef numérique."
  },
  "25525": {
@@ -672,30 +660,19 @@
   "director": "Christine Paillard",
   "country": "France",
   "synopsis": "Billie Melody est un film dramatique français réalisé par Christine Paillard et sorti en 2026.",
-  "at": 1792734686436,
-  "jpAt": 1792827019830,
+  "at": 1793346186874,
+  "jpAt": 1793347033116,
   "synopsisFull": "Suite à la perte de son père dans un accident aux circonstances troubles, Billie, 14 ans, déménage dans une nouvelle ville avec sa mère et son frère. Alors que ces bouleversements accentuent les tensions familiales, elle fait de nouvelles rencontres et se raccroche à la musique qui la relie encore à son père. Billie se lance alors dans une quête qui pourrait aussi bien la sauver que faire voler sa famille en éclats.",
-  "genre": "Drame",
-  "cast": [
-   "Roschdy Zem",
-   "Bonnie Bouriche Troutaud",
-   "Julia Faure"
-  ]
+  "genre": "Drame"
  },
  "25541": {
   "genre": "Drame",
   "director": "Éric Barbier",
   "country": "France, Belgique",
   "synopsis": "Justin le Juste est un film historique franco-belge réalisé par Éric Barbier et sorti en 2026.",
-  "at": 1792734785841,
-  "jpAt": 1792827028363,
-  "synopsisFull": "1915. La guerre, c’est une terre inconnue où l’on envoie Justin, misérable paysan, à une époque où il doit s’occuper de ses champs. Il doit partir se battre, au nom d’une loi qu’il ignore, contre un ennemi qu’il n’a jamais vu, alors qu’il ne rêve que de rester dans sa ferme. Sa rencontre avec Basile, un tirailleur sénégalais, va lui ouvrir les yeux sur cette guerre qu’il ne comprend pas. C’est avec lui, qu’il va se révolter contre les injustices d’un commandement absurde, et devenir un héros pas comme les autres.",
-  "duration": "1h50",
-  "cast": [
-   "Alban Ivanov",
-   "Birane Ba",
-   "Alexandra Lamy"
-  ]
+  "at": 1793346308570,
+  "jpAt": 1793347037705,
+  "synopsisFull": "1915. La guerre, c’est une terre inconnue où l’on envoie Justin, misérable paysan, à une époque où il doit s’occuper de ses champs. Il doit partir se battre, au nom d’une loi qu’il ignore, contre un ennemi qu’il n’a jamais vu, alors qu’il ne rêve que de rester dans sa ferme. Sa rencontre avec Basile, un tirailleur sénégalais, va lui ouvrir les yeux sur cette guerre qu’il ne comprend pas. C’est avec lui, qu’il va se révolter contre les injustices d’un commandement absurde, et devenir un héros pas comme les autres."
  },
  "25546": {
   "at": 1792750653810,
@@ -734,15 +711,10 @@
   "genre": "Drame",
   "director": "Carlos Reygadas",
   "synopsis": "Heil Jupiter! is a 2026 drama film written and directed by Carlos Reygadas. A co-production of Mexico, Poland, Norway, Portugal, Sweden, Switzerland, and the United States, it stars newcomers Neli de la Rosa, Alexis Sánchez Alonso, Flor de León, Alexis Said Villa de León, Morgan Krantz, and Mónica Calle.",
-  "at": 1792739773179,
+  "at": 1793346783280,
+  "jpAt": 1793347053342,
   "synopsisFull": "Fraîchement élu, le président Paul Archambault doit affronter une crise sans précédent : son homologue russe, cible d'un attentat, brandit un ultimatum nucléaire menaçant un allié de la France. Face au risque d'escalade militaire, le président réunit son état-major dans le bunker de l'Elysée. Dans le secret du Poste de Commandement Jupiter, Paul va devoir prendre une décision vertigineuse.",
-  "jpAt": 1792827069492,
-  "country": "France",
-  "cast": [
-   "Denis Ménochet",
-   "André Dussollier",
-   "Reda Kateb"
-  ]
+  "country": "France"
  },
  "25551": {
   "cast": [
@@ -752,12 +724,7 @@
   "country": "France",
   "original": "El Caso Marie-Claire",
   "synopsis": "L'Affaire Marie-Claire est un film français réalisé par Lauriane Escaffre et Yvo Muller et sorti en 2026. Le film retrace l'histoire vraie du procès de Bobigny de 1972.",
-  "at": 1792739700247,
-  "synopsisFull": "Novembre 1972. Au tribunal de Bobigny, un procès hors norme secoue la France entière. Marie-Claire Chevalier, 16 ans, est accusée d’avoir avorté illégalement. À la barre, sa mère et toutes les femmes qui l’ont aidée. Leur avocate, Gisèle Halimi, fait un pari fou, insensé : elle leur demande de ne pas plaider coupable. Gisèle va faire ce qui n’a jamais été fait auparavant, elle va accuser et attaquer la loi, au risque de tout perdre.\nSéances (10)",
-  "jpAt": 1792827065826,
-  "genre": "Drame",
-  "director": "Lauriane Escaffre,Yvo Muller",
-  "duration": "1h42"
+  "at": 1793346720966
  },
  "25552": {
   "at": 1792750655995,
@@ -801,23 +768,18 @@
   ],
   "country": "États-Unis",
   "synopsis": "The Social Reckoning est un film américain écrit et réalisé par Aaron Sorkin et sorti en 2026.",
-  "at": 1792736165670,
-  "jpAt": 1792827046315,
+  "at": 1793346550147,
+  "jpAt": 1793347045696,
   "synopsisFull": "Le film s'inspire de l'histoire vraie de Frances Haugen, une jeune ingénieure chez Facebook, qui sollicite l'aide de Jeff Horwitz, journaliste au Wall Street Journal. Ensemble, ils se lancent dans une enquête pleine de dangers qui les mènera à révéler au grand jour les secrets les mieux gardés du puissant réseau social."
  },
  "25556": {
   "director": "Cédric Kahn",
   "country": "France",
   "synopsis": "15/18 est un film français réalisé par Cédric Kahn et sorti en 2026.",
-  "at": 1792739787670,
+  "at": 1793346786300,
+  "jpAt": 1793347054411,
   "synopsisFull": "Lucia, 17 ans, est amenée par la police dans une unité de soins pédopsychiatriques de l’hôpital public. Ici tous les patients ont entre 15 et 18 ans. Lucia connaît l’endroit, elle y a fait de nombreux séjours. Elle retrouve son amie Eloïse, en hospitalisation longue durée, mais aussi Yasmine, Camilia, Ulysse, André…tous ont des pathologies et des parcours différents. Les médecins les soignent, les écoutent, reçoivent leurs parents, tout en gérant un service en surchauffe. Mais un jour, l’arrivée du mystérieux Enzo menace de tout bouleverser.",
-  "jpAt": 1792827070463,
-  "genre": "Drame",
-  "cast": [
-   "Zoé Monpart",
-   "Malou Khebizi",
-   "Kenji Peyran"
-  ]
+  "genre": "Drame"
  },
  "25557": {
   "genre": "Comédie",
@@ -854,21 +816,13 @@
   "synopsisFull": "La suite des aventures du cascadeur tranquille, Cliff Booth."
  },
  "25561": {
-  "genre": "Ou téléfilm biographique",
   "duration": "1h56",
   "minutes": 116,
-  "director": "Danny Boyle",
-  "cast": [
-   "Guy Pearce",
-   "Jack O'Connell",
-   "Claire Foy",
-   "Blake Harrison"
-  ],
-  "country": "Royaume-Uni",
-  "synopsis": "Tabloïd est un film britannico-américano-français réalisé par Danny Boyle et sorti en 2026. Il s'agit de l'adaptation cinématographique de la pièce de théâtre du même nom de James Graham (en).",
-  "at": 1792740031488,
-  "jpAt": 1792827086936,
-  "synopsisFull": "L'ascension du magnat des médias Rupert Murdoch."
+  "poster": "https://upload.wikimedia.org/wikipedia/en/0/05/Ink_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1793347023957,
+  "jpAt": 1793347059829,
+  "synopsisFull": "L'ascension du magnat des médias Rupert Murdoch.",
+  "director": "Danny Boyle"
  },
  "25562": {
   "director": "Julien Gaspar-Oliveri",
@@ -879,12 +833,11 @@
    "Héloïse Volle"
   ],
   "synopsis": "La Frappe est un film français réalisé par Julien Gaspar-Oliveri et sorti en 2026.",
-  "at": 1792734611023,
-  "jpAt": 1792827012261,
+  "at": 1793346117964,
+  "jpAt": 1793347029638,
   "synopsisFull": "Enzo, 19 ans et sa soeur Carla, 20 ans, sont livrés à eux-mêmes depuis plusieurs années. Quand leur père, Anthony est libéré de prison, Enzo voit la promesse fragile d’une famille à reconstruire contrairement à Carla pour qui l’idée reste inconcevable. Rattrapé par son passé, Enzo doit se confronter à une vérité qu’il a trop longtemps gardée pour lui.",
   "genre": "Drame",
-  "country": "France",
-  "duration": "1h46"
+  "country": "France"
  },
  "25563": {
   "at": 1792750683259,
@@ -910,8 +863,9 @@
   ],
   "country": "Belgique",
   "synopsis": "Le Faux Soir est un film belgo-français réalisé par Michaël R. Roskam et sorti en 2026.",
-  "at": 1792740062353,
-  "jpAt": 1792827090592,
+  "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Le_Faux_Soir_%282026%29_cast_B.jpg/500px-Le_Faux_Soir_%282026%29_cast_B.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "at": 1793347026301,
+  "jpAt": 1793347060907,
   "synopsisFull": "1943. Les Nazis occupent la Belgique et font du quotidien national Le Soir leur outil de propagande. Alors qu’il est interdit de commémorer le 11 novembre, un groupe de résistants a une idée folle : et si, pour remonter le moral des Belges, ils parvenaient à imprimer une fausse édition du Soir ? Le même papier, le même titre, le même format, mais truffé d’articles ridiculisant l’occupant. Ceci est la folle aventure et l’histoire vraie du faux numéro d’un vrai journal…"
  },
  "25573": {
@@ -925,9 +879,8 @@
   ],
   "country": "États-Unis",
   "synopsis": "Behemoth! est un film américain réalisé par Tony Gilroy et sorti en 2026. Il met en scène Pedro Pascal, Olivia Wilde, Eva Victor et Will Arnett.",
-  "poster": "https://upload.wikimedia.org/wikipedia/en/9/95/Behemoth%21_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "at": 1792739900005,
-  "jpAt": 1792827076848,
+  "at": 1793346904207,
+  "jpAt": 1793347056586,
   "synopsisFull": "Violoncelliste de talent, Alex Serian revient à Los Angeles, après vingt années passées sur les routes. La musique, qui a toujours été le fil conducteur de son existence, une force aussi omniprésente que dévorante, entraîne Alex dans une aventure qui le changera à jamais."
  },
  "25576": {
@@ -992,18 +945,11 @@
  },
  "25587": {
   "synopsis": "La Dernière Patiente est un film français réalisé par Rémi Bassaler sorti en 2026.",
-  "at": 1792735980191,
-  "jpAt": 1792827010326,
+  "at": 1793346115378,
+  "jpAt": 1793347028545,
   "synopsisFull": "La veille de son départ à la retraite, Judith, médecin de banlieue, ouvre la porte de son cabinet à Aïda, enceinte de huit mois et en rupture de soin. Confrontée à un système de santé à bout de souffle, Judith accepte d'héberger la jeune femme et s'engage alors dans une nuit où toutes ses convictions de soignante seront mises à l’épreuve.",
   "genre": "Drame",
-  "country": "France",
-  "director": "Rémi Bassaler",
-  "duration": "1h20",
-  "cast": [
-   "Anouk Grinberg",
-   "Luàna Bajrami",
-   "Félix Lefebvre"
-  ]
+  "country": "France"
  },
  "25588": {
   "genre": "Drame",
@@ -1012,11 +958,9 @@
    "Milo Machado-Graner"
   ],
   "country": "France, Belgique",
-  "synopsis": "Adieu monde cruel est un film franco-belge réalisé par Félix de Givry et sorti en 2026.",
-  "at": 1792735985365,
-  "jpAt": 1792827020715,
-  "synopsisFull": "Otto Vidal, 14 ans, a disparu après avoir adressé une lettre d’adieu aux élèves de sa classe. Alors que tout le monde le croit mort, Léna, une fille de son lycée, le reconnaît une nuit en train d’errer dans les rues de la ville.",
-  "duration": "1h33"
+  "at": 1793346207268,
+  "jpAt": 1793347034203,
+  "synopsisFull": "Otto Vidal, 14 ans, a disparu après avoir adressé une lettre d’adieu aux élèves de sa classe. Alors que tout le monde le croit mort, Léna, une fille de son lycée, le reconnaît une nuit en train d’errer dans les rues de la ville."
  },
  "25589": {
   "genre": "Documentaire",
@@ -1061,9 +1005,8 @@
   ],
   "country": "États-Unis",
   "synopsis": "Animals est un film américain réalisé par Ben Affleck et sorti en 2026. Il est diffusé sur Netflix.",
-  "poster": "https://upload.wikimedia.org/wikipedia/en/6/61/Animals_2026_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "at": 1792736234123,
-  "jpAt": 1792827050942,
+  "at": 1793346601668,
+  "jpAt": 1793347047844,
   "synopsisFull": "Quand leur fils est enlevé, un candidat à la mairie de Los Angeles et sa femme s'efforcent de réunir l'argent de la rançon et font des choix qui pourraient bouleverser leur vie."
  },
  "25597": {
@@ -1130,39 +1073,29 @@
   ],
   "country": "Norvège",
   "synopsis": "Kraken est un film norvégien réalisé par Pål Øie et sorti en 2026.",
-  "at": 1792736106111,
-  "jpAt": 1792827042397,
+  "at": 1793346489076,
+  "jpAt": 1793347043305,
   "synopsisFull": "Dans une cité, une tour abandonnée alimente les rumeurs. Alors que des disparitions étranges s'enchaînent, 5 jeunes n’ont plus le choix : y entrer à nouveau. Pris dans un piège mortel, ils vont bientôt comprendre que s'échapper leur sera impossible…"
  },
  "25602": {
   "director": "Judith Godrèche",
   "synopsis": "Mémoire de fille est un film dramatique français réalisé par Judith Godrèche sorti en 2026. Il s'agit d'une adaptation du roman autobiographique du même nom d'Annie Ernaux paru en 2016.",
-  "at": 1792734865632,
-  "jpAt": 1792827039620,
+  "at": 1793346429868,
+  "jpAt": 1793347042113,
   "synopsisFull": "Annie Ernaux est sollicitée pour une signature de son dernier ouvrage dans la ville de son enfance, Rouen. Alors qu'elle s'y rend, elle est prise d'un vertige et replonge dans le souvenir de l'été 1958, celui de sa première nuit avec un homme. Nuit dont l'onde de choc s'est propagée violemment dans son corps et sur le reste de son existence.",
   "genre": "Drame",
-  "country": "France",
-  "duration": "1h57",
-  "cast": [
-   "Tess Barthélemy",
-   "Valérie Dréville",
-   "Maïwène Barthèlemy"
-  ]
+  "country": "France"
  },
  "25603": {
   "genre": "Drame",
+  "duration": "1h30",
+  "minutes": 90,
   "director": "Bruno Dumont",
   "country": "France, Portugal",
   "synopsis": "Les Roches rouges est un film dramatique sentimental luso-italo-français réalisé par Bruno Dumont et sorti en 2026.",
-  "at": 1792734842203,
-  "jpAt": 1792827033985,
-  "synopsisFull": "Sur la Côte d’Azur, deux bandes d’enfants s’affrontent à leur jeu favori : sauter des rochers rouges de la Méditerranée. Géo, 5 ans à peine, découvre le temps d’un été un monde où l’amitié se mêle à la rivalité, et où les premiers élans du cœur deviennent source de tensions.",
-  "duration": "1h30",
-  "cast": [
-   "Kaylon Lancel",
-   "Kelsie Verdeilles",
-   "Louise Podolski"
-  ]
+  "at": 1793346366817,
+  "jpAt": 1793347038773,
+  "synopsisFull": "Sur la Côte d’Azur, deux bandes d’enfants s’affrontent à leur jeu favori : sauter des rochers rouges de la Méditerranée. Géo, 5 ans à peine, découvre le temps d’un été un monde où l’amitié se mêle à la rivalité, et où les premiers élans du cœur deviennent source de tensions."
  },
  "25604": {
   "country": "Japon",
@@ -1212,15 +1145,10 @@
   "director": "Robert Guédiguian",
   "country": "France",
   "synopsis": "Une femme aujourd'hui est une comédie dramatique franco-italienne réalisée par Robert Guédiguian et sortie en 2026.",
-  "at": 1792736362634,
+  "at": 1793346661967,
+  "jpAt": 1793347050116,
   "synopsisFull": "Juliette, 30 ans, semble avoir tout pour elle : un poste prestigieux dans la finance, une belle maison, une vie rythmée par les voyages et les amours de passage. Lorsqu’elle est agressée par un collègue, son monde s’effondre. Juliette s'engage alors sur un nouveau chemin pour redonner un sens à sa vie.",
-  "jpAt": 1792827060344,
-  "genre": "Comédie dramatique",
-  "cast": [
-   "Marilou Aussilloux",
-   "Ariane Ascaride",
-   "Jean-Pierre Darroussin"
-  ]
+  "genre": "Comédie dramatique"
  },
  "25612": {
   "genre": "Documentaire",
@@ -1229,8 +1157,8 @@
   "director": "Yuval Abraham, Rachel Szor",
   "country": "Royaume-Uni",
   "synopsis": "Naza, parfois stylisé NAZA, est un film documentaire britannique sorti en 2026 et réalisé par les journalistes et cinéastes israéliens Yuval Abraham et Rachel Szor, déjà auteurs du film primé No Other Land en 2024.",
-  "at": 1792736271282,
-  "jpAt": 1792827051865,
+  "at": 1793346603968,
+  "jpAt": 1793347049046,
   "synopsisFull": "Filmé de nuit sur les toits de Tel Aviv, le film décrit en détail les systèmes derrière le massacre de civils palestiniens à Gaza par Israël."
  },
  "25613": {
