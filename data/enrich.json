@@ -35,43 +35,11 @@
   "genre": "Fantasy",
   "country": "Etats-Unis"
  },
- "25000": {
-  "at": 1792750628435,
-  "synopsisFull": "Après une dispute sans importance, Marta et Antonio se séparent. Lui, chef en pleine ascension, se réfugie derrière ses fourneaux. Elle, dans son silence, commence à ressentir quelque chose de plus que de la tristesse : elle a perdu l'appétit. Quand elle découvre ce que son corps lui dit vraiment, tout prend un tour inattendu : la nourriture a meilleur goût, la musique la touche comme jamais, et le désir réveille en elle l'envie de vivre sans peur.",
-  "jpAt": 1792827011265,
-  "genre": "Drame",
-  "country": "Italie",
-  "original": "Tre Ciotole",
-  "director": "Isabel Coixet",
-  "duration": "2h00",
-  "cast": [
-   "Alba Rohrwacher",
-   "Elio Germano",
-   "Galatea Bellugi"
-  ]
- },
  "25045": {
   "at": 1792827075962,
   "jpAt": 1793432596629,
   "genre": "Animation",
   "country": "France"
- },
- "25071": {
-  "genre": "Drame",
-  "duration": "2h08",
-  "minutes": 128,
-  "director": "Alejandro González Iñárritu",
-  "cast": [
-   "Tom Cruise",
-   "Sandra Hüller",
-   "John Goodman",
-   "Michael Stuhlbarg"
-  ],
-  "country": "États-Unis, Royaume-Uni",
-  "synopsis": "Digger est une comédie noire américano-britannico-mexicaine coécrite et réalisée par Alejandro González Iñárritu, sortie en 2026.",
-  "at": 1793346369592,
-  "jpAt": 1793347039961,
-  "synopsisFull": "L'homme le plus puissant du monde se lance dans une mission effrénée pour prouver qu'il est le sauveur de l'humanité avant que le désastre qu'il a déclenché ne détruise tout."
  },
  "25178": {
   "director": "Alexandre Arcady",
@@ -184,54 +152,19 @@
   "original": "Focker-In-Law"
  },
  "25337": {
-  "at": 1792750660417,
-  "synopsisFull": "Juin 1943, Jean Moulin, chef de la Résistance, est arrêté alors qu'il tente de réunifier les forces de l’Armée Secrète Interrogé par Klaus Barbie, le chef de la Gestapo de Lyon, Moulin est entraîné dans une confrontation implacable. Son ultime combat face à la manipulation et la brutalité commence.? Le destin de la France libre en dépend.",
-  "jpAt": 1793432583343,
   "genre": "Drame",
-  "country": "France",
-  "director": "László Nemes"
- },
- "25341": {
-  "at": 1792750632732,
-  "synopsisFull": "Deux couples au bord de l'implosion, le temps d'un dîner qui dérape.",
-  "jpAt": 1792827022626,
-  "genre": "Comédie",
-  "country": "Etats-Unis",
-  "original": "The Invite",
-  "director": "Olivia Wilde",
-  "duration": "1h47",
+  "director": "Lászlo Nemes",
   "cast": [
-   "Seth Rogen",
-   "Olivia Wilde",
-   "Penélope Cruz"
-  ]
- },
- "25342": {
-  "at": 1792750641831,
-  "synopsisFull": "Alors qu'ils se rendent à un festival de moto à Kanagawa, Conan Edogawa et ses amis se font dépasser par une mystérieuse moto noire filant à toute allure sur l’autoroute. La « Déesse du vent », Chihaya Hagiwara, officier de la police routière de Kanagawa, est lancée à ses trousses. Malgré une poursuite acharnée, Chihaya manque de capturer le mystérieux pilote et sa moto est sévèrement endommagée.\nArrivé au festival, le groupe assiste à la présentation d'une moto de police ultramoderne, « Angel », tandis que la mystérieuse moto noire réapparaît dans les rues de Tokyo et échappe encore une fois à la police. L'enquête révèle sa ressemblance avec « Angel », ce qui pousse les autorités à la surnommer « Lucifer » et lancer une vaste opération de recherche. À mesure que l'enquête se complexifie, Chihaya replonge dans les souvenirs de son frère disparu Kenji Hagiwara et de son camarade de classe Jinpei Matsuda, posant les bases d'une confrontation à pleine vitesse entre la Déesse du vent et l'Ange déchu.",
-  "jpAt": 1792827034907,
-  "genre": "Animation",
-  "country": "Japon",
-  "original": "Detective Conan: Fallen Angel of the Highway",
-  "director": "Takahiro Hasui",
-  "duration": "1h50"
- },
- "25361": {
-  "genre": "Drame",
-  "duration": "1h58",
-  "minutes": 118,
-  "director": "Lan Hongchun",
-  "cast": [
-   "Li Sitong",
-   "Wang Yantong",
-   "Usha Seamkhum"
+   "Gilles Lellouche",
+   "Lars Eidinger",
+   "Marcin Czarnik",
+   "Christian Harting"
   ],
-  "country": "République populaire de Chine",
-  "original": "给阿嬷的情书",
-  "synopsis": "Dear You is a 2026 Chinese family drama film directed and co-written by Lan Hongchun. It stars a largely non-professional cast featuring Li Sitong, Wang Yantong, Wu Shaoqing, Zheng Runqi and Wang Xiaohui, alongside Thai actress Usha Seamkhum.",
-  "at": 1793431659713,
-  "jpAt": 1793432552448,
-  "synopsisFull": "Depuis des décennies, Ye Shurou a longtemps survécu grâce aux lettres et aux mandats que son mari lui envoie depuis la Thaïlande. Lorsque son petit-fils Xiaowei part sur les traces de son grand-père, il découvre que l’histoire derrière cette correspondance est bien différente de ce que la famille avait toujours imaginé. À mesure que ressurgissent des souvenirs enfouis et des gestes de dévouement restés dans l’ombre, se dessine le portrait d’existences liées par la séparation, le sacrifice et le temps."
+  "country": "France",
+  "synopsis": "Moulin est un film français réalisé par László Nemes sorti en 2026. Il s'agit d'un film biographique sur Jean Moulin.",
+  "at": 1793607306810,
+  "jpAt": 1793607737101,
+  "synopsisFull": "Juin 1943, Jean Moulin, chef de la Résistance, est arrêté alors qu'il tente de réunifier les forces de l’Armée Secrète Interrogé par Klaus Barbie, le chef de la Gestapo de Lyon, Moulin est entraîné dans une confrontation implacable. Son ultime combat face à la manipulation et la brutalité commence.? Le destin de la France libre en dépend."
  },
  "25377": {
   "genre": "Thriller psychologique",
@@ -245,53 +178,8 @@
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
   "at": 1793432108144,
   "jpAt": 1793432578769,
-  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police."
- },
- "25378": {
-  "genre": "Ou téléfilm criminel",
-  "duration": "1h57",
-  "minutes": 117,
-  "director": "Michael Showalter",
-  "cast": [
-   "Dakota Johnson",
-   "Josh Hartnett",
-   "Ismaël Cruz Córdova"
-  ],
-  "country": "États-Unis",
-  "synopsis": "Verity est film américain réalisé par Michael Showalter et sorti en 2026. Il s'agit d'une adaptation du roman du même nom de Colleen Hoover.",
-  "at": 1793431931193,
-  "jpAt": 1793432568117,
-  "synopsisFull": "Lowen Ashleigh est une écrivaine solitaire. Peinant à vivre de son métier, elle accepte de devenir le prête-plume de l'autrice à succès, Verity Crawford, et s'installe dans sa propriété isolée des regards. En découvrant ce qui semble être les notes personnelles de Verity, la jeune Lowen se retrouve confrontée à des révélations troublantes et inquiétantes concernant Jeremy, le mari de Verity. Elle peine alors à distinguer la fiction de la réalité, la manipulation de l'attirance, le trouble de l'obsession."
- },
- "25379": {
-  "genre": "Drame",
-  "director": "Anthony Maras",
-  "cast": [
-   "Andrew Scott",
-   "Brendan Fraser",
-   "Kerry Condon",
-   "Chris Messina"
-  ],
-  "country": "Royaume-Uni, France",
-  "synopsis": "Pressure est un film de guerre franco-britannique réalisé par Anthony Maras et sorti en 2026. Il s'agit d'une adaptation de la pièce de théâtre du même nom de David Haig, qui signe le scénario en collaboration avec le réalisateur.",
-  "at": 1793346125653,
-  "jpAt": 1793347032036,
-  "synopsisFull": "Dans les soixante-douze heures précédant le Jour J, le chef météorologue britannique James Stagg est appelé à fournir les prévisions les plus importantes de l'histoire afin que les Alliés puissent débarquer sur les plages normandes.",
-  "duration": "1h40"
- },
- "25387": {
-  "genre": "Drame",
-  "director": "Emmanuel Marre",
-  "cast": [
-   "Swann Arlaud",
-   "Sandrine Blancke"
-  ],
-  "country": "France, Belgique",
-  "synopsis": "Notre salut est un film dramatique franco-belge réalisé par Emmanuel Marre — arrière-petit-fils du protagoniste du film — et sorti en 2026. Le film est produit par Michigan Films (Belgique) et Kidam (France).",
-  "at": 1793346427865,
-  "jpAt": 1793347041035,
-  "synopsisFull": "Septembre 1940, le régime de Pétain se met en place. Henri Marre, 49 ans, débarque à Vichy sans le sou, sans contact, loin de sa femme et ses enfants. Il voit dans la nouvelle administration l’opportunité de trouver enfin la place qu’il mérite. Dans sa valise, son traité politique édité à compte d’auteur, Notre Salut, où il défend ses convictions patriotiques et ses méthodes d'ingénieur. Son credo : « gagner en efficacité » pour relever la France de la débâcle. Mais peut-être qu’Henri cherche avant tout à fuir sa propre débâcle…",
-  "duration": "2h39"
+  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police.",
+  "duration": "2h20"
  },
  "25390": {
   "at": 1792750650557,
@@ -332,22 +220,6 @@
   "country": "Etats-Unis",
   "original": "Ice Age: Boiling Point"
  },
- "25412": {
-  "genre": "Action-adventure film",
-  "duration": "1h41",
-  "minutes": 101,
-  "director": "David Ayer",
-  "cast": [
-   "Brad Pitt",
-   "J. K. Simmons",
-   "Anna Lambe"
-  ],
-  "country": "États-Unis",
-  "synopsis": "Heart of the Beast ou Au Cœur de la Bête au Québec est un film américain réalisé par David Ayer sorti en 2026.",
-  "at": 1793346306385,
-  "jpAt": 1793347036616,
-  "synopsisFull": "Un ancien membre des forces spéciales de la marine de guerre des États-Unis, les SEAL, se perd avec son berger allemand de combat au milieu de l'Alaska. Marqué par un trouble de stress post-traumatique, il va devoir survivre avec l'aide de son chien et d’un guide local qui le prévient des dangers mortels de cette zone désertique."
- },
  "25431": {
   "genre": "Ou téléfilm d'horreur",
   "duration": "1h26",
@@ -380,22 +252,6 @@
    "Elisabeth Shue"
   ]
  },
- "25433": {
-  "genre": "Drame",
-  "director": "Élie Chouraqui",
-  "cast": [
-   "Kad Merad",
-   "Marie Gillain",
-   "Bernard Le Coq",
-   "Jean-Hugues Anglade"
-  ],
-  "country": "France",
-  "synopsis": "Les Héros du Louvre est un film français réalisé par Élie Chouraqui et sorti en 2026.",
-  "at": 1793346123193,
-  "jpAt": 1793347030831,
-  "synopsisFull": "Paris 1939. Amoureux des arts, Babi Maklouf Benhamou exerce le plus beau métier du monde : il est gardien de nuit au musée du Louvre. Mais alors que la Seconde Guerre Mondiale éclate et que l’invasion allemande est imminente, Jacques Jaujard, le conservateur du musée, organise le sauvetage secret des œuvres d’art afin qu’elles ne tombent pas aux mains des nazis. Il confie alors à Babi l’un des camions chargés de transporter les chefs-d’œuvre hors de Paris. Babi accepte, à une condition : que toute sa famille l’accompagne… C’est le début d’une aventure familiale épique et dangereuse à travers la France occupée, qui va lier à jamais le destin des trésors du Louvre à celui de la famille de Babi Maklouf…",
-  "duration": "1h45"
- },
  "25434": {
   "genre": "Policier dramatique",
   "director": "James Gray",
@@ -410,45 +266,11 @@
   "jpAt": 1793347055490,
   "synopsisFull": "Deux frères que tout oppose s’unissent pour une affaire douteuse liée à la mafia russe. Mais ce qui devait être une opportunité devient un cauchemar, mettant en péril leur famille, leur intégrité, et leur lien fraternel."
  },
- "25435": {
-  "genre": "Ou téléfilm d'amour",
-  "duration": "2h10",
-  "minutes": 130,
-  "director": "Susanne Bier",
-  "cast": [
-   "Sandra Bullock",
-   "Nicole Kidman",
-   "Stockard Channing",
-   "Dianne Wiest"
-  ],
-  "country": "États-Unis",
-  "original": "Practical Magic 2",
-  "synopsis": "Les Ensorceleuses 2 ou Amour et magie 2 au Québec est un film américain réalisé par Susanne Bier, sorti en 2026.",
-  "at": 1793431683498,
-  "jpAt": 1793432554800,
-  "synopsisFull": "Les sœurs Owens affrontent la sombre malédiction qui menace de détruire leur famille une fois pour toutes, dans un événement cinématographique mêlant divertissement, magie et chaos."
- },
  "25437": {
   "at": 1792827086040,
   "jpAt": 1793432604662,
   "genre": "Horreur",
   "country": "Etats-Unis"
- },
- "25452": {
-  "genre": "Drame",
-  "duration": "1h34",
-  "minutes": 94,
-  "director": "Markus Schleinzer",
-  "cast": [
-   "Sandra Hüller",
-   "Robert Gwisdek",
-   "Rainer Egger",
-   "Godehard Giese"
-  ],
-  "country": "Autriche, Allemagne",
-  "original": "Rose",
-  "synopsis": "Rose est un film dramatique et historique austro-allemand réalisé par Markus Schleinzer et sorti en 2026.",
-  "at": 1792734672719
  },
  "25454": {
   "at": 1792750681096,
@@ -535,96 +357,14 @@
   "jpAt": 1793432571593,
   "synopsisFull": "Benjamin et Amélie, jeune couple de trentenaires décide d’acheter la maison de leurs rêves en viager à Nicolette, une dame qui semble mourante. Mais peu après la vente, elle va beaucoup mieux et le couple se demande s’il n’a pas été arnaqué. Bientôt à genoux financièrement, ils sont forcés de penser au pire.",
   "genre": "Comédie",
-  "country": "France"
- },
- "25485": {
-  "genre": "Drame",
-  "director": "Jeanne Herry",
-  "cast": [
-   "Sara Giraudeau",
-   "Rudgy Pajany"
-  ],
-  "country": "France, Belgique",
-  "synopsis": "Garance est un film dramatique français réalisé par Jeanne Herry sorti en 2026.",
-  "at": 1793431807373,
-  "jpAt": 1793432562000,
-  "synopsisFull": "Garance est une jeune actrice alcoolique. Huit ans d’un parcours fait de déménagements, de travail, de rencontres, de fêtes et d’angoisses, de joies et de coups durs… Mais aussi une révolution intime, amicale et sexuelle."
- },
- "25487": {
-  "duration": "1h38",
-  "minutes": 98,
-  "synopsis": "La Vie d'une femme est une comédie dramatique franco-belge réalisée par Charline Bourgeois-Tacquet et sortie en 2026.",
-  "at": 1793431680360,
-  "jpAt": 1793432553548,
-  "synopsisFull": "Gabrielle se consacre corps et âme à son métier. Chirurgienne et cheffe de service dans un hôpital public, elle court et se démultiplie, assaillie de responsabilités. Il lui reste peu de temps pour sa vie privée — un mari qui l’aime et une mère dont elle doit s’occuper. Lorsqu'une romancière vient passer quelques semaines dans son service pour les besoins d’un livre, son équilibre vacille. Dans le quotidien que Gabrielle s’est construit, y a-t-il de la place pour l’inattendu ?",
-  "genre": "Drame",
-  "country": "France"
- },
- "25488": {
-  "genre": "Comédie",
-  "director": "Émilie Noblet",
-  "cast": [
-   "Camille Cottin",
-   "Laure Calamy",
-   "Thibault de Montalembert",
-   "Grégory Montel"
-  ],
   "country": "France",
-  "original": "Dix pour cent : le Film",
-  "synopsis": "Dix pour cent, le film est un film français réalisé par Émilie Noblet et sorti en 2026. Il est diffusé sur Netflix.",
-  "at": 1793346245885
- },
- "25489": {
-  "genre": "Drame",
-  "duration": "1h54",
-  "minutes": 114,
-  "director": "Léa Mysius",
+  "director": "Claude Zidi Jr.",
+  "duration": "1h30",
   "cast": [
-   "Monica Bellucci",
-   "Hafsia Herzi",
-   "Benoît Magimel",
-   "Bastien Bouillon"
-  ],
-  "country": "France",
-  "synopsis": "Histoires de la nuit est un film dramatique français écrit et réalisé par Léa Mysius et sorti en 2026.",
-  "at": 1793346248149,
-  "jpAt": 1793347035407,
-  "synopsisFull": "Nora, Thomas et leur fille Ida vivent dans une ferme isolée avec pour seule voisine, Cristina, une peintre italienne. Alors que tout le monde prépare une soirée d’anniversaire surprise pour Nora, trois hommes rôdent autour de la maison et s’invitent à la fête, faisant surgir des secrets bien gardés…"
- },
- "25491": {
-  "genre": "Policier dramatique",
-  "duration": "1h50",
-  "minutes": 110,
-  "director": "Lance Oppenheim",
-  "cast": [
-   "Robert Pattinson",
-   "Phoebe Bridgers",
-   "Merritt Wever",
-   "Sean Bridgers"
-  ],
-  "country": "États-Unis",
-  "synopsis": "Primetime est un film américain réalisé par Lance Oppenheim sorti en 2026. Il s'agit d'un film biographique sur Chris Hansen, focalisé notamment sur son émission To Catch a Predator.",
-  "at": 1793431869456,
-  "jpAt": 1793432566868,
-  "synopsisFull": "En 2006, Chris Hansen, le présentateur de l'émission To Catch a Predator, entreprend de marquer l’histoire de la télévision."
- },
- "25492": {
-  "genre": "Historical drama film",
-  "duration": "1h52",
-  "minutes": 112,
-  "director": "Padraic McKinley",
-  "cast": [
-   "Ethan Hawke",
-   "Russell Crowe",
-   "Julia Jones",
-   "Austin Amelio"
-  ],
-  "country": "États-Unis, Allemagne",
-  "original": "The Weight",
-  "synopsis": "Les Contrebandiers est un film américano-allemand réalisé par Padraic McKinley sorti en 2026.",
-  "at": 1793431745401,
-  "jpAt": 1793432558407,
-  "synopsisFull": "Oregon, 1933. Après la mort de sa femme, Samuel Murphy est arraché à sa fille et envoyé dans un camp de travail impitoyable. Lorsqu’un surveillant sans scrupule lui promet la liberté contre une périlleuse mission de contrebande d’or, Murphy saisit sa seule chance de rentrer chez lui. Il s’embarque alors dans une expédition de tous les dangers, au cœur d’une nature hostile, où les trahisons se multiplient. Jusqu’où Murphy sera-t-il prêt à aller pour revoir sa fille ?"
+   "Kev Adams",
+   "Chantal Ladesou",
+   "Camille Aguilar"
+  ]
  },
  "25493": {
   "genre": "Cinéma de science-fiction",
@@ -642,21 +382,6 @@
   "jpAt": 1793347058745,
   "synopsisFull": "Dans une société gouvernée par une IA sensible, un détective privé enquêtant sur un meurtre tombe sur un groupe rebelle capable d'ébranler le chef numérique."
  },
- "25525": {
-  "genre": "Et téléfilm d'action",
-  "duration": "1h24",
-  "minutes": 84,
-  "director": "Kevin Macdonald",
-  "cast": [
-   "Gal Gadot",
-   "Damian Lewis",
-   "Alfred Enoch"
-  ],
-  "country": "Royaume-Uni",
-  "original": "The Runner",
-  "synopsis": "The Runner est un film britannique réalisé par Kevin Macdonald et sorti en 2026 sur Prime Video.",
-  "at": 1792734615933
- },
  "25526": {
   "at": 1792750666044,
   "synopsisFull": "Une équipe de braqueurs filme ses hold-up en direct et devient viral. Mais leur célébrité grandissante attire l'attention d'un agent du FBI et d'une ingénieure informatique déterminés à les arrêter. Alors que cet improbable duo se rapproche dangereusement d’eux, le gang décide de tout miser sur le braquage le plus ambitieux de leur carrière.",
@@ -664,40 +389,6 @@
   "genre": "Aventure - Action",
   "country": "Etats-Unis",
   "original": "How To Rob A Bank"
- },
- "25539": {
-  "genre": "Cinéma de science-fiction",
-  "duration": "1h35",
-  "minutes": 95,
-  "director": "Zach Cregger",
-  "cast": [
-   "Austin Abrams",
-   "Paul Walter Hauser",
-   "Zach Cherry",
-   "Kali Reis"
-  ],
-  "country": "États-Unis, Allemagne",
-  "original": "Resident Evil",
-  "synopsis": "Resident Evil est un film d'horreur germano-américain réalisé par Zach Cregger et sorti en 2026. Il s'agit d'une adaptation de la série de jeux vidéo édités par Capcom, ainsi que d'un nouveau reboot de la franchise cinématographique.",
-  "at": 1792734725214
- },
- "25540": {
-  "director": "Christine Paillard",
-  "country": "France",
-  "synopsis": "Billie Melody est un film dramatique français réalisé par Christine Paillard et sorti en 2026.",
-  "at": 1793346186874,
-  "jpAt": 1793347033116,
-  "synopsisFull": "Suite à la perte de son père dans un accident aux circonstances troubles, Billie, 14 ans, déménage dans une nouvelle ville avec sa mère et son frère. Alors que ces bouleversements accentuent les tensions familiales, elle fait de nouvelles rencontres et se raccroche à la musique qui la relie encore à son père. Billie se lance alors dans une quête qui pourrait aussi bien la sauver que faire voler sa famille en éclats.",
-  "genre": "Drame"
- },
- "25541": {
-  "genre": "Drame",
-  "director": "Éric Barbier",
-  "country": "France, Belgique",
-  "synopsis": "Justin le Juste est un film historique franco-belge réalisé par Éric Barbier et sorti en 2026.",
-  "at": 1793346308570,
-  "jpAt": 1793347037705,
-  "synopsisFull": "1915. La guerre, c’est une terre inconnue où l’on envoie Justin, misérable paysan, à une époque où il doit s’occuper de ses champs. Il doit partir se battre, au nom d’une loi qu’il ignore, contre un ennemi qu’il n’a jamais vu, alors qu’il ne rêve que de rester dans sa ferme. Sa rencontre avec Basile, un tirailleur sénégalais, va lui ouvrir les yeux sur cette guerre qu’il ne comprend pas. C’est avec lui, qu’il va se révolter contre les injustices d’un commandement absurde, et devenir un héros pas comme les autres."
  },
  "25546": {
   "at": 1792750653810,
@@ -716,21 +407,6 @@
   "genre": "Animation",
   "country": "Etats-Unis",
   "original": "Hexed"
- },
- "25549": {
-  "at": 1792750639718,
-  "synopsisFull": "Après la mort de son mari, Mme Dashwood et ses trois filles, toujours célibataires, se retrouvent dans une situation précaire. En effet, elles sont privées d’héritage puisque le domaine familial, Norland Park, revient de droit à John, fils de M. Dashwood issu d’un précédent mariage. La veuve et ses trois filles, Elinor, Marianne et Margaret n’ont d’autre choix que de quitter la région et de s’installer dans le modeste Barton Cottage. Un changement particulièrement douloureux pour Elinor, l’aînée, qui, bien malgré elle, s’est éprise du fringant et stoïque Edward Ferrars, beau-frère de John, venu récemment leur rendre visite à Norland.\nMarianne tente de consoler sa sœur du mieux qu’elle peut, mais elle fait à son tour une rencontre des plus inattendues avec le séduisant – et célibataire – John Willoughby. Et bien que les deux jeunes gens tombent follement amoureux l’un de l’autre, Elinor redoute que Marianne soit trop impulsive et néglige ainsi le très droit colonel Brandon qui ne cache pas ses sentiments pour sa sœur. Face aux tumultes de l’amour, aux épreuves de la vie et aux injonctions de la société, Elinor, prudente et rationnelle, et Marianne, fougueuse et passionnée, s’affrontent souvent, comme seules deux sœurs peuvent le faire. Et pourtant, leurs liens inébranlables leur permettent de braver toutes les tempêtes et, surtout, d’espérer un avenir heureux…",
-  "jpAt": 1793432564507,
-  "genre": "Drame",
-  "country": "Grande-Bretagne",
-  "original": "Sense and Sensibility (2026)",
-  "director": "Georgia Oakley",
-  "duration": "2h12",
-  "cast": [
-   "Daisy Edgar-Jones",
-   "Esmé Creed-Miles",
-   "Caitriona Balfe"
-  ]
  },
  "25550": {
   "genre": "Drame",
@@ -839,15 +515,6 @@
   "jpAt": 1793432594409,
   "synopsisFull": "Le jour de son départ à la retraite, Émile, professeur de lettres à Dieppe, donne à ses jeunes élèves un dernier cours sur la littérature et l’amour, les encourageant à devenir les poètes de leurs propres existences. Une fois rentré chez lui, Émile découvre que sa femme l’a quitté. Le voilà contraint d’appliquer à lui-même ses propres préceptes. Trois rencontres vont alors l’aider à se réinventer."
  },
- "25558": {
-  "at": 1792750642902,
-  "synopsisFull": "Flash McQueen, une splendide voiture de course toute neuve promise au succès, découvre que dans la vie, ce n'est pas de franchir la ligne d'arrivée qui compte, mais le parcours que l'on a suivi. Parti pour participer à la prestigieuse Piston Cup, il atterrit suite à une déviation dans la petite ville tranquille de Radiator Springs, sur la Route 66.\nMcQueen va apprendre à connaître Sally (une élégante Porsche 2002), Doc Hudson (une Hudson Hornet 1951 au passé mystérieux), et Mater (une dépanneuse rouillée mais à qui on peut faire confiance). Ils vont l'aider à découvrir qu'il y a des choses plus importantes que les trophées, la gloire et les sponsors...",
-  "jpAt": 1792827036878,
-  "director": "John Lasseter",
-  "genre": "Animation",
-  "country": "Etats-Unis",
-  "original": "Cars : 20th Anniversary"
- },
  "25559": {
   "genre": "Comédie dramatique",
   "director": "David Fincher",
@@ -872,22 +539,6 @@
   "jpAt": 1793347059829,
   "synopsisFull": "L'ascension du magnat des médias Rupert Murdoch.",
   "director": "Danny Boyle"
- },
- "25562": {
-  "director": "Julien Gaspar-Oliveri",
-  "cast": [
-   "Bastien Bouillon",
-   "Diego Murgia",
-   "Romane Fringeli",
-   "Héloïse Volle"
-  ],
-  "synopsis": "La Frappe est un film français réalisé par Julien Gaspar-Oliveri et sorti en 2026.",
-  "at": 1793346117964,
-  "jpAt": 1793347029638,
-  "synopsisFull": "Enzo, 19 ans et sa soeur Carla, 20 ans, sont livrés à eux-mêmes depuis plusieurs années. Quand leur père, Anthony est libéré de prison, Enzo voit la promesse fragile d’une famille à reconstruire contrairement à Carla pour qui l’idée reste inconcevable. Rattrapé par son passé, Enzo doit se confronter à une vérité qu’il a trop longtemps gardée pour lui.",
-  "genre": "Drame",
-  "country": "France",
-  "duration": "1h46"
  },
  "25563": {
   "genre": "Drame",
@@ -940,121 +591,23 @@
   "jpAt": 1793347056586,
   "synopsisFull": "Violoncelliste de talent, Alex Serian revient à Los Angeles, après vingt années passées sur les routes. La musique, qui a toujours été le fil conducteur de son existence, une force aussi omniprésente que dévorante, entraîne Alex dans une aventure qui le changera à jamais."
  },
- "25576": {
-  "at": 1792750631648,
-  "synopsisFull": "En juillet 1988, une mystérieuse explosion détruit Tokyo, déclenchant la troisième guerre mondiale. 31 ans plus tard, en 2019, Néo Tokyo, la mégalopole construite sur la baie de Tokyo a retrouvé sa prospérité d’antan et se prépare à l’évènement majeur des Jeux olympiques de 2020.\nDans l'ombre, les choses sont moins réjouissantes, le chômage augmente et les actions des dissidents se multiplient, les citadins cherchent leur salut dans les cultes religieux et les drogues. Les plus jeunes se réunissent en gang rebelles et se défient dans d’interminables courses de motos a travers la mégalopole. Au cours d’une de leurs échappées, Kaneda et Tetsuo manquent d’écraser un enfant. Un enfant étrange, au visage de vieillard, appelé n ° 26 Kaneda et ses amis sont arrêtés par la police alors que n ° 26 et Tetsuo, blessé, sont emmenés par l'armée. Tetsuo est prisonnier d’un laboratoire et devient l’objet de tests ultrasecret qui le dotent de pouvoirs surnaturels. C’est là qu’il apprend qui est AKIRA, ce garçon a la force incroyable a l’origine de la destruction de Tokyo, il y a 31 ans.",
-  "jpAt": 1793432556042,
-  "genre": "Animation",
-  "country": "Japon"
- },
- "25580": {
-  "at": 1792750638642,
-  "synopsisFull": "Dans Avengers Endgame Extended, les Avengers doivent faire face aux conséquences de leur défaite contre Thanos. Après avoir réuni les six Pierres d’Infinité et anéanti la moitié de la population de l’univers, dont nombre de leurs alliés, le Titan fou a laissé derrière lui un monde profondément bouleversé. Confrontés à la plus grande épreuve de leur histoire, les héros restants doivent trouver la force de se relever, se rassembler une nouvelle fois et tenter l’impossible : restaurer l’équilibre de l’univers, ramener ceux qu’ils ont perdus et vaincre Thanos une fois pour toutes.",
-  "jpAt": 1793432563262,
-  "director": "- Russo (brothers)",
-  "genre": "Comicbook",
-  "country": "Etats-Unis"
- },
- "25581": {
-  "cast": [
-   "Monia Chokri",
-   "Niels Schneider",
-   "Clémentine Célarié",
-   "Rudgy Pajany"
-  ],
-  "at": 1793431765829,
-  "jpAt": 1793432559510,
-  "synopsisFull": "Lorsque Gil rencontre Jacques, leur amour est évident. Mais l’intensité des débuts laisse place à une relation où elle se sent de plus en plus enfermée, jusqu’à en perdre ses repères. Jacques la rassure : si elle pense bien, il ne lui arrivera que du bien. Peu à peu, Gil comprend le contrôle qu’il exerce sur sa vie…",
-  "genre": "Drame",
-  "country": "France"
- },
- "25585": {
-  "at": 1792750643995,
-  "synopsisFull": "Les blessures de l'enfance ne s'effacent pas, elles se réparent.\nMuriel Salmona, psychiatre de renom et spécialiste des violences sexuelles, consacre sa vie à soigner celles et ceux que l'enfance a brisés.\nIncarnée à l'écran par Sandrine Bonnaire, Marianne Denicourt et Isild Le Besco, elle accompagne des patients qui affrontent leur passé et ouvrent, pas à pas, le chemin de la réparation",
-  "jpAt": 1793432569220,
-  "genre": "Documentaire",
-  "country": "France",
-  "director": "Sylvie Meyer",
-  "duration": "1h29",
-  "cast": [
-   "Isild Le Besco",
-   "Sandrine Bonnaire",
-   "Marianne Denicourt"
-  ]
- },
- "25586": {
-  "synopsis": "Melpomène est un film dramatique français réalisé par Charlotte Dauphin et sorti en 2026.",
-  "at": 1792736084368,
-  "jpAt": 1793432570332,
-  "synopsisFull": "Trente ans après la mort mystérieuse de sa mère, Marthe revient dans le sud de la France pour faire éclater la vérité. Mais plus elle s'approche de son passé, plus le réel semble lui échapper.",
-  "genre": "Drame",
-  "country": "France",
-  "director": "Charlotte Dauphin",
-  "duration": "1h28",
-  "cast": [
-   "Charlotte Dauphin",
-   "Pascal Greggory",
-   "Andie MacDowell"
-  ]
- },
- "25587": {
-  "synopsis": "La Dernière Patiente est un film français réalisé par Rémi Bassaler sorti en 2026.",
-  "at": 1793346115378,
-  "jpAt": 1793347028545,
-  "synopsisFull": "La veille de son départ à la retraite, Judith, médecin de banlieue, ouvre la porte de son cabinet à Aïda, enceinte de huit mois et en rupture de soin. Confrontée à un système de santé à bout de souffle, Judith accepte d'héberger la jeune femme et s'engage alors dans une nuit où toutes ses convictions de soignante seront mises à l’épreuve.",
-  "genre": "Drame",
-  "country": "France",
-  "director": "Rémi Bassaler",
-  "duration": "1h20",
-  "cast": [
-   "Anouk Grinberg",
-   "Luàna Bajrami",
-   "Félix Lefebvre"
-  ]
- },
- "25588": {
-  "genre": "Drame",
-  "director": "Félix de Givry",
-  "cast": [
-   "Milo Machado-Graner"
-  ],
-  "country": "France, Belgique",
-  "at": 1793346207268,
-  "jpAt": 1793347034203,
-  "synopsisFull": "Otto Vidal, 14 ans, a disparu après avoir adressé une lettre d’adieu aux élèves de sa classe. Alors que tout le monde le croit mort, Léna, une fille de son lycée, le reconnaît une nuit en train d’errer dans les rues de la ville.",
-  "duration": "1h33"
- },
- "25589": {
-  "genre": "Documentaire",
-  "director": "Christophe Dimitri Réveille",
-  "cast": [
-   "Dariel Alarcón Ramírez",
-   "Harry \"Pombo\" Villegas",
-   "Leonardo Tamayo",
-   "Régis Debray"
-  ],
-  "synopsis": "Les Survivants du Che est un film documentaire français réalisé par Christophe Dimitri Réveille et sorti en 2026. Il associe des témoignages filmés, des images d'archives et de l'animation.",
-  "at": 1792734684133,
-  "jpAt": 1793432557155,
-  "synopsisFull": "Après le triomphe de la Révolution cubaine en 1959, six guérilleros ont suivi Che Guevara dans sa tentative d’étendre le soulèvement au-delà de l’île. En 1967, après leur dernière bataille en Bolivie et l’exécution du Che, ces guerriers de l’ombre se lancent dans un périple extraordinaire de 2 400 km à travers la Bolivie, poursuivis par 4 000 soldats en territoire ennemi dans l’espoir de rejoindre Cuba. Soixante ans plus tard, les derniers camarades survivants du Che racontent cette histoire inédite, faite d’endurance et de loyauté, dans laquelle les destins individuels ont été façonnés par les grands courants géopolitiques de la Guerre froide. Mêlant des images d’archives rares, des animations et des interviews exclusives, le film fait revivre un chapitre oublié de l’Histoire.",
-  "country": "France",
-  "duration": "1h38"
- },
- "25591": {
-  "at": 1792750636295,
-  "synopsisFull": "L'an 2005 sur une petite planète nommée \"Cybertron\" la race des robots Transformers s'affronte contre les méchants Décepticons ...",
-  "jpAt": 1793432560750,
-  "genre": "Animation",
-  "country": "Etats-Unis",
-  "original": "Transformers: The Movie (40th Anniversary)"
- },
  "25593": {
-  "at": 1792750651655,
-  "synopsisFull": "Inspiré de faits réels, \"Tenzing : À la conquête de l’Everest\" raconte l’histoire méconnue du sherpa né au Tibet Tenzing Norgay, devenu aux côtés de l’alpiniste néo-zélandais Edmund Hillary, le premier homme à atteindre le sommet de l'Everest.\nEncouragé par sa femme Daw, Tenzing trouve en la secrétaire de l’expédition, Jill Henderson, une alliée. Ensemble, ils persuadent le Colonel John Hunt que Tenzing a toute sa place dans l’expédition britannique, plutôt que d’être à son service.\nLà où les alpinistes occidentaux voient en l’Everest une conquête, Tenzing vénère \"Chomolungma\" comme la déesse mère sacrée. L’ascension sera alors tout autant marquée par des tensions liées aux origines, aux classes et aux rivalités, que par les dangers de la montagne. Mais sur le toit du monde, ces notions d’empire, de rang et d’aspiration se dissipent pour unir les deux inconnus dans le respect et la confiance mutuels. Pour Tenzing, c’est aussi bien l’accomplissement d'un rêve que d’une vocation spirituelle.",
-  "jpAt": 1793432577530,
-  "genre": "Aventure - Action",
-  "country": "Etats-Unis",
-  "original": "Tenzing"
+  "genre": "Ou téléfilm biographique",
+  "duration": "2h06",
+  "minutes": 126,
+  "director": "Jennifer Peedom",
+  "cast": [
+   "Tom Hiddleston",
+   "Willem Dafoe",
+   "Caitriona Balfe",
+   "Genden Phuntsok"
+  ],
+  "country": "États-Unis, Australie",
+  "original": "Tenzing",
+  "synopsis": "Tenzing : À la conquête de l'Everest (Tenzing) est un film australo-américain réalisé par Jennifer Peedom et sorti en 2026.",
+  "at": 1793607244361,
+  "jpAt": 1793607734798,
+  "synopsisFull": "Inspiré de faits réels, \"Tenzing : À la conquête de l’Everest\" raconte l’histoire méconnue du sherpa né au Tibet Tenzing Norgay, devenu aux côtés de l’alpiniste néo-zélandais Edmund Hillary, le premier homme à atteindre le sommet de l'Everest.\nEncouragé par sa femme Daw, Tenzing trouve en la secrétaire de l’expédition, Jill Henderson, une alliée. Ensemble, ils persuadent le Colonel John Hunt que Tenzing a toute sa place dans l’expédition britannique, plutôt que d’être à son service.\nLà où les alpinistes occidentaux voient en l’Everest une conquête, Tenzing vénère \"Chomolungma\" comme la déesse mère sacrée. L’ascension sera alors tout autant marquée par des tensions liées aux origines, aux classes et aux rivalités, que par les dangers de la montagne. Mais sur le toit du monde, ces notions d’empire, de rang et d’aspiration se dissipent pour unir les deux inconnus dans le respect et la confiance mutuels. Pour Tenzing, c’est aussi bien l’accomplissement d'un rêve que d’une vocation spirituelle."
  },
  "25596": {
   "genre": "Thriller",
@@ -1070,16 +623,6 @@
   "at": 1793346601668,
   "jpAt": 1793347047844,
   "synopsisFull": "Quand leur fils est enlevé, un candidat à la mairie de Los Angeles et sa femme s'efforcent de réunir l'argent de la rançon et font des choix qui pourraient bouleverser leur vie."
- },
- "25597": {
-  "genre": "Thriller",
-  "director": "Abinash Bikram Shah",
-  "country": "Népal",
-  "original": "तिनीहरू",
-  "synopsis": "Les Éléphants dans la brume est un film à suspense franco-népalais réalisé par Abinash Bikram Shah et sorti en 2026.",
-  "at": 1793431866754,
-  "jpAt": 1793432565624,
-  "synopsisFull": "Dans un village népalais niché au cœur d’une forêt peuplée d’éléphants sauvages vit une communauté kinnar aussi vénérée que crainte pour ses pouvoirs de bénédiction et de malédiction. Pirati, l'une des mères de la communauté, rêve de s’échapper avec l’homme qu’elle aime. Mais lorsqu’une de ses filles disparaît, elle se doit mener l'enquête et choisir entre son désir de liberté et ses responsabilités envers sa communauté."
  },
  "25598": {
   "genre": "Comédie",
@@ -1122,65 +665,6 @@
   "at": 1792736285100,
   "duration": "2h00"
  },
- "25601": {
-  "genre": "Thriller",
-  "director": "Pål Øie, Sjur Aarthun",
-  "cast": [
-   "Sara Khorami",
-   "Jenny Evensen"
-  ],
-  "country": "Norvège",
-  "synopsis": "Kraken est un film norvégien réalisé par Pål Øie et sorti en 2026.",
-  "at": 1793346489076,
-  "jpAt": 1793347043305,
-  "synopsisFull": "Dans une cité, une tour abandonnée alimente les rumeurs. Alors que des disparitions étranges s'enchaînent, 5 jeunes n’ont plus le choix : y entrer à nouveau. Pris dans un piège mortel, ils vont bientôt comprendre que s'échapper leur sera impossible…"
- },
- "25602": {
-  "director": "Judith Godrèche",
-  "synopsis": "Mémoire de fille est un film dramatique français réalisé par Judith Godrèche sorti en 2026. Il s'agit d'une adaptation du roman autobiographique du même nom d'Annie Ernaux paru en 2016.",
-  "at": 1793346429868,
-  "jpAt": 1793347042113,
-  "synopsisFull": "Annie Ernaux est sollicitée pour une signature de son dernier ouvrage dans la ville de son enfance, Rouen. Alors qu'elle s'y rend, elle est prise d'un vertige et replonge dans le souvenir de l'été 1958, celui de sa première nuit avec un homme. Nuit dont l'onde de choc s'est propagée violemment dans son corps et sur le reste de son existence.",
-  "genre": "Drame",
-  "country": "France",
-  "duration": "1h57",
-  "cast": [
-   "Tess Barthélemy",
-   "Valérie Dréville",
-   "Maïwène Barthèlemy"
-  ]
- },
- "25603": {
-  "genre": "Drame",
-  "duration": "1h30",
-  "minutes": 90,
-  "director": "Bruno Dumont",
-  "country": "France, Portugal",
-  "synopsis": "Les Roches rouges est un film dramatique sentimental luso-italo-français réalisé par Bruno Dumont et sorti en 2026.",
-  "at": 1793346366817,
-  "jpAt": 1793347038773,
-  "synopsisFull": "Sur la Côte d’Azur, deux bandes d’enfants s’affrontent à leur jeu favori : sauter des rochers rouges de la Méditerranée. Géo, 5 ans à peine, découvre le temps d’un été un monde où l’amitié se mêle à la rivalité, et où les premiers élans du cœur deviennent source de tensions.",
-  "cast": [
-   "Kaylon Lancel",
-   "Kelsie Verdeilles",
-   "Louise Podolski"
-  ]
- },
- "25604": {
-  "country": "Japon",
-  "original": "でっちあげ〜殺人教師と呼ばれた男",
-  "at": 1792734772140,
-  "synopsisFull": "Seiichi Yabushita, instituteur respecté, est accusé par une mère d’avoir harcelé et humilié son fils. Très vite, la machine s’emballe. Médias, rumeurs, opinion publique : chacun impose son récit. Yabushita est alors pris dans une spirale où la vérité n’est plus qu’une version parmi d’autres.",
-  "jpAt": 1792827025437,
-  "genre": "Drame",
-  "director": "Takashi Miike",
-  "duration": "2h09",
-  "cast": [
-   "Gô Ayano",
-   "Kô Shibasaki",
-   "Kazuya Kamenashi"
-  ]
- },
  "25606": {
   "genre": "Body horror film",
   "director": "James Watkins",
@@ -1194,7 +678,8 @@
   "synopsis": "Clayface est un film de super-héros horrifique américain réalisé par James Watkins, écrit par Mike Flanagan et Hossein Amini et sorti en 2026.",
   "at": 1793432166885,
   "jpAt": 1793432581106,
-  "synopsisFull": "L'ascension fulgurante de Matt Hagen, de gamin des rues de Gotham à star hollywoodienne, est brutalement interrompue lorsqu'un baron du crime le laisse atrocement défiguré. Abandonné de tous et n'ayant plus rien à perdre, Matt se tourne vers un traitement expérimental qui lui rend miraculeusement son apparence… mais altère profondément sa perception de la réalité. Il sombre alors dans une spirale destructrice, consumé par un irrépressible désir de vengeance."
+  "synopsisFull": "L'ascension fulgurante de Matt Hagen, de gamin des rues de Gotham à star hollywoodienne, est brutalement interrompue lorsqu'un baron du crime le laisse atrocement défiguré. Abandonné de tous et n'ayant plus rien à perdre, Matt se tourne vers un traitement expérimental qui lui rend miraculeusement son apparence… mais altère profondément sa perception de la réalité. Il sombre alors dans une spirale destructrice, consumé par un irrépressible désir de vengeance.",
+  "duration": "1h49"
  },
  "25609": {
   "at": 1792750659261,
@@ -1237,18 +722,12 @@
   "synopsisFull": "Filmé de nuit sur les toits de Tel Aviv, le film décrit en détail les systèmes derrière le massacre de civils palestiniens à Gaza par Israël."
  },
  "25613": {
-  "at": 1792750646132,
+  "synopsis": "L'Espèce explosive est un film policier français réalisé par Sarah Arnold et sorti en 2026.",
+  "at": 1793607158218,
+  "jpAt": 1793607730162,
   "synopsisFull": "Dans la campagne du Nord-Est de la France. Les sangliers qui ravagent les cultures provoquent une guerre ouverte entre chasseurs et agriculteurs. Brun, céréalier en faillite, lutte pour maintenir sa ferme à flot. Quand un notable du coin le pousse à bout, il déraille et disparaît. Un an plus tard, Fulda, un gendarme corse muté dans la région pour raisons disciplinaires, mène l’enquête. Entre intuitions fulgurantes et ratés spectaculaires, ses méthodes approximatives le mènent sur la piste des Attilas, des sangliers aux dimensions hors normes. Mais sa récente rupture amoureuse et la vodka dans laquelle flotte son cerveau n’aident pas. Heureusement, il y a Stéphane, la nouvelle psy de la gendarmerie : elle est là pour mettre un peu d’ordre dans son chaos — à moins que ce ne soit l’inverse ?",
-  "jpAt": 1793432573937,
   "genre": "Comédie",
-  "country": "France",
-  "director": "Sarah Arnold",
-  "duration": "1h35",
-  "cast": [
-   "Alexis Manenti",
-   "Ella Rumpf",
-   "Vincent Dedienne"
-  ]
+  "country": "France"
  },
  "25615": {
   "genre": "Ou téléfilm biographique",
@@ -1281,6 +760,23 @@
   "at": 1792739702990,
   "synopsisFull": "Les vies entremêlées de deux couples mariés menant des existences complètement opposées. À mesure que leurs mondes se heurtent, des fissures commencent à apparaître dans leur quotidien."
  },
+ "25626": {
+  "genre": "Documentaire",
+  "duration": "2h54",
+  "minutes": 174,
+  "director": "Lance Oppenheim, Nathan Fielder",
+  "cast": [
+   "Elizabeth Holmes",
+   "Nathan Fielder",
+   "Christopher Abbott"
+  ],
+  "country": "États-Unis",
+  "synopsis": "You Can See Everything is a 2026 American metadocumentary film directed by Nathan Fielder and Lance Oppenheim.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/9/9d/You_Can_See_Everything_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1793607544834,
+  "jpAt": 1793607742641,
+  "synopsisFull": "Trente-quatre jours avant son incarcération, la célèbre fondatrice de Theranos, Elizabeth Holmes, invite une équipe de tournage sceptique à documenter ses moindres faits et gestes. Ce qui commence comme un portrait intime devient un voyage époustouflant de trois ans."
+ },
  "25629": {
   "genre": "Et téléfilm d'action",
   "cast": [
@@ -1306,11 +802,12 @@
   "synopsis": "Sanguine est un film franco-belge réalisé par Marion Le Corroller et sorti en 2026.",
   "at": 1793432229015,
   "jpAt": 1793432584460,
-  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…"
+  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…",
+  "director": "Marion Le Corroller"
  },
  "25631": {
   "at": 1792910697923,
-  "jpAt": 1792910697923,
+  "jpAt": 1793607741555,
   "synopsisFull": "Prue, une jeune fille courageuse, part à la recherche de son petit frère, enlevé et retenu dans la forêt interdite peuplée de créatures enchantées, d’alliés inattendus et d’adversaires redoutables. Ce qui débute comme une quête intime se transforme rapidement en une aventure spectaculaire aux enjeux colossaux, et c’est le destin de tout un monde caché qui dépend désormais de ses choix.",
   "genre": "Animation",
   "country": "Etats-Unis",
@@ -1328,7 +825,7 @@
  },
  "25633": {
   "at": 1792997712353,
-  "jpAt": 1792997712353,
+  "jpAt": 1793607732497,
   "synopsisFull": "Dans une ferme au cœur de la Beauce, Christophe, 11 ans, règle ses pas sur ceux de son père. Mais à l’école, à la maison, sur le tracteur, Christophe penche... et tombe. Il est obligé de porter un corset pour filer droit. Tandis que la ferme traverse des moments difficiles, Christophe grandit comme il peut. Il découvre la musique et fait la rencontre de Clara, avec qui tout semble devenir possible.",
   "genre": "Animation",
   "country": "France",
@@ -1337,64 +834,26 @@
  },
  "25634": {
   "at": 1792997710299,
-  "jpAt": 1792997710299,
+  "jpAt": 1793607731273,
   "synopsisFull": "Plongez dans un univers où la différence devient poésie à travers six récits touchants. De Rémi, le souriceau vivant la tête en bas, à Sacha et son parcours inclusif à l’école, de Lina qui s'envole avec un pull, à Lily qui fait éternuer la lune... Ce programme explore avec tendresse les perceptions singulières de l’enfance. Entre tricot de nuages, cités sous-marines et métamorphoses fantastiques du quotidien, ces films nous invitent à voir le monde avec les yeux de ceux et celles qui rêvent et vivent à un rythme différent, parfois juste « en décalé ».",
   "genre": "Animation",
   "country": "France",
   "director": "Arnaud Demuynck,Noé Garcia"
  },
- "25635": {
-  "at": 1792997708219,
-  "jpAt": 1792997708219,
-  "synopsisFull": "En France, rire des puissants est devenu un sport à risque. En trente ans, les humoristes les plus libres de la télévision et de la radio ont été méthodiquement neutralisés, marginalisés, censurés, voire virés. Dans l'audiovisuel public comme dans les médias privés, le même mécanisme se répète : on tolère la satire tant qu'elle ne mord pas. Dès qu'elle touche au pouvoir, on coupe le micro. Des plateaux de Canal+ aux studios de France Inter en passant par les couloirs de France Télévisions, du règne de Nicolas Sarkozy à celui d'Emmanuel Macron, ce documentaire retrace la mécanique d'une mise au silence qui en dit long sur l'état réel de la liberté d'expression dans l'audiovisuel français.",
-  "genre": "Documentaire",
-  "country": "France",
-  "director": "Matéo Larroque,Clara Menais",
-  "duration": "1h37",
-  "cast": [
-   "Guillaume Meurice",
-   "Lionel Dutemple",
-   "Sandrine Alexi"
-  ]
- },
- "25636": {
-  "at": 1792997709257,
-  "jpAt": 1792997709257,
-  "synopsisFull": "Betty Delorge et Harry Fortepaille, deux épouvantails très amoureux, rêvent d’un mariage inoubliable. Tout semble prêt pour le grand jour… jusqu’à ce que Harry parte chercher une dernière chose indispensable à la célébration : des fleurs roses. Pendant son absence, Réginald Dufoin, un épouvantail malin et un peu trop sûr de lui, arrive avec des idées qui pourraient bien gâcher la fête.",
-  "genre": "Animation",
-  "country": "Grande-Bretagne",
-  "original": "The Scarecrows’ Wedding",
-  "director": "Samantha Cutler,Jeroen Jaspaert"
- },
- "25637": {
-  "at": 1792997707180,
-  "jpAt": 1792997707180,
-  "synopsisFull": "Il était une fois une petite oie à la recherche d’une chaussette verte, un ourson qui avait trouvé un bonnet, un étrange chien au pelage bleu, deux voisins lapins fâchés… et une lérote qui rêvait de neige plutôt que d’hiberner.\nOuvrez la malle aux trésors de l’école des loisirs et découvrez Chien Bleu et quatre autres histoires comme vous ne les avez encore jamais vues ni entendues !",
-  "genre": "Animation",
-  "country": "France",
-  "director": "Dominique Pochat,Jean-Christophe Ribot"
- },
  "25638": {
   "at": 1792997715666,
-  "jpAt": 1792997715666,
+  "jpAt": 1793607738182,
   "synopsisFull": "Un récit historique dramatisé sur l’ascension et la chute d’Urbain Grandier, un prêtre catholique romain du XVIIe siècle accusé de sorcellerie à la suite des prétendues possessions de Loudun, en France. LES DIABLES met également en lumière sœur Jeanne des Anges, une religieuse sexuellement réprimée qui, sans le vouloir, déclenche les accusations.",
   "genre": "Drame",
   "country": "Grande-Bretagne",
   "original": "The Devils (Rep. 2026)"
  },
  "25639": {
-  "at": 1792997682939,
-  "jpAt": 1792997713487,
+  "at": 1793607223097,
+  "jpAt": 1793607733695,
   "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille.",
   "genre": "Aventure - Action",
-  "country": "Inde",
-  "director": "Nelson Dilipkumar",
-  "duration": "2h46",
-  "cast": [
-   "Rajinikanth",
-   "Vinayakan",
-   "Ramya Krishnan"
-  ]
+  "country": "Inde"
  },
  "25641": {
   "genre": "Ou téléfilm d'amour",
@@ -1409,8 +868,8 @@
   ],
   "country": "États-Unis",
   "synopsis": "Wicker est un drame romantique multinational réalisé par Alex Huston Fischer et Eleanor Wilson et sorti en 2026.",
-  "at": 1792997703166,
-  "jpAt": 1792997714623,
+  "at": 1793607304636,
+  "jpAt": 1793607736011,
   "synopsisFull": "Mise au ban de son village, une pêcheuse solitaire commande au vannier local un mari en osier. Cet époux improbable se révèle doté d’une sensibilité et de talents qui dépassent toutes ses attentes. À son contact, elle découvre un désir insoupçonné et, peu à peu, s’éprend véritablement de lui. Mais bientôt, son étrange mari attise les convoitises, la jalousie et les fantasmes des villageois, faisant vaciller les certitudes d’une communauté jusque-là bien ordonnée."
  },
  "25642": {
@@ -1448,5 +907,61 @@
   "jpAt": 1793432588885,
   "synopsisFull": "En quelques jours seulement, tout semble virer à la catastrophe pour Antoine Blanchet, héritier de l’ancestrale fabrique familiale de balances. Un ex-employé viré qui proteste bruyamment et campe devant l’usine ; Un contremaître qui met en péril la production, parce que sa femme le trompe ; Une stagiaire irrésistible qui fait tourner les têtes… À la veille de recevoir un prix d’excellence censé honorer son usine, il doit, en urgence, sauver l’entreprise et maintenir le calme dans son petit univers bien organisé. Il s’y attelle, à sa manière, paternaliste et autoritaire : en bon patron ?",
   "genre": "Comédie"
+ },
+ "25649": {
+  "director": "Albert Dupontel",
+  "at": 1793607367479,
+  "jpAt": 1793607739261,
+  "synopsisFull": "Dans une famille de croque-morts, deux sœurs et un frère se retrouvent pour les funérailles de leur mère. Le personnel étant en grève, ils doivent accomplir le protocole funéraire par eux-mêmes. Comment s’accorder pour brûler Maman ?",
+  "genre": "Comédie",
+  "country": "France"
+ },
+ "25650": {
+  "at": 1793607740336,
+  "jpAt": 1793607740336,
+  "synopsisFull": "Claude, 76 ans, aussi charmant qu’irresponsable, est mis à la porte par sa (quatrième) femme. Il se retrouve alors en garde alternée chez ses enfants, qu'il a pourtant évité toute sa vie. Cette cohabitation explosive et improbable pourrait bien, contre toute attente, recoller les morceaux d’une famille qu’il avait laissé filer.",
+  "genre": "Comédie",
+  "country": "France"
+ },
+ "25652": {
+  "genre": "Thriller",
+  "duration": "1h55",
+  "minutes": 115,
+  "director": "Paolo Strippoli",
+  "cast": [
+   "Jasmine Trinca",
+   "Adriano Giannini",
+   "Romana Maggiora Vergano",
+   "Valeria Bruni Tedeschi"
+  ],
+  "country": "Italie, France",
+  "original": "L'estranea",
+  "synopsis": "La Spirale est un film d'horreur franco-belgo-italien réalisé par Paolo Strippoli et sorti en 2026.",
+  "at": 1793607724428,
+  "jpAt": 1793607745921,
+  "synopsisFull": "Durant un orage, Anna se présente à l’improviste dans l’appartement étudiant de sa fille Alice et lui révèle que toute leur histoire familiale repose sur un mensonge qu’elle lui a raconté. Anna affirme avoir passé un pacte avec un mystérieux inconnu pour sauver la jambe d’Alice après un accident survenu vingt ans plus tôt. Ce pacte aurait déclenché un effet domino entraînant des événements terribles au fil des années. Seule Alice peut réparer les choses. Mais à quel prix ?"
+ },
+ "25654": {
+  "director": "Volker Schlöndorff",
+  "cast": [
+   "Martina Gedeck",
+   "Lars Eidinger",
+   "Susanne Wolff",
+   "Michael Maertens"
+  ],
+  "country": "Allemagne",
+  "synopsis": "Le Bois de Klara est un drame historique franco-allemand réalisé par Volker Schlöndorff et sorti en 2026. Il s'agit d'une adaptation du roman partiellement autobiographique Le Bois de Klara (de) de Jenny Erpenbeck, paru en 2007.",
+  "at": 1793607667759,
+  "jpAt": 1793607744844,
+  "synopsisFull": "Une maison située au bord d'un lac près de Berlin devient le témoin d'un siècle d'événements qui ont remodelé le monde qui l'entoure : la montée du nazisme et les ravages de la guerre, l'occupation soviétique, la réunification de l'Allemagne et l'aube d'une ère nouvelle.",
+  "genre": "Drame",
+  "original": "Heimsuchung - Eine Jahrhundertgeschichte"
+ },
+ "25656": {
+  "at": 1793607743748,
+  "jpAt": 1793607743748,
+  "synopsisFull": "Harry est le dernier pickpocket de New York.\nAlors que l'argent liquide se fait rare, il continue d'exercer son art en toute discrétion.\nUn jour, Harry dérobe une mystérieuse clef USB à un jeune mafieux et se retrouve pris en chasse par une dangereuse organisation criminelle…",
+  "genre": "Drame",
+  "country": "Etats-Unis"
  }
 }
