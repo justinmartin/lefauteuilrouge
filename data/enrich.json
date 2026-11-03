@@ -342,7 +342,9 @@
   "jpAt": 1793347052256,
   "synopsisFull": "Pour changer son futur, Scrooge va revivre son passé.",
   "genre": "Fantasy",
-  "country": "Etats-Unis"
+  "country": "Etats-Unis",
+  "director": "Ronald Neame",
+  "duration": "1h53"
  },
  "25483": {
   "at": 1792750686888,
@@ -388,7 +390,8 @@
   "jpAt": 1793432589985,
   "genre": "Aventure - Action",
   "country": "Etats-Unis",
-  "original": "How To Rob A Bank"
+  "original": "How To Rob A Bank",
+  "director": "David Leitch"
  },
  "25546": {
   "at": 1792750653810,
@@ -437,18 +440,13 @@
   "director": "Lauriane Escaffre,Yvo Muller"
  },
  "25552": {
-  "at": 1792750655995,
-  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés...",
-  "jpAt": 1793432579867,
   "genre": "Comédie",
+  "director": "Éric Judor",
   "country": "France",
-  "director": "Eric Judor",
-  "duration": "1h28",
-  "cast": [
-   "Eric Judor",
-   "Alexandra Lamy",
-   "Hafid F. Benamar"
-  ]
+  "synopsis": "Le Roi du Game est un film français réalisé par Éric Judor sorti en 2026.",
+  "at": 1793694782352,
+  "jpAt": 1793695091308,
+  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés..."
  },
  "25553": {
   "at": 1792750670319,
@@ -727,7 +725,14 @@
   "jpAt": 1793607730162,
   "synopsisFull": "Dans la campagne du Nord-Est de la France. Les sangliers qui ravagent les cultures provoquent une guerre ouverte entre chasseurs et agriculteurs. Brun, céréalier en faillite, lutte pour maintenir sa ferme à flot. Quand un notable du coin le pousse à bout, il déraille et disparaît. Un an plus tard, Fulda, un gendarme corse muté dans la région pour raisons disciplinaires, mène l’enquête. Entre intuitions fulgurantes et ratés spectaculaires, ses méthodes approximatives le mènent sur la piste des Attilas, des sangliers aux dimensions hors normes. Mais sa récente rupture amoureuse et la vodka dans laquelle flotte son cerveau n’aident pas. Heureusement, il y a Stéphane, la nouvelle psy de la gendarmerie : elle est là pour mettre un peu d’ordre dans son chaos — à moins que ce ne soit l’inverse ?",
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "director": "Sarah Arnold",
+  "duration": "1h35",
+  "cast": [
+   "Alexis Manenti",
+   "Ella Rumpf",
+   "Vincent Dedienne"
+  ]
  },
  "25615": {
   "genre": "Ou téléfilm biographique",
@@ -853,7 +858,14 @@
   "jpAt": 1793607733695,
   "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille.",
   "genre": "Aventure - Action",
-  "country": "Inde"
+  "country": "Inde",
+  "director": "Nelson Dilipkumar",
+  "duration": "2h46",
+  "cast": [
+   "Rajinikanth",
+   "Vinayakan",
+   "Ramya Krishnan"
+  ]
  },
  "25641": {
   "genre": "Ou téléfilm d'amour",
@@ -882,8 +894,8 @@
   ],
   "country": "France, Italie",
   "synopsis": "La Gradiva est un film franco-italien réalisé par Marine Atlan et sorti en 2026.",
-  "at": 1793083642114,
-  "jpAt": 1793083644183,
+  "at": 1793694785083,
+  "jpAt": 1793695092508,
   "synopsisFull": "Un groupe de lycéens français part en voyage scolaire à Naples pour découvrir les ruines de Pompéi et ses corps pétrifiés par le Vésuve. C’est là que le vertige les saisit brutalement. L’un après l’autre, ils se laissent submerger par le désir et la colère jusqu’à s’y abandonner complètement."
  },
  "25644": {
@@ -914,7 +926,12 @@
   "jpAt": 1793607739261,
   "synopsisFull": "Dans une famille de croque-morts, deux sœurs et un frère se retrouvent pour les funérailles de leur mère. Le personnel étant en grève, ils doivent accomplir le protocole funéraire par eux-mêmes. Comment s’accorder pour brûler Maman ?",
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "cast": [
+   "Louise Coldefy",
+   "Julia Piaton",
+   "Artus"
+  ]
  },
  "25650": {
   "at": 1793607740336,
