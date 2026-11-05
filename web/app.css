@@ -27,6 +27,23 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 img { display: block; }
 a { color: inherit; }
 
+/* ----- Écran de bienvenue ----- */
+.splash {
+  position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; padding: 24px 16px; background: var(--bg); text-align: center; cursor: pointer; transition: opacity 0.45s ease;
+}
+.splash[hidden] { display: none; }
+.splash > * { opacity: 0; transform: translateY(8px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.splash.in > * { opacity: 1; transform: none; }
+.splash.in .splash-title { transition-delay: 0.15s; }
+.splash.in .splash-hint { transition-delay: 1.2s; }
+.splash.out { opacity: 0; pointer-events: none; }
+.splash-title { font-family: var(--serif); font-size: clamp(44px, 13vw, 76px); line-height: 1; overflow-wrap: anywhere; }
+.splash-title i { color: var(--red-2); }
+.splash-hint { position: absolute; bottom: calc(var(--safe-bottom) + 32px); font-size: 13px; color: var(--text-3); }
+.splash-on body { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .splash, .splash > * { transition: none; transform: none; } }
+
 /* ----- Barre du haut ----- */
 .top {
   position: fixed; inset: 0 0 auto 0; z-index: 20; display: flex; align-items: center; justify-content: space-between;

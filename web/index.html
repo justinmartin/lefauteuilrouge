@@ -18,6 +18,43 @@
   <link rel="stylesheet" href="/app.css">
 </head>
 <body>
+  <!-- Écran de bienvenue : une fois par jour, 5 s ou un toucher. Pas au premier lancement (la fiche
+       « Bienvenue » du compte s'en charge) ni quand un lien ouvre directement un film. -->
+  <div class="splash" id="splash" hidden>
+    <img src="/logo.svg" alt="" width="56" height="56">
+    <p class="splash-title">Bienvenue<span id="splash-name"></span></p>
+    <p class="splash-hint">Touchez pour entrer</p>
+  </div>
+  <script>
+    (function () {
+      var el = document.getElementById('splash');
+      var get = function (k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } };
+      var d = new Date(), day = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+      var account = get('lfr_account');
+      var deep = /[?&](film|une)=/.test(location.search);
+      if (deep || get('lfr_splash') === day || !(account || get('lfr_onboarded'))) return;
+      try { localStorage.setItem('lfr_splash', JSON.stringify(day)); } catch (e) {}
+      if (account && account.pseudo) {
+        var name = document.createElement('i');
+        name.textContent = account.pseudo;
+        document.getElementById('splash-name').append(', ', name);
+      }
+      el.hidden = false;
+      document.documentElement.classList.add('splash-on');
+      var fonts = document.fonts ? Promise.race([document.fonts.load('48px "Instrument Serif"'), new Promise(function (r) { setTimeout(r, 1200); })]) : Promise.resolve();
+      fonts.then(function () { el.classList.add('in'); });
+      var done = false, timer = setTimeout(close, 5000);
+      function close() {
+        if (done) return;
+        done = true; clearTimeout(timer);
+        el.classList.add('out');
+        document.documentElement.classList.remove('splash-on');
+        setTimeout(function () { el.remove(); }, 450);
+      }
+      el.addEventListener('click', close);
+      document.addEventListener('keydown', close, { once: true });
+    })();
+  </script>
   <header class="top">
     <a class="brand" href="/" aria-label="Le Fauteuil Rouge, accueil">
       <img src="/logo.svg" alt="" width="30" height="30">

@@ -20,6 +20,8 @@ Quatre onglets :
 
 **Films guettés** : la recherche trouve aussi **tous les films**, même anciens (Wikidata, `/api/find`). Une étoile sur un vieux film le « guette ». Dès qu'il repasse dans une salle de Paris ou de la petite couronne (reprise, ressortie, rétrospective : liste `/api/reprises` tirée de paris-cine.info), ou qu'une ressortie nationale est annoncée, l'app affiche « 🎬 Ça ressort » à l'ouverture, avec un bandeau en tête de « Cette semaine ». Sa fiche indique alors où le voir dans tout Paris. Le rapprochement se fait par identifiant IMDb, sinon par titre et année.
 
+**Écran de bienvenue** : à la première ouverture de la journée, « Bienvenue, <pseudo> » en Instrument Serif pendant 5 s (un toucher l'écourte). Il ne s'affiche ni au tout premier lancement (la fiche « Bienvenue » du compte s'en charge) ni quand un lien ouvre directement un film (`web/index.html`).
+
 La **fiche film** prend la couleur de l'affiche. Elle affiche la bande-annonce intégrée quand Wikidata la connaît, la **note du Fauteuil**, l'« En bref » tiré de Wikipédia et les séances dans tes cinés. La **recherche** (loupe) trouve un titre ou un réalisateur.
 
 **La note du Fauteuil** est la moyenne des notes disponibles, ramenées sur 10 : Rotten Tomatoes (critiques) % ÷ 10, presse Allociné × 2, IMDb (spectateurs) tel quel, spectateurs Allociné × 2, Letterboxd (cinéphiles) × 2. Elle est suivie d'un mot (Excellent, Très bien, Bien, Mitigé, Décevant). Une phrase indique si critiques et public sont d'accord : 2 points d'écart ou plus entre la moyenne presse et la moyenne public, et c'est « la presse aime plus que le public » ou l'inverse.
