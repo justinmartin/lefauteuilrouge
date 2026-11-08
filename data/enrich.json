@@ -14,6 +14,8 @@
  },
  "24649": {
   "genre": "Drame",
+  "duration": "2h38",
+  "minutes": 158,
   "director": "Francis Lawrence",
   "cast": [
    "Joseph Zada",
@@ -24,9 +26,7 @@
   "country": "États-Unis",
   "original": "The Hunger Games: Sunrise on the Reaping",
   "synopsis": "Hunger Games : Lever de soleil sur la moisson est un film d'action américain réalisé par Francis Lawrence et dont la sortie est prévue en 2026. Le scénario, écrit par Billy Ray, est de l'adaptation cinématographique du roman du même nom de Suzanne Collins, publié en 2025.",
-  "at": 1793346842989,
-  "jpAt": 1793432592185,
-  "synopsisFull": "Alors que le jour se lève sur les 50e Hunger Games annuels, la peur s'empare des districts de Panem. Cette année, en l'honneur du Quarter Quell, deux fois plus de tributs seront tirés au sort. Dans le District 12, Haymitch Abernathy essaie de ne pas trop penser à ses chances. Tout ce qui lui importe est d'être avec la fille qu'il aime. Mais lorsque qu'il est appelé, tous ses rêves s'effondrent. Il est arraché à sa famille et à son amour, transporté au Capitole avec les trois autres tributs du District 12 : une jeune amie qui est presque une sœur pour lui, un parieur compulsif, et la fille la plus prétentieuse de la ville. Alors que les Jeux commencent, Haymitch comprend qu'il a été piégé pour échouer. Mais il est prêt à se battre... et faire en sorte que ce combat résonne bien au-delà de l'arène."
+  "at": 1794124625784
  },
  "24982": {
   "at": 1792827094281,
@@ -188,10 +188,9 @@
   ],
   "country": "France",
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
-  "at": 1793432108144,
-  "jpAt": 1794038052931,
-  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police.",
-  "duration": "2h20"
+  "at": 1794124565459,
+  "jpAt": 1794124936448,
+  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police."
  },
  "25390": {
   "at": 1792750650557,
@@ -382,7 +381,14 @@
   "jpAt": 1794038048255,
   "synopsisFull": "Benjamin et Amélie, jeune couple de trentenaires décide d’acheter la maison de leurs rêves en viager à Nicolette, une dame qui semble mourante. Mais peu après la vente, elle va beaucoup mieux et le couple se demande s’il n’a pas été arnaqué. Bientôt à genoux financièrement, ils sont forcés de penser au pire.",
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "director": "Claude Zidi Jr.",
+  "duration": "1h30",
+  "cast": [
+   "Kev Adams",
+   "Chantal Ladesou",
+   "Camille Aguilar"
+  ]
  },
  "25493": {
   "genre": "Cinéma de science-fiction",
@@ -475,7 +481,13 @@
   "synopsisFull": "Stan, trentenaire d’origine modeste, rencontre pour la première fois la famille de sa petite amie Cléo. Il découvre alors la tradition familiale : à chaque anniversaire de France, l’impressionnante maîtresse de maison, on lance une partie de Trivial Pursuit ©. Il sait qu’il n’a aucune chance face à ces amoureux de la culture, mais il n’a pas le choix : toute la famille doit participer, sans exception. Qu’est-ce qui pourrait mal tourner ? Après tout ce n’est qu’un jeu de société…",
   "jpAt": 1794038060051,
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "director": "Matthieu Rumani,Nicolas Slomka",
+  "cast": [
+   "Kristin Scott Thomas",
+   "Guillermo Guiz",
+   "Anaïde Rozam"
+  ]
  },
  "25554": {
   "genre": "Drame",
@@ -574,12 +586,14 @@
   "cast": [
    "Catherine Deneuve",
    "Jella Haase",
-   "Laurence Rupp"
+   "Laurence Rupp",
+   "Léa Seydoux"
   ],
   "country": "Autriche, Allemagne",
   "synopsis": "Gentle Monster est un film dramatique franco-germano-autrichien réalisé par Marie Kreutzer et sorti en 2026.",
-  "at": 1793432505602,
-  "jpAt": 1794038073840,
+  "poster": "https://upload.wikimedia.org/wikipedia/en/9/92/Gentle_Monster_2026_film_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1794124809916,
+  "jpAt": 1794124941047,
   "synopsisFull": "Lucy et Philip sont heureux, ils viennent d’emménager avec leur fils dans une maison de campagne près de Munich. Un matin, leur vie bascule lorsque la police se présente à leur domicile pour arrêter Philip et saisir ses ordinateurs. Bouleversée, Lucy cherche la vérité sur son mari. Qui est-il réellement ? Doit-elle l’éloigner de son fils ?"
  },
  "25571": {
@@ -638,18 +652,17 @@
  },
  "25596": {
   "genre": "Thriller",
-  "director": "Ben Affleck",
   "cast": [
-   "Ben Affleck",
    "Gillian Anderson",
    "Kerry Washington",
    "Steven Yeun"
   ],
   "country": "États-Unis",
   "synopsis": "Animals est un film américain réalisé par Ben Affleck et sorti en 2026. Il est diffusé sur Netflix.",
-  "at": 1793346601668,
-  "jpAt": 1793954595820,
-  "synopsisFull": "Quand leur fils est enlevé, un candidat à la mairie de Los Angeles et sa femme s'efforcent de réunir l'argent de la rançon et font des choix qui pourraient bouleverser leur vie."
+  "at": 1794124503521,
+  "jpAt": 1794124933608,
+  "synopsisFull": "Quand leur fils est enlevé, un candidat à la mairie de Los Angeles et sa femme s'efforcent de réunir l'argent de la rançon et font des choix qui pourraient bouleverser leur vie.",
+  "director": "Ben Affleck"
  },
  "25598": {
   "genre": "Comédie",
@@ -838,7 +851,9 @@
   "synopsis": "Sanguine est un film franco-belge réalisé par Marion Le Corroller et sorti en 2026.",
   "at": 1794037571195,
   "jpAt": 1794038055263,
-  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…"
+  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…",
+  "director": "Marion Le Corroller",
+  "duration": "1h43"
  },
  "25631": {
   "at": 1792910697923,
@@ -1087,5 +1102,33 @@
   "country": "France",
   "at": 1793954447375,
   "jpAt": 1793954615090
+ },
+ "25664": {
+  "genre": "Drame",
+  "director": "John Madden",
+  "cast": [
+   "Laura Linney",
+   "Rhys Ifans",
+   "Monica Dolan",
+   "Rory Kinnear"
+  ],
+  "country": "Royaume-Uni",
+  "at": 1794124664257,
+  "jpAt": 1794124939832,
+  "synopsisFull": "Inspiré de la vie d'une icône américaine adorée de tous, Madden retrace le parcours incroyable de John Madden aux côtés de son meilleur ami et visionnaire Al Davis – d'un partenariat couronné par une victoire au Super Bowl avec les Raiders, à sa consécration en tant que voix la plus emblématique du football américain, jusqu'à la création du jeu vidéo mondialement célèbre Madden NFL."
+ },
+ "25666": {
+  "genre": "Et téléfilm d'action",
+  "director": "William Eubank",
+  "cast": [
+   "Jim Caviezel",
+   "Olivia Thirlby",
+   "Garret Dillahunt",
+   "Shea Whigham"
+  ],
+  "country": "États-Unis",
+  "synopsis": "Ghost Soldier is a 2026 American action film directed by William Eubank and written by Chris Papasadero. It stars Jim Caviezel, Olivia Thirlby, Beau Knapp, Garret Dillahunt, Tetiana Dar, Jaina Lee Ortiz, and Shea Whigham.",
+  "at": 1794124871836,
+  "jpAt": 1794124942122
  }
 }
