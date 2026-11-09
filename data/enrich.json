@@ -26,7 +26,9 @@
   "country": "États-Unis",
   "original": "The Hunger Games: Sunrise on the Reaping",
   "synopsis": "Hunger Games : Lever de soleil sur la moisson est un film d'action américain réalisé par Francis Lawrence et dont la sortie est prévue en 2026. Le scénario, écrit par Billy Ray, est de l'adaptation cinématographique du roman du même nom de Suzanne Collins, publié en 2025.",
-  "at": 1794124625784
+  "at": 1794124625784,
+  "jpAt": 1794214100901,
+  "synopsisFull": "Alors que le jour se lève sur les 50e Hunger Games annuels, la peur s'empare des districts de Panem. Cette année, en l'honneur du Quarter Quell, deux fois plus de tributs seront tirés au sort. Dans le District 12, Haymitch Abernathy essaie de ne pas trop penser à ses chances. Tout ce qui lui importe est d'être avec la fille qu'il aime. Mais lorsque qu'il est appelé, tous ses rêves s'effondrent. Il est arraché à sa famille et à son amour, transporté au Capitole avec les trois autres tributs du District 12 : une jeune amie qui est presque une sœur pour lui, un parieur compulsif, et la fille la plus prétentieuse de la ville. Alors que les Jeux commencent, Haymitch comprend qu'il a été piégé pour échouer. Mais il est prêt à se battre... et faire en sorte que ce combat résonne bien au-delà de l'arène."
  },
  "24982": {
   "at": 1792827094281,
@@ -107,6 +109,14 @@
   "jpAt": 1794038049360,
   "synopsisFull": "Corinne Maclou est figurante. Elle enchaîne les tournages avec l’espoir d’être remarquée et de décrocher enfin un vrai rôle. Lorsque son chemin croise celui de Sandrine Kiberlain et qu’une relation commence à se nouer entre les deux, Corinne espère concrétiser son rêve. Mais la célèbre actrice va-t-elle vraiment l’aider à se faire une place au sein de la grande famille du cinéma ?"
  },
+ "25294": {
+  "at": 1794214107609,
+  "jpAt": 1794214107609,
+  "synopsisFull": "Un empire qui vacille. Un souverain rongé par la peur. Une étoile qui se lève au-dessus de Bethléem. À la naissance du Christ, la terreur d’Hérode conduit au massacre des innocents.? Pour sauver son enfant, Marie doit fuir et protéger celui que les prophéties annoncent comme le Sauveur du monde. Alors que la violence se propage et que l’espoir s’éteint, la véritable bataille commence - non pour la conquête d’un trône, mais pour sauver l’âme de l’humanité.",
+  "genre": "Drame",
+  "country": "Etats-Unis",
+  "original": "Zero A.D."
+ },
  "25300": {
   "genre": "Drame",
   "director": "Jean-Pierre Jeunet",
@@ -163,20 +173,11 @@
   "original": "Focker-In-Law"
  },
  "25337": {
-  "genre": "Drame",
-  "director": "Lászlo Nemes",
-  "cast": [
-   "Gilles Lellouche",
-   "Lars Eidinger",
-   "Marcin Czarnik",
-   "Christian Harting"
-  ],
-  "country": "France",
-  "synopsis": "Moulin est un film français réalisé par László Nemes sorti en 2026. Il s'agit d'un film biographique sur Jean Moulin.",
-  "at": 1793607306810,
-  "jpAt": 1793607737101,
+  "at": 1794213586271,
+  "jpAt": 1794214096345,
   "synopsisFull": "Juin 1943, Jean Moulin, chef de la Résistance, est arrêté alors qu'il tente de réunifier les forces de l’Armée Secrète Interrogé par Klaus Barbie, le chef de la Gestapo de Lyon, Moulin est entraîné dans une confrontation implacable. Son ultime combat face à la manipulation et la brutalité commence.? Le destin de la France libre en dépend.",
-  "duration": "2h14"
+  "genre": "Drame",
+  "country": "France"
  },
  "25377": {
   "genre": "Thriller psychologique",
@@ -190,7 +191,8 @@
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
   "at": 1794124565459,
   "jpAt": 1794124936448,
-  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police."
+  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police.",
+  "duration": "2h20"
  },
  "25390": {
   "at": 1792750650557,
@@ -341,6 +343,14 @@
   "genre": "Fantasy",
   "country": "Etats-Unis",
   "original": "Children of Blood and Bone"
+ },
+ "25471": {
+  "at": 1794214109822,
+  "jpAt": 1794214109822,
+  "synopsisFull": "L’histoire d’Ousman Umar, un jeune Ghanéen fasciné par la mystérieuse terre des hommes blancs, qui quitte son village et se lance dans un voyage vers l’Europe",
+  "genre": "Drame",
+  "country": "Espagne",
+  "original": "Viaje al país de los blancos"
  },
  "25481": {
   "at": 1792750687953,
@@ -764,18 +774,11 @@
  },
  "25613": {
   "synopsis": "L'Espèce explosive est un film policier français réalisé par Sarah Arnold et sorti en 2026.",
-  "at": 1793607158218,
-  "jpAt": 1793607730162,
+  "at": 1794213468377,
+  "jpAt": 1794214090392,
   "synopsisFull": "Dans la campagne du Nord-Est de la France. Les sangliers qui ravagent les cultures provoquent une guerre ouverte entre chasseurs et agriculteurs. Brun, céréalier en faillite, lutte pour maintenir sa ferme à flot. Quand un notable du coin le pousse à bout, il déraille et disparaît. Un an plus tard, Fulda, un gendarme corse muté dans la région pour raisons disciplinaires, mène l’enquête. Entre intuitions fulgurantes et ratés spectaculaires, ses méthodes approximatives le mènent sur la piste des Attilas, des sangliers aux dimensions hors normes. Mais sa récente rupture amoureuse et la vodka dans laquelle flotte son cerveau n’aident pas. Heureusement, il y a Stéphane, la nouvelle psy de la gendarmerie : elle est là pour mettre un peu d’ordre dans son chaos — à moins que ce ne soit l’inverse ?",
   "genre": "Comédie",
-  "country": "France",
-  "director": "Sarah Arnold",
-  "duration": "1h35",
-  "cast": [
-   "Alexis Manenti",
-   "Ella Rumpf",
-   "Vincent Dedienne"
-  ]
+  "country": "France"
  },
  "25615": {
   "genre": "Ou téléfilm biographique",
@@ -822,7 +825,7 @@
   "synopsis": "You Can See Everything is a 2026 American metadocumentary film directed by Nathan Fielder and Lance Oppenheim.",
   "poster": "https://upload.wikimedia.org/wikipedia/en/9/9d/You_Can_See_Everything_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
   "at": 1793607544834,
-  "jpAt": 1793607742641,
+  "jpAt": 1794214106509,
   "synopsisFull": "Trente-quatre jours avant son incarcération, la célèbre fondatrice de Theranos, Elizabeth Holmes, invite une équipe de tournage sceptique à documenter ses moindres faits et gestes. Ce qui commence comme un portrait intime devient un voyage époustouflant de trois ans."
  },
  "25629": {
@@ -877,7 +880,7 @@
  },
  "25633": {
   "at": 1792997712353,
-  "jpAt": 1793607732497,
+  "jpAt": 1794214092742,
   "synopsisFull": "Dans une ferme au cœur de la Beauce, Christophe, 11 ans, règle ses pas sur ceux de son père. Mais à l’école, à la maison, sur le tracteur, Christophe penche... et tombe. Il est obligé de porter un corset pour filer droit. Tandis que la ferme traverse des moments difficiles, Christophe grandit comme il peut. Il découvre la musique et fait la rencontre de Clara, avec qui tout semble devenir possible.",
   "genre": "Animation",
   "country": "France",
@@ -886,7 +889,7 @@
  },
  "25634": {
   "at": 1792997710299,
-  "jpAt": 1793607731273,
+  "jpAt": 1794214091504,
   "synopsisFull": "Plongez dans un univers où la différence devient poésie à travers six récits touchants. De Rémi, le souriceau vivant la tête en bas, à Sacha et son parcours inclusif à l’école, de Lina qui s'envole avec un pull, à Lily qui fait éternuer la lune... Ce programme explore avec tendresse les perceptions singulières de l’enfance. Entre tricot de nuages, cités sous-marines et métamorphoses fantastiques du quotidien, ces films nous invitent à voir le monde avec les yeux de ceux et celles qui rêvent et vivent à un rythme différent, parfois juste « en décalé ».",
   "genre": "Animation",
   "country": "France",
@@ -894,7 +897,7 @@
  },
  "25638": {
   "at": 1792997715666,
-  "jpAt": 1793607738182,
+  "jpAt": 1794214097454,
   "synopsisFull": "Un récit historique dramatisé sur l’ascension et la chute d’Urbain Grandier, un prêtre catholique romain du XVIIe siècle accusé de sorcellerie à la suite des prétendues possessions de Loudun, en France. LES DIABLES met également en lumière sœur Jeanne des Anges, une religieuse sexuellement réprimée qui, sans le vouloir, déclenche les accusations.",
   "genre": "Drame",
   "country": "Grande-Bretagne",
@@ -902,7 +905,7 @@
  },
  "25639": {
   "at": 1793607223097,
-  "jpAt": 1793607733695,
+  "jpAt": 1794214093988,
   "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille.",
   "genre": "Aventure - Action",
   "country": "Inde",
@@ -927,8 +930,8 @@
   ],
   "country": "États-Unis",
   "synopsis": "Wicker est un drame romantique multinational réalisé par Alex Huston Fischer et Eleanor Wilson et sorti en 2026.",
-  "at": 1793607304636,
-  "jpAt": 1793607736011,
+  "at": 1794213547409,
+  "jpAt": 1794214095238,
   "synopsisFull": "Mise au ban de son village, une pêcheuse solitaire commande au vannier local un mari en osier. Cet époux improbable se révèle doté d’une sensibilité et de talents qui dépassent toutes ses attentes. À son contact, elle découvre un désir insoupçonné et, peu à peu, s’éprend véritablement de lui. Mais bientôt, son étrange mari attise les convoitises, la jalousie et les fantasmes des villageois, faisant vaciller les certitudes d’une communauté jusque-là bien ordonnée."
  },
  "25642": {
@@ -980,7 +983,7 @@
  "25649": {
   "director": "Albert Dupontel",
   "at": 1793607367479,
-  "jpAt": 1793607739261,
+  "jpAt": 1794214099789,
   "synopsisFull": "Dans une famille de croque-morts, deux sœurs et un frère se retrouvent pour les funérailles de leur mère. Le personnel étant en grève, ils doivent accomplir le protocole funéraire par eux-mêmes. Comment s’accorder pour brûler Maman ?",
   "genre": "Comédie",
   "country": "France",
@@ -991,11 +994,22 @@
   ]
  },
  "25650": {
-  "at": 1793607740336,
-  "jpAt": 1793607740336,
-  "synopsisFull": "Claude, 76 ans, aussi charmant qu’irresponsable, est mis à la porte par sa (quatrième) femme. Il se retrouve alors en garde alternée chez ses enfants, qu'il a pourtant évité toute sa vie. Cette cohabitation explosive et improbable pourrait bien, contre toute attente, recoller les morceaux d’une famille qu’il avait laissé filer.",
-  "genre": "Comédie",
-  "country": "France"
+  "genre": "Drame",
+  "duration": "1h45",
+  "minutes": 105,
+  "director": "Richard Linklater",
+  "cast": [
+   "Zoey Deutch",
+   "Aubry Dullin",
+   "Bruno Dreyfürst",
+   "Guillaume Marbeck"
+  ],
+  "country": "France",
+  "original": "Nouvelle Vague",
+  "synopsis": "Nouvelle Vague est un film français réalisé par Richard Linklater et sorti en 2025.",
+  "at": 1794213722333,
+  "jpAt": 1794214102014,
+  "synopsisFull": "Claude, 76 ans, aussi charmant qu’irresponsable, est mis à la porte par sa (quatrième) femme. Il se retrouve alors en garde alternée chez ses enfants, qu'il a pourtant évité toute sa vie. Cette cohabitation explosive et improbable pourrait bien, contre toute attente, recoller les morceaux d’une famille qu’il avait laissé filer."
  },
  "25652": {
   "genre": "Thriller",
@@ -1032,11 +1046,20 @@
   "original": "Heimsuchung - Eine Jahrhundertgeschichte"
  },
  "25656": {
-  "at": 1793607743748,
-  "jpAt": 1793607743748,
-  "synopsisFull": "Harry est le dernier pickpocket de New York.\nAlors que l'argent liquide se fait rare, il continue d'exercer son art en toute discrétion.\nUn jour, Harry dérobe une mystérieuse clef USB à un jeune mafieux et se retrouve pris en chasse par une dangereuse organisation criminelle…",
-  "genre": "Drame",
-  "country": "Etats-Unis"
+  "genre": "Ou téléfilm criminel",
+  "duration": "1h28",
+  "minutes": 88,
+  "director": "Noah Segan",
+  "cast": [
+   "John Gallagher",
+   "John Turturro",
+   "Victoria Moroles"
+  ],
+  "country": "États-Unis",
+  "synopsis": "The Last Pickpocket in New York est un film américain réalisé par Noah Segan et sorti en 2026.",
+  "at": 1794213849930,
+  "jpAt": 1794214105382,
+  "synopsisFull": "Harry est le dernier pickpocket de New York.\nAlors que l'argent liquide se fait rare, il continue d'exercer son art en toute discrétion.\nUn jour, Harry dérobe une mystérieuse clef USB à un jeune mafieux et se retrouve pris en chasse par une dangereuse organisation criminelle…"
  },
  "25657": {
   "at": 1793954608721,
@@ -1130,5 +1153,66 @@
   "synopsis": "Ghost Soldier is a 2026 American action film directed by William Eubank and written by Chris Papasadero. It stars Jim Caviezel, Olivia Thirlby, Beau Knapp, Garret Dillahunt, Tetiana Dar, Jaina Lee Ortiz, and Shea Whigham.",
   "at": 1794124871836,
   "jpAt": 1794124942122
+ },
+ "25668": {
+  "genre": "Ou téléfilm épique",
+  "director": "Nitesh Tiwari",
+  "cast": [
+   "Sai Pallavi",
+   "Yash"
+  ],
+  "country": "Inde",
+  "original": "রামায়ণ",
+  "synopsis": "Ramayana : L'Avènement d'une légende est un film d'aventures indien réalisé par Nitesh Tiwari et sorti en 2026.",
+  "at": 1794213609268,
+  "jpAt": 1794214098687,
+  "synopsisFull": "Dans l’Inde antique, le destin du jeune prince Rama bascule lorsqu’il est contraint à l’exil, peu après son mariage avec la princesse Sita. Arrachés à leur royaume, les deux époux entament un périple légendaire qui les conduira à affronter les épreuves du destin et la menace du redoutable Ravana, puissant roi des démons. Marquée par l’amour, le devoir, la trahison et les rivalités divines, leur histoire donnera naissance à l’une des plus grandes épopées de tous les temps."
+ },
+ "25673": {
+  "genre": "Comédie noire",
+  "duration": "1h34",
+  "minutes": 94,
+  "director": "Cathy Yan",
+  "cast": [
+   "Natalie Portman",
+   "Jenna Ortega",
+   "Da’Vine Joy Randolph",
+   "Sterling K. Brown"
+  ],
+  "country": "États-Unis",
+  "synopsis": "The Gallerist est un film américain réalisé par Cathy Yan et sorti 2026. Il s'agit d'une comédie noire avec Natalie Portman, Jenna Ortega, Sterling K. Brown, Zach Galifianakis, Da'Vine Joy Randolph et Catherine Zeta-Jones dans les rôles principaux.",
+  "at": 1794213761508,
+  "jpAt": 1794214103144,
+  "synopsisFull": "Une galeriste désespérée est prête à tout pour relancer sa carrière, allant jusqu’à faire passer un cadavre pour une œuvre d’art contemporaine lors d’Art Basel à Miami..."
+ },
+ "25674": {
+  "at": 1794214104269,
+  "jpAt": 1794214104269,
+  "synopsisFull": "Dans le futur, les humains cohabitent avec les extraterrestres. Le dernier détective privé humain est engagé pour enquêter sur la fidélité d'une célèbre pop star.",
+  "director": "Brad Bird"
+ },
+ "25675": {
+  "at": 1794214110940,
+  "jpAt": 1794214110940,
+  "synopsisFull": "Alors qu'elle se promène avec son père dans le Golden Gate Park de San Francisco, Josephine, huit ans, est témoin d'une agression sexuelle. Incapable de mettre des mots sur ce qu'elle a vu, elle est pourtant la seule personne dont le témoignage pourrait permettre d’inculper l’agresseur..."
+ },
+ "25676": {
+  "genre": "Comédie",
+  "director": "Émile Gaudreault",
+  "cast": [
+   "Lambert Wilson",
+   "Suzanne Jouannet",
+   "Thierry Lhermitte",
+   "Anne Consigny"
+  ],
+  "country": "Canada, France",
+  "synopsis": "Maudits Français est un film franco-québécois réalisé par Émile Gaudreault et dont la sortie est prévue en 2027. Il est coscénarisée avec Guy Laurent.",
+  "at": 1794214025839,
+  "jpAt": 1794214112057
+ },
+ "25677": {
+  "at": 1794214108710,
+  "jpAt": 1794214108710,
+  "synopsisFull": "Les cours reprennent à Jules Ferry, le célèbre établissement n’a pas changé sa formule, aux pires élèves, les pires profs ! Lors d’un voyage scolaire, les profs et Boulard sont projetés dans le passé, en pleine bataille napoléonienne. Ils se retrouvent alors à une époque où l’école publique n’existe pas encore, et vont, sans ..."
  }
 }
