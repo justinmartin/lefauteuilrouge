@@ -177,7 +177,14 @@
   "jpAt": 1794214096345,
   "synopsisFull": "Juin 1943, Jean Moulin, chef de la Résistance, est arrêté alors qu'il tente de réunifier les forces de l’Armée Secrète Interrogé par Klaus Barbie, le chef de la Gestapo de Lyon, Moulin est entraîné dans une confrontation implacable. Son ultime combat face à la manipulation et la brutalité commence.? Le destin de la France libre en dépend.",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "director": "László Nemes",
+  "duration": "2h14",
+  "cast": [
+   "Gilles Lellouche",
+   "Lars Eidinger",
+   "Louise Bourgoin"
+  ]
  },
  "25377": {
   "genre": "Thriller psychologique",
@@ -476,28 +483,17 @@
   "director": "Éric Judor",
   "country": "France",
   "synopsis": "Le Roi du Game est un film français réalisé par Éric Judor sorti en 2026.",
-  "at": 1793694782352,
-  "jpAt": 1793695091308,
-  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés...",
-  "duration": "1h28",
-  "cast": [
-   "Eric Judor",
-   "Alexandra Lamy",
-   "Hafid F. Benamar"
-  ]
+  "at": 1794300602776,
+  "jpAt": 1794301012694,
+  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés..."
  },
  "25553": {
-  "at": 1792750670319,
-  "synopsisFull": "Stan, trentenaire d’origine modeste, rencontre pour la première fois la famille de sa petite amie Cléo. Il découvre alors la tradition familiale : à chaque anniversaire de France, l’impressionnante maîtresse de maison, on lance une partie de Trivial Pursuit ©. Il sait qu’il n’a aucune chance face à ces amoureux de la culture, mais il n’a pas le choix : toute la famille doit participer, sans exception. Qu’est-ce qui pourrait mal tourner ? Après tout ce n’est qu’un jeu de société…",
-  "jpAt": 1794038060051,
-  "genre": "Comédie",
   "country": "France",
-  "director": "Matthieu Rumani,Nicolas Slomka",
-  "cast": [
-   "Kristin Scott Thomas",
-   "Guillermo Guiz",
-   "Anaïde Rozam"
-  ]
+  "synopsis": "Camembert est une comédie française réalisée par Matthieu Rumani et Nicolas Slomka et sortie en 2026.",
+  "at": 1794300728473,
+  "jpAt": 1794301019878,
+  "synopsisFull": "Stan, trentenaire d’origine modeste, rencontre pour la première fois la famille de sa petite amie Cléo. Il découvre alors la tradition familiale : à chaque anniversaire de France, l’impressionnante maîtresse de maison, on lance une partie de Trivial Pursuit ©. Il sait qu’il n’a aucune chance face à ces amoureux de la culture, mais il n’a pas le choix : toute la famille doit participer, sans exception. Qu’est-ce qui pourrait mal tourner ? Après tout ce n’est qu’un jeu de société…",
+  "genre": "Comédie"
  },
  "25554": {
   "genre": "Drame",
@@ -778,7 +774,14 @@
   "jpAt": 1794214090392,
   "synopsisFull": "Dans la campagne du Nord-Est de la France. Les sangliers qui ravagent les cultures provoquent une guerre ouverte entre chasseurs et agriculteurs. Brun, céréalier en faillite, lutte pour maintenir sa ferme à flot. Quand un notable du coin le pousse à bout, il déraille et disparaît. Un an plus tard, Fulda, un gendarme corse muté dans la région pour raisons disciplinaires, mène l’enquête. Entre intuitions fulgurantes et ratés spectaculaires, ses méthodes approximatives le mènent sur la piste des Attilas, des sangliers aux dimensions hors normes. Mais sa récente rupture amoureuse et la vodka dans laquelle flotte son cerveau n’aident pas. Heureusement, il y a Stéphane, la nouvelle psy de la gendarmerie : elle est là pour mettre un peu d’ordre dans son chaos — à moins que ce ne soit l’inverse ?",
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "director": "Sarah Arnold",
+  "duration": "1h35",
+  "cast": [
+   "Alexis Manenti",
+   "Ella Rumpf",
+   "Vincent Dedienne"
+  ]
  },
  "25615": {
   "genre": "Ou téléfilm biographique",
@@ -904,18 +907,19 @@
   "original": "The Devils (Rep. 2026)"
  },
  "25639": {
-  "at": 1793607223097,
-  "jpAt": 1794214093988,
-  "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille.",
-  "genre": "Aventure - Action",
-  "country": "Inde",
+  "genre": "Comédie d'action",
   "director": "Nelson Dilipkumar",
-  "duration": "2h46",
   "cast": [
    "Rajinikanth",
-   "Vinayakan",
-   "Ramya Krishnan"
-  ]
+   "Vidya Balan",
+   "Hrithik Roshan",
+   "Suraj Venjaramoodu"
+  ],
+  "country": "Inde",
+  "synopsis": "Jailer 2 is a 2026 Indian Tamil-language action comedy film written and directed by Nelson Dilipkumar. It was produced by Kalanithi Maran through Sun Pictures. A sequel to Jailer (2023), the film stars Rajinikanth, Ramya Krishnan, Yogi Babu, Mirnaa and Rithvik reprising their roles from the predecessor, with S.",
+  "at": 1794300543597,
+  "jpAt": 1794301011539,
+  "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille."
  },
  "25641": {
   "genre": "Ou téléfilm d'amour",
@@ -944,8 +948,8 @@
   ],
   "country": "France, Italie",
   "synopsis": "La Gradiva est un film franco-italien réalisé par Marine Atlan et sorti en 2026.",
-  "at": 1793694785083,
-  "jpAt": 1793695092508,
+  "at": 1794300605229,
+  "jpAt": 1794301013835,
   "synopsisFull": "Un groupe de lycéens français part en voyage scolaire à Naples pour découvrir les ruines de Pompéi et ses corps pétrifiés par le Vésuve. C’est là que le vertige les saisit brutalement. L’un après l’autre, ils se laissent submerger par le désir et la colère jusqu’à s’y abandonner complètement."
  },
  "25643": {
@@ -1039,11 +1043,7 @@
   ],
   "country": "Allemagne",
   "synopsis": "Le Bois de Klara est un drame historique franco-allemand réalisé par Volker Schlöndorff et sorti en 2026. Il s'agit d'une adaptation du roman partiellement autobiographique Le Bois de Klara (de) de Jenny Erpenbeck, paru en 2007.",
-  "at": 1793607667759,
-  "jpAt": 1793607744844,
-  "synopsisFull": "Une maison située au bord d'un lac près de Berlin devient le témoin d'un siècle d'événements qui ont remodelé le monde qui l'entoure : la montée du nazisme et les ravages de la guerre, l'occupation soviétique, la réunification de l'Allemagne et l'aube d'une ère nouvelle.",
-  "genre": "Drame",
-  "original": "Heimsuchung - Eine Jahrhundertgeschichte"
+  "at": 1794300969346
  },
  "25656": {
   "genre": "Ou téléfilm criminel",
@@ -1214,5 +1214,49 @@
   "at": 1794214108710,
   "jpAt": 1794214108710,
   "synopsisFull": "Les cours reprennent à Jules Ferry, le célèbre établissement n’a pas changé sa formule, aux pires élèves, les pires profs ! Lors d’un voyage scolaire, les profs et Boulard sont projetés dans le passé, en pleine bataille napoléonienne. Ils se retrouvent alors à une époque où l’école publique n’existe pas encore, et vont, sans ..."
+ },
+ "25678": {
+  "genre": "Documentaire",
+  "director": "Basile Monnot, Samy Bouyssié",
+  "country": "France",
+  "at": 1794300665647,
+  "jpAt": 1794301017274,
+  "duration": "1h41",
+  "cast": [
+   "Nicolas Trouvé"
+  ]
+ },
+ "25679": {
+  "at": 1794301016135,
+  "jpAt": 1794301016135,
+  "genre": "Comédie dramatique",
+  "country": "France",
+  "director": "Rudi Rosenberg",
+  "duration": "1h37",
+  "cast": [
+   "Hafsia Herzi",
+   "Nour Salam",
+   "Ella Bedoucha"
+  ]
+ },
+ "25680": {
+  "at": 1794301014981,
+  "jpAt": 1794301014981,
+  "genre": "Animation",
+  "country": "France",
+  "director": "Olivier Clert",
+  "duration": "1h29"
+ },
+ "25681": {
+  "at": 1794301018578,
+  "jpAt": 1794301018578,
+  "genre": "Comédie",
+  "country": "Etats-Unis",
+  "director": "Jordan Firstman",
+  "cast": [
+   "Jordan Firstman",
+   "Reggie Absolom",
+   "Diego Calva"
+  ]
  }
 }
