@@ -18,12 +18,11 @@
   <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-  <!-- Écran de bienvenue : une fois par jour, 5 s ou un toucher. Pas au premier lancement (la fiche
+  <!-- Écran de bienvenue : une fois par jour, 2 s (ou un toucher), puis le logo grandit vers nous. Pas au premier lancement (la fiche
        « Bienvenue » du compte s'en charge) ni quand un lien ouvre directement un film. -->
   <div class="splash" id="splash" hidden>
     <img src="/logo.svg" alt="" width="56" height="56">
     <p class="splash-title">Bienvenue<span id="splash-name"></span></p>
-    <p class="splash-hint">Touchez pour entrer</p>
   </div>
   <script>
     (function () {
@@ -43,13 +42,13 @@
       document.documentElement.classList.add('splash-on');
       var fonts = document.fonts ? Promise.race([document.fonts.load('48px "Instrument Serif"'), new Promise(function (r) { setTimeout(r, 1200); })]) : Promise.resolve();
       fonts.then(function () { el.classList.add('in'); });
-      var done = false, timer = setTimeout(close, 5000);
+      var done = false, timer = setTimeout(close, 1500);
       function close() {
         if (done) return;
         done = true; clearTimeout(timer);
         el.classList.add('out');
         document.documentElement.classList.remove('splash-on');
-        setTimeout(function () { el.remove(); }, 450);
+        setTimeout(function () { el.remove(); }, 650);
       }
       el.addEventListener('click', close);
       document.addEventListener('keydown', close, { once: true });
