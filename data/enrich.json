@@ -90,7 +90,8 @@
   "synopsis": "Wild Horse Nine est un film américano-britanniquo-chilien réalisé par Martin McDonagh et sorti en 2026. Il met en scène John Malkovich, Sam Rockwell, Steve Buscemi, Parker Posey et Tom Waits.",
   "at": 1793953925142,
   "jpAt": 1793954599086,
-  "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…"
+  "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…",
+  "duration": "1h58"
  },
  "25291": {
   "genre": "Comédie",
@@ -471,12 +472,9 @@
   ],
   "country": "France",
   "original": "El Caso Marie-Claire",
-  "synopsis": "L'Affaire Marie-Claire est un film français réalisé par Lauriane Escaffre et Yvo Muller et sorti en 2026. Le film retrace l'histoire vraie du procès de Bobigny de 1972.",
-  "at": 1793346720966,
-  "jpAt": 1793432586671,
-  "synopsisFull": "Novembre 1972. Au tribunal de Bobigny, un procès hors norme secoue la France entière. Marie-Claire Chevalier, 16 ans, est accusée d’avoir avorté illégalement. À la barre, sa mère et toutes les femmes qui l’ont aidée. Leur avocate, Gisèle Halimi, fait un pari fou, insensé : elle leur demande de ne pas plaider coupable. Gisèle va faire ce qui n’a jamais été fait auparavant, elle va accuser et attaquer la loi, au risque de tout perdre.\nSéances (10)",
-  "genre": "Drame",
-  "director": "Lauriane Escaffre,Yvo Muller"
+  "synopsis": "L'Affaire Marie-Claire est un film français réalisé par Lauriane Escaffre et Yvo Muller et sorti en 2026.",
+  "at": 1794385203665,
+  "duration": "1h42"
  },
  "25552": {
   "genre": "Comédie",
@@ -485,7 +483,13 @@
   "synopsis": "Le Roi du Game est un film français réalisé par Éric Judor sorti en 2026.",
   "at": 1794300602776,
   "jpAt": 1794301012694,
-  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés..."
+  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés...",
+  "duration": "1h28",
+  "cast": [
+   "Eric Judor",
+   "Alexandra Lamy",
+   "Hafid F. Benamar"
+  ]
  },
  "25553": {
   "country": "France",
@@ -493,7 +497,13 @@
   "at": 1794300728473,
   "jpAt": 1794301019878,
   "synopsisFull": "Stan, trentenaire d’origine modeste, rencontre pour la première fois la famille de sa petite amie Cléo. Il découvre alors la tradition familiale : à chaque anniversaire de France, l’impressionnante maîtresse de maison, on lance une partie de Trivial Pursuit ©. Il sait qu’il n’a aucune chance face à ces amoureux de la culture, mais il n’a pas le choix : toute la famille doit participer, sans exception. Qu’est-ce qui pourrait mal tourner ? Après tout ce n’est qu’un jeu de société…",
-  "genre": "Comédie"
+  "genre": "Comédie",
+  "director": "Matthieu Rumani,Nicolas Slomka",
+  "cast": [
+   "Kristin Scott Thomas",
+   "Guillermo Guiz",
+   "Anaïde Rozam"
+  ]
  },
  "25554": {
   "genre": "Drame",
@@ -812,7 +822,9 @@
   "original": "가능한 사랑",
   "synopsis": "Possible Love est un film américano-sud-coréen réalisé par Lee Chang-dong et sorti en 2026.",
   "at": 1792739702990,
-  "synopsisFull": "Les vies entremêlées de deux couples mariés menant des existences complètement opposées. À mesure que leurs mondes se heurtent, des fissures commencent à apparaître dans leur quotidien."
+  "synopsisFull": "Les vies entremêlées de deux couples mariés menant des existences complètement opposées. À mesure que leurs mondes se heurtent, des fissures commencent à apparaître dans leur quotidien.",
+  "jpAt": 1794385509100,
+  "genre": "Drame"
  },
  "25626": {
   "genre": "Documentaire",
@@ -825,10 +837,9 @@
    "Christopher Abbott"
   ],
   "country": "États-Unis",
-  "synopsis": "You Can See Everything is a 2026 American metadocumentary film directed by Nathan Fielder and Lance Oppenheim.",
-  "poster": "https://upload.wikimedia.org/wikipedia/en/9/9d/You_Can_See_Everything_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "at": 1793607544834,
-  "jpAt": 1794214106509,
+  "synopsis": "You Can See Everything est un film documentaire américain réalisé par Nathan Fielder et Lance Oppenheim et sorti en 2026.",
+  "at": 1794385386620,
+  "jpAt": 1794385510234,
   "synopsisFull": "Trente-quatre jours avant son incarcération, la célèbre fondatrice de Theranos, Elizabeth Holmes, invite une équipe de tournage sceptique à documenter ses moindres faits et gestes. Ce qui commence comme un portrait intime devient un voyage époustouflant de trois ans."
  },
  "25629": {
@@ -919,7 +930,8 @@
   "synopsis": "Jailer 2 is a 2026 Indian Tamil-language action comedy film written and directed by Nelson Dilipkumar. It was produced by Kalanithi Maran through Sun Pictures. A sequel to Jailer (2023), the film stars Rajinikanth, Ramya Krishnan, Yogi Babu, Mirnaa and Rithvik reprising their roles from the predecessor, with S.",
   "at": 1794300543597,
   "jpAt": 1794301011539,
-  "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille."
+  "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille.",
+  "duration": "2h46"
  },
  "25641": {
   "genre": "Ou téléfilm d'amour",
@@ -982,7 +994,13 @@
   "at": 1794037630900,
   "jpAt": 1794038056490,
   "synopsisFull": "En quelques jours seulement, tout semble virer à la catastrophe pour Antoine Blanchet, héritier de l’ancestrale fabrique familiale de balances. Un ex-employé viré qui proteste bruyamment et campe devant l’usine ; Un contremaître qui met en péril la production, parce que sa femme le trompe ; Une stagiaire irrésistible qui fait tourner les têtes… À la veille de recevoir un prix d’excellence censé honorer son usine, il doit, en urgence, sauver l’entreprise et maintenir le calme dans son petit univers bien organisé. Il s’y attelle, à sa manière, paternaliste et autoritaire : en bon patron ?",
-  "genre": "Comédie"
+  "genre": "Comédie",
+  "duration": "1h27",
+  "cast": [
+   "Didier Bourdon",
+   "Catherine Frot",
+   "Jean-François Cayrey"
+  ]
  },
  "25649": {
   "director": "Albert Dupontel",
@@ -1043,7 +1061,11 @@
   ],
   "country": "Allemagne",
   "synopsis": "Le Bois de Klara est un drame historique franco-allemand réalisé par Volker Schlöndorff et sorti en 2026. Il s'agit d'une adaptation du roman partiellement autobiographique Le Bois de Klara (de) de Jenny Erpenbeck, paru en 2007.",
-  "at": 1794300969346
+  "at": 1794300969346,
+  "jpAt": 1794385511268,
+  "synopsisFull": "Une maison située au bord d'un lac près de Berlin devient le témoin d'un siècle d'événements qui ont remodelé le monde qui l'entoure : la montée du nazisme et les ravages de la guerre, l'occupation soviétique, la réunification de l'Allemagne et l'aube d'une ère nouvelle.",
+  "genre": "Drame",
+  "original": "Heimsuchung - Eine Jahrhundertgeschichte"
  },
  "25656": {
   "genre": "Ou téléfilm criminel",
@@ -1166,7 +1188,8 @@
   "synopsis": "Ramayana : L'Avènement d'une légende est un film d'aventures indien réalisé par Nitesh Tiwari et sorti en 2026.",
   "at": 1794213609268,
   "jpAt": 1794214098687,
-  "synopsisFull": "Dans l’Inde antique, le destin du jeune prince Rama bascule lorsqu’il est contraint à l’exil, peu après son mariage avec la princesse Sita. Arrachés à leur royaume, les deux époux entament un périple légendaire qui les conduira à affronter les épreuves du destin et la menace du redoutable Ravana, puissant roi des démons. Marquée par l’amour, le devoir, la trahison et les rivalités divines, leur histoire donnera naissance à l’une des plus grandes épopées de tous les temps."
+  "synopsisFull": "Dans l’Inde antique, le destin du jeune prince Rama bascule lorsqu’il est contraint à l’exil, peu après son mariage avec la princesse Sita. Arrachés à leur royaume, les deux époux entament un périple légendaire qui les conduira à affronter les épreuves du destin et la menace du redoutable Ravana, puissant roi des démons. Marquée par l’amour, le devoir, la trahison et les rivalités divines, leur histoire donnera naissance à l’une des plus grandes épopées de tous les temps.",
+  "duration": "3h15"
  },
  "25673": {
   "genre": "Comédie noire",
@@ -1257,6 +1280,7 @@
    "Jordan Firstman",
    "Reggie Absolom",
    "Diego Calva"
-  ]
+  ],
+  "duration": "2h02"
  }
 }
