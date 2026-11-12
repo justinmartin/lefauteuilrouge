@@ -474,7 +474,11 @@
   "original": "El Caso Marie-Claire",
   "synopsis": "L'Affaire Marie-Claire est un film français réalisé par Lauriane Escaffre et Yvo Muller et sorti en 2026.",
   "at": 1794385203665,
-  "duration": "1h42"
+  "duration": "1h42",
+  "jpAt": 1794473647262,
+  "synopsisFull": "Novembre 1972. Au tribunal de Bobigny, un procès hors norme secoue la France entière. Marie-Claire Chevalier, 16 ans, est accusée d’avoir avorté illégalement. À la barre, sa mère et toutes les femmes qui l’ont aidée. Leur avocate, Gisèle Halimi, fait un pari fou, insensé : elle leur demande de ne pas plaider coupable. Gisèle va faire ce qui n’a jamais été fait auparavant, elle va accuser et attaquer la loi, au risque de tout perdre.\nSéances (10)",
+  "genre": "Drame",
+  "director": "Lauriane Escaffre,Yvo Muller"
  },
  "25552": {
   "genre": "Comédie",
@@ -811,6 +815,9 @@
   "original": "Vaterland"
  },
  "25622": {
+  "genre": "Drame",
+  "duration": "2h45",
+  "minutes": 165,
   "director": "Lee Chang-dong",
   "cast": [
    "Jeon Do-yeon",
@@ -821,10 +828,7 @@
   "country": "Corée du Sud",
   "original": "가능한 사랑",
   "synopsis": "Possible Love est un film américano-sud-coréen réalisé par Lee Chang-dong et sorti en 2026.",
-  "at": 1792739702990,
-  "synopsisFull": "Les vies entremêlées de deux couples mariés menant des existences complètement opposées. À mesure que leurs mondes se heurtent, des fissures commencent à apparaître dans leur quotidien.",
-  "jpAt": 1794385509100,
-  "genre": "Drame"
+  "at": 1794473403872
  },
  "25626": {
   "genre": "Documentaire",
@@ -1004,16 +1008,12 @@
  },
  "25649": {
   "director": "Albert Dupontel",
-  "at": 1793607367479,
-  "jpAt": 1794214099789,
+  "synopsis": "Il faut brûler maman est un film français écrit et réalisé par Albert Dupontel et sorti en novembre 2026.",
+  "at": 1794473406222,
+  "jpAt": 1794473648355,
   "synopsisFull": "Dans une famille de croque-morts, deux sœurs et un frère se retrouvent pour les funérailles de leur mère. Le personnel étant en grève, ils doivent accomplir le protocole funéraire par eux-mêmes. Comment s’accorder pour brûler Maman ?",
   "genre": "Comédie",
-  "country": "France",
-  "cast": [
-   "Louise Coldefy",
-   "Julia Piaton",
-   "Artus"
-  ]
+  "country": "France"
  },
  "25650": {
   "genre": "Drame",
