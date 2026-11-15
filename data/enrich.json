@@ -46,17 +46,11 @@
  "25178": {
   "director": "Alexandre Arcady",
   "synopsis": "Fausse Note est un film franco-belge réalisé par Alexandre Arcady et sorti en 2026. Il met en scène Kad Merad, Benoît Poelvoorde et Caterina Murino. Le scénario est adapté du texte original de Didier Caron.",
-  "at": 1793953742812,
-  "jpAt": 1794559992871,
+  "at": 1794731034063,
+  "jpAt": 1794731594277,
   "synopsisFull": "Lors de son ultime concert à Paris, un chef d’orchestre de renom est confronté à un admirateur insistant. Sous ses apparences de « Monsieur tout le monde », le « Fan » s’infiltre dans l’Opéra, perturbe la soirée et force un face à face inattendu avec le chef d’orchestre. Surgit alors un passé commun enfoui, où la musique devient le révélateur d’une vérité bouleversante. Une nuit de tension et de vérité où la mémoire, la culpabilité et la justice s’affrontent en sourdine.",
   "genre": "Drame",
-  "country": "France",
-  "duration": "1h30",
-  "cast": [
-   "Kad Merad",
-   "Benoît Poelvoorde",
-   "Caterina Murino"
-  ]
+  "country": "France"
  },
  "25223": {
   "genre": "Et téléfilm d'action",
@@ -172,7 +166,14 @@
  "25336": {
   "at": 1792827075029,
   "jpAt": 1794643887684,
-  "original": "Focker-In-Law"
+  "original": "Focker-In-Law",
+  "director": "John Hamburg",
+  "duration": "1h46",
+  "cast": [
+   "Ben Stiller",
+   "Robert De Niro",
+   "Ariana Grande"
+  ]
  },
  "25337": {
   "at": 1794213586271,
@@ -198,10 +199,9 @@
   ],
   "country": "France",
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
-  "at": 1794124565459,
-  "jpAt": 1794124936448,
-  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police.",
-  "duration": "2h20"
+  "at": 1794731162935,
+  "jpAt": 1794731598595,
+  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police."
  },
  "25390": {
   "at": 1792750650557,
@@ -248,7 +248,13 @@
   "jpAt": 1794643871668,
   "synopsisFull": "Deux adolescents doivent échapper à une entité violente qui prend la forme de la personne qu’ils désirent le plus — l’un l’autre.",
   "genre": "Horreur",
-  "country": "Australie"
+  "country": "Australie",
+  "director": "Adrian Chiarella",
+  "cast": [
+   "Joe Bird",
+   "Stacy Clausen",
+   "Mia Wasikowska"
+  ]
  },
  "25432": {
   "at": 1792750649490,
@@ -391,7 +397,14 @@
   "jpAt": 1794643869162,
   "synopsisFull": "Benjamin et Amélie, jeune couple de trentenaires décide d’acheter la maison de leurs rêves en viager à Nicolette, une dame qui semble mourante. Mais peu après la vente, elle va beaucoup mieux et le couple se demande s’il n’a pas été arnaqué. Bientôt à genoux financièrement, ils sont forcés de penser au pire.",
   "genre": "Comédie",
-  "country": "France"
+  "country": "France",
+  "director": "Claude Zidi Jr.",
+  "duration": "1h30",
+  "cast": [
+   "Kev Adams",
+   "Chantal Ladesou",
+   "Camille Aguilar"
+  ]
  },
  "25493": {
   "genre": "Cinéma de science-fiction",
@@ -531,7 +544,12 @@
   "at": 1794643389057,
   "jpAt": 1794643881744,
   "synopsisFull": "Lucia, 17 ans, est amenée par la police dans une unité de soins pédopsychiatriques de l’hôpital public. Ici tous les patients ont entre 15 et 18 ans. Lucia connaît l’endroit, elle y a fait de nombreux séjours. Elle retrouve son amie Eloïse, en hospitalisation longue durée, mais aussi Yasmine, Camilia, Ulysse, André…tous ont des pathologies et des parcours différents. Les médecins les soignent, les écoutent, reçoivent leurs parents, tout en gérant un service en surchauffe. Mais un jour, l’arrivée du mystérieux Enzo menace de tout bouleverser.",
-  "genre": "Drame"
+  "genre": "Drame",
+  "cast": [
+   "Zoé Monpart",
+   "Malou Khebizi",
+   "Kenji Peyran"
+  ]
  },
  "25557": {
   "genre": "Comédie",
@@ -540,7 +558,12 @@
   "synopsis": "Demain je tombe amoureux est un film franco-belge réalisé par Martin Provost et sorti en 2026.",
   "at": 1794643450608,
   "jpAt": 1794643885263,
-  "synopsisFull": "Le jour de son départ à la retraite, Émile, professeur de lettres à Dieppe, donne à ses jeunes élèves un dernier cours sur la littérature et l’amour, les encourageant à devenir les poètes de leurs propres existences. Une fois rentré chez lui, Émile découvre que sa femme l’a quitté. Le voilà contraint d’appliquer à lui-même ses propres préceptes. Trois rencontres vont alors l’aider à se réinventer."
+  "synopsisFull": "Le jour de son départ à la retraite, Émile, professeur de lettres à Dieppe, donne à ses jeunes élèves un dernier cours sur la littérature et l’amour, les encourageant à devenir les poètes de leurs propres existences. Une fois rentré chez lui, Émile découvre que sa femme l’a quitté. Le voilà contraint d’appliquer à lui-même ses propres préceptes. Trois rencontres vont alors l’aider à se réinventer.",
+  "cast": [
+   "Fabrice Luchini",
+   "Emmanuelle Devos",
+   "Chiara Mastroianni"
+  ]
  },
  "25559": {
   "genre": "Comédie dramatique",
@@ -577,20 +600,11 @@
   "synopsisFull": "L'ascension du magnat des médias Rupert Murdoch."
  },
  "25563": {
+  "at": 1794731507044,
+  "jpAt": 1794731604310,
+  "synopsisFull": "Lucy et Philip sont heureux, ils viennent d’emménager avec leur fils dans une maison de campagne près de Munich. Un matin, leur vie bascule lorsque la police se présente à leur domicile pour arrêter Philip et saisir ses ordinateurs. Bouleversée, Lucy cherche la vérité sur son mari. Qui est-il réellement ? Doit-elle l’éloigner de son fils ?",
   "genre": "Drame",
-  "director": "Marie Kreutzer",
-  "cast": [
-   "Catherine Deneuve",
-   "Jella Haase",
-   "Laurence Rupp",
-   "Léa Seydoux"
-  ],
-  "country": "Autriche, Allemagne",
-  "synopsis": "Gentle Monster est un film dramatique franco-germano-autrichien réalisé par Marie Kreutzer et sorti en 2026.",
-  "poster": "https://upload.wikimedia.org/wikipedia/en/9/92/Gentle_Monster_2026_film_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "at": 1794124809916,
-  "jpAt": 1794124941047,
-  "synopsisFull": "Lucy et Philip sont heureux, ils viennent d’emménager avec leur fils dans une maison de campagne près de Munich. Un matin, leur vie bascule lorsque la police se présente à leur domicile pour arrêter Philip et saisir ses ordinateurs. Bouleversée, Lucy cherche la vérité sur son mari. Qui est-il réellement ? Doit-elle l’éloigner de son fils ?"
+  "country": "Autriche"
  },
  "25571": {
   "at": 1792750684317,
@@ -655,9 +669,8 @@
    "Steven Yeun"
   ],
   "country": "États-Unis",
-  "synopsis": "Animals est un film américain réalisé par Ben Affleck et sorti en 2026. Il est diffusé sur Netflix.",
-  "at": 1794124503521,
-  "jpAt": 1794124933608,
+  "at": 1794731063177,
+  "jpAt": 1794731596389,
   "synopsisFull": "Quand leur fils est enlevé, un candidat à la mairie de Los Angeles et sa femme s'efforcent de réunir l'argent de la rançon et font des choix qui pourraient bouleverser leur vie.",
   "director": "Ben Affleck"
  },
@@ -715,8 +728,8 @@
   ],
   "country": "États-Unis, Royaume-Uni",
   "synopsis": "Clayface ou Gueule d'argile au Québec est un film de super-héros horrifique américain réalisé par James Watkins, écrit par Mike Flanagan et Hossein Amini et sorti en 2026.",
-  "at": 1794037568705,
-  "jpAt": 1794643874262,
+  "at": 1794731164983,
+  "jpAt": 1794731599759,
   "synopsisFull": "L'ascension fulgurante de Matt Hagen, de gamin des rues de Gotham à star hollywoodienne, est brutalement interrompue lorsqu'un baron du crime le laisse atrocement défiguré. Abandonné de tous et n'ayant plus rien à perdre, Matt se tourne vers un traitement expérimental qui lui rend miraculeusement son apparence… mais altère profondément sa perception de la réalité. Il sombre alors dans une spirale destructrice, consumé par un irrépressible désir de vengeance."
  },
  "25609": {
@@ -847,7 +860,9 @@
   "synopsis": "Sanguine est un film franco-belge réalisé par Marion Le Corroller et sorti en 2026.",
   "at": 1794643265880,
   "jpAt": 1794643875435,
-  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…"
+  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…",
+  "director": "Marion Le Corroller",
+  "duration": "1h43"
  },
  "25631": {
   "at": 1792910697923,
@@ -970,16 +985,10 @@
   "director": "Philippe de Chauveron",
   "country": "France",
   "synopsis": "Un bon patron est une comédie française réalisée par Philippe de Chauveron sortie en 2026. Il s'agit d'un remake du film espagnol El buen patrón de Fernando León de Aranoa sorti en 2021.",
-  "at": 1794037630900,
-  "jpAt": 1794643876767,
+  "at": 1794731223091,
+  "jpAt": 1794731600937,
   "synopsisFull": "En quelques jours seulement, tout semble virer à la catastrophe pour Antoine Blanchet, héritier de l’ancestrale fabrique familiale de balances. Un ex-employé viré qui proteste bruyamment et campe devant l’usine ; Un contremaître qui met en péril la production, parce que sa femme le trompe ; Une stagiaire irrésistible qui fait tourner les têtes… À la veille de recevoir un prix d’excellence censé honorer son usine, il doit, en urgence, sauver l’entreprise et maintenir le calme dans son petit univers bien organisé. Il s’y attelle, à sa manière, paternaliste et autoritaire : en bon patron ?",
-  "genre": "Comédie",
-  "duration": "1h27",
-  "cast": [
-   "Didier Bourdon",
-   "Catherine Frot",
-   "Jean-François Cayrey"
-  ]
+  "genre": "Comédie"
  },
  "25649": {
   "director": "Albert Dupontel",
@@ -1134,23 +1143,16 @@
    "Rory Kinnear"
   ],
   "country": "Royaume-Uni",
-  "at": 1794124664257,
-  "jpAt": 1794124939832,
+  "synopsis": "Onwards and Sideways is a 2026 British romantic drama film written by Paul Mayhew-Archer and directed by John Madden. It stars Rhys Ifans and Laura Linney, with Monica Dolan and Rory Kinnear in supporting roles.",
+  "at": 1794731283452,
+  "jpAt": 1794731603145,
   "synopsisFull": "Inspiré de la vie d'une icône américaine adorée de tous, Madden retrace le parcours incroyable de John Madden aux côtés de son meilleur ami et visionnaire Al Davis – d'un partenariat couronné par une victoire au Super Bowl avec les Raiders, à sa consécration en tant que voix la plus emblématique du football américain, jusqu'à la création du jeu vidéo mondialement célèbre Madden NFL."
  },
  "25666": {
-  "genre": "Et téléfilm d'action",
-  "director": "William Eubank",
-  "cast": [
-   "Jim Caviezel",
-   "Olivia Thirlby",
-   "Garret Dillahunt",
-   "Shea Whigham"
-  ],
-  "country": "États-Unis",
-  "synopsis": "Ghost Soldier is a 2026 American action film directed by William Eubank and written by Chris Papasadero. It stars Jim Caviezel, Olivia Thirlby, Beau Knapp, Garret Dillahunt, Tetiana Dar, Jaina Lee Ortiz, and Shea Whigham.",
-  "at": 1794124871836,
-  "jpAt": 1794124942122
+  "at": 1794731568763,
+  "jpAt": 1794731605367,
+  "genre": "Aventure - Action",
+  "country": "Etats-Unis"
  },
  "25668": {
   "genre": "Ou téléfilm épique",
@@ -1272,5 +1274,34 @@
   "synopsis": "Forty Love est un film français réalisé par Pierre-Ange Carlotti et dont la sortie est prévue en 2026.",
   "at": 1794643471223,
   "jpAt": 1794643886490
+ },
+ "25706": {
+  "at": 1794731595334,
+  "jpAt": 1794731595334,
+  "synopsisFull": "Pendant les vacances scolaires, Ilze, neuf ans, rejoint sa famille dans la forêt tropicale où ils vivent avec la tribu Pemón, près de la montagne du Diable. Lorsqu'à la suite d'un accident, maman doit emmener papa à l'hôpital, Ilze se porte volontaire pour s'occuper de son frère Alex, âgé de trois ans. Cependant, au lieu de faire attention à son frère, Ilze a le nez plongé dans un livre. Lorsqu'Ilze lève enfin les yeux, elle découvre qu'Alex a disparu. Tout indique qu'il s'est égaré dans la jungle. Ilze doit le ramener à la maison avant le retour de leurs parents...",
+  "genre": "Animation",
+  "country": "Lettonie",
+  "original": "Laimigie",
+  "director": "Edmunds Jansons",
+  "duration": "1h16"
+ },
+ "25708": {
+  "genre": "Documentaire",
+  "country": "Italie",
+  "original": "Carlo Acutis. Il giovane santo",
+  "at": 1794731225507,
+  "jpAt": 1794731602091,
+  "synopsisFull": "Adolescent passionné d’informatique, de jeux vidéo et de football, Carlo Acutis semblait être un jeune comme les autres. Mort à seulement quinze ans, il est canonisé le 7 septembre 2025. À travers les témoignages bouleversants de sa famille et de ses amis, ainsi que des vidéos inédites, ce documentaire poignant dresse le portrait intime d’un jeune saint devenu une source d’inspiration pour des millions de personnes à travers le monde.",
+  "director": "Luca Salmaso",
+  "duration": "1h26"
+ },
+ "25709": {
+  "at": 1794731104663,
+  "jpAt": 1794731597434,
+  "synopsisFull": "Algérie, juin 1955.\nKhadidja quitte la Kabylie pour rejoindre son grand frère Malek à Alger.\nSuite à une altercation au marché, il se fait arrêter par la police et Khadidja se retrouve seule. Heureusement, Lyes, Ahmed et Philippe vont tout mettre en œuvre pour l’aider à retrouver Malek. Depuis les toits de la Casbah, les quatre enfants mènent l’enquête.",
+  "genre": "Animation",
+  "country": "France",
+  "director": "Antoine Colomb",
+  "duration": "1h24"
  }
 }
