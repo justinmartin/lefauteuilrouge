@@ -50,7 +50,13 @@
   "jpAt": 1794731594277,
   "synopsisFull": "Lors de son ultime concert à Paris, un chef d’orchestre de renom est confronté à un admirateur insistant. Sous ses apparences de « Monsieur tout le monde », le « Fan » s’infiltre dans l’Opéra, perturbe la soirée et force un face à face inattendu avec le chef d’orchestre. Surgit alors un passé commun enfoui, où la musique devient le révélateur d’une vérité bouleversante. Une nuit de tension et de vérité où la mémoire, la culpabilité et la justice s’affrontent en sourdine.",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "duration": "1h30",
+  "cast": [
+   "Kad Merad",
+   "Benoît Poelvoorde",
+   "Caterina Murino"
+  ]
  },
  "25223": {
   "genre": "Et téléfilm d'action",
@@ -201,7 +207,8 @@
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
   "at": 1794731162935,
   "jpAt": 1794731598595,
-  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police."
+  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police.",
+  "duration": "2h20"
  },
  "25390": {
   "at": 1792750650557,
@@ -844,8 +851,8 @@
   ],
   "country": "États-Unis, Australie",
   "synopsis": "The Mongoose est un film américano-australien réalisé par Mark Vanselow et sorti en 2026. Il met en scène Liam Neeson, Marisa Tomei, Ving Rhames, Marcus Thomas, Maurice Marvel Meredith et Michael Chiklis.",
-  "at": 1794037681424,
-  "jpAt": 1794643880575,
+  "at": 1794818043299,
+  "jpAt": 1794818415017,
   "synopsisFull": "Le héros de guerre, Ryan « Fang » Flanagan, est accusé d'un crime qu'il n'a pas commis. N'ayant plus rien à perdre, il entraîne la police dans une course-poursuite à travers le pays, retransmise en direct à la télévision."
  },
  "25630": {
@@ -988,7 +995,13 @@
   "at": 1794731223091,
   "jpAt": 1794731600937,
   "synopsisFull": "En quelques jours seulement, tout semble virer à la catastrophe pour Antoine Blanchet, héritier de l’ancestrale fabrique familiale de balances. Un ex-employé viré qui proteste bruyamment et campe devant l’usine ; Un contremaître qui met en péril la production, parce que sa femme le trompe ; Une stagiaire irrésistible qui fait tourner les têtes… À la veille de recevoir un prix d’excellence censé honorer son usine, il doit, en urgence, sauver l’entreprise et maintenir le calme dans son petit univers bien organisé. Il s’y attelle, à sa manière, paternaliste et autoritaire : en bon patron ?",
-  "genre": "Comédie"
+  "genre": "Comédie",
+  "duration": "1h27",
+  "cast": [
+   "Didier Bourdon",
+   "Catherine Frot",
+   "Jean-François Cayrey"
+  ]
  },
  "25649": {
   "director": "Albert Dupontel",
@@ -1092,7 +1105,8 @@
   "country": "France",
   "synopsis": "Un bon petit soldat est un film français réalisé par Stéphane Brizé et sorti en 2026.",
   "at": 1794559629413,
-  "jpAt": 1794560002054
+  "jpAt": 1794560002054,
+  "duration": "1h42"
  },
  "25660": {
   "genre": "Drame",
@@ -1303,5 +1317,39 @@
   "country": "France",
   "director": "Antoine Colomb",
   "duration": "1h24"
+ },
+ "25712": {
+  "at": 1794818224130,
+  "jpAt": 1794818416153
+ },
+ "25713": {
+  "at": 1794818417260,
+  "jpAt": 1794818417260,
+  "director": "Bertrand Mandico",
+  "duration": "1h47",
+  "cast": [
+   "Marion Cotillard",
+   "Noémie Merlant",
+   "Martina La Manna"
+  ]
+ },
+ "25714": {
+  "at": 1794818418388,
+  "jpAt": 1794818418388
+ },
+ "25715": {
+  "director": "Louis-Julien Petit",
+  "at": 1794818289635,
+  "jpAt": 1794818419500,
+  "cast": [
+   "Anthony Bajon",
+   "Aliocha Schneider",
+   "Alexandra Lamy"
+  ]
+ },
+ "25716": {
+  "at": 1794818420671,
+  "jpAt": 1794818420671,
+  "original": "Lords of War"
  }
 }
