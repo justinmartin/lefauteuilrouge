@@ -113,7 +113,7 @@
  },
  "25294": {
   "at": 1794214107609,
-  "jpAt": 1794214107609,
+  "jpAt": 1794909334592,
   "synopsisFull": "Un empire qui vacille. Un souverain rongé par la peur. Une étoile qui se lève au-dessus de Bethléem. À la naissance du Christ, la terreur d’Hérode conduit au massacre des innocents.? Pour sauver son enfant, Marie doit fuir et protéger celui que les prophéties annoncent comme le Sauveur du monde. Alors que la violence se propage et que l’espoir s’éteint, la véritable bataille commence - non pour la conquête d’un trône, mais pour sauver l’âme de l’humanité.",
   "genre": "Drame",
   "country": "Etats-Unis",
@@ -182,18 +182,19 @@
   ]
  },
  "25337": {
-  "at": 1794213586271,
-  "jpAt": 1794214096345,
-  "synopsisFull": "Juin 1943, Jean Moulin, chef de la Résistance, est arrêté alors qu'il tente de réunifier les forces de l’Armée Secrète Interrogé par Klaus Barbie, le chef de la Gestapo de Lyon, Moulin est entraîné dans une confrontation implacable. Son ultime combat face à la manipulation et la brutalité commence.? Le destin de la France libre en dépend.",
   "genre": "Drame",
-  "country": "France",
-  "director": "László Nemes",
-  "duration": "2h14",
+  "director": "Lászlo Nemes",
   "cast": [
    "Gilles Lellouche",
    "Lars Eidinger",
-   "Louise Bourgoin"
-  ]
+   "Marcin Czarnik",
+   "Christian Harting"
+  ],
+  "country": "France",
+  "synopsis": "Moulin est un film français réalisé par László Nemes sorti en 2026. Il s'agit d'un film biographique sur Jean Moulin.",
+  "at": 1794908708864,
+  "jpAt": 1794909321894,
+  "synopsisFull": "Juin 1943, Jean Moulin, chef de la Résistance, est arrêté alors qu'il tente de réunifier les forces de l’Armée Secrète Interrogé par Klaus Barbie, le chef de la Gestapo de Lyon, Moulin est entraîné dans une confrontation implacable. Son ultime combat face à la manipulation et la brutalité commence.? Le destin de la France libre en dépend."
  },
  "25377": {
   "genre": "Thriller psychologique",
@@ -358,12 +359,14 @@
   "original": "Children of Blood and Bone"
  },
  "25471": {
-  "at": 1794214109822,
-  "jpAt": 1794214109822,
+  "duration": "1h50",
+  "minutes": 110,
+  "original": "Viatge al país dels blancs",
+  "at": 1794909225947,
+  "jpAt": 1794909336820,
   "synopsisFull": "L’histoire d’Ousman Umar, un jeune Ghanéen fasciné par la mystérieuse terre des hommes blancs, qui quitte son village et se lance dans un voyage vers l’Europe",
   "genre": "Drame",
-  "country": "Espagne",
-  "original": "Viaje al país de los blancos"
+  "country": "Espagne"
  },
  "25481": {
   "at": 1792750687953,
@@ -485,29 +488,25 @@
   "director": "Éric Judor",
   "country": "France",
   "synopsis": "Le Roi du Game est un film français réalisé par Éric Judor sorti en 2026.",
-  "at": 1794300602776,
-  "jpAt": 1794301012694,
-  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés...",
-  "duration": "1h28",
-  "cast": [
-   "Eric Judor",
-   "Alexandra Lamy",
-   "Hafid F. Benamar"
-  ]
+  "at": 1794908646799,
+  "jpAt": 1794909318292,
+  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés..."
  },
  "25553": {
-  "country": "France",
-  "synopsis": "Camembert est une comédie française réalisée par Matthieu Rumani et Nicolas Slomka et sortie en 2026.",
-  "at": 1794300728473,
-  "jpAt": 1794301019878,
-  "synopsisFull": "Stan, trentenaire d’origine modeste, rencontre pour la première fois la famille de sa petite amie Cléo. Il découvre alors la tradition familiale : à chaque anniversaire de France, l’impressionnante maîtresse de maison, on lance une partie de Trivial Pursuit ©. Il sait qu’il n’a aucune chance face à ces amoureux de la culture, mais il n’a pas le choix : toute la famille doit participer, sans exception. Qu’est-ce qui pourrait mal tourner ? Après tout ce n’est qu’un jeu de société…",
   "genre": "Comédie",
-  "director": "Matthieu Rumani,Nicolas Slomka",
+  "director": "Matthieu Rumani, Nicolas Slomka",
   "cast": [
    "Kristin Scott Thomas",
    "Guillermo Guiz",
-   "Anaïde Rozam"
-  ]
+   "Anaïde Rozam",
+   "Panayotis Pascot"
+  ],
+  "country": "France",
+  "synopsis": "Camembert est une comédie française réalisée par Matthieu Rumani et Nicolas Slomka et sortie en 2026.",
+  "at": 1794908823796,
+  "jpAt": 1794909330117,
+  "synopsisFull": "Stan, trentenaire d’origine modeste, rencontre pour la première fois la famille de sa petite amie Cléo. Il découvre alors la tradition familiale : à chaque anniversaire de France, l’impressionnante maîtresse de maison, on lance une partie de Trivial Pursuit ©. Il sait qu’il n’a aucune chance face à ces amoureux de la culture, mais il n’a pas le choix : toute la famille doit participer, sans exception. Qu’est-ce qui pourrait mal tourner ? Après tout ce n’est qu’un jeu de société…",
+  "duration": "1h31"
  },
  "25554": {
   "genre": "Drame",
@@ -779,18 +778,11 @@
  },
  "25613": {
   "synopsis": "L'Espèce explosive est un film policier français réalisé par Sarah Arnold et sorti en 2026.",
-  "at": 1794213468377,
-  "jpAt": 1794214090392,
+  "at": 1794908540102,
+  "jpAt": 1794909313420,
   "synopsisFull": "Dans la campagne du Nord-Est de la France. Les sangliers qui ravagent les cultures provoquent une guerre ouverte entre chasseurs et agriculteurs. Brun, céréalier en faillite, lutte pour maintenir sa ferme à flot. Quand un notable du coin le pousse à bout, il déraille et disparaît. Un an plus tard, Fulda, un gendarme corse muté dans la région pour raisons disciplinaires, mène l’enquête. Entre intuitions fulgurantes et ratés spectaculaires, ses méthodes approximatives le mènent sur la piste des Attilas, des sangliers aux dimensions hors normes. Mais sa récente rupture amoureuse et la vodka dans laquelle flotte son cerveau n’aident pas. Heureusement, il y a Stéphane, la nouvelle psy de la gendarmerie : elle est là pour mettre un peu d’ordre dans son chaos — à moins que ce ne soit l’inverse ?",
   "genre": "Comédie",
-  "country": "France",
-  "director": "Sarah Arnold",
-  "duration": "1h35",
-  "cast": [
-   "Alexis Manenti",
-   "Ella Rumpf",
-   "Vincent Dedienne"
-  ]
+  "country": "France"
  },
  "25615": {
   "genre": "Ou téléfilm biographique",
@@ -893,7 +885,7 @@
  },
  "25633": {
   "at": 1792997712353,
-  "jpAt": 1794214092742,
+  "jpAt": 1794909315807,
   "synopsisFull": "Dans une ferme au cœur de la Beauce, Christophe, 11 ans, règle ses pas sur ceux de son père. Mais à l’école, à la maison, sur le tracteur, Christophe penche... et tombe. Il est obligé de porter un corset pour filer droit. Tandis que la ferme traverse des moments difficiles, Christophe grandit comme il peut. Il découvre la musique et fait la rencontre de Clara, avec qui tout semble devenir possible.",
   "genre": "Animation",
   "country": "France",
@@ -902,7 +894,7 @@
  },
  "25634": {
   "at": 1792997710299,
-  "jpAt": 1794214091504,
+  "jpAt": 1794909314546,
   "synopsisFull": "Plongez dans un univers où la différence devient poésie à travers six récits touchants. De Rémi, le souriceau vivant la tête en bas, à Sacha et son parcours inclusif à l’école, de Lina qui s'envole avec un pull, à Lily qui fait éternuer la lune... Ce programme explore avec tendresse les perceptions singulières de l’enfance. Entre tricot de nuages, cités sous-marines et métamorphoses fantastiques du quotidien, ces films nous invitent à voir le monde avec les yeux de ceux et celles qui rêvent et vivent à un rythme différent, parfois juste « en décalé ».",
   "genre": "Animation",
   "country": "France",
@@ -910,7 +902,7 @@
  },
  "25638": {
   "at": 1792997715666,
-  "jpAt": 1794214097454,
+  "jpAt": 1794909326486,
   "synopsisFull": "Un récit historique dramatisé sur l’ascension et la chute d’Urbain Grandier, un prêtre catholique romain du XVIIe siècle accusé de sorcellerie à la suite des prétendues possessions de Loudun, en France. LES DIABLES met également en lumière sœur Jeanne des Anges, une religieuse sexuellement réprimée qui, sans le vouloir, déclenche les accusations.",
   "genre": "Drame",
   "country": "Grande-Bretagne",
@@ -926,11 +918,9 @@
    "Suraj Venjaramoodu"
   ],
   "country": "Inde",
-  "synopsis": "Jailer 2 is a 2026 Indian Tamil-language action comedy film written and directed by Nelson Dilipkumar. It was produced by Kalanithi Maran through Sun Pictures. A sequel to Jailer (2023), the film stars Rajinikanth, Ramya Krishnan, Yogi Babu, Mirnaa and Rithvik reprising their roles from the predecessor, with S.",
-  "at": 1794300543597,
-  "jpAt": 1794301011539,
-  "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille.",
-  "duration": "2h46"
+  "at": 1794908605788,
+  "jpAt": 1794909317050,
+  "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille."
  },
  "25641": {
   "genre": "Ou téléfilm d'amour",
@@ -944,24 +934,19 @@
    "Olivia Colman"
   ],
   "country": "États-Unis",
-  "synopsis": "Wicker est un drame romantique multinational réalisé par Alex Huston Fischer et Eleanor Wilson et sorti en 2026.",
-  "at": 1794213547409,
-  "jpAt": 1794214095238,
+  "synopsis": "Wicker, l'Homme d'osier est un drame romantique multinational réalisé par Alex Huston Fischer et Eleanor Wilson et sorti en 2026.",
+  "at": 1794908706046,
+  "jpAt": 1794909320790,
   "synopsisFull": "Mise au ban de son village, une pêcheuse solitaire commande au vannier local un mari en osier. Cet époux improbable se révèle doté d’une sensibilité et de talents qui dépassent toutes ses attentes. À son contact, elle découvre un désir insoupçonné et, peu à peu, s’éprend véritablement de lui. Mais bientôt, son étrange mari attise les convoitises, la jalousie et les fantasmes des villageois, faisant vaciller les certitudes d’une communauté jusque-là bien ordonnée."
  },
  "25642": {
-  "genre": "Drame",
   "duration": "2h25",
   "minutes": 145,
-  "director": "Marine Atlan",
-  "cast": [
-   "Antonia Buresi"
-  ],
-  "country": "France, Italie",
-  "synopsis": "La Gradiva est un film franco-italien réalisé par Marine Atlan et sorti en 2026.",
-  "at": 1794300605229,
-  "jpAt": 1794301013835,
-  "synopsisFull": "Un groupe de lycéens français part en voyage scolaire à Naples pour découvrir les ruines de Pompéi et ses corps pétrifiés par le Vésuve. C’est là que le vertige les saisit brutalement. L’un après l’autre, ils se laissent submerger par le désir et la colère jusqu’à s’y abandonner complètement."
+  "at": 1794908685403,
+  "jpAt": 1794909319535,
+  "synopsisFull": "Un groupe de lycéens français part en voyage scolaire à Naples pour découvrir les ruines de Pompéi et ses corps pétrifiés par le Vésuve. C’est là que le vertige les saisit brutalement. L’un après l’autre, ils se laissent submerger par le désir et la colère jusqu’à s’y abandonner complètement.",
+  "genre": "Comédie dramatique",
+  "country": "France"
  },
  "25643": {
   "at": 1793954611921,
@@ -1076,8 +1061,8 @@
   ],
   "country": "États-Unis",
   "synopsis": "The Last Pickpocket in New York est un film américain réalisé par Noah Segan et sorti en 2026.",
-  "at": 1794213849930,
-  "jpAt": 1794214105382,
+  "at": 1794909073177,
+  "jpAt": 1794909333477,
   "synopsisFull": "Harry est le dernier pickpocket de New York.\nAlors que l'argent liquide se fait rare, il continue d'exercer son art en toute discrétion.\nUn jour, Harry dérobe une mystérieuse clef USB à un jeune mafieux et se retrouve pris en chasse par une dangereuse organisation criminelle…"
  },
  "25657": {
@@ -1184,32 +1169,25 @@
   "duration": "3h15"
  },
  "25673": {
-  "genre": "Comédie noire",
   "duration": "1h34",
   "minutes": 94,
-  "director": "Cathy Yan",
-  "cast": [
-   "Natalie Portman",
-   "Jenna Ortega",
-   "Da’Vine Joy Randolph",
-   "Sterling K. Brown"
-  ],
-  "country": "États-Unis",
-  "synopsis": "The Gallerist est un film américain réalisé par Cathy Yan et sorti 2026. Il s'agit d'une comédie noire avec Natalie Portman, Jenna Ortega, Sterling K. Brown, Zach Galifianakis, Da'Vine Joy Randolph et Catherine Zeta-Jones dans les rôles principaux.",
-  "at": 1794213761508,
-  "jpAt": 1794214103144,
+  "poster": "https://upload.wikimedia.org/wikipedia/en/8/88/The_Gallerist_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1794908943823,
+  "jpAt": 1794909331235,
   "synopsisFull": "Une galeriste désespérée est prête à tout pour relancer sa carrière, allant jusqu’à faire passer un cadavre pour une œuvre d’art contemporaine lors d’Art Basel à Miami..."
  },
  "25674": {
   "at": 1794214104269,
-  "jpAt": 1794214104269,
+  "jpAt": 1794909332355,
   "synopsisFull": "Dans le futur, les humains cohabitent avec les extraterrestres. Le dernier détective privé humain est engagé pour enquêter sur la fidélité d'une célèbre pop star.",
   "director": "Brad Bird"
  },
  "25675": {
   "at": 1794214110940,
-  "jpAt": 1794214110940,
-  "synopsisFull": "Alors qu'elle se promène avec son père dans le Golden Gate Park de San Francisco, Josephine, huit ans, est témoin d'une agression sexuelle. Incapable de mettre des mots sur ce qu'elle a vu, elle est pourtant la seule personne dont le témoignage pourrait permettre d’inculper l’agresseur..."
+  "jpAt": 1794909337922,
+  "synopsisFull": "Alors qu'elle se promène avec son père dans le Golden Gate Park de San Francisco, Josephine, huit ans, est témoin d'une agression sexuelle. Incapable de mettre des mots sur ce qu'elle a vu, elle est pourtant la seule personne dont le témoignage pourrait permettre d’inculper l’agresseur...",
+  "genre": "Drame",
+  "country": "Etats-Unis"
  },
  "25676": {
   "genre": "Comédie",
@@ -1222,28 +1200,24 @@
   ],
   "country": "Canada, France",
   "synopsis": "Maudits Français est un film franco-québécois réalisé par Émile Gaudreault et dont la sortie est prévue en 2027. Il est coscénarisée avec Guy Laurent.",
-  "at": 1794214025839,
-  "jpAt": 1794214112057
+  "at": 1794909248464,
+  "jpAt": 1794909339038
  },
  "25677": {
   "at": 1794214108710,
-  "jpAt": 1794214108710,
+  "jpAt": 1794909335702,
   "synopsisFull": "Les cours reprennent à Jules Ferry, le célèbre établissement n’a pas changé sa formule, aux pires élèves, les pires profs ! Lors d’un voyage scolaire, les profs et Boulard sont projetés dans le passé, en pleine bataille napoléonienne. Ils se retrouvent alors à une époque où l’école publique n’existe pas encore, et vont, sans ..."
  },
  "25678": {
   "genre": "Documentaire",
   "director": "Basile Monnot, Samy Bouyssié",
   "country": "France",
-  "at": 1794300665647,
-  "jpAt": 1794301017274,
-  "duration": "1h41",
-  "cast": [
-   "Nicolas Trouvé"
-  ]
+  "at": 1794908769488,
+  "jpAt": 1794909325237
  },
  "25679": {
   "at": 1794301016135,
-  "jpAt": 1794301016135,
+  "jpAt": 1794909324132,
   "genre": "Comédie dramatique",
   "country": "France",
   "director": "Rudi Rosenberg",
@@ -1256,7 +1230,7 @@
  },
  "25680": {
   "at": 1794301014981,
-  "jpAt": 1794301014981,
+  "jpAt": 1794909323005,
   "genre": "Animation",
   "country": "France",
   "director": "Olivier Clert",
@@ -1264,7 +1238,7 @@
  },
  "25681": {
   "at": 1794301018578,
-  "jpAt": 1794301018578,
+  "jpAt": 1794909327741,
   "genre": "Comédie",
   "country": "Etats-Unis",
   "director": "Jordan Firstman",
@@ -1320,7 +1294,14 @@
  },
  "25712": {
   "at": 1794818224130,
-  "jpAt": 1794818416153
+  "jpAt": 1794818416153,
+  "director": "Luc Picard",
+  "duration": "1h54",
+  "cast": [
+   "Luc Picard",
+   "Damien Bonnard",
+   "Gérard Lanvin"
+  ]
  },
  "25713": {
   "at": 1794818417260,
@@ -1351,5 +1332,13 @@
   "at": 1794818420671,
   "jpAt": 1794818420671,
   "original": "Lords of War"
+ },
+ "25717": {
+  "at": 1794909328859,
+  "jpAt": 1794909328859,
+  "synopsisFull": "L'histoire de Paul Atreides, jeune homme aussi doué que brillant, voué à connaître un destin hors du commun qui le dépasse totalement. Car s'il veut préserver l'avenir de sa famille et de son peuple, il devra se rendre sur la planète la plus dangereuse de l'univers – la seule à même de fournir la ressource la plus précieuse au monde, capable de décupler la puissance de l'humanité. Tandis que des forces maléfiques se disputent le contrôle de cette planète, seuls ceux qui parviennent à dominer leur peur pourront survivre…",
+  "director": "Denis Villeneuve",
+  "genre": "Science Fiction",
+  "country": "Etats-Unis"
  }
 }
