@@ -1020,17 +1020,11 @@
  "25649": {
   "director": "Albert Dupontel",
   "synopsis": "Il faut brûler maman est un film français écrit et réalisé par Albert Dupontel et sorti en novembre 2026.",
-  "at": 1794473406222,
-  "jpAt": 1794473648355,
+  "at": 1795080488501,
+  "jpAt": 1795080847758,
   "synopsisFull": "Dans une famille de croque-morts, deux sœurs et un frère se retrouvent pour les funérailles de leur mère. Le personnel étant en grève, ils doivent accomplir le protocole funéraire par eux-mêmes. Comment s’accorder pour brûler Maman ?",
   "genre": "Comédie",
-  "country": "France",
-  "duration": "1h21",
-  "cast": [
-   "Louise Coldefy",
-   "Julia Piaton",
-   "Artus"
-  ]
+  "country": "France"
  },
  "25650": {
   "genre": "Drame",
@@ -1078,7 +1072,11 @@
   ],
   "country": "Allemagne",
   "synopsis": "Le Bois de Klara est un drame historique franco-allemand réalisé par Volker Schlöndorff et sorti en 2026. Il s'agit d'une adaptation du roman partiellement autobiographique Le Bois de Klara (de) de Jenny Erpenbeck, paru en 2007.",
-  "at": 1794993127756
+  "at": 1794993127756,
+  "jpAt": 1795080848798,
+  "synopsisFull": "Une maison située au bord d'un lac près de Berlin devient le témoin d'un siècle d'événements qui ont remodelé le monde qui l'entoure : la montée du nazisme et les ravages de la guerre, l'occupation soviétique, la réunification de l'Allemagne et l'aube d'une ère nouvelle.",
+  "genre": "Drame",
+  "original": "Heimsuchung - Eine Jahrhundertgeschichte"
  },
  "25656": {
   "genre": "Ou téléfilm criminel",
