@@ -1,13 +1,13 @@
 {
  "24471": {
   "at": 1792827095190,
-  "jpAt": 1794643907863,
+  "jpAt": 1795251464833,
   "genre": "Animation",
   "country": "Etats-Unis"
  },
  "24539": {
   "at": 1792827079613,
-  "jpAt": 1794643894675,
+  "jpAt": 1795251451270,
   "director": "- Russo (brothers)",
   "genre": "Comicbook",
   "country": "Etats-Unis"
@@ -32,14 +32,14 @@
  },
  "24982": {
   "at": 1792827094281,
-  "jpAt": 1794643906713,
+  "jpAt": 1795251463813,
   "director": "Shawn Levy",
   "genre": "Fantasy",
   "country": "Etats-Unis"
  },
  "25045": {
   "at": 1792827075962,
-  "jpAt": 1794643890027,
+  "jpAt": 1795251446145,
   "genre": "Animation",
   "country": "France"
  },
@@ -91,7 +91,7 @@
   "country": "États-Unis, Royaume-Uni",
   "synopsis": "Wild Horse Nine est un film américano-britanniquo-chilien réalisé par Martin McDonagh et sorti en 2026. Il met en scène John Malkovich, Sam Rockwell, Steve Buscemi, Parker Posey et Tom Waits.",
   "at": 1794643329880,
-  "jpAt": 1794643879425,
+  "jpAt": 1795251436840,
   "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…"
  },
  "25291": {
@@ -107,8 +107,8 @@
   ],
   "country": "France, Belgique",
   "synopsis": "Ni vue, ni connue est un film franco-belge réalisé par Marc Fitoussi et sorti en 2026.",
-  "at": 1794643091735,
-  "jpAt": 1794643870316,
+  "at": 1795250609480,
+  "jpAt": 1795251431302,
   "synopsisFull": "Corinne Maclou est figurante. Elle enchaîne les tournages avec l’espoir d’être remarquée et de décrocher enfin un vrai rôle. Lorsque son chemin croise celui de Sandrine Kiberlain et qu’une relation commence à se nouer entre les deux, Corinne espère concrétiser son rêve. Mais la célèbre actrice va-t-elle vraiment l’aider à se faire une place au sein de la grande famille du cinéma ?"
  },
  "25294": {
@@ -128,12 +128,12 @@
   "country": "France, Italie",
   "synopsis": "Changer l'eau des fleurs est un film franco-italien réalisé par Jean-Pierre Jeunet et dont la sortie est prévue en 2026. Il s'agit d'une adaptation du roman du même nom de Valérie Perrin.",
   "at": 1794643566691,
-  "jpAt": 1794643892359,
+  "jpAt": 1795251449218,
   "synopsisFull": "Violette, la quarantaine, est garde-cimetière dans une petite ville de Bourgogne. Son quotidien est rythmé par les confidences des personnes de passage ou habitués du lieu, qui viennent trouver un peu de réconfort dans sa loge. Un jour, elle reçoit la visite d'un policier, Julien Seul, venu déposer les cendres de sa mère sur la tombe de l'homme qu'elle aimait. Intrigué par l’histoire de Violette, dont le mari a disparu mystérieusement, peu de temps après leur arrivée au cimetière, il décide d’enquêter, faisant sans le vouloir remonter à la surface de douloureux souvenirs ainsi que des vérités salvatrices pour Violette."
  },
  "25301": {
   "at": 1792827082367,
-  "jpAt": 1794643899690,
+  "jpAt": 1795251455574,
   "genre": "Aventure - Action",
   "country": "Etats-Unis",
   "original": "Jumanji: Open World"
@@ -166,11 +166,12 @@
   "synopsis": "Ducobu et le Fantôme de Saint-Potache est une comédie française réalisée par Élie Semoun et sortie en 2026. Il s'agit du sixième film d'une saga inspirée de la série de bande dessinée belge L'Élève Ducobu de Godi et Zidrou.",
   "at": 1795165600948,
   "jpAt": 1795166230171,
-  "synopsisFull": "C’est Halloween, et Ducobu revient pour une aventure pleine de rires et de mystères ! Le professeur Latouche et Mademoiselle Rateau emménagent dans une maison… hantée par le ? fantôme d'Anatole, le plus grand cancre de l’histoire de l’école Saint-Potache. Ce fantôme farceur va entraîner Ducobu, Léonie, leurs parents et Kitrish dans une série de péripéties ? aussi drôles qu’inattendues. Mais attention : à Halloween, tout peut arriver…"
+  "synopsisFull": "C’est Halloween, et Ducobu revient pour une aventure pleine de rires et de mystères ! Le professeur Latouche et Mademoiselle Rateau emménagent dans une maison… hantée par le ? fantôme d'Anatole, le plus grand cancre de l’histoire de l’école Saint-Potache. Ce fantôme farceur va entraîner Ducobu, Léonie, leurs parents et Kitrish dans une série de péripéties ? aussi drôles qu’inattendues. Mais attention : à Halloween, tout peut arriver…",
+  "duration": "1h30"
  },
  "25336": {
   "at": 1792827075029,
-  "jpAt": 1794643887684,
+  "jpAt": 1795251444072,
   "original": "Focker-In-Law",
   "director": "John Hamburg",
   "duration": "1h46",
@@ -178,7 +179,9 @@
    "Ben Stiller",
    "Robert De Niro",
    "Ariana Grande"
-  ]
+  ],
+  "genre": "Comédie",
+  "country": "Etats-Unis"
  },
  "25337": {
   "genre": "Drame",
@@ -238,36 +241,38 @@
   ],
   "country": "Espagne, France",
   "at": 1794643708143,
-  "jpAt": 1794643895991,
+  "jpAt": 1795251452391,
   "synopsisFull": "Espagne 1932, 1937, 2017. Trois hommes. Trois époques. Un même fil invisible de désir, de douleur et d'héritage. LA BOLA NEGRA traverse le temps pour révéler ce qui les unit."
  },
  "25410": {
   "at": 1792750689018,
   "synopsisFull": "Le mammouth Manny, le tigre à dents de sabre Diego, le paresseux Sid, la belette borgne Buck et la mammouth femelle Ellie, sans oublier les chasseurs de noisettes invétérés que sont Scrat et Baby Scrat, ou bien encore les turbulents opossums Crash et Eddie. Jaillissant d’un volcan en pleine éruption, tous se lancent bientôt tête baissée dans une nouvelle aventure déjantée au cours de laquelle, entre dinosaures et coulées de lave, ils vont être amenés à arpenter des recoins encore inexplorés du Monde perdu…",
-  "jpAt": 1794643905539,
+  "jpAt": 1795251462787,
   "genre": "Animation",
   "country": "Etats-Unis",
   "original": "Ice Age: Boiling Point"
  },
  "25431": {
+  "genre": "Ou téléfilm d'horreur",
   "duration": "1h26",
   "minutes": 86,
-  "at": 1794643182032,
-  "jpAt": 1794643871668,
-  "synopsisFull": "Deux adolescents doivent échapper à une entité violente qui prend la forme de la personne qu’ils désirent le plus — l’un l’autre.",
-  "genre": "Horreur",
-  "country": "Australie",
   "director": "Adrian Chiarella",
   "cast": [
-   "Joe Bird",
-   "Stacy Clausen",
-   "Mia Wasikowska"
-  ]
+   "Mia Wasikowska",
+   "Ewen Leslie",
+   "Nicholas Hope",
+   "Zahra Newman"
+  ],
+  "country": "Australie",
+  "synopsis": "Leviticus est un film australien réalisé par Adrian Chiarella, sorti en 2026.",
+  "at": 1795250651221,
+  "jpAt": 1795251432436,
+  "synopsisFull": "Deux adolescents doivent échapper à une entité violente qui prend la forme de la personne qu’ils désirent le plus — l’un l’autre."
  },
  "25432": {
   "at": 1792750649490,
   "synopsisFull": "Au large de la côte californienne, Jay Gardiner part à la recherche de la dépouille de son père récemment disparu. Alors qu’il sonde les fonds marins, le jeune plongeur se retrouve soudainement avalé par un énorme cachalot. Piégé dans l’estomac de l’animal, il ne lui reste plus qu’une heure d'oxygène. Tandis que le compte à rebours est lancé, Jay prend conscience que les leçons de vie durement transmises par son père pourraient bien être la clé de sa survie…",
-  "jpAt": 1794643872967,
+  "jpAt": 1795251433570,
   "genre": "Aventure - Action",
   "country": "Etats-Unis",
   "original": "Whalefall",
@@ -291,32 +296,26 @@
   ],
   "country": "États-Unis",
   "synopsis": "Paper Tiger est un film américain réalisé par James Gray et sorti en 2026.",
-  "at": 1794559568590,
-  "jpAt": 1795166236754,
+  "at": 1795250943534,
+  "jpAt": 1795251445103,
   "synopsisFull": "Deux frères que tout oppose s’unissent pour une affaire douteuse liée à la mafia russe. Mais ce qui devait être une opportunité devient un cauchemar, mettant en péril leur famille, leur intégrité, et leur lien fraternel."
  },
  "25437": {
   "at": 1792827086040,
-  "jpAt": 1794643900861,
+  "jpAt": 1795251457636,
   "genre": "Horreur",
-  "country": "Etats-Unis"
+  "country": "Etats-Unis",
+  "original": "Werwulf"
  },
  "25454": {
-  "genre": "Drame",
   "duration": "2h08",
   "minutes": 128,
+  "at": 1795251225589,
+  "jpAt": 1795251454539,
+  "synopsisFull": "Un acteur en difficulté avec un visage partiellement paralysé et un trouble de l’élocution écrit un scénario qu’un grand studio de cinéma veut acheter. Mais l’acteur refuse de le vendre à moins de pouvoir jouer le rôle principal. Refusant une offre d’argent qui pourrait changer sa vie, il travaille pour des centimes afin que le film soit réalisé avec lui dans le rôle principal.",
   "director": "Peter Farrelly",
-  "cast": [
-   "Anthony Ippolito",
-   "Stephan James",
-   "AnnaSophia Robb",
-   "Matt Dillon"
-  ],
-  "country": "États-Unis",
-  "synopsis": "I Play Rocky est un film américain réalisé par Peter Farrelly et sorti en 2026. Il s'agit d'un drame biographique sur la genèse et la production du film Rocky sorti en 1976.",
-  "at": 1794643748927,
-  "jpAt": 1794643898506,
-  "synopsisFull": "Un acteur en difficulté avec un visage partiellement paralysé et un trouble de l’élocution écrit un scénario qu’un grand studio de cinéma veut acheter. Mais l’acteur refuse de le vendre à moins de pouvoir jouer le rôle principal. Refusant une offre d’argent qui pourrait changer sa vie, il travaille pour des centimes afin que le film soit réalisé avec lui dans le rôle principal."
+  "genre": "Comédie dramatique",
+  "country": "Etats-Unis"
  },
  "25457": {
   "genre": "Thriller",
@@ -353,7 +352,7 @@
  "25469": {
   "at": 1792750685873,
   "synopsisFull": "Le Royaume d’Orïsha nous plonge dans le monde épique et fantastique d'Orïsha, une jeune femme qui se lance dans une quête pour rendre à son peuple la magie qui lui a été violemment arrachée. Avec son frère, elle s'allie à la fille et au fils du roi afin de lutter contre son règne brutal.",
-  "jpAt": 1794643903196,
+  "jpAt": 1795251459694,
   "genre": "Fantasy",
   "country": "Etats-Unis",
   "original": "Children of Blood and Bone"
@@ -402,24 +401,17 @@
  "25483": {
   "at": 1792750686888,
   "synopsisFull": "Paris, 1914. Une série de meurtres spectaculaires secoue la ville. Sur chaque scène de crime, une signature tracée à la craie comme une déclaration de guerre : la lettre « F »… La presse s’emballe, l’opinion publique vacille. L’inspecteur Juve se lance à la poursuite d’un ennemi sans visage, insaisissable, dont les méthodes défient toute logique, toute morale… Fantômas. Le combat s’engage entre les deux hommes avant que le monde ne bascule dans le chaos…",
-  "jpAt": 1794643904362,
+  "jpAt": 1795251460724,
   "genre": "Aventure - Action",
   "country": "France"
  },
  "25484": {
   "synopsis": "La Maison de nos rêves est un film français réalisé par Claude Zidi Jr. et sorti en 2026.",
-  "at": 1794643089249,
-  "jpAt": 1794643869162,
+  "at": 1795250607288,
+  "jpAt": 1795251430169,
   "synopsisFull": "Benjamin et Amélie, jeune couple de trentenaires décide d’acheter la maison de leurs rêves en viager à Nicolette, une dame qui semble mourante. Mais peu après la vente, elle va beaucoup mieux et le couple se demande s’il n’a pas été arnaqué. Bientôt à genoux financièrement, ils sont forcés de penser au pire.",
   "genre": "Comédie",
-  "country": "France",
-  "director": "Claude Zidi Jr.",
-  "duration": "1h30",
-  "cast": [
-   "Kev Adams",
-   "Chantal Ladesou",
-   "Camille Aguilar"
-  ]
+  "country": "France"
  },
  "25493": {
   "genre": "Cinéma de science-fiction",
@@ -434,7 +426,7 @@
   "country": "Pologne, Grèce",
   "synopsis": "Hot Spot est un film multinational réalisé par Agnieszka Smoczyńska et sorti en 2026. Il met en scène Andrzej Konopka, Noomi Rapace et Reika Kirishima dans les rôles principaux.",
   "at": 1794643564142,
-  "jpAt": 1794643891189,
+  "jpAt": 1795251448196,
   "synopsisFull": "Dans une société gouvernée par une IA sensible, un détective privé enquêtant sur un meurtre tombe sur un groupe rebelle capable d'ébranler le chef numérique."
  },
  "25526": {
@@ -466,7 +458,7 @@
  "25548": {
   "at": 1792750672443,
   "synopsisFull": "Adolescente impulsive et anticonformiste, Billie est tout le contraire d’Alice - sa mère - une femme prudente et réfléchie. Lorsque la jeune fille libère accidentellement des pouvoirs magiques qu’elle ignorait, elle se retrouve propulsée bien au-delà de son domicile, vers un royaume magique appelé Hexe où elle est accueillie par Madame Quill – une plume enchantée – et Elias Quire, un journal merveilleux. Au fil d’un périple riche en rebondissements, Billie découvre des mystères familiaux qui pourraient changer à jamais le monde magique des sorcières…",
-  "jpAt": 1794643884085,
+  "jpAt": 1795251440959,
   "genre": "Animation",
   "country": "Etats-Unis",
   "original": "Hexed",
@@ -477,8 +469,8 @@
   "genre": "Drame",
   "director": "Carlos Reygadas",
   "synopsis": "Heil Jupiter! is a 2026 drama film written and directed by Carlos Reygadas. A co-production of Mexico, Poland, Norway, Portugal, Sweden, Switzerland, and the United States, it stars newcomers Neli de la Rosa, Alexis Sánchez Alonso, Flor de León, Alexis Said Villa de León, Morgan Krantz, and Mónica Calle.",
-  "at": 1794559565890,
-  "jpAt": 1795166235684,
+  "at": 1795250824047,
+  "jpAt": 1795251438909,
   "synopsisFull": "Fraîchement élu, le président Paul Archambault doit affronter une crise sans précédent : son homologue russe, cible d'un attentat, brandit un ultimatum nucléaire menaçant un allié de la France. Face au risque d'escalade militaire, le président réunit son état-major dans le bunker de l'Elysée. Dans le secret du Poste de Commandement Jupiter, Paul va devoir prendre une décision vertigineuse.",
   "country": "France"
  },
@@ -561,30 +553,19 @@
   "director": "Cédric Kahn",
   "country": "France",
   "synopsis": "15/18 est un film français réalisé par Cédric Kahn et sorti en 2026.",
-  "at": 1794643389057,
-  "jpAt": 1794643881744,
+  "at": 1795250821994,
+  "jpAt": 1795251437875,
   "synopsisFull": "Lucia, 17 ans, est amenée par la police dans une unité de soins pédopsychiatriques de l’hôpital public. Ici tous les patients ont entre 15 et 18 ans. Lucia connaît l’endroit, elle y a fait de nombreux séjours. Elle retrouve son amie Eloïse, en hospitalisation longue durée, mais aussi Yasmine, Camilia, Ulysse, André…tous ont des pathologies et des parcours différents. Les médecins les soignent, les écoutent, reçoivent leurs parents, tout en gérant un service en surchauffe. Mais un jour, l’arrivée du mystérieux Enzo menace de tout bouleverser.",
-  "genre": "Drame",
-  "cast": [
-   "Zoé Monpart",
-   "Malou Khebizi",
-   "Kenji Peyran"
-  ],
-  "duration": "1h44"
+  "genre": "Drame"
  },
  "25557": {
   "genre": "Comédie",
   "director": "Martin Provost",
   "country": "France",
   "synopsis": "Demain je tombe amoureux est un film franco-belge réalisé par Martin Provost et sorti en 2026.",
-  "at": 1794643450608,
-  "jpAt": 1794643885263,
-  "synopsisFull": "Le jour de son départ à la retraite, Émile, professeur de lettres à Dieppe, donne à ses jeunes élèves un dernier cours sur la littérature et l’amour, les encourageant à devenir les poètes de leurs propres existences. Une fois rentré chez lui, Émile découvre que sa femme l’a quitté. Le voilà contraint d’appliquer à lui-même ses propres préceptes. Trois rencontres vont alors l’aider à se réinventer.",
-  "cast": [
-   "Fabrice Luchini",
-   "Emmanuelle Devos",
-   "Chiara Mastroianni"
-  ]
+  "at": 1795250883839,
+  "jpAt": 1795251441983,
+  "synopsisFull": "Le jour de son départ à la retraite, Émile, professeur de lettres à Dieppe, donne à ses jeunes élèves un dernier cours sur la littérature et l’amour, les encourageant à devenir les poètes de leurs propres existences. Une fois rentré chez lui, Émile découvre que sa femme l’a quitté. Le voilà contraint d’appliquer à lui-même ses propres préceptes. Trois rencontres vont alors l’aider à se réinventer."
  },
  "25559": {
   "genre": "Comédie dramatique",
@@ -599,7 +580,7 @@
   "synopsis": "Les Nouvelles Mésaventures de Cliff Booth est un film américain réalisé par David Fincher et dont la sortie est prévue en 2026. C'est une suite directe à Once Upon a Time… in Hollywood (2019) de Quentin Tarantino, qui officie ici comme scénariste et producteur.",
   "poster": "https://upload.wikimedia.org/wikipedia/en/a/a2/The_Further_Mis-Adventures_of_Cliff_Booth_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
   "at": 1792739973750,
-  "jpAt": 1794643897169,
+  "jpAt": 1795251453417,
   "synopsisFull": "La suite des aventures du cascadeur tranquille, Cliff Booth."
  },
  "25561": {
@@ -630,7 +611,7 @@
  "25571": {
   "at": 1792750684317,
   "synopsisFull": "Une femme timide se retrouve inopinément dans une production locale d'une comédie musicale. Sous le charme d'un metteur en scène énergique et énigmatique, elle se perd dans son rôle.",
-  "jpAt": 1794643902027,
+  "jpAt": 1795251458669,
   "genre": "Comédie",
   "country": "Etats-Unis"
  },
@@ -659,8 +640,8 @@
   ],
   "country": "États-Unis",
   "synopsis": "Behemoth! est un film américain réalisé par Tony Gilroy et sorti en 2026. Il met en scène Pedro Pascal, Olivia Wilde, Eva Victor et Will Arnett.",
-  "at": 1794643503407,
-  "jpAt": 1794643888860,
+  "at": 1795251003277,
+  "jpAt": 1795251447170,
   "synopsisFull": "Violoncelliste de talent, Alex Serian revient à Los Angeles, après vingt années passées sur les routes. La musique, qui a toujours été le fil conducteur de son existence, une force aussi omniprésente que dévorante, entraîne Alex dans une aventure qui le changera à jamais."
  },
  "25593": {
@@ -768,18 +749,12 @@
   ]
  },
  "25611": {
-  "director": "Robert Guédiguian",
-  "country": "France",
-  "synopsis": "Une femme aujourd'hui est une comédie dramatique franco-italienne réalisée par Robert Guédiguian et sortie en 2026.",
-  "at": 1794559503117,
-  "jpAt": 1795166233533,
+  "at": 1795250748463,
+  "jpAt": 1795251434693,
   "synopsisFull": "Juliette, 30 ans, semble avoir tout pour elle : un poste prestigieux dans la finance, une belle maison, une vie rythmée par les voyages et les amours de passage. Lorsqu’elle est agressée par un collègue, son monde s’effondre. Juliette s'engage alors sur un nouveau chemin pour redonner un sens à sa vie.",
+  "director": "Robert Guédiguian",
   "genre": "Comédie dramatique",
-  "cast": [
-   "Marilou Aussilloux",
-   "Ariane Ascaride",
-   "Jean-Pierre Darroussin"
-  ]
+  "country": "France"
  },
  "25612": {
   "genre": "Documentaire",
@@ -879,11 +854,9 @@
   ],
   "country": "France, Belgique",
   "synopsis": "Sanguine est un film franco-belge réalisé par Marion Le Corroller et sorti en 2026.",
-  "at": 1794643265880,
-  "jpAt": 1794643875435,
-  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…",
-  "director": "Marion Le Corroller",
-  "duration": "1h43"
+  "at": 1795250770440,
+  "jpAt": 1795251435718,
+  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…"
  },
  "25631": {
   "at": 1792910697923,
@@ -1110,7 +1083,7 @@
   "country": "France",
   "synopsis": "Malika est un film biographique français réalisé par Mounia Meddour et sorti en 2026. Il est inspiré de la vie de la cantatrice française Malika Bellaribi Le Moal.",
   "at": 1794643391508,
-  "jpAt": 1794643882916,
+  "jpAt": 1795251439936,
   "synopsisFull": "L’incroyable histoire vraie de Malika Bellaribi, la « diva des banlieues » : du bidonville de Nanterre jusqu’aux plus grandes scènes de l’Opéra. Victime d’un grave accident à l’enfance, confrontée aux discriminations et à un drame intime, elle s’accroche à son rêve ambitieux : devenir mezzo-soprano.",
   "genre": "Comédie dramatique"
  },
@@ -1152,8 +1125,8 @@
   ],
   "country": "France",
   "synopsis": "Mariage au goût d'orange est un film français réalisé par Christophe Honoré et sorti en 2026.",
-  "at": 1794643626404,
-  "jpAt": 1794643893526
+  "at": 1795251102750,
+  "jpAt": 1795251450243
  },
  "25662": {
   "at": 1793954614031,
@@ -1163,8 +1136,8 @@
  "25663": {
   "country": "France",
   "synopsis": "Avis de Tempête est un téléfilm franco-belge, écrit par Fabienne Lesieur et Victor Pavy, réalisé par Bruno Garcia et diffusé pour la première fois en Belgique le 18 septembre 2020, en Suisse le 22 septembre 2020 et en France le 26 septembre 2020.",
-  "at": 1794559824256,
-  "jpAt": 1795166244545
+  "at": 1795251247493,
+  "jpAt": 1795251456598
  },
  "25664": {
   "genre": "Drame",
@@ -1217,11 +1190,22 @@
   "director": "Brad Bird"
  },
  "25675": {
-  "at": 1794214110940,
-  "jpAt": 1794909337922,
-  "synopsisFull": "Alors qu'elle se promène avec son père dans le Golden Gate Park de San Francisco, Josephine, huit ans, est témoin d'une agression sexuelle. Incapable de mettre des mots sur ce qu'elle a vu, elle est pourtant la seule personne dont le témoignage pourrait permettre d’inculper l’agresseur...",
-  "genre": "Drame",
-  "country": "Etats-Unis"
+  "genre": "Thriller",
+  "duration": "2h00",
+  "minutes": 120,
+  "director": "Beth de Araújo",
+  "cast": [
+   "Gemma Chan",
+   "Channing Tatum",
+   "Philip Ettinger"
+  ],
+  "country": "États-Unis",
+  "original": "Josephine",
+  "synopsis": "Josephine is a 2026 American thriller-drama film, written, directed, and produced by Beth de Araújo. It stars Channing Tatum, Gemma Chan, Mason Reeves, Philip Ettinger, and Syra McCarthy.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/e/e1/Josephine_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1795251369112,
+  "jpAt": 1795251461760,
+  "synopsisFull": "Alors qu'elle se promène avec son père dans le Golden Gate Park de San Francisco, Josephine, huit ans, est témoin d'une agression sexuelle. Incapable de mettre des mots sur ce qu'elle a vu, elle est pourtant la seule personne dont le témoignage pourrait permettre d’inculper l’agresseur..."
  },
  "25676": {
   "genre": "Comédie",
@@ -1262,7 +1246,8 @@
   "country": "France",
   "synopsis": "Quelques mots d'amour est un film français réalisé par Rudi Rosenberg et sorti en 2026. Il est présenté dans la section « Un certain regard » au Festival de Cannes 2026.",
   "at": 1795165746888,
-  "jpAt": 1795166234603
+  "jpAt": 1795166234603,
+  "duration": "1h37"
  },
  "25680": {
   "at": 1794301014981,
@@ -1300,7 +1285,7 @@
   "country": "France",
   "synopsis": "Forty Love est un film français réalisé par Pierre-Ange Carlotti et dont la sortie est prévue en 2026.",
   "at": 1794643471223,
-  "jpAt": 1794643886490
+  "jpAt": 1795251443006
  },
  "25706": {
   "at": 1794731595334,
