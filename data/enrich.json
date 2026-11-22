@@ -46,17 +46,11 @@
  "25178": {
   "director": "Alexandre Arcady",
   "synopsis": "Fausse Note est un film franco-belge réalisé par Alexandre Arcady et sorti en 2026. Il met en scène Kad Merad, Benoît Poelvoorde et Caterina Murino. Le scénario est adapté du texte original de Didier Caron.",
-  "at": 1794731034063,
-  "jpAt": 1794731594277,
+  "at": 1795337063615,
+  "jpAt": 1795337884574,
   "synopsisFull": "Lors de son ultime concert à Paris, un chef d’orchestre de renom est confronté à un admirateur insistant. Sous ses apparences de « Monsieur tout le monde », le « Fan » s’infiltre dans l’Opéra, perturbe la soirée et force un face à face inattendu avec le chef d’orchestre. Surgit alors un passé commun enfoui, où la musique devient le révélateur d’une vérité bouleversante. Une nuit de tension et de vérité où la mémoire, la culpabilité et la justice s’affrontent en sourdine.",
   "genre": "Drame",
-  "country": "France",
-  "duration": "1h30",
-  "cast": [
-   "Kad Merad",
-   "Benoît Poelvoorde",
-   "Caterina Murino"
-  ]
+  "country": "France"
  },
  "25223": {
   "genre": "Et téléfilm d'action",
@@ -78,21 +72,13 @@
   "original": "Dune: Part Three"
  },
  "25290": {
-  "genre": "Comédie noire",
   "duration": "1h57",
   "minutes": 117,
-  "director": "Martin McDonagh",
-  "cast": [
-   "Sam Rockwell",
-   "John Malkovich",
-   "Steve Buscemi",
-   "Parker Posey"
-  ],
-  "country": "États-Unis, Royaume-Uni",
-  "synopsis": "Wild Horse Nine est un film américano-britanniquo-chilien réalisé par Martin McDonagh et sorti en 2026. Il met en scène John Malkovich, Sam Rockwell, Steve Buscemi, Parker Posey et Tom Waits.",
-  "at": 1794643329880,
-  "jpAt": 1795251436840,
-  "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…"
+  "at": 1795337326185,
+  "jpAt": 1795337892429,
+  "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…",
+  "genre": "Thriller",
+  "country": "Grande-Bretagne"
  },
  "25291": {
   "genre": "Comédie",
@@ -210,7 +196,7 @@
   "country": "France",
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
   "at": 1794731162935,
-  "jpAt": 1794731598595,
+  "jpAt": 1795337887897,
   "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police.",
   "duration": "2h20"
  },
@@ -240,8 +226,9 @@
    "Milo Quifes"
   ],
   "country": "Espagne, France",
-  "at": 1794643708143,
-  "jpAt": 1795251452391,
+  "synopsis": "La bola negra est un film dramatique espagnol réalisé par Los Javis, sorti en 2026.",
+  "at": 1795337647888,
+  "jpAt": 1795337898839,
   "synopsisFull": "Espagne 1932, 1937, 2017. Trois hommes. Trois époques. Un même fil invisible de désir, de douleur et d'héritage. LA BOLA NEGRA traverse le temps pour révéler ce qui les unit."
  },
  "25410": {
@@ -315,7 +302,12 @@
   "synopsisFull": "Un acteur en difficulté avec un visage partiellement paralysé et un trouble de l’élocution écrit un scénario qu’un grand studio de cinéma veut acheter. Mais l’acteur refuse de le vendre à moins de pouvoir jouer le rôle principal. Refusant une offre d’argent qui pourrait changer sa vie, il travaille pour des centimes afin que le film soit réalisé avec lui dans le rôle principal.",
   "director": "Peter Farrelly",
   "genre": "Comédie dramatique",
-  "country": "Etats-Unis"
+  "country": "Etats-Unis",
+  "cast": [
+   "Anthony Ippolito",
+   "Matt Dillon",
+   "AnnaSophia Robb"
+  ]
  },
  "25457": {
   "genre": "Thriller",
@@ -425,8 +417,8 @@
   ],
   "country": "Pologne, Grèce",
   "synopsis": "Hot Spot est un film multinational réalisé par Agnieszka Smoczyńska et sorti en 2026. Il met en scène Andrzej Konopka, Noomi Rapace et Reika Kirishima dans les rôles principaux.",
-  "at": 1794643564142,
-  "jpAt": 1795251448196,
+  "at": 1795337528640,
+  "jpAt": 1795337897699,
   "synopsisFull": "Dans une société gouvernée par une IA sensible, un détective privé enquêtant sur un meurtre tombe sur un groupe rebelle capable d'ébranler le chef numérique."
  },
  "25526": {
@@ -496,7 +488,13 @@
   "synopsis": "Le Roi du Game est un film français réalisé par Éric Judor sorti en 2026.",
   "at": 1794908646799,
   "jpAt": 1794909318292,
-  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés..."
+  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés...",
+  "duration": "1h28",
+  "cast": [
+   "Eric Judor",
+   "Alexandra Lamy",
+   "Hafid F. Benamar"
+  ]
  },
  "25553": {
   "genre": "Comédie",
@@ -556,7 +554,13 @@
   "at": 1795250821994,
   "jpAt": 1795251437875,
   "synopsisFull": "Lucia, 17 ans, est amenée par la police dans une unité de soins pédopsychiatriques de l’hôpital public. Ici tous les patients ont entre 15 et 18 ans. Lucia connaît l’endroit, elle y a fait de nombreux séjours. Elle retrouve son amie Eloïse, en hospitalisation longue durée, mais aussi Yasmine, Camilia, Ulysse, André…tous ont des pathologies et des parcours différents. Les médecins les soignent, les écoutent, reçoivent leurs parents, tout en gérant un service en surchauffe. Mais un jour, l’arrivée du mystérieux Enzo menace de tout bouleverser.",
-  "genre": "Drame"
+  "genre": "Drame",
+  "duration": "1h44",
+  "cast": [
+   "Zoé Monpart",
+   "Malou Khebizi",
+   "Kenji Peyran"
+  ]
  },
  "25557": {
   "genre": "Comédie",
@@ -603,7 +607,7 @@
  },
  "25563": {
   "at": 1794731507044,
-  "jpAt": 1794731604310,
+  "jpAt": 1795337899976,
   "synopsisFull": "Lucy et Philip sont heureux, ils viennent d’emménager avec leur fils dans une maison de campagne près de Munich. Un matin, leur vie bascule lorsque la police se présente à leur domicile pour arrêter Philip et saisir ses ordinateurs. Bouleversée, Lucy cherche la vérité sur son mari. Qui est-il réellement ? Doit-elle l’éloigner de son fils ?",
   "genre": "Drame",
   "country": "Autriche"
@@ -670,8 +674,9 @@
    "Steven Yeun"
   ],
   "country": "États-Unis",
-  "at": 1794731063177,
-  "jpAt": 1794731596389,
+  "synopsis": "Animals est un film américain réalisé par Ben Affleck et sorti en 2026. Il est diffusé sur Netflix.",
+  "at": 1795337107266,
+  "jpAt": 1795337885609,
   "synopsisFull": "Quand leur fils est enlevé, un candidat à la mairie de Los Angeles et sa femme s'efforcent de réunir l'argent de la rançon et font des choix qui pourraient bouleverser leur vie.",
   "director": "Ben Affleck"
  },
@@ -729,8 +734,8 @@
   ],
   "country": "États-Unis, Royaume-Uni",
   "synopsis": "Clayface ou Gueule d'argile au Québec est un film de super-héros horrifique américain réalisé par James Watkins, écrit par Mike Flanagan et Hossein Amini et sorti en 2026.",
-  "at": 1794731164983,
-  "jpAt": 1794731599759,
+  "at": 1795337226154,
+  "jpAt": 1795337889020,
   "synopsisFull": "L'ascension fulgurante de Matt Hagen, de gamin des rues de Gotham à star hollywoodienne, est brutalement interrompue lorsqu'un baron du crime le laisse atrocement défiguré. Abandonné de tous et n'ayant plus rien à perdre, Matt se tourne vers un traitement expérimental qui lui rend miraculeusement son apparence… mais altère profondément sa perception de la réalité. Il sombre alors dans une spirale destructrice, consumé par un irrépressible désir de vengeance."
  },
  "25609": {
@@ -754,7 +759,12 @@
   "synopsisFull": "Juliette, 30 ans, semble avoir tout pour elle : un poste prestigieux dans la finance, une belle maison, une vie rythmée par les voyages et les amours de passage. Lorsqu’elle est agressée par un collègue, son monde s’effondre. Juliette s'engage alors sur un nouveau chemin pour redonner un sens à sa vie.",
   "director": "Robert Guédiguian",
   "genre": "Comédie dramatique",
-  "country": "France"
+  "country": "France",
+  "cast": [
+   "Marilou Aussilloux",
+   "Ariane Ascaride",
+   "Jean-Pierre Darroussin"
+  ]
  },
  "25612": {
   "genre": "Documentaire",
@@ -856,7 +866,9 @@
   "synopsis": "Sanguine est un film franco-belge réalisé par Marion Le Corroller et sorti en 2026.",
   "at": 1795250770440,
   "jpAt": 1795251435718,
-  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…"
+  "synopsisFull": "Margot débute son internat aux urgences, où elle peine à s’adapter. Très vite, elle fait face à des patients de son âge aux symptômes inexpliqués. La récurrence de ces cas exceptionnels l’interroge, d’autant qu’elle observe, sur son propre corps, des manifestations de plus en plus inquiétantes…",
+  "director": "Marion Le Corroller",
+  "duration": "1h43"
  },
  "25631": {
   "at": 1792910697923,
@@ -978,16 +990,10 @@
   "director": "Philippe de Chauveron",
   "country": "France",
   "synopsis": "Un bon patron est une comédie française réalisée par Philippe de Chauveron sortie en 2026. Il s'agit d'un remake du film espagnol El buen patrón de Fernando León de Aranoa sorti en 2021.",
-  "at": 1794731223091,
-  "jpAt": 1794731600937,
+  "at": 1795337288330,
+  "jpAt": 1795337891293,
   "synopsisFull": "En quelques jours seulement, tout semble virer à la catastrophe pour Antoine Blanchet, héritier de l’ancestrale fabrique familiale de balances. Un ex-employé viré qui proteste bruyamment et campe devant l’usine ; Un contremaître qui met en péril la production, parce que sa femme le trompe ; Une stagiaire irrésistible qui fait tourner les têtes… À la veille de recevoir un prix d’excellence censé honorer son usine, il doit, en urgence, sauver l’entreprise et maintenir le calme dans son petit univers bien organisé. Il s’y attelle, à sa manière, paternaliste et autoritaire : en bon patron ?",
-  "genre": "Comédie",
-  "duration": "1h27",
-  "cast": [
-   "Didier Bourdon",
-   "Catherine Frot",
-   "Jean-François Cayrey"
-  ]
+  "genre": "Comédie"
  },
  "25649": {
   "director": "Albert Dupontel",
@@ -1096,9 +1102,9 @@
   ],
   "country": "France",
   "synopsis": "Un bon petit soldat est un film français réalisé par Stéphane Brizé et sorti en 2026.",
-  "at": 1794559629413,
-  "jpAt": 1795166237829,
-  "duration": "1h42"
+  "at": 1795337466004,
+  "jpAt": 1795337895528,
+  "synopsisFull": "Nouvellement embauchée dans le département des Ressources Humaines d’une grande compagnie d’assurances, Carla Moretti doit travailler à réconcilier le bien-être des salariés avec les objectifs de performance de l’entreprise. Jusqu’à ce qu’elle découvre un cas de management toxique dans un des services dont elle a la responsabilité. Entre compromis et compromissions, la ligne de crête sur laquelle elle évolue devient de plus en plus étroite."
  },
  "25660": {
   "genre": "Drame",
@@ -1140,25 +1146,34 @@
   "jpAt": 1795251456598
  },
  "25664": {
-  "genre": "Drame",
-  "director": "John Madden",
+  "genre": "Ou téléfilm biographique",
+  "director": "David O. Russell",
   "cast": [
-   "Laura Linney",
-   "Rhys Ifans",
-   "Monica Dolan",
-   "Rory Kinnear"
+   "Nicolas Cage",
+   "Christian Bale",
+   "Kathryn Hahn",
+   "John Mulaney"
   ],
-  "country": "Royaume-Uni",
-  "synopsis": "Onwards and Sideways is a 2026 British romantic drama film written by Paul Mayhew-Archer and directed by John Madden. It stars Rhys Ifans and Laura Linney, with Monica Dolan and Rory Kinnear in supporting roles.",
-  "at": 1794731283452,
-  "jpAt": 1794731603145,
+  "country": "États-Unis",
+  "synopsis": "Madden est un film américain réalisé par David O. Russell et sorti en 2026. Il s'agit d'un film biographique sur John Madden. Le film s'intéresse à sa carrière à succès en tant qu'entraîneur de football américain ainsi qu'à sa participation au développement du jeu vidéo Madden NFL.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/f/f3/Madden_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1795337406161,
+  "jpAt": 1795337894503,
   "synopsisFull": "Inspiré de la vie d'une icône américaine adorée de tous, Madden retrace le parcours incroyable de John Madden aux côtés de son meilleur ami et visionnaire Al Davis – d'un partenariat couronné par une victoire au Super Bowl avec les Raiders, à sa consécration en tant que voix la plus emblématique du football américain, jusqu'à la création du jeu vidéo mondialement célèbre Madden NFL."
  },
  "25666": {
-  "at": 1794731568763,
-  "jpAt": 1794731605367,
-  "genre": "Aventure - Action",
-  "country": "Etats-Unis"
+  "genre": "Et téléfilm d'action",
+  "director": "William Eubank",
+  "cast": [
+   "Jim Caviezel",
+   "Olivia Thirlby",
+   "Garret Dillahunt",
+   "Shea Whigham"
+  ],
+  "country": "États-Unis",
+  "synopsis": "Ghost Soldier is a 2026 American action film directed by William Eubank and written by Chris Papasadero. It stars Jim Caviezel, Olivia Thirlby, Beau Knapp, Garret Dillahunt, and Shea Whigham.",
+  "at": 1795337823325,
+  "jpAt": 1795337901021
  },
  "25668": {
   "genre": "Ou téléfilm épique",
@@ -1299,22 +1314,18 @@
  },
  "25708": {
   "genre": "Documentaire",
+  "duration": "1h24",
+  "minutes": 84,
   "country": "Italie",
   "original": "Carlo Acutis. Il giovane santo",
-  "at": 1794731225507,
-  "jpAt": 1794731602091,
-  "synopsisFull": "Adolescent passionné d’informatique, de jeux vidéo et de football, Carlo Acutis semblait être un jeune comme les autres. Mort à seulement quinze ans, il est canonisé le 7 septembre 2025. À travers les témoignages bouleversants de sa famille et de ses amis, ainsi que des vidéos inédites, ce documentaire poignant dresse le portrait intime d’un jeune saint devenu une source d’inspiration pour des millions de personnes à travers le monde.",
-  "director": "Luca Salmaso",
-  "duration": "1h26"
+  "at": 1795337346252
  },
  "25709": {
-  "at": 1794731104663,
-  "jpAt": 1794731597434,
+  "at": 1795337166416,
+  "jpAt": 1795337886762,
   "synopsisFull": "Algérie, juin 1955.\nKhadidja quitte la Kabylie pour rejoindre son grand frère Malek à Alger.\nSuite à une altercation au marché, il se fait arrêter par la police et Khadidja se retrouve seule. Heureusement, Lyes, Ahmed et Philippe vont tout mettre en œuvre pour l’aider à retrouver Malek. Depuis les toits de la Casbah, les quatre enfants mènent l’enquête.",
   "genre": "Animation",
-  "country": "France",
-  "director": "Antoine Colomb",
-  "duration": "1h24"
+  "country": "France"
  },
  "25712": {
   "at": 1794818224130,
@@ -1364,5 +1375,36 @@
   "director": "Denis Villeneuve",
   "genre": "Science Fiction",
   "country": "Etats-Unis"
+ },
+ "25718": {
+  "duration": "1h54",
+  "minutes": 114,
+  "at": 1795337486141,
+  "jpAt": 1795337896561,
+  "genre": "Documentaire",
+  "country": "Allemagne",
+  "original": "From Inside Out"
+ },
+ "25719": {
+  "at": 1795337893468,
+  "jpAt": 1795337893468,
+  "synopsisFull": "Dans DUNE : DEUXIÈME PARTIE, Paul Atreides s’unit à Chani et aux Fremen pour mener la révolte contre ceux qui ont anéanti sa famille. Hanté par de sombres prémonitions, il se trouve confronté au plus grand des dilemmes : choisir entre l’amour de sa vie et le destin de l’univers.",
+  "director": "Denis Villeneuve",
+  "genre": "Science Fiction",
+  "country": "Etats-Unis",
+  "original": "Dune: Part Two (Rep. 2026)"
+ },
+ "25720": {
+  "at": 1795337890158,
+  "jpAt": 1795337890158,
+  "synopsisFull": "Le long d'une route oubliée, la famille O'Reilly vit dans une vieille caravane échouée au milieu des champs. Pa, Lisa et leurs dix enfants traversent les saisons dans ce fragile château de tôle, héritiers d'un mode de vie en sursis. Menacés d'expulsion, leur équilibre de fortune vacille mais ils résistent, fidèles à leurs traditions. Les enfants rient, les chiens aboient, la caravane tient encore, mais pour combien de temps ?",
+  "genre": "Documentaire",
+  "country": "Irlande",
+  "original": "Tin Castle",
+  "director": "Alexander Murphy",
+  "duration": "1h36",
+  "cast": [
+   "Lisa O'Reilly"
+  ]
  }
 }
