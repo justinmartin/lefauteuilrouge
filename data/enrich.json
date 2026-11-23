@@ -78,7 +78,13 @@
   "jpAt": 1795337892429,
   "synopsisFull": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…",
   "genre": "Thriller",
-  "country": "Grande-Bretagne"
+  "country": "Grande-Bretagne",
+  "director": "Martin McDonagh",
+  "cast": [
+   "Sam Rockwell",
+   "John Malkovich",
+   "Steve Buscemi"
+  ]
  },
  "25291": {
   "genre": "Comédie",
@@ -113,9 +119,8 @@
   ],
   "country": "France, Italie",
   "synopsis": "Changer l'eau des fleurs est un film franco-italien réalisé par Jean-Pierre Jeunet et dont la sortie est prévue en 2026. Il s'agit d'une adaptation du roman du même nom de Valérie Perrin.",
-  "at": 1794643566691,
-  "jpAt": 1795251449218,
-  "synopsisFull": "Violette, la quarantaine, est garde-cimetière dans une petite ville de Bourgogne. Son quotidien est rythmé par les confidences des personnes de passage ou habitués du lieu, qui viennent trouver un peu de réconfort dans sa loge. Un jour, elle reçoit la visite d'un policier, Julien Seul, venu déposer les cendres de sa mère sur la tombe de l'homme qu'elle aimait. Intrigué par l’histoire de Violette, dont le mari a disparu mystérieusement, peu de temps après leur arrivée au cimetière, il décide d’enquêter, faisant sans le vouloir remonter à la surface de douloureux souvenirs ainsi que des vérités salvatrices pour Violette."
+  "at": 1795427167562,
+  "duration": "2h12"
  },
  "25301": {
   "at": 1792827082367,
@@ -195,10 +200,7 @@
   ],
   "country": "France",
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
-  "at": 1794731162935,
-  "jpAt": 1795337887897,
-  "synopsisFull": "Dans un village au nord de l’Espagne, Jeanne tente de reconstruire sa vie avec Daniel, qui ne connaît rien de son passé trouble. Un jour, Mateo, le filleul de Jeanne âgé de six ans, disparaît mystérieusement… Afin d’échapper à la police qui la soupçonne rapidement, Jeanne se réfugie en France dans la communauté où elle est née et qu’elle a fuie quelques années auparavant. Daniel ne croit pas à la culpabilité de la femme qu’il aime et va tout faire pour la retrouver avant la police.",
-  "duration": "2h20"
+  "at": 1795426984436
  },
  "25390": {
   "at": 1792750650557,
@@ -613,11 +615,20 @@
   "country": "Autriche"
  },
  "25571": {
-  "at": 1792750684317,
-  "synopsisFull": "Une femme timide se retrouve inopinément dans une production locale d'une comédie musicale. Sous le charme d'un metteur en scène énergique et énigmatique, elle se perd dans son rôle.",
-  "jpAt": 1795251458669,
-  "genre": "Comédie",
-  "country": "Etats-Unis"
+  "genre": "Ou téléfilm musical",
+  "duration": "1h45",
+  "minutes": 105,
+  "director": "Jesse Eisenberg",
+  "cast": [
+   "Julianne Moore",
+   "Paul Giamatti",
+   "Halle Bailey",
+   "Havana Rose Liu"
+  ],
+  "country": "États-Unis",
+  "synopsis": "Mona ou Le début au Québec est un film américain réalisé par Jesse Eisenberg et sorti en 2026. Il met en scène Julianne Moore, dans le rôle d'une femme au foyer qui passe une audition pour une comédie musicale dirigée par un metteur en scène haut en couleur incarné par Paul Giamatti.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/7/73/The_Debut_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1795427467904
  },
  "25572": {
   "director": "Michaël R. Roskam",
@@ -850,9 +861,7 @@
   ],
   "country": "États-Unis, Australie",
   "synopsis": "The Mongoose est un film américano-australien réalisé par Mark Vanselow et sorti en 2026. Il met en scène Liam Neeson, Marisa Tomei, Ving Rhames, Marcus Thomas, Maurice Marvel Meredith et Michael Chiklis.",
-  "at": 1794818043299,
-  "jpAt": 1794818415017,
-  "synopsisFull": "Le héros de guerre, Ryan « Fang » Flanagan, est accusé d'un crime qu'il n'a pas commis. N'ayant plus rien à perdre, il entraîne la police dans une course-poursuite à travers le pays, retransmise en direct à la télévision."
+  "at": 1795427044792
  },
  "25630": {
   "genre": "Ou téléfilm d'horreur",
@@ -993,7 +1002,13 @@
   "at": 1795337288330,
   "jpAt": 1795337891293,
   "synopsisFull": "En quelques jours seulement, tout semble virer à la catastrophe pour Antoine Blanchet, héritier de l’ancestrale fabrique familiale de balances. Un ex-employé viré qui proteste bruyamment et campe devant l’usine ; Un contremaître qui met en péril la production, parce que sa femme le trompe ; Une stagiaire irrésistible qui fait tourner les têtes… À la veille de recevoir un prix d’excellence censé honorer son usine, il doit, en urgence, sauver l’entreprise et maintenir le calme dans son petit univers bien organisé. Il s’y attelle, à sa manière, paternaliste et autoritaire : en bon patron ?",
-  "genre": "Comédie"
+  "genre": "Comédie",
+  "duration": "1h27",
+  "cast": [
+   "Didier Bourdon",
+   "Catherine Frot",
+   "Jean-François Cayrey"
+  ]
  },
  "25649": {
   "director": "Albert Dupontel",
@@ -1085,13 +1100,7 @@
   "country": "Etats-Unis"
  },
  "25658": {
-  "director": "Mounia Meddour",
-  "country": "France",
-  "synopsis": "Malika est un film biographique français réalisé par Mounia Meddour et sorti en 2026. Il est inspiré de la vie de la cantatrice française Malika Bellaribi Le Moal.",
-  "at": 1794643391508,
-  "jpAt": 1795251439936,
-  "synopsisFull": "L’incroyable histoire vraie de Malika Bellaribi, la « diva des banlieues » : du bidonville de Nanterre jusqu’aux plus grandes scènes de l’Opéra. Victime d’un grave accident à l’enfance, confrontée aux discriminations et à un drame intime, elle s’accroche à son rêve ambitieux : devenir mezzo-soprano.",
-  "genre": "Comédie dramatique"
+  "at": 1795427083005
  },
  "25659": {
   "genre": "Drame",
@@ -1132,7 +1141,8 @@
   "country": "France",
   "synopsis": "Mariage au goût d'orange est un film français réalisé par Christophe Honoré et sorti en 2026.",
   "at": 1795251102750,
-  "jpAt": 1795251450243
+  "jpAt": 1795251450243,
+  "duration": "1h55"
  },
  "25662": {
   "at": 1793954614031,
@@ -1299,8 +1309,7 @@
   ],
   "country": "France",
   "synopsis": "Forty Love est un film français réalisé par Pierre-Ange Carlotti et dont la sortie est prévue en 2026.",
-  "at": 1794643471223,
-  "jpAt": 1795251443006
+  "at": 1795427105678
  },
  "25706": {
   "at": 1794731595334,
@@ -1318,7 +1327,8 @@
   "minutes": 84,
   "country": "Italie",
   "original": "Carlo Acutis. Il giovane santo",
-  "at": 1795337346252
+  "at": 1795337346252,
+  "director": "Luca Salmaso"
  },
  "25709": {
   "at": 1795337166416,
@@ -1328,26 +1338,20 @@
   "country": "France"
  },
  "25712": {
-  "at": 1794818224130,
-  "jpAt": 1794818416153,
   "director": "Luc Picard",
-  "duration": "1h54",
   "cast": [
    "Luc Picard",
-   "Damien Bonnard",
-   "Gérard Lanvin"
-  ]
+   "Kelly Depeault",
+   "Henri Picard",
+   "Maxim Gaudette"
+  ],
+  "country": "Canada",
+  "synopsis": "Rédemptions est un film québécois écrit et réalisé par Luc Picard, sorti en 2026.",
+  "at": 1795427285781
  },
  "25713": {
-  "at": 1794818417260,
-  "jpAt": 1794818417260,
-  "director": "Bertrand Mandico",
-  "duration": "1h47",
-  "cast": [
-   "Marion Cotillard",
-   "Noémie Merlant",
-   "Martina La Manna"
-  ]
+  "poster": "https://upload.wikimedia.org/wikipedia/en/c/cc/Roma_Elastica_%282026%29_film_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1795427403980
  },
  "25714": {
   "at": 1794818418388,
@@ -1355,13 +1359,7 @@
  },
  "25715": {
   "director": "Louis-Julien Petit",
-  "at": 1794818289635,
-  "jpAt": 1794818419500,
-  "cast": [
-   "Anthony Bajon",
-   "Aliocha Schneider",
-   "Alexandra Lamy"
-  ]
+  "at": 1795427407593
  },
  "25716": {
   "at": 1794818420671,
@@ -1406,5 +1404,25 @@
   "cast": [
    "Lisa O'Reilly"
   ]
+ },
+ "25723": {
+  "genre": "Comédie",
+  "director": "Luca Guadagnino",
+  "cast": [
+   "Andrew Garfield",
+   "Monica Barbaro",
+   "Iouri Borissov",
+   "Ike Barinholtz"
+  ],
+  "country": "États-Unis, Royaume-Uni",
+  "synopsis": "Artificial est un film américano-britannique réalisé par Luca Guadagnino et dont la sortie est prévue en 2026.",
+  "at": 1795427546607
+ },
+ "25728": {
+  "director": "Christine Edzard",
+  "country": "Royaume-Uni",
+  "synopsis": "The Nightingale is a 1981 film directed by Christine Edzard and produced by Richard B. Goodwin at Sands Films Studios in London. The film features Richard Goolden, Mandy Carlin and John Dalby.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/a/aa/Poster_for_Nightingale_Film.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "at": 1795427648880
  }
 }
