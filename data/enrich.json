@@ -50,7 +50,13 @@
   "jpAt": 1795337884574,
   "synopsisFull": "Lors de son ultime concert à Paris, un chef d’orchestre de renom est confronté à un admirateur insistant. Sous ses apparences de « Monsieur tout le monde », le « Fan » s’infiltre dans l’Opéra, perturbe la soirée et force un face à face inattendu avec le chef d’orchestre. Surgit alors un passé commun enfoui, où la musique devient le révélateur d’une vérité bouleversante. Une nuit de tension et de vérité où la mémoire, la culpabilité et la justice s’affrontent en sourdine.",
   "genre": "Drame",
-  "country": "France"
+  "country": "France",
+  "duration": "1h30",
+  "cast": [
+   "Kad Merad",
+   "Benoît Poelvoorde",
+   "Caterina Murino"
+  ]
  },
  "25223": {
   "genre": "Et téléfilm d'action",
@@ -185,10 +191,7 @@
   ],
   "country": "France",
   "synopsis": "Moulin est un film français réalisé par László Nemes sorti en 2026. Il s'agit d'un film biographique sur Jean Moulin.",
-  "at": 1794908708864,
-  "jpAt": 1794909321894,
-  "synopsisFull": "Juin 1943, Jean Moulin, chef de la Résistance, est arrêté alors qu'il tente de réunifier les forces de l’Armée Secrète Interrogé par Klaus Barbie, le chef de la Gestapo de Lyon, Moulin est entraîné dans une confrontation implacable. Son ultime combat face à la manipulation et la brutalité commence.? Le destin de la France libre en dépend.",
-  "duration": "2h14"
+  "at": 1795520232268
  },
  "25377": {
   "genre": "Thriller psychologique",
@@ -200,7 +203,8 @@
   ],
   "country": "France",
   "synopsis": "Karma est un film français réalisé par Guillaume Canet et sorti en 2026.",
-  "at": 1795426984436
+  "at": 1795426984436,
+  "duration": "2h20"
  },
  "25390": {
   "at": 1792750650557,
@@ -352,14 +356,19 @@
   "original": "Children of Blood and Bone"
  },
  "25471": {
+  "genre": "Drame",
   "duration": "1h50",
   "minutes": 110,
+  "director": "Dani Sancho",
+  "cast": [
+   "Ousman Umar",
+   "Emma Vilarasau",
+   "Jordi Bosch",
+   "Edgar Moreno"
+  ],
+  "country": "Espagne, France",
   "original": "Viatge al país dels blancs",
-  "at": 1794909225947,
-  "jpAt": 1794909336820,
-  "synopsisFull": "L’histoire d’Ousman Umar, un jeune Ghanéen fasciné par la mystérieuse terre des hommes blancs, qui quitte son village et se lance dans un voyage vers l’Europe",
-  "genre": "Drame",
-  "country": "Espagne"
+  "at": 1795520792051
  },
  "25481": {
   "at": 1792750687953,
@@ -488,15 +497,7 @@
   "director": "Éric Judor",
   "country": "France",
   "synopsis": "Le Roi du Game est un film français réalisé par Éric Judor sorti en 2026.",
-  "at": 1794908646799,
-  "jpAt": 1794909318292,
-  "synopsisFull": "Alexandre est prêt à tout pour renouer avec sa fille. Quitte à infiltrer une équipe de bras cassés dans un univers de jeu médiéval-fantastique. Cette quête improbable pourrait bien le ramener à ses propres rêves oubliés...",
-  "duration": "1h28",
-  "cast": [
-   "Eric Judor",
-   "Alexandra Lamy",
-   "Hafid F. Benamar"
-  ]
+  "at": 1795520170465
  },
  "25553": {
   "genre": "Comédie",
@@ -608,11 +609,17 @@
   "synopsisFull": "L'ascension du magnat des médias Rupert Murdoch."
  },
  "25563": {
-  "at": 1794731507044,
-  "jpAt": 1795337899976,
-  "synopsisFull": "Lucy et Philip sont heureux, ils viennent d’emménager avec leur fils dans une maison de campagne près de Munich. Un matin, leur vie bascule lorsque la police se présente à leur domicile pour arrêter Philip et saisir ses ordinateurs. Bouleversée, Lucy cherche la vérité sur son mari. Qui est-il réellement ? Doit-elle l’éloigner de son fils ?",
   "genre": "Drame",
-  "country": "Autriche"
+  "director": "Marie Kreutzer",
+  "cast": [
+   "Catherine Deneuve",
+   "Jella Haase",
+   "Laurence Rupp",
+   "Léa Seydoux"
+  ],
+  "country": "Autriche, Allemagne",
+  "synopsis": "Gentle Monster est un film dramatique franco-germano-autrichien réalisé par Marie Kreutzer et sorti en 2026.",
+  "at": 1795520606837
  },
  "25571": {
   "genre": "Ou téléfilm musical",
@@ -789,18 +796,7 @@
  },
  "25613": {
   "synopsis": "L'Espèce explosive est un film policier français réalisé par Sarah Arnold et sorti en 2026.",
-  "at": 1794908540102,
-  "jpAt": 1794909313420,
-  "synopsisFull": "Dans la campagne du Nord-Est de la France. Les sangliers qui ravagent les cultures provoquent une guerre ouverte entre chasseurs et agriculteurs. Brun, céréalier en faillite, lutte pour maintenir sa ferme à flot. Quand un notable du coin le pousse à bout, il déraille et disparaît. Un an plus tard, Fulda, un gendarme corse muté dans la région pour raisons disciplinaires, mène l’enquête. Entre intuitions fulgurantes et ratés spectaculaires, ses méthodes approximatives le mènent sur la piste des Attilas, des sangliers aux dimensions hors normes. Mais sa récente rupture amoureuse et la vodka dans laquelle flotte son cerveau n’aident pas. Heureusement, il y a Stéphane, la nouvelle psy de la gendarmerie : elle est là pour mettre un peu d’ordre dans son chaos — à moins que ce ne soit l’inverse ?",
-  "genre": "Comédie",
-  "country": "France",
-  "director": "Sarah Arnold",
-  "duration": "1h35",
-  "cast": [
-   "Alexis Manenti",
-   "Ella Rumpf",
-   "Vincent Dedienne"
-  ]
+  "at": 1795520055369
  },
  "25615": {
   "genre": "Ou téléfilm biographique",
@@ -951,9 +947,7 @@
   ],
   "country": "États-Unis",
   "synopsis": "Wicker, l'Homme d'osier est un drame romantique multinational réalisé par Alex Huston Fischer et Eleanor Wilson et sorti en 2026.",
-  "at": 1794908706046,
-  "jpAt": 1794909320790,
-  "synopsisFull": "Mise au ban de son village, une pêcheuse solitaire commande au vannier local un mari en osier. Cet époux improbable se révèle doté d’une sensibilité et de talents qui dépassent toutes ses attentes. À son contact, elle découvre un désir insoupçonné et, peu à peu, s’éprend véritablement de lui. Mais bientôt, son étrange mari attise les convoitises, la jalousie et les fantasmes des villageois, faisant vaciller les certitudes d’une communauté jusque-là bien ordonnée."
+  "at": 1795520229515
  },
  "25642": {
   "duration": "2h25",
@@ -1100,7 +1094,8 @@
   "country": "Etats-Unis"
  },
  "25658": {
-  "at": 1795427083005
+  "at": 1795427083005,
+  "director": "Mounia Meddour"
  },
  "25659": {
   "genre": "Drame",
@@ -1128,7 +1123,8 @@
   "synopsis": "Un peu avant minuit est un film dramatique français réalisé par Nicolas Pariser et sorti en 2026.",
   "poster": "https://upload.wikimedia.org/wikipedia/en/7/7b/One_Minute_to_Midnight.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
   "at": 1795165870712,
-  "jpAt": 1795166238911
+  "jpAt": 1795166238911,
+  "duration": "1h50"
  },
  "25661": {
   "genre": "Comédie dramatique",
@@ -1201,12 +1197,19 @@
   "duration": "3h15"
  },
  "25673": {
+  "genre": "Comédie noire",
   "duration": "1h34",
   "minutes": 94,
-  "poster": "https://upload.wikimedia.org/wikipedia/en/8/88/The_Gallerist_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "at": 1794908943823,
-  "jpAt": 1794909331235,
-  "synopsisFull": "Une galeriste désespérée est prête à tout pour relancer sa carrière, allant jusqu’à faire passer un cadavre pour une œuvre d’art contemporaine lors d’Art Basel à Miami..."
+  "director": "Cathy Yan",
+  "cast": [
+   "Natalie Portman",
+   "Jenna Ortega",
+   "Da’Vine Joy Randolph",
+   "Sterling K. Brown"
+  ],
+  "country": "États-Unis",
+  "synopsis": "The Gallerist est un film américain réalisé par Cathy Yan et sorti 2026. Il s'agit d'une comédie noire avec Natalie Portman, Jenna Ortega, Sterling K. Brown, Zach Galifianakis, Da'Vine Joy Randolph et Catherine Zeta-Jones dans les rôles principaux.",
+  "at": 1795520408026
  },
  "25674": {
   "at": 1794214104269,
@@ -1255,12 +1258,7 @@
   "genre": "Documentaire",
   "director": "Basile Monnot, Samy Bouyssié",
   "country": "France",
-  "at": 1794908769488,
-  "jpAt": 1794909325237,
-  "duration": "1h41",
-  "cast": [
-   "Nicolas Trouvé"
-  ]
+  "at": 1795520281975
  },
  "25679": {
   "genre": "Comédie dramatique",
@@ -1335,7 +1333,9 @@
   "jpAt": 1795337886762,
   "synopsisFull": "Algérie, juin 1955.\nKhadidja quitte la Kabylie pour rejoindre son grand frère Malek à Alger.\nSuite à une altercation au marché, il se fait arrêter par la police et Khadidja se retrouve seule. Heureusement, Lyes, Ahmed et Philippe vont tout mettre en œuvre pour l’aider à retrouver Malek. Depuis les toits de la Casbah, les quatre enfants mènent l’enquête.",
   "genre": "Animation",
-  "country": "France"
+  "country": "France",
+  "director": "Antoine Colomb",
+  "duration": "1h24"
  },
  "25712": {
   "director": "Luc Picard",
@@ -1347,7 +1347,8 @@
   ],
   "country": "Canada",
   "synopsis": "Rédemptions est un film québécois écrit et réalisé par Luc Picard, sorti en 2026.",
-  "at": 1795427285781
+  "at": 1795427285781,
+  "duration": "1h54"
  },
  "25713": {
   "poster": "https://upload.wikimedia.org/wikipedia/en/c/cc/Roma_Elastica_%282026%29_film_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -1417,6 +1418,9 @@
   "country": "États-Unis, Royaume-Uni",
   "synopsis": "Artificial est un film américano-britannique réalisé par Luca Guadagnino et dont la sortie est prévue en 2026.",
   "at": 1795427546607
+ },
+ "25724": {
+  "at": 1795520705451
  },
  "25728": {
   "director": "Christine Edzard",
