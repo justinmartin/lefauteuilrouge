@@ -191,7 +191,8 @@
   ],
   "country": "France",
   "synopsis": "Moulin est un film français réalisé par László Nemes sorti en 2026. Il s'agit d'un film biographique sur Jean Moulin.",
-  "at": 1795520232268
+  "at": 1795520232268,
+  "duration": "2h14"
  },
  "25377": {
   "genre": "Thriller psychologique",
@@ -475,7 +476,13 @@
   "at": 1795250824047,
   "jpAt": 1795251438909,
   "synopsisFull": "Fraîchement élu, le président Paul Archambault doit affronter une crise sans précédent : son homologue russe, cible d'un attentat, brandit un ultimatum nucléaire menaçant un allié de la France. Face au risque d'escalade militaire, le président réunit son état-major dans le bunker de l'Elysée. Dans le secret du Poste de Commandement Jupiter, Paul va devoir prendre une décision vertigineuse.",
-  "country": "France"
+  "country": "France",
+  "duration": "1h27",
+  "cast": [
+   "Denis Ménochet",
+   "André Dussollier",
+   "Reda Kateb"
+  ]
  },
  "25551": {
   "cast": [
@@ -497,23 +504,16 @@
   "director": "Éric Judor",
   "country": "France",
   "synopsis": "Le Roi du Game est un film français réalisé par Éric Judor sorti en 2026.",
-  "at": 1795520170465
+  "at": 1795520170465,
+  "duration": "1h28",
+  "cast": [
+   "Eric Judor",
+   "Alexandra Lamy",
+   "Hafid F. Benamar"
+  ]
  },
  "25553": {
-  "genre": "Comédie",
-  "director": "Matthieu Rumani, Nicolas Slomka",
-  "cast": [
-   "Kristin Scott Thomas",
-   "Guillermo Guiz",
-   "Anaïde Rozam",
-   "Panayotis Pascot"
-  ],
-  "country": "France",
-  "synopsis": "Camembert est une comédie française réalisée par Matthieu Rumani et Nicolas Slomka et sortie en 2026.",
-  "at": 1794908823796,
-  "jpAt": 1794909330117,
-  "synopsisFull": "Stan, trentenaire d’origine modeste, rencontre pour la première fois la famille de sa petite amie Cléo. Il découvre alors la tradition familiale : à chaque anniversaire de France, l’impressionnante maîtresse de maison, on lance une partie de Trivial Pursuit ©. Il sait qu’il n’a aucune chance face à ces amoureux de la culture, mais il n’a pas le choix : toute la famille doit participer, sans exception. Qu’est-ce qui pourrait mal tourner ? Après tout ce n’est qu’un jeu de société…",
-  "duration": "1h31"
+  "at": 1795602465324
  },
  "25554": {
   "genre": "Drame",
@@ -576,6 +576,8 @@
  },
  "25559": {
   "genre": "Comédie dramatique",
+  "duration": "2h20",
+  "minutes": 140,
   "director": "David Fincher",
   "cast": [
    "Brad Pitt",
@@ -583,12 +585,8 @@
    "Elizabeth Debicki",
    "Yahya Abdul-Mateen II"
   ],
-  "country": "États-Unis",
-  "synopsis": "Les Nouvelles Mésaventures de Cliff Booth est un film américain réalisé par David Fincher et dont la sortie est prévue en 2026. C'est une suite directe à Once Upon a Time… in Hollywood (2019) de Quentin Tarantino, qui officie ici comme scénariste et producteur.",
-  "poster": "https://upload.wikimedia.org/wikipedia/en/a/a2/The_Further_Mis-Adventures_of_Cliff_Booth_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "at": 1792739973750,
-  "jpAt": 1795251453417,
-  "synopsisFull": "La suite des aventures du cascadeur tranquille, Cliff Booth."
+  "country": "États-Unis, Royaume-Uni",
+  "at": 1795602628927
  },
  "25561": {
   "genre": "Ou téléfilm biographique",
@@ -796,7 +794,14 @@
  },
  "25613": {
   "synopsis": "L'Espèce explosive est un film policier français réalisé par Sarah Arnold et sorti en 2026.",
-  "at": 1795520055369
+  "at": 1795520055369,
+  "director": "Sarah Arnold",
+  "duration": "1h35",
+  "cast": [
+   "Alexis Manenti",
+   "Ella Rumpf",
+   "Vincent Dedienne"
+  ]
  },
  "25615": {
   "genre": "Ou téléfilm biographique",
@@ -930,9 +935,7 @@
    "Suraj Venjaramoodu"
   ],
   "country": "Inde",
-  "at": 1794908605788,
-  "jpAt": 1794909317050,
-  "synopsisFull": "Le redoutable ancien officier de police Muthuvel Pandian reprend du service lorsque sa vie paisible vole en éclats face à l’émergence d’une dangereuse organisation criminelle qui menace directement sa famille."
+  "at": 1795602325666
  },
  "25641": {
   "genre": "Ou téléfilm d'amour",
@@ -950,19 +953,16 @@
   "at": 1795520229515
  },
  "25642": {
+  "genre": "Drame",
   "duration": "2h25",
   "minutes": 145,
-  "at": 1794908685403,
-  "jpAt": 1794909319535,
-  "synopsisFull": "Un groupe de lycéens français part en voyage scolaire à Naples pour découvrir les ruines de Pompéi et ses corps pétrifiés par le Vésuve. C’est là que le vertige les saisit brutalement. L’un après l’autre, ils se laissent submerger par le désir et la colère jusqu’à s’y abandonner complètement.",
-  "genre": "Comédie dramatique",
-  "country": "France",
   "director": "Marine Atlan",
   "cast": [
-   "Antonia Buresi",
-   "Colas Quignard",
-   "Suzanne Gerin"
-  ]
+   "Antonia Buresi"
+  ],
+  "country": "France, Italie",
+  "synopsis": "La Gradiva est un film franco-italien réalisé par Marine Atlan et sorti en 2026.",
+  "at": 1795602365828
  },
  "25643": {
   "at": 1793954611921,
@@ -1082,20 +1082,30 @@
    "Victoria Moroles"
   ],
   "country": "États-Unis",
-  "synopsis": "The Last Pickpocket in New York est un film américain réalisé par Noah Segan et sorti en 2026.",
-  "at": 1794909073177,
-  "jpAt": 1794909333477,
-  "synopsisFull": "Harry est le dernier pickpocket de New York.\nAlors que l'argent liquide se fait rare, il continue d'exercer son art en toute discrétion.\nUn jour, Harry dérobe une mystérieuse clef USB à un jeune mafieux et se retrouve pris en chasse par une dangereuse organisation criminelle…"
+  "at": 1795602688899
  },
  "25657": {
   "at": 1793954608721,
   "jpAt": 1795166239981,
   "genre": "Aventure - Action",
-  "country": "Etats-Unis"
+  "country": "Etats-Unis",
+  "director": "Tommy Wirkola",
+  "duration": "1h50",
+  "cast": [
+   "David Harbour",
+   "Kristen Bell",
+   "Jared Harris"
+  ]
  },
  "25658": {
   "at": 1795427083005,
-  "director": "Mounia Meddour"
+  "director": "Mounia Meddour",
+  "duration": "1h26",
+  "cast": [
+   "Lilya Adad",
+   "Camille Razat",
+   "Elsa Zylberstein"
+  ]
  },
  "25659": {
   "genre": "Drame",
@@ -1246,8 +1256,7 @@
   ],
   "country": "Canada, France",
   "synopsis": "Maudits Français est un film franco-québécois réalisé par Émile Gaudreault et dont la sortie est prévue en 2027. Il est coscénarisée avec Guy Laurent.",
-  "at": 1794909248464,
-  "jpAt": 1794909339038
+  "at": 1795602852049
  },
  "25677": {
   "at": 1794214108710,
@@ -1258,7 +1267,11 @@
   "genre": "Documentaire",
   "director": "Basile Monnot, Samy Bouyssié",
   "country": "France",
-  "at": 1795520281975
+  "at": 1795520281975,
+  "duration": "1h41",
+  "cast": [
+   "Nicolas Trouvé"
+  ]
  },
  "25679": {
   "genre": "Comédie dramatique",
@@ -1293,8 +1306,7 @@
   ],
   "country": "États-Unis",
   "synopsis": "Club Kid est un film américain écrit et réalisé par Jordan Firstman, sorti en 2026.",
-  "at": 1794992707610,
-  "jpAt": 1794993187709
+  "at": 1795602425626
  },
  "25705": {
   "genre": "Drame",
@@ -1307,7 +1319,8 @@
   ],
   "country": "France",
   "synopsis": "Forty Love est un film français réalisé par Pierre-Ange Carlotti et dont la sortie est prévue en 2026.",
-  "at": 1795427105678
+  "at": 1795427105678,
+  "duration": "1h37"
  },
  "25706": {
   "at": 1794731595334,
