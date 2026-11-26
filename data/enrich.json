@@ -513,7 +513,14 @@
   ]
  },
  "25553": {
-  "at": 1795602465324
+  "at": 1795602465324,
+  "director": "Matthieu Rumani,Nicolas Slomka",
+  "duration": "1h31",
+  "cast": [
+   "Kristin Scott Thomas",
+   "Alex Lutz",
+   "Pascale Arbillot"
+  ]
  },
  "25554": {
   "genre": "Drame",
@@ -662,7 +669,8 @@
   "synopsis": "Behemoth! est un film américain réalisé par Tony Gilroy et sorti en 2026. Il met en scène Pedro Pascal, Olivia Wilde, Eva Victor et Will Arnett.",
   "at": 1795251003277,
   "jpAt": 1795251447170,
-  "synopsisFull": "Violoncelliste de talent, Alex Serian revient à Los Angeles, après vingt années passées sur les routes. La musique, qui a toujours été le fil conducteur de son existence, une force aussi omniprésente que dévorante, entraîne Alex dans une aventure qui le changera à jamais."
+  "synopsisFull": "Violoncelliste de talent, Alex Serian revient à Los Angeles, après vingt années passées sur les routes. La musique, qui a toujours été le fil conducteur de son existence, une force aussi omniprésente que dévorante, entraîne Alex dans une aventure qui le changera à jamais.",
+  "duration": "2h08"
  },
  "25593": {
   "genre": "Ou téléfilm biographique",
@@ -1007,17 +1015,7 @@
  "25649": {
   "director": "Albert Dupontel",
   "synopsis": "Il faut brûler maman est un film français écrit et réalisé par Albert Dupontel et sorti en novembre 2026.",
-  "at": 1795080488501,
-  "jpAt": 1795080847758,
-  "synopsisFull": "Dans une famille de croque-morts, deux sœurs et un frère se retrouvent pour les funérailles de leur mère. Le personnel étant en grève, ils doivent accomplir le protocole funéraire par eux-mêmes. Comment s’accorder pour brûler Maman ?",
-  "genre": "Comédie",
-  "country": "France",
-  "duration": "1h21",
-  "cast": [
-   "Louise Coldefy",
-   "Julia Piaton",
-   "Artus"
-  ]
+  "at": 1795687271487
  },
  "25650": {
   "genre": "Drame",
@@ -1065,11 +1063,7 @@
   ],
   "country": "Allemagne",
   "synopsis": "Le Bois de Klara est un drame historique franco-allemand réalisé par Volker Schlöndorff et sorti en 2026. Il s'agit d'une adaptation du roman partiellement autobiographique Le Bois de Klara (de) de Jenny Erpenbeck, paru en 2007.",
-  "at": 1794993127756,
-  "jpAt": 1795080848798,
-  "synopsisFull": "Une maison située au bord d'un lac près de Berlin devient le témoin d'un siècle d'événements qui ont remodelé le monde qui l'entoure : la montée du nazisme et les ravages de la guerre, l'occupation soviétique, la réunification de l'Allemagne et l'aube d'une ère nouvelle.",
-  "genre": "Drame",
-  "original": "Heimsuchung - Eine Jahrhundertgeschichte"
+  "at": 1795687745967
  },
  "25656": {
   "genre": "Ou téléfilm criminel",
