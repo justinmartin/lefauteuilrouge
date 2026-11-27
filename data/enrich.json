@@ -161,10 +161,7 @@
   ],
   "country": "France, Belgique",
   "synopsis": "Ducobu et le Fantôme de Saint-Potache est une comédie française réalisée par Élie Semoun et sortie en 2026. Il s'agit du sixième film d'une saga inspirée de la série de bande dessinée belge L'Élève Ducobu de Godi et Zidrou.",
-  "at": 1795165600948,
-  "jpAt": 1795166230171,
-  "synopsisFull": "C’est Halloween, et Ducobu revient pour une aventure pleine de rires et de mystères ! Le professeur Latouche et Mademoiselle Rateau emménagent dans une maison… hantée par le ? fantôme d'Anatole, le plus grand cancre de l’histoire de l’école Saint-Potache. Ce fantôme farceur va entraîner Ducobu, Léonie, leurs parents et Kitrish dans une série de péripéties ? aussi drôles qu’inattendues. Mais attention : à Halloween, tout peut arriver…",
-  "duration": "1h30"
+  "at": 1795773922618
  },
  "25336": {
   "at": 1792827075029,
@@ -553,9 +550,7 @@
   ],
   "country": "États-Unis",
   "synopsis": "The Social Reckoning est un film américain écrit et réalisé par Aaron Sorkin et sorti en 2026.",
-  "at": 1795165603027,
-  "jpAt": 1795166231371,
-  "synopsisFull": "Le film s'inspire de l'histoire vraie de Frances Haugen, une jeune ingénieure chez Facebook, qui sollicite l'aide de Jeff Horwitz, journaliste au Wall Street Journal. Ensemble, ils se lancent dans une enquête pleine de dangers qui les mènera à révéler au grand jour les secrets les mieux gardés du puissant réseau social."
+  "at": 1795773924741
  },
  "25556": {
   "director": "Cédric Kahn",
@@ -652,9 +647,8 @@
   ],
   "country": "Belgique",
   "synopsis": "Le Faux Soir est un film belgo-français réalisé par Michaël R. Roskam et sorti en 2026.",
-  "at": 1795166105289,
-  "jpAt": 1795166245614,
-  "synopsisFull": "1943. Les Nazis occupent la Belgique et font du quotidien national Le Soir leur outil de propagande. Alors qu’il est interdit de commémorer le 11 novembre, un groupe de résistants a une idée folle : et si, pour remonter le moral des Belges, ils parvenaient à imprimer une fausse édition du Soir ? Le même papier, le même titre, le même format, mais truffé d’articles ridiculisant l’occupant. Ceci est la folle aventure et l’histoire vraie du faux numéro d’un vrai journal…"
+  "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Le_Faux_Soir_%282026%29_cast_B.jpg/500px-Le_Faux_Soir_%282026%29_cast_B.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "at": 1795774388368
  },
  "25573": {
   "genre": "Drame",
@@ -856,9 +850,7 @@
   ],
   "country": "États-Unis",
   "synopsis": "You Can See Everything est un film documentaire américain réalisé par Nathan Fielder et Lance Oppenheim et sorti en 2026.",
-  "at": 1795166043518,
-  "jpAt": 1795166243457,
-  "synopsisFull": "Trente-quatre jours avant son incarcération, la célèbre fondatrice de Theranos, Elizabeth Holmes, invite une équipe de tournage sceptique à documenter ses moindres faits et gestes. Ce qui commence comme un portrait intime devient un voyage époustouflant de trois ans."
+  "at": 1795774329052
  },
  "25629": {
   "genre": "Et téléfilm d'action",
@@ -1015,7 +1007,13 @@
  "25649": {
   "director": "Albert Dupontel",
   "synopsis": "Il faut brûler maman est un film français écrit et réalisé par Albert Dupontel et sorti en novembre 2026.",
-  "at": 1795687271487
+  "at": 1795687271487,
+  "duration": "1h21",
+  "cast": [
+   "Louise Coldefy",
+   "Julia Piaton",
+   "Artus"
+  ]
  },
  "25650": {
   "genre": "Drame",
@@ -1275,9 +1273,7 @@
   ],
   "country": "France",
   "synopsis": "Quelques mots d'amour est un film français réalisé par Rudi Rosenberg et sorti en 2026. Il est présenté dans la section « Un certain regard » au Festival de Cannes 2026.",
-  "at": 1795165746888,
-  "jpAt": 1795166234603,
-  "duration": "1h37"
+  "at": 1795774085150
  },
  "25680": {
   "at": 1794301014981,
