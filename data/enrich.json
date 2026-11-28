@@ -105,9 +105,7 @@
   ],
   "country": "France, Belgique",
   "synopsis": "Ni vue, ni connue est un film franco-belge réalisé par Marc Fitoussi et sorti en 2026.",
-  "at": 1795250609480,
-  "jpAt": 1795251431302,
-  "synopsisFull": "Corinne Maclou est figurante. Elle enchaîne les tournages avec l’espoir d’être remarquée et de décrocher enfin un vrai rôle. Lorsque son chemin croise celui de Sandrine Kiberlain et qu’une relation commence à se nouer entre les deux, Corinne espère concrétiser son rêve. Mais la célèbre actrice va-t-elle vraiment l’aider à se faire une place au sein de la grande famille du cinéma ?"
+  "at": 1795857851618
  },
  "25294": {
   "at": 1794214107609,
@@ -161,7 +159,8 @@
   ],
   "country": "France, Belgique",
   "synopsis": "Ducobu et le Fantôme de Saint-Potache est une comédie française réalisée par Élie Semoun et sortie en 2026. Il s'agit du sixième film d'une saga inspirée de la série de bande dessinée belge L'Élève Ducobu de Godi et Zidrou.",
-  "at": 1795773922618
+  "at": 1795773922618,
+  "duration": "1h30"
  },
  "25336": {
   "at": 1792827075029,
@@ -244,21 +243,9 @@
   "original": "Ice Age: Boiling Point"
  },
  "25431": {
-  "genre": "Ou téléfilm d'horreur",
   "duration": "1h26",
   "minutes": 86,
-  "director": "Adrian Chiarella",
-  "cast": [
-   "Mia Wasikowska",
-   "Ewen Leslie",
-   "Nicholas Hope",
-   "Zahra Newman"
-  ],
-  "country": "Australie",
-  "synopsis": "Leviticus est un film australien réalisé par Adrian Chiarella, sorti en 2026.",
-  "at": 1795250651221,
-  "jpAt": 1795251432436,
-  "synopsisFull": "Deux adolescents doivent échapper à une entité violente qui prend la forme de la personne qu’ils désirent le plus — l’un l’autre."
+  "at": 1795857949480
  },
  "25432": {
   "at": 1792750649490,
@@ -299,19 +286,19 @@
   "original": "Werwulf"
  },
  "25454": {
+  "genre": "Drame",
   "duration": "2h08",
   "minutes": 128,
-  "at": 1795251225589,
-  "jpAt": 1795251454539,
-  "synopsisFull": "Un acteur en difficulté avec un visage partiellement paralysé et un trouble de l’élocution écrit un scénario qu’un grand studio de cinéma veut acheter. Mais l’acteur refuse de le vendre à moins de pouvoir jouer le rôle principal. Refusant une offre d’argent qui pourrait changer sa vie, il travaille pour des centimes afin que le film soit réalisé avec lui dans le rôle principal.",
   "director": "Peter Farrelly",
-  "genre": "Comédie dramatique",
-  "country": "Etats-Unis",
   "cast": [
    "Anthony Ippolito",
-   "Matt Dillon",
-   "AnnaSophia Robb"
-  ]
+   "Stephan James",
+   "AnnaSophia Robb",
+   "Matt Dillon"
+  ],
+  "country": "États-Unis",
+  "synopsis": "I Play Rocky est un film américain réalisé par Peter Farrelly, sorti en 2026.",
+  "at": 1795858390223
  },
  "25457": {
   "genre": "Thriller",
@@ -408,11 +395,7 @@
  },
  "25484": {
   "synopsis": "La Maison de nos rêves est un film français réalisé par Claude Zidi Jr. et sorti en 2026.",
-  "at": 1795250607288,
-  "jpAt": 1795251430169,
-  "synopsisFull": "Benjamin et Amélie, jeune couple de trentenaires décide d’acheter la maison de leurs rêves en viager à Nicolette, une dame qui semble mourante. Mais peu après la vente, elle va beaucoup mieux et le couple se demande s’il n’a pas été arnaqué. Bientôt à genoux financièrement, ils sont forcés de penser au pire.",
-  "genre": "Comédie",
-  "country": "France"
+  "at": 1795857849559
  },
  "25493": {
   "genre": "Cinéma de science-fiction",
@@ -555,26 +538,14 @@
  "25556": {
   "director": "Cédric Kahn",
   "country": "France",
-  "synopsis": "15/18 est un film français réalisé par Cédric Kahn et sorti en 2026.",
-  "at": 1795250821994,
-  "jpAt": 1795251437875,
-  "synopsisFull": "Lucia, 17 ans, est amenée par la police dans une unité de soins pédopsychiatriques de l’hôpital public. Ici tous les patients ont entre 15 et 18 ans. Lucia connaît l’endroit, elle y a fait de nombreux séjours. Elle retrouve son amie Eloïse, en hospitalisation longue durée, mais aussi Yasmine, Camilia, Ulysse, André…tous ont des pathologies et des parcours différents. Les médecins les soignent, les écoutent, reçoivent leurs parents, tout en gérant un service en surchauffe. Mais un jour, l’arrivée du mystérieux Enzo menace de tout bouleverser.",
-  "genre": "Drame",
-  "duration": "1h44",
-  "cast": [
-   "Zoé Monpart",
-   "Malou Khebizi",
-   "Kenji Peyran"
-  ]
+  "at": 1795858104527
  },
  "25557": {
   "genre": "Comédie",
   "director": "Martin Provost",
   "country": "France",
   "synopsis": "Demain je tombe amoureux est un film franco-belge réalisé par Martin Provost et sorti en 2026.",
-  "at": 1795250883839,
-  "jpAt": 1795251441983,
-  "synopsisFull": "Le jour de son départ à la retraite, Émile, professeur de lettres à Dieppe, donne à ses jeunes élèves un dernier cours sur la littérature et l’amour, les encourageant à devenir les poètes de leurs propres existences. Une fois rentré chez lui, Émile découvre que sa femme l’a quitté. Le voilà contraint d’appliquer à lui-même ses propres préceptes. Trois rencontres vont alors l’aider à se réinventer."
+  "at": 1795858146658
  },
  "25559": {
   "genre": "Comédie dramatique",
@@ -661,10 +632,7 @@
   ],
   "country": "États-Unis",
   "synopsis": "Behemoth! est un film américain réalisé par Tony Gilroy et sorti en 2026. Il met en scène Pedro Pascal, Olivia Wilde, Eva Victor et Will Arnett.",
-  "at": 1795251003277,
-  "jpAt": 1795251447170,
-  "synopsisFull": "Violoncelliste de talent, Alex Serian revient à Los Angeles, après vingt années passées sur les routes. La musique, qui a toujours été le fil conducteur de son existence, une force aussi omniprésente que dévorante, entraîne Alex dans une aventure qui le changera à jamais.",
-  "duration": "2h08"
+  "at": 1795858206613
  },
  "25593": {
   "genre": "Ou téléfilm biographique",
@@ -772,17 +740,10 @@
   ]
  },
  "25611": {
-  "at": 1795250748463,
-  "jpAt": 1795251434693,
-  "synopsisFull": "Juliette, 30 ans, semble avoir tout pour elle : un poste prestigieux dans la finance, une belle maison, une vie rythmée par les voyages et les amours de passage. Lorsqu’elle est agressée par un collègue, son monde s’effondre. Juliette s'engage alors sur un nouveau chemin pour redonner un sens à sa vie.",
   "director": "Robert Guédiguian",
-  "genre": "Comédie dramatique",
   "country": "France",
-  "cast": [
-   "Marilou Aussilloux",
-   "Ariane Ascaride",
-   "Jean-Pierre Darroussin"
-  ]
+  "synopsis": "Une femme aujourd'hui est une comédie dramatique franco-italienne réalisée par Robert Guédiguian et sortie en 2026.",
+  "at": 1795858022532
  },
  "25612": {
   "genre": "Documentaire",
@@ -790,9 +751,8 @@
   "minutes": 80,
   "director": "Yuval Abraham, Rachel Szor",
   "country": "Royaume-Uni",
-  "at": 1795165645249,
-  "jpAt": 1795166232451,
-  "synopsisFull": "Filmé de nuit sur les toits de Tel Aviv, le film décrit en détail les systèmes derrière le massacre de civils palestiniens à Gaza par Israël."
+  "synopsis": "Naza, parfois stylisé NAZA, est un film documentaire britannique sorti en 2026 et réalisé par les journalistes et cinéastes israéliens Yuval Abraham et Rachel Szor, déjà auteurs du film primé No Other Land en 2024.",
+  "at": 1795857960690
  },
  "25613": {
   "synopsis": "L'Espèce explosive est un film policier français réalisé par Sarah Arnold et sorti en 2026.",
@@ -1273,7 +1233,8 @@
   ],
   "country": "France",
   "synopsis": "Quelques mots d'amour est un film français réalisé par Rudi Rosenberg et sorti en 2026. Il est présenté dans la section « Un certain regard » au Festival de Cannes 2026.",
-  "at": 1795774085150
+  "at": 1795774085150,
+  "duration": "1h37"
  },
  "25680": {
   "at": 1794301014981,
